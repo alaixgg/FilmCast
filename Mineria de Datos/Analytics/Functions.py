@@ -15,11 +15,11 @@ Deberías haber recibido una copia de la Licencia Pública General de GNU junto 
 
 import matplotlib.pyplot as plt
 import pandas as pd
-import numpy as np
-
 
 # Se carga el Dataset
-df = pd.read_csv('../Datasets/Actores.csv', delimiter=';')
+def df_loader(ruta, separador):
+  df = pd.read_csv(ruta, delimiter=separador)
+  return df
 
 def plotScatter(x, y, x_title = "Eje $x$", y_title = "Eje $y$", title = "Título"):
     """
@@ -33,7 +33,7 @@ def plotScatter(x, y, x_title = "Eje $x$", y_title = "Eje $y$", title = "Título
     Returns:
       Gráfico de dispersión de las variables (x, y) que se indiquen.
     """
-    plt.scatter(df[x], df[y])
+    plt.scatter(x, y)
     plt.xlabel(x_title)
     plt.ylabel(y_title)
     plt.title(title)
@@ -51,7 +51,7 @@ def plotBar(x, y, x_title = "Eje $x$", y_title = 'Eje $y$', title = 'Título'):
     Returns:
       Gráfico de barras para las variables (x, y) que se indiquen.
     """
-  plt.bar(df[x], df[y])
+  plt.bar(x, y)
   plt.xlabel(x_title)
   plt.ylabel(y_title)
   plt.title(title)
@@ -69,7 +69,7 @@ def plotBox(var, x_title = 'Eje $x$', y_title = 'Eje $y$', title = 'Título'):
     Returns:
       Gráfico de cajas para una variable "var"
     """
-    plt.boxplot(df[var])
+    plt.boxplot(var)
     plt.xlabel(x_title)
     plt.ylabel(y_title)
     plt.title(title)
