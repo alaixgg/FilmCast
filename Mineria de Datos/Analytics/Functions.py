@@ -21,7 +21,20 @@ def df_loader(ruta, separador):
   df = pd.read_csv(ruta, delimiter=separador)
   return df
 
-def plotScatter(x, y, x_title = "Eje $x$", y_title = "Eje $y$", title = "Título"):
+def plotPie(categorical_column):
+  category_counts = categorical_column.value_counts()
+
+  plt.figure(figsize=(8, 8))
+  plt.pie(
+      category_counts,
+      labels=category_counts.index,
+      autopct='%1.1f%%',
+      startangle=90
+  )
+
+  plt.show()
+
+def plotScatter(df,x, y, x_title = "Eje $x$", y_title = "Eje $y$", title = "Título"):
     """
     Función para hacer un scatter más rápido.
     Args:
@@ -39,7 +52,7 @@ def plotScatter(x, y, x_title = "Eje $x$", y_title = "Eje $y$", title = "Título
     plt.title(title)
     return plt.show()
 
-def plotBar(x, y, x_title = "Eje $x$", y_title = 'Eje $y$', title = 'Título'):
+def plotBar(df,x, y, x_title = "Eje $x$", y_title = 'Eje $y$', title = 'Título'):
   """
     Función para hacer un gráfico de barras más rápido.
     Args:
@@ -57,7 +70,7 @@ def plotBar(x, y, x_title = "Eje $x$", y_title = 'Eje $y$', title = 'Título'):
   plt.title(title)
   return plt.show()
 
-def plotBox(var, x_title = 'Eje $x$', y_title = 'Eje $y$', title = 'Título'):
+def plotBox(df,var, x_title = 'Eje $x$', y_title = 'Eje $y$', title = 'Título'):
     """
     Función para hacer un gráfico de caja más rápido.
 
