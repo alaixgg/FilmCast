@@ -25,12 +25,12 @@
 
     <!-- Menu S1-->
     <string name="menu_conecta">"Conecta con el actor perfecto"</string>
-    <string name="menu_conecta_text">"Solo dinos que estamos buscando, nostros hacemos la magia"</string>
-    <string name="menu_conecta_boton">"Busca tu actor"</string>
+    <string name="menu_conecta_text">"Solo dinos que estamos buscando, nosotros hacemos la magia"</string>
+    <string name="menu_conecta_boton">"Buscar"</string>
 
     <string name="menu_gestion">"Gestiona tus actores"</string>
-    <string name="menu_gestion_text">"Conecta con tus actores"</string>
-    <string name="menu_gestion_boton">"Tus actores guardados"</string>
+    <string name="menu_gestion_text">"Gestiona a tus actores y asegura el intérprete perfecto para cada personaje."</string>
+    <string name="menu_gestion_boton">"Guardados"</string>
 
     <!-- Menu S2 Proyectos -->
     <string name="menu_proyectos">"Tus Proyectos"</string>
