@@ -107,11 +107,11 @@
                 android:textSize="25sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toEndOf="@+id/menu_gestion"
+                app:layout_constraintStart_toEndOf="@+id/menu_conecta"
                 app:layout_constraintTop_toBottomOf="@+id/menu_titulo2" />
 
             <TextView
-                android:id="@+id/menu_gesti2on"
+                android:id="@+id/menu_conecta"
                 android:layout_width="182dp"
                 android:layout_height="62dp"
                 android:layout_marginStart="16dp"
@@ -120,7 +120,7 @@
                 android:background="@color/black"
                 android:fontFamily="@font/montserrat_extrabold"
                 android:gravity="center"
-                android:text="@string/menu_gestion"
+                android:text="@string/menu_conecta"
                 android:textColor="@color/white"
                 android:textFontWeight="700"
                 android:textSize="25sp"
@@ -129,7 +129,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/menu_titulo2" />
 
             <ImageView
-                android:id="@+id/imageView6"
+                android:id="@+id/action_menu_divider"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
@@ -137,11 +137,11 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/button2"
+                app:layout_constraintTop_toBottomOf="@+id/menu_button_buscar"
                 app:srcCompat="@drawable/linea_horizonla_gris_1px" />
 
             <Button
-                android:id="@+id/button2"
+                android:id="@+id/menu_button_buscar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="56dp"
@@ -153,7 +153,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/menu_conecta_text" />
 
             <Button
-                android:id="@+id/button3"
+                android:id="@+id/menu_button_guardados"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
@@ -162,7 +162,7 @@
                 android:text="@string/menu_gestion_boton"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.728"
-                app:layout_constraintStart_toEndOf="@+id/button2"
+                app:layout_constraintStart_toEndOf="@+id/menu_button_buscar"
                 app:layout_constraintTop_toBottomOf="@+id/menu_gestion_text" />
 
             <LinearLayout
@@ -175,15 +175,15 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.484"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView6">
+                app:layout_constraintTop_toBottomOf="@+id/action_menu_divider">
 
                 <TextView
                     android:id="@+id/menu_titulo3"
-                    android:layout_width="324dp"
+                    android:layout_width="173dp"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/montserrat_extrabold"
                     android:gravity="center"
-                    android:text="@string/menu_titulo2"
+                    android:text="@string/menu_proyectos"
                     android:textColor="@color/white"
                     android:textFontWeight="700"
                     android:textSize="22sp" />
@@ -192,12 +192,59 @@
                     android:layout_width="139dp"
                     android:layout_height="139dp"
                     android:layout_marginTop="10dp"
-                    android:background="@color/black_claroxd" />
+                    android:background="@color/black_claroxd" >
+
+                    <ImageView
+                        android:id="@+id/menu_proyectos_mensaje"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        app:srcCompat="@drawable/mensaje" />
+
+                    <TextView
+                        android:id="@+id/menu_proyectos_titulo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="TextView" />
+
+                    <ImageView
+                        android:id="@+id/menu_proyectos_persona"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        app:srcCompat="@drawable/baseline_person_24" />
+
+                    <ImageView
+                        android:id="@+id/menu_proyectos_ubicacion"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        app:srcCompat="@drawable/locacion" />
+
+                    <ImageView
+                        android:id="@+id/menu_proyectos_calendario"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        app:srcCompat="@drawable/baseline_date_range_24" />
+
+                </LinearLayout>
 
             </LinearLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </ScrollView>
+
+    <ImageView
+        android:id="@+id/menu_titulo_perfil"
+        android:layout_width="49dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/baseline_person_outline_24" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
