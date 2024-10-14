@@ -35,23 +35,52 @@
     <!-- Menu S2 Proyectos -->
     <string name="menu_proyectos">"Tus Proyectos"</string>
 
-        <!-- Estos datos deberian salir del dataset hp (harry potter) -->
-        <string name="pr1_titulo">"Casa embrujada"</string>
-        <string name="pr1_info_actores">"3 confirmados, 1 por confirmar"</string>
-        <string name="pr1_fecha">"2 de marzo"</string>
-        <string name="pr1_mensaje">"2 mensajes nuevos"</string>
-        <string name="pr1_direccion">"Cra 4# 22 66"</string>
+    <!-- Estos datos deberian salir del dataset hp (harry potter) -->
+    <string name="pr1_titulo">"Casa embrujada"</string>
+    <string name="pr1_info_actores">"3 confirmados, 1 por confirmar"</string>
+    <string name="pr1_fecha">"2 de marzo"</string>
+    <string name="pr1_mensaje">"2 mensajes nuevos"</string>
+    <string name="pr1_direccion">"Cra 4# 22 66"</string>
 
-        <!-- Estos datos deberian salir del dataset hp (harry potter) -->
-        <string name="pr2_titulo">"Titanic 2"</string>
-        <string name="pr2_info_actores">"700 confirmados, 1500 por confirmar"</string>
-        <string name="pr2_fecha">"30 de febrero"</string>
-        <string name="pr2_mensaje">"60 mensajes nuevos"</string>
-        <string name="pr2_direccion">"Oceano Atrantico"</string>
+    <!-- Estos datos deberian salir del dataset hp (harry potter) -->
+    <string name="pr2_titulo">"Titanic 2"</string>
+    <string name="pr2_info_actores">"700 confirmados, 1500 por confirmar"</string>
+    <string name="pr2_fecha">"30 de febrero"</string>
+    <string name="pr2_mensaje">"60 mensajes nuevos"</string>
+    <string name="pr2_direccion">"Oceano Atrantico"</string>
 
 
     <!-- Menu S3-->
 
+
+    <!-- Buscar Actor-->
+    <string name="Perfil_actor">"Perfil del Actor"</string>
+    <string name="PA_Edad">"Edad"</string>
+    <string name="PA_Nacionalidad">"Nacionalidad"</string>
+    <string name="PA_Actividad_años">"alños de Actividad"</string>
+    <string name="PA_genero">"Genero"</string>
+    <string name="PA_Belleza">"Nivel de Belleza"</string>
+    <string name="PA_Skill">"Nivel de Habilidad"</string>
+    <string name="PA_Educacion">"Nivel de educacion"</string>
+    <string name="PA_premios">"Numero de premios"</string>
+    <string name="PA_redesociales">"Menciones en redes sociales"</string>
+
+    <string name="PA_Nombre_txt">"Valor retornado por el modelo"</string>
+    <string name="PA_Edad_txt">"Valor retornado por el modelo"</string>
+    <string name="PA_Nacionalidad_txt">"Valor retornado por el modelo"</string>
+    <string name="PA_Actividad_años_txt">"Valor retornado por el modelo"</string>
+    <string name="PA_genero_txt">"Valor retornado por el modelo"</string>
+    <string name="PA_Belleza_txt">"Valor retornado por el modelo"</string>
+    <string name="PA_Skill_txt">"Valor retornado por el modelo"</string>
+    <string name="PA_Educacion_txt">"Valor retornado por el modelo"</string>
+    <string name="PA_premios_txt">"Valor retornado por el modelo"</string>
+    <string name="PA_redesociales_txt">"Valor retornado por el modelo"</string>
+
+
+
+    
+    
+    
 
 
     <string name="lorem_ipsum">

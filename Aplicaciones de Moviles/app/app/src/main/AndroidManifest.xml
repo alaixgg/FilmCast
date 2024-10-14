@@ -13,6 +13,10 @@
         android:theme="@style/Theme.FilmCast"
         tools:targetApi="31">
         <activity
+            android:name=".Actor"
+            android:exported="false"
+            android:theme="@style/Theme.FilmCast" />
+        <activity
             android:name=".principal_menu"
             android:exported="false"
             android:theme="@style/Theme.FilmCast" />
