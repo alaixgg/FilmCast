@@ -98,12 +98,13 @@
 
             <ImageView
                 android:id="@+id/imgIcon"
-                android:layout_width="35dp"
-                android:layout_height="34dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="16dp"
                 android:layout_marginTop="60dp"
                 android:src="@drawable/baseline_date_range_24"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:layout_editor_absoluteX="16dp" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/tvName"
@@ -114,144 +115,150 @@
                 android:textColor="@android:color/white"
                 android:textSize="25sp"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toTopOf="@+id/tvAgeLabel"
+                app:layout_constraintBottom_toTopOf="@+id/PA_edad"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.344"
                 app:layout_constraintStart_toEndOf="@id/imgIcon"
                 app:layout_constraintTop_toTopOf="parent" />
 
+
             <TextView
-                android:id="@+id/tvAgeLabel"
+                android:id="@+id/PA_edad"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_marginStart="45dp"
+                android:layout_marginTop="24dp"
+                android:fontFamily="@font/montserrat_extrabold"
                 android:text="Edad"
                 android:textColor="@android:color/white"
                 android:textSize="22dp"
-                app:layout_constraintStart_toStartOf="@id/tvName"
-                app:layout_constraintTop_toBottomOf="@id/tvName" />
-
-
-            <TextView
-                android:id="@+id/tvAge"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="12dp"
-                android:text="22dp"
-                android:textColor="@android:color/white"
-                android:textSize="22dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.559"
-                app:layout_constraintStart_toEndOf="@id/tvAgeLabel"
+                app:layout_constraintStart_toEndOf="@+id/imgIcon"
                 app:layout_constraintTop_toBottomOf="@id/tvName" />
 
             <TextView
                 android:id="@+id/tvGenderLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="4dp"
-                android:layout_marginTop="32dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/montserrat_extrabold"
                 android:text="Género"
                 android:textColor="@android:color/white"
                 android:textSize="22dp"
-                app:layout_constraintStart_toStartOf="@id/tvAgeLabel"
-                app:layout_constraintTop_toBottomOf="@id/tvAgeLabel" />
+                app:layout_constraintStart_toStartOf="@id/PA_edad"
+                app:layout_constraintTop_toBottomOf="@id/PA_edad" />
 
             <TextView
                 android:id="@+id/tvGender"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="28dp"
+                android:layout_marginStart="104dp"
                 android:text="Female"
                 android:textColor="@android:color/white"
                 android:textSize="22dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.414"
-                app:layout_constraintStart_toEndOf="@id/tvGenderLabel"
-                app:layout_constraintTop_toBottomOf="@id/tvAge" />
+                app:layout_constraintStart_toEndOf="@+id/PA_edad"
+                app:layout_constraintTop_toTopOf="@+id/PA_edad" />
 
             <ImageView
                 android:id="@+id/imageView3"
-                android:layout_width="35dp"
-                android:layout_height="31dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imgIcon"
-                app:srcCompat="@drawable/genero_neutro_blanco"
-                tools:layout_editor_absoluteX="16dp" />
+                app:srcCompat="@drawable/genero_neutro_blanco" />
 
             <ImageView
                 android:id="@+id/imageView2"
-                android:layout_width="35dp"
-                android:layout_height="29dp"
-                android:layout_marginTop="10dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="15dp"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imageView3"
-                app:srcCompat="@drawable/planeta_blanco"
-                tools:layout_editor_absoluteX="16dp" />
+                app:srcCompat="@drawable/planeta_blanco" />
 
             <ImageView
                 android:id="@+id/imageView5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="15dp"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imageView2"
-                app:srcCompat="@drawable/work_history_24"
-                tools:layout_editor_absoluteX="16dp" />
+                app:srcCompat="@drawable/work_history_24" />
 
             <ImageView
                 android:id="@+id/imageView6"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="19dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="15dp"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imageView5"
-                app:srcCompat="@drawable/genero_cine"
-                tools:layout_editor_absoluteX="16dp" />
+                app:srcCompat="@drawable/genero_cine" />
 
             <ImageView
                 android:id="@+id/imageView10"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="17dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="15dp"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imageView15"
-                app:srcCompat="@drawable/star"
-                tools:layout_editor_absoluteX="16dp" />
+                app:srcCompat="@drawable/star" />
 
             <ImageView
                 android:id="@+id/imageView11"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="15dp"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imageView10"
-                app:srcCompat="@drawable/education_24"
-                tools:layout_editor_absoluteX="16dp" />
+                app:srcCompat="@drawable/education_24" />
 
             <ImageView
                 android:id="@+id/imageView13"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="28dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="20dp"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imageView11"
-                app:srcCompat="@drawable/baseline_workspace_premium_24"
-                tools:layout_editor_absoluteX="16dp" />
+                app:srcCompat="@drawable/baseline_workspace_premium_24" />
 
             <ImageView
                 android:id="@+id/imageView14"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="19dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="15dp"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imageView13"
-                app:srcCompat="@drawable/baseline_social_distance_24"
-                tools:layout_editor_absoluteX="16dp" />
+                app:srcCompat="@drawable/baseline_social_distance_24" />
 
             <ImageView
                 android:id="@+id/imageView15"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="27dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="15dp"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imageView6"
-                app:srcCompat="@drawable/analytics_24"
-                tools:layout_editor_absoluteX="16dp" />
+                app:srcCompat="@drawable/analytics_24" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/montserrat_extrabold"
+                android:text="TextView"
+                android:textColor="@color/white"
+                android:textSize="22dp"
+                app:layout_constraintStart_toStartOf="@+id/tvGenderLabel"
+                app:layout_constraintTop_toBottomOf="@+id/tvGenderLabel" />
 
             <TextView
                 android:id="@+id/textView4"
@@ -261,8 +268,8 @@
                 android:text="TextView"
                 android:textColor="@color/white"
                 android:textSize="22dp"
-                tools:layout_editor_absoluteX="84dp"
-                tools:layout_editor_absoluteY="148dp" />
+                app:layout_constraintStart_toStartOf="@+id/PA_edad"
+                app:layout_constraintTop_toTopOf="@+id/imageView5" />
 
             <TextView
                 android:id="@+id/textView4"
@@ -272,8 +279,8 @@
                 android:text="TextView"
                 android:textColor="@color/white"
                 android:textSize="22dp"
-                tools:layout_editor_absoluteX="92dp"
-                tools:layout_editor_absoluteY="194dp" />
+                app:layout_constraintStart_toStartOf="@+id/tvGenderLabel"
+                app:layout_constraintTop_toTopOf="@+id/imageView6" />
 
             <TextView
                 android:id="@+id/textView4"
@@ -283,8 +290,8 @@
                 android:text="TextView"
                 android:textColor="@color/white"
                 android:textSize="22dp"
-                tools:layout_editor_absoluteX="92dp"
-                tools:layout_editor_absoluteY="240dp" />
+                app:layout_constraintStart_toStartOf="@+id/tvGenderLabel"
+                app:layout_constraintTop_toTopOf="@+id/imageView15" />
 
             <TextView
                 android:id="@+id/textView4"
@@ -294,8 +301,8 @@
                 android:text="TextView"
                 android:textColor="@color/white"
                 android:textSize="22dp"
-                tools:layout_editor_absoluteX="84dp"
-                tools:layout_editor_absoluteY="286dp" />
+                app:layout_constraintStart_toStartOf="@+id/tvGenderLabel"
+                app:layout_constraintTop_toTopOf="@+id/imageView10" />
 
             <TextView
                 android:id="@+id/textView4"
@@ -305,8 +312,8 @@
                 android:text="TextView"
                 android:textColor="@color/white"
                 android:textSize="22dp"
-                tools:layout_editor_absoluteX="84dp"
-                tools:layout_editor_absoluteY="331dp" />
+                app:layout_constraintStart_toStartOf="@+id/tvGenderLabel"
+                app:layout_constraintTop_toTopOf="@+id/imageView11" />
 
             <TextView
                 android:id="@+id/textView4"
@@ -316,8 +323,8 @@
                 android:text="TextView"
                 android:textColor="@color/white"
                 android:textSize="22dp"
-                tools:layout_editor_absoluteX="84dp"
-                tools:layout_editor_absoluteY="376dp" />
+                app:layout_constraintStart_toStartOf="@+id/tvGenderLabel"
+                app:layout_constraintTop_toTopOf="@+id/imageView13" />
 
             <TextView
                 android:id="@+id/textView4"
@@ -327,8 +334,8 @@
                 android:text="TextView"
                 android:textColor="@color/white"
                 android:textSize="22dp"
-                tools:layout_editor_absoluteX="84dp"
-                tools:layout_editor_absoluteY="426dp" />
+                app:layout_constraintStart_toStartOf="@+id/tvGenderLabel"
+                app:layout_constraintTop_toTopOf="@+id/imageView14" />
 
             <TextView
                 android:id="@+id/textView4"
@@ -338,8 +345,8 @@
                 android:text="TextView"
                 android:textColor="@color/white"
                 android:textSize="22dp"
-                tools:layout_editor_absoluteX="245dp"
-                tools:layout_editor_absoluteY="152dp" />
+                app:layout_constraintStart_toStartOf="@+id/tvGender"
+                app:layout_constraintTop_toTopOf="@+id/tvGenderLabel" />
 
             <TextView
                 android:id="@+id/textView4"
@@ -349,8 +356,8 @@
                 android:text="TextView"
                 android:textColor="@color/white"
                 android:textSize="22dp"
-                tools:layout_editor_absoluteX="245dp"
-                tools:layout_editor_absoluteY="194dp" />
+                app:layout_constraintStart_toStartOf="@+id/tvGender"
+                app:layout_constraintTop_toTopOf="@+id/imageView5" />
 
             <TextView
                 android:id="@+id/textView4"
@@ -360,8 +367,8 @@
                 android:text="TextView"
                 android:textColor="@color/white"
                 android:textSize="22dp"
-                tools:layout_editor_absoluteX="245dp"
-                tools:layout_editor_absoluteY="240dp" />
+                app:layout_constraintStart_toStartOf="@+id/tvGender"
+                app:layout_constraintTop_toTopOf="@+id/imageView2" />
 
             <TextView
                 android:id="@+id/textView4"
@@ -371,8 +378,8 @@
                 android:text="TextView"
                 android:textColor="@color/white"
                 android:textSize="22dp"
-                tools:layout_editor_absoluteX="238dp"
-                tools:layout_editor_absoluteY="285dp" />
+                app:layout_constraintStart_toStartOf="@+id/tvGender"
+                app:layout_constraintTop_toTopOf="@+id/imageView6" />
 
             <TextView
                 android:id="@+id/textView4"
@@ -382,8 +389,8 @@
                 android:text="TextView"
                 android:textColor="@color/white"
                 android:textSize="22dp"
-                tools:layout_editor_absoluteX="232dp"
-                tools:layout_editor_absoluteY="335dp" />
+                app:layout_constraintStart_toStartOf="@+id/tvGender"
+                app:layout_constraintTop_toTopOf="@+id/imageView15" />
 
             <TextView
                 android:id="@+id/textView4"
@@ -393,8 +400,8 @@
                 android:text="TextView"
                 android:textColor="@color/white"
                 android:textSize="22dp"
-                tools:layout_editor_absoluteX="230dp"
-                tools:layout_editor_absoluteY="377dp" />
+                app:layout_constraintStart_toStartOf="@+id/tvGender"
+                app:layout_constraintTop_toTopOf="@+id/imageView10" />
 
             <TextView
                 android:id="@+id/textView4"
@@ -404,36 +411,34 @@
                 android:text="TextView"
                 android:textColor="@color/white"
                 android:textSize="22dp"
-                tools:layout_editor_absoluteX="232dp"
-                tools:layout_editor_absoluteY="426dp" />
+                app:layout_constraintStart_toStartOf="@+id/tvGender"
+                app:layout_constraintTop_toTopOf="@+id/imageView11" />
 
             <TextView
                 android:id="@+id/textView4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/montserrat_extrabold"
+                android:fontFamily="@font/montserrat_medium"
                 android:text="TextView"
                 android:textColor="@color/white"
                 android:textSize="22dp"
-                tools:layout_editor_absoluteX="84dp"
-                tools:layout_editor_absoluteY="148dp" />
+                app:layout_constraintStart_toStartOf="@+id/tvGender"
+                app:layout_constraintTop_toTopOf="@+id/imageView13" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:fontFamily="@font/montserrat_medium"
+                android:text="TextView"
+                android:textColor="@color/white"
+                android:textSize="22dp"
+                app:layout_constraintStart_toStartOf="@+id/tvGender"
+                app:layout_constraintTop_toTopOf="@+id/imageView14" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintGuide_begin="277dp" />
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_end="458dp" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline2"
@@ -489,7 +494,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintGuide_begin="95dp" />
+            app:layout_constraintGuide_begin="105dp" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -568,7 +573,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_begin="292dp" />
+        app:layout_constraintGuide_begin="276dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline2"
