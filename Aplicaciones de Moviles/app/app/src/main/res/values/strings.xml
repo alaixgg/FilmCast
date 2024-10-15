@@ -57,13 +57,15 @@
     <string name="Perfil_actor">"Perfil del Actor"</string>
     <string name="PA_Edad">"Edad"</string>
     <string name="PA_Nacionalidad">"Nacionalidad"</string>
-    <string name="PA_Actividad_años">"alños de Actividad"</string>
+    <string name="PA_Actividad_años">"Años de Actividad"</string>
     <string name="PA_genero">"Genero"</string>
-    <string name="PA_Belleza">"Nivel de Belleza"</string>
-    <string name="PA_Skill">"Nivel de Habilidad"</string>
-    <string name="PA_Educacion">"Nivel de educacion"</string>
-    <string name="PA_premios">"Numero de premios"</string>
-    <string name="PA_redesociales">"Menciones en redes sociales"</string>
+    <string name="PA_Belleza">"Belleza"</string>
+    <string name="PA_exp">"Habilidad"</string>
+    <string name="PA_Educacion">"Grado de educacion"</string>
+    <string name="PA_premios">"Premios ganados"</string>
+    <string name="PA_media">"Menciones en redes sociales"</string>
+    <string name="PA_genero_cine">Categoría fílmica</string>
+
 
     <string name="PA_Nombre_txt">"Valor retornado por el modelo"</string>
     <string name="PA_Edad_txt">"Valor retornado por el modelo"</string>
@@ -71,10 +73,10 @@
     <string name="PA_Actividad_años_txt">"Valor retornado por el modelo"</string>
     <string name="PA_genero_txt">"Valor retornado por el modelo"</string>
     <string name="PA_Belleza_txt">"Valor retornado por el modelo"</string>
-    <string name="PA_Skill_txt">"Valor retornado por el modelo"</string>
+    <string name="PA_exp_txt">"Valor retornado por el modelo"</string>
     <string name="PA_Educacion_txt">"Valor retornado por el modelo"</string>
     <string name="PA_premios_txt">"Valor retornado por el modelo"</string>
-    <string name="PA_redesociales_txt">"Valor retornado por el modelo"</string>
+    <string name="PA_media_txt">"Valor retornado por el modelo"</string>
 
 
 
