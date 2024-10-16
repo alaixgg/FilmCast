@@ -59,7 +59,7 @@ def find_nearest_neighbors_by_ranges(X, vector_input_ranges, weights, k=5):
 @app.route('/nearest-records', methods=['GET', 'POST'])
 def nearest_records():
     try:
-        data = request.json
+        data = request.jso
 
         vector_input_ranges = data['ranges']
         weights = data['weights']
