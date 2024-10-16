@@ -1,7 +1,10 @@
 # Librerias
 from sklearn.neighbors import NearestNeighbors
+from flask import Flask, request, jsonify
 import pandas as pd
 import numpy as np
+
+app = Flask(__name__)
 
 # Importar el dataset
 df = pd.read_csv("../Datasets/Actores.csv", sep=";")
@@ -53,11 +56,31 @@ def find_nearest_neighbors_by_ranges(X, vector_input_ranges, weights, k=5):
 
     return nearest_indices
 
+@app.route('/nearest-records', methods=['GET', 'POST'])
+def nearest_records():
+    try:
+        data = request.json
+
+        vector_input_ranges = data['ranges']
+        weights = data['weights']
+
+        nearest_indices = find_nearest_neighbors_by_ranges(X, vector_input_ranges, weights, k=5)
+
+        nearest_record = df.iloc[nearest_indices].to_dict(orient='records')
+
+        return jsonify({"message": "Success", "nearest_records": nearest_record}), 200
+
+    except Exception as e:
+        return jsonify({'Error': str(e)}), 400
+
+if __name__ == '__main__':
+    app.run(debug=True)
+
 # Encuentra los valores más cercanos de acuerdo a vector_input_ranges definido más arriba, junto con los weights
 # que también se definieron arriba.
-nearest_neighbors_indices = find_nearest_neighbors_by_ranges(X, vector_input_ranges, weights, k=5)
+# nearest_neighbors_indices =
 
-print("Los 5 registros que más se asemejan son:")
-for neighbor in nearest_neighbors_indices:
-    print(f"Registro en el index {neighbor}:")
-    print(df.iloc[neighbor].Name)  # Muestra el nombre del registro que más se acerca
+# print("Los 5 registros que más se asemejan son:")
+# for neighbor in nearest_neighbors_indices:
+#     print(f"Registro en el index {neighbor}:")
+#     print(df.iloc[neighbor].Name)  # Muestra el nombre del registro que más se acerca
