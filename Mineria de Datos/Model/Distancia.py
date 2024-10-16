@@ -1,4 +1,5 @@
-# Librerias
+#!/usr/bin/env Librerias
+# python
 from sklearn.neighbors import NearestNeighbors
 from flask import Flask, request, jsonify
 import pandas as pd
