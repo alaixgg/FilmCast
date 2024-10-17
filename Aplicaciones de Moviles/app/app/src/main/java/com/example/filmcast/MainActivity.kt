@@ -12,14 +12,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_login)
+        setContentView(R.layout.activity_register)
 
-        val IS_registro=findViewById<Button>(R.id.IS_Register)
-
-        IS_registro.setOnClickListener{
-            val intent = Intent(this, RegistroActivity::class.java)
-            startActivity(intent)
-        }
 
         }
     }

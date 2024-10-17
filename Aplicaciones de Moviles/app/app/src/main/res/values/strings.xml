@@ -1,10 +1,11 @@
 <resources>
 
-    <string name="IS_iniciar_sesion">Iniciar Sesion</string>
+    <string name="IS_iniciar_sesion.tx">Iniciar Sesion</string>
     <string name="IS_usuario">Usuario</string>
     <string name="IS_Contraseña">Contraseña</string>
-    <string name="IS_iniciar_sesion">Iniciar Sesion</string>
-    <string name="IS_iniciar_sesion">Iniciar Sesion</string>
+    <string name="IS_Registrarse">Registrarse</string>
+    <string name="IS_Or">ó</string>
+    <string name="IS_terminos">Al continuar, usted acepta los términos y condiciones, así como la política de privacidad.</string>
 
 
 
