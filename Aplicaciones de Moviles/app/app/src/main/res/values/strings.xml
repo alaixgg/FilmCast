@@ -1,4 +1,14 @@
 <resources>
+
+    <string name="IS_iniciar_sesion">Iniciar Sesion</string>
+    <string name="IS_usuario">Usuario</string>
+    <string name="IS_Contraseña">Contraseña</string>
+    <string name="IS_iniciar_sesion">Iniciar Sesion</string>
+    <string name="IS_iniciar_sesion">Iniciar Sesion</string>
+
+
+
+
     <string name="app_name">Film Cast</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
@@ -77,12 +87,6 @@
     <string name="PA_Educacion_txt">"Valor retornado por el modelo"</string>
     <string name="PA_premios_txt">"Valor retornado por el modelo"</string>
     <string name="PA_media_txt">"Valor retornado por el modelo"</string>
-
-
-
-    
-    
-    
 
 
     <string name="lorem_ipsum">

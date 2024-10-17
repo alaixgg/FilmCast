@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#000000"
-    tools:context=".RegistroActivity">
+    tools:context=".MainActivity">
 
 
     <ImageView
@@ -28,7 +28,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="64dp"
         android:fontFamily="@font/montserrat_extrabold"
-        android:text="Iniciar Sesion"
+        android:text="@string/IS_iniciar_sesion"
         android:textColor="@android:color/white"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -40,17 +40,18 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="30dp"
-        android:layout_marginTop="68dp"
-        android:hint="Nombre de usuario"
+        android:layout_marginTop="55dp"
+        android:hint="@string/IS_usuario"
         android:padding="10dp"
         android:textColor="@android:color/white"
         android:textColorHint="@android:color/darker_gray"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.55"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/loginTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/loginTitle" />
 
     <LinearLayout
+        android:id="@+id/linearLayout2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="30dp"
@@ -83,13 +84,15 @@
 
 
     <Button
-        android:id="@+id/btnRegister"
-        android:layout_width="0dp"
+        android:id="@+id/IS_Register"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
         android:backgroundTint="#B0B0B0"
         android:text="Registrarse"
-        tools:layout_editor_absoluteX="144dp"
-        tools:layout_editor_absoluteY="523dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/separatorOr" />
 
     <TextView
         android:id="@+id/separatorOr"
@@ -102,38 +105,29 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btnLogin" />
+        app:layout_constraintTop_toBottomOf="@id/IS_iniciar_sesion" />
 
     <Button
-        android:id="@+id/btnLogin"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:backgroundTint="#8B0000"
-        android:text="Iniciar Sesion"
-        tools:layout_editor_absoluteX="144dp"
-        tools:layout_editor_absoluteY="429dp" />
-
-    <TextView
-        android:id="@+id/termsAndConditions"
+        android:id="@+id/IS_iniciar_sesion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="408dp"
-        android:text="By continuing you are agreed the terms and conditions and privacy policy."
-        android:textAlignment="center"
-        android:textColor="@android:color/white"
-        android:textSize="12sp"
+        android:layout_marginTop="33dp"
+        android:backgroundTint="#8B0000"
+        android:text="Iniciar Sesion"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.461"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btnRegister" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="345dp"
         android:layout_height="42dp"
+        android:layout_marginTop="91dp"
         android:text="Al continuar, usted acepta los términos y condiciones, así como la política de privacidad."
         android:textAlignment="center"
-        tools:layout_editor_absoluteX="33dp"
-        tools:layout_editor_absoluteY="662dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/IS_Register" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
