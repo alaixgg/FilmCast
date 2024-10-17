@@ -10,12 +10,12 @@
 
 
     <ImageView
-        android:id="@+id/logoFilmCast"
+        android:id="@+id/IS_logoFilmCast"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:src="@drawable/logblanco_sf"
-        app:layout_constraintBottom_toTopOf="@id/loginTitle"
+        app:layout_constraintBottom_toTopOf="@id/IS__titulo_iniciar_sesion"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
@@ -23,7 +23,7 @@
 
 
     <TextView
-        android:id="@+id/loginTitle"
+        android:id="@+id/IS__titulo_iniciar_sesion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="64dp"
@@ -33,25 +33,28 @@
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/logoFilmCast" />
+        app:layout_constraintTop_toBottomOf="@id/IS_logoFilmCast" />
 
     <EditText
-        android:id="@+id/editTextName"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:id="@+id/IS_email"
+        android:layout_width="355dp"
+        android:layout_height="60dp"
         android:layout_marginHorizontal="30dp"
         android:layout_marginTop="55dp"
-        android:hint="@string/IS_usuario"
+        android:autofillHints="@string/prompt_email"
+        android:hint="@string/IS_email.tx"
+        android:inputType="textEmailAddress"
         android:padding="10dp"
+        android:selectAllOnFocus="true"
         android:textColor="@android:color/white"
         android:textColorHint="@android:color/darker_gray"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.55"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/loginTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/IS__titulo_iniciar_sesion" />
 
     <LinearLayout
-        android:id="@+id/linearLayout2"
+        android:id="@+id/IS_contraseña"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="30dp"
@@ -60,12 +63,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.55"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextName">
+        app:layout_constraintTop_toBottomOf="@+id/IS_email">
 
         <EditText
-            android:id="@+id/editTextPassword"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:id="@+id/IS_contraseña.tx"
+            android:layout_width="299dp"
+            android:layout_height="60dp"
             android:layout_weight="1"
             android:hint="@string/IS_Contraseña"
             android:inputType="textPassword"
@@ -74,7 +77,7 @@
             android:textColorHint="@android:color/darker_gray" />
 
         <ImageView
-            android:id="@+id/passwordVisibilityToggle"
+            android:id="@+id/IS_contraseña_vis"
             android:layout_width="52dp"
             android:layout_height="match_parent"
             android:contentDescription="@string/toggle_password_visibility"
@@ -116,18 +119,39 @@
         android:text="@string/IS_iniciar_sesion.tx"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+        app:layout_constraintTop_toBottomOf="@+id/IS_contraseña" />
 
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/IS_terminos"
         android:layout_width="345dp"
         android:layout_height="42dp"
-        android:layout_marginTop="91dp"
+        android:layout_marginTop="80dp"
         android:text="@string/IS_terminos"
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/IS_Register" />
+
+    <ImageView
+        android:id="@+id/IS_or1"
+        android:layout_width="187dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginEnd="12dp"
+        app:layout_constraintEnd_toStartOf="@+id/separatorOr"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/separatorOr"
+        app:srcCompat="@drawable/linea_horizonla_gris_1px" />
+
+    <ImageView
+        android:id="@+id/IS_or2"
+        android:layout_width="187dp"
+        android:layout_height="24dp"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/separatorOr"
+        app:layout_constraintTop_toTopOf="@+id/separatorOr"
+        app:srcCompat="@drawable/linea_horizonla_gris_1px" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

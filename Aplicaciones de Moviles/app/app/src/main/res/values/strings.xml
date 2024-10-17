@@ -1,7 +1,7 @@
 <resources>
 
     <string name="IS_iniciar_sesion.tx">Iniciar Sesion</string>
-    <string name="IS_usuario">Usuario</string>
+    <string name="IS_email.tx">Email</string>
     <string name="IS_Contraseña">Contraseña</string>
     <string name="IS_Registrarse">Registrarse</string>
     <string name="IS_Or">ó</string>
