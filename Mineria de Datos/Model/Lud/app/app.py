@@ -89,7 +89,7 @@ def nearest_records():
         return jsonify({'Error': str(e)}), 400
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, host='0.0.0.0', port=1234)
 
 # Encuentra los valores más cercanos de acuerdo a vector_input_ranges definido más arriba, junto con los weights
 # que también se definieron arriba.
