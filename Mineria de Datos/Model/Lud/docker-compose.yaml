@@ -1,0 +1,8 @@
+version: '3.7'
+services:
+  dashboard:
+    image: spanishhans/cet-mineria:api_lud
+    container_name: api_lud
+    restart: unless-stopped
+    ports:
+      - '10303:1234'
