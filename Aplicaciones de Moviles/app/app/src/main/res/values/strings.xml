@@ -124,6 +124,25 @@
     <string name="Pe_genero">Valor server</string>
     <string name="Pe_cerrar_sesion">Cerrar Sesión</string>
 
+    <!-- Buscar -->
+    <string name="Bu_titulo">Buscar</string>
+    <string name="Bu_edad">Edad</string>
+    <string name="Bu_genero_cine">Categoría fílmica</string>
+    <string name="Bu_nivel_educativo">Educacion</string>
+    <string name="Bu_salario">Salario</string>
+    <string name="Bu_rango_belleza">Belleza</string>
+    <string name="Bu_nacionalidad">Nacionalidad</string>
+    <string name="Bu_premios">Premios</string>
+    <string name="Bu_genero">Genero</string>
+    <string name="Bu_habilidad">Nivel de habilidad</string>
+    <string name="Bu_redes_menciones">Menciones en redes</string>
+    <string name="Bu_redes_seguidores">Seguidores en redes</string>
+    <string name="Bu_redes_likes">Likes redes</string>
+    <string name="Bu_tamaño_pagina">Tamaño Pagina</string>
+    <string name="Bu_año_act">Años Actividad</string>
+
+
+
 
     <string name="lorem_ipsum">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in scelerisque sem. Mauris

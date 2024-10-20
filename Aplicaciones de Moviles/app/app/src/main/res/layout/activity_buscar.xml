@@ -2,9 +2,383 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+    android:id="@+id/buscar"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/black"
     tools:context=".ui.login.Buscar">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <ImageView
+        android:id="@+id/Bu_menu"
+        android:layout_width="49dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
+        android:src="@drawable/menu_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/Bu_titulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:background="@color/black"
+        android:fontFamily="@font/montserrat_extrabold"
+        android:gravity="center"
+        android:text="@string/Bu_titulo"
+        android:textColor="@color/white"
+        android:textFontWeight="700"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.087"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="424dp"
+        android:layout_height="583dp"
+        android:layout_marginTop="6dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Bu_titulo">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            android:layout_gravity="fill_vertical">
+
+            <TextView
+                android:id="@+id/Bu_edad"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="44dp"
+                android:background="@color/black"
+                android:fontFamily="@font/montserrat_extrabold"
+                android:gravity="center"
+                android:text="@string/Bu_edad"
+                android:textColor="@color/white"
+                android:textFontWeight="700"
+                android:textSize="24sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.108"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Spinner
+                android:id="@+id/BU_spinner_edad"
+                android:layout_width="106dp"
+                android:layout_height="46dp"
+
+                android:background="@color/white"
+                app:layout_constraintStart_toStartOf="@+id/Bu_edad"
+                app:layout_constraintTop_toBottomOf="@+id/Bu_edad" />
+
+            <TextView
+                android:id="@+id/Bu_genero_cine"
+                android:layout_width="223dp"
+                android:layout_height="29dp"
+                android:background="@color/black"
+                android:fontFamily="@font/montserrat_extrabold"
+                android:gravity="center"
+                android:text="@string/Bu_genero_cine"
+                android:textColor="@color/white"
+                android:textFontWeight="700"
+                android:textSize="24sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.793"
+                app:layout_constraintStart_toEndOf="@+id/Bu_edad"
+                app:layout_constraintTop_toTopOf="@+id/Bu_edad" />
+
+            <Spinner
+                android:id="@+id/BU_genero_cine"
+                android:layout_width="219dp"
+                android:layout_height="45dp"
+
+                android:layout_marginTop="4dp"
+                android:background="@color/white"
+                app:layout_constraintStart_toStartOf="@+id/Bu_genero_cine"
+                app:layout_constraintTop_toBottomOf="@+id/Bu_genero_cine" />
+
+            <TextView
+                android:id="@+id/Bu_educacion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="148dp"
+                android:layout_marginEnd="260dp"
+                android:background="@color/black"
+                android:fontFamily="@font/montserrat_extrabold"
+                android:gravity="center"
+                android:text="@string/Bu_nivel_educativo"
+                android:textColor="@color/white"
+                android:textFontWeight="700"
+                android:textSize="24sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/Bu_edad"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Spinner
+                android:id="@+id/BU_spinner_edad"
+                android:layout_width="128dp"
+                android:layout_height="45dp"
+
+                android:background="@color/white"
+                app:layout_constraintStart_toStartOf="@+id/Bu_educacion"
+                tools:layout_editor_absoluteY="185dp" />
+
+            <TextView
+                android:id="@+id/Bu_salario"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/black"
+                android:fontFamily="@font/montserrat_extrabold"
+                android:gravity="center"
+                android:text="@string/Bu_salario"
+                android:textColor="@color/white"
+                android:textFontWeight="700"
+                android:textSize="24sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.323"
+                app:layout_constraintStart_toEndOf="@+id/Bu_educacion"
+                app:layout_constraintTop_toTopOf="@+id/Bu_educacion" />
+
+            <Spinner
+                android:id="@+id/BU_spinner_salario"
+                android:layout_width="128dp"
+                android:layout_height="45dp"
+
+                android:background="@color/white"
+                tools:layout_editor_absoluteX="223dp"
+                tools:layout_editor_absoluteY="185dp" />
+
+            <TextView
+                android:id="@+id/Bu_años_act"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="264dp"
+                android:background="@color/black"
+                android:fontFamily="@font/montserrat_extrabold"
+                android:gravity="center"
+                android:text="@string/Bu_año_act"
+                android:textColor="@color/white"
+                android:textFontWeight="700"
+                android:textSize="24sp"
+                app:layout_constraintStart_toStartOf="@+id/Bu_edad"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Spinner
+                android:id="@+id/BU_spinner_años_act"
+                android:layout_width="128dp"
+                android:layout_height="45dp"
+                android:background="@color/white"
+                app:layout_constraintStart_toStartOf="@+id/Bu_años_act"
+                tools:layout_editor_absoluteY="297dp" />
+
+            <TextView
+                android:id="@+id/Bu_genero"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/black"
+                android:fontFamily="@font/montserrat_extrabold"
+                android:gravity="center"
+                android:text="@string/Bu_genero"
+                android:textColor="@color/white"
+                android:textFontWeight="700"
+                android:textSize="24sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.257"
+                app:layout_constraintStart_toEndOf="@+id/Bu_años_act"
+                app:layout_constraintTop_toTopOf="@+id/Bu_años_act" />
+
+            <Spinner
+                android:id="@+id/BU_spinner_genero"
+                android:layout_width="128dp"
+                android:layout_height="45dp"
+                android:background="@color/white"
+                app:layout_constraintStart_toStartOf="@+id/Bu_genero"
+                app:layout_constraintTop_toBottomOf="@+id/Bu_genero" />
+
+            <TextView
+                android:id="@+id/Bu_nacionalidad"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/black"
+                android:fontFamily="@font/montserrat_extrabold"
+                android:gravity="center"
+                android:text="@string/Bu_nacionalidad"
+                android:textColor="@color/white"
+                android:textFontWeight="700"
+                android:textSize="24sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/Bu_premios"
+                app:layout_constraintTop_toTopOf="@+id/Bu_premios" />
+
+            <Spinner
+                android:id="@+id/BU_spinner_nacionalidad"
+                android:layout_width="128dp"
+                android:layout_height="45dp"
+
+                android:background="@color/white"
+                app:layout_constraintStart_toStartOf="@+id/Bu_nacionalidad"
+                app:layout_constraintTop_toBottomOf="@+id/Bu_nacionalidad" />
+
+            <TextView
+                android:id="@+id/Bu_premios"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="368dp"
+                android:background="@color/black"
+                android:fontFamily="@font/montserrat_extrabold"
+                android:gravity="center"
+                android:text="@string/Bu_premios"
+                android:textColor="@color/white"
+                android:textFontWeight="700"
+                android:textSize="24sp"
+                app:layout_constraintStart_toStartOf="@+id/Bu_edad"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Spinner
+                android:id="@+id/Bu_spinner_premios"
+                android:layout_width="128dp"
+                android:layout_height="45dp"
+
+                android:background="@color/white"
+                app:layout_constraintStart_toStartOf="@+id/Bu_premios"
+                app:layout_constraintTop_toBottomOf="@+id/Bu_premios" />
+
+
+            <TextView
+                android:id="@+id/Bu_redes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="644dp"
+                android:background="@color/black"
+                android:fontFamily="@font/montserrat_extrabold"
+                android:gravity="center"
+                android:text="@string/Bu_redes_menciones"
+                android:textColor="@color/white"
+                android:textFontWeight="700"
+                android:textSize="24sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.834"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/Bu_Tamaño_pagina"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="736dp"
+                android:background="@color/black"
+                android:fontFamily="@font/montserrat_extrabold"
+                android:gravity="center"
+                android:text="@string/Bu_tamaño_pagina"
+                android:textColor="@color/white"
+                android:textFontWeight="700"
+                android:textSize="24sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.023"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Spinner
+                android:id="@+id/BU_spinner_menciones"
+                android:layout_width="128dp"
+                android:layout_height="45dp"
+
+                android:background="@color/white"
+                tools:layout_editor_absoluteX="247dp"
+                tools:layout_editor_absoluteY="693dp" />
+
+            <Spinner
+                android:id="@+id/BU_spinner_Tamaño_pagina"
+                android:layout_width="128dp"
+                android:layout_height="45dp"
+
+                android:background="@color/white"
+                tools:layout_editor_absoluteX="33dp"
+                tools:layout_editor_absoluteY="785dp" />
+
+            <TextView
+                android:id="@+id/Bu_redes_likes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="476dp"
+                android:background="@color/black"
+                android:fontFamily="@font/montserrat_extrabold"
+                android:gravity="center"
+                android:text="@string/Bu_redes_likes"
+                android:textColor="@color/white"
+                android:textFontWeight="700"
+                android:textSize="24sp"
+                app:layout_constraintStart_toStartOf="@+id/Bu_edad"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/Bu_redes_seguidores"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="580dp"
+                android:background="@color/black"
+                android:fontFamily="@font/montserrat_extrabold"
+                android:gravity="center"
+                android:text="@string/Bu_redes_seguidores"
+                android:textColor="@color/white"
+                android:textFontWeight="700"
+                android:textSize="24sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.108"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Spinner
+                android:id="@+id/BU_spinner_redes_seguidores"
+                android:layout_width="128dp"
+                android:layout_height="45dp"
+
+                android:background="@color/white"
+                app:layout_constraintStart_toStartOf="@+id/Bu_redes_likes"
+                app:layout_constraintTop_toBottomOf="@+id/Bu_redes_likes" />
+
+            <TextView
+                android:id="@+id/Bu_belleza"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="84dp"
+                android:background="@color/black"
+                android:fontFamily="@font/montserrat_extrabold"
+                android:gravity="center"
+                android:text="@string/Bu_rango_belleza"
+                android:textColor="@color/white"
+                android:textFontWeight="700"
+                android:textSize="24sp"
+                app:layout_constraintStart_toEndOf="@+id/Bu_redes_likes"
+                app:layout_constraintTop_toTopOf="@+id/Bu_redes_likes" />
+
+            <Spinner
+                android:id="@+id/BU_spinner_belleza"
+                android:layout_width="128dp"
+                android:layout_height="45dp"
+                android:background="@color/white"
+                app:layout_constraintStart_toStartOf="@+id/Bu_belleza"
+                app:layout_constraintTop_toBottomOf="@+id/Bu_belleza" />
+
+            <Spinner
+                android:id="@+id/BU_spinner_redes_seguidores"
+                android:layout_width="128dp"
+                android:layout_height="45dp"
+                android:layout_marginTop="580dp"
+                android:background="@color/white"
+                app:layout_constraintTop_toBottomOf="@+id/Bu_redes_seguidores"
+                tools:layout_editor_absoluteX="13dp" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </ScrollView>
+
+
+
