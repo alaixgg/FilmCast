@@ -9,7 +9,7 @@
 
 
     <string name="app_name">FilmCast</string>
-    
+
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>
@@ -87,6 +87,45 @@
     <string name="PA_Educacion_txt">"Valor retornado por el modelo"</string>
     <string name="PA_premios_txt">"Valor retornado por el modelo"</string>
     <string name="PA_media_txt">"Valor retornado por el modelo"</string>
+
+
+
+    <!-- Guardados Actor-->
+    <string name="GA_titulo">Actores Guardados</string>
+    <string name="GA_boton_volver">Volver</string>
+    <string name="GA_boton_buscar">Buscar</string>
+
+
+
+    <!-- Guardados Actor1-->
+    <string name="GA1_Nombre">Anthony Vaughn</string>
+    <string name="GA1_Genero">Valor retornado por server</string>
+    <string name="GA1_precio">Valor retornado por server</string>
+    <string name="GA1_cineGenero">Valor retornado por server</string>
+
+    <!-- Guardados Actor2-->
+    <string name="GA2_Nombre">Valor retornado por server</string>
+    <string name="GA2_Genero">Valor retornado por server</string>
+    <string name="GA2_precio">Valor retornado por server</string>
+    <string name="GA2_cineGenero">Valor retornado por server</string>
+
+    <!-- Guardados Actor3-->
+    <string name="GA3_Nombre">Valor retornado por server</string>
+    <string name="GA3_Genero">Valor retornado por server</string>
+    <string name="GA3_precio">Valor retornado por server</string>
+    <string name="GA3_cineGenero">Valor retornado por server</string>
+
+
+    <!-- Guardados perfil-->
+    <string name="Pe_titulo">Tu Perfil</string>
+    <string name="Pe_Nombre">Valor server</string>
+    <string name="Pe_email">Valor server</string>
+    <string name="Pe_cargo">Valor server</string>
+    <string name="Pe_telefono">Valor server</string>
+    <string name="Pe_estellas">Valor server</string>
+    <string name="Pe_genero">Valor server</string>
+    <string name="Pe_cerrar_sesion">Valor server</string>
+
 
 
     <string name="lorem_ipsum">

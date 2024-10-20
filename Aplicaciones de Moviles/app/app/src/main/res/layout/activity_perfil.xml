@@ -37,7 +37,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="391dp"
             android:orientation="vertical"
             android:padding="16dp">
 
@@ -47,7 +47,7 @@
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_gravity="center"
-                android:src="@drawable/icongener"></ImageView>
+                android:src="@drawable/anonymous"></ImageView>
 
             <TextView
                 android:id="@+id/tvUserName"
@@ -64,62 +64,21 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:layout_marginTop="4dp"
                 android:text="johndoe@info.com"
-                android:textSize="14sp"
                 android:textColor="@color/white"
-                android:layout_marginTop="4dp" />
+                android:textSize="14sp" />
 
             <TextView
                 android:id="@+id/tvUserRole"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:layout_marginTop="4dp"
                 android:text="Director"
-                android:textSize="16sp"
                 android:textColor="@color/white"
-                android:layout_marginTop="4dp" />
+                android:textSize="16sp" />
 
-
-            <LinearLayout
-                android:layout_width="263dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:drawableLeft="@drawable/icontel"
-                    android:drawablePadding="8dp"
-                    android:text="+4 444 444"
-                    android:textAlignment="center"
-                    android:textSize="14sp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:drawableLeft="@drawable/iconverif"
-                    android:drawablePadding="8dp"
-                    android:text="38"
-                    android:textAlignment="textEnd"
-                    android:textSize="14sp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:drawableLeft="@drawable/iconstar"
-                    android:drawablePadding="8dp"
-                    android:text="9.7"
-                    android:textSize="14sp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:drawableLeft="@drawable/icongener"
-                    android:drawablePadding="8dp"
-                    android:text="Male"
-                    android:textSize="14sp" />
-            </LinearLayout>
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>
