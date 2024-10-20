@@ -121,4 +121,14 @@
         libero vel nunc consequat, quis tincidunt nisl eleifend. Cras bibendum enim a justo luctus
         vestibulum. Fusce dictum libero quis erat maximus, vitae volutpat diam dignissim.
     </string>
+    <string name="tv_registro">Registrarse</string>
+    <string name="hint_username">Nombre de usuario</string>
+    <string name="tv_login">Iniciar Sesion</string>
+    <string name="hint_password">Contraseña</string>
+    <string name="btn_register">Registrarse</string>
+    <string name="tv_or">Or</string>
+    <string name="tv_terms_conditions">By continuing you are agreed the terms and conditions and privacy policy.</string>
+    <string name="tv_terms_conditions1">Al continuar, usted acepta los términos y condiciones, así como la política de privacidad.</string>
+    <string name="hint_email">email</string>
+    <string name="btn_login">Iniciar Sesion</string>
 </resources>
