@@ -5,94 +5,191 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black"
-    tools:context=".Perfil">
+    tools:context=".ui.login.Perfil">
 
+
+    <ImageView
+        android:id="@+id/Pe_menu"
+        android:layout_width="49dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/menu_24" />
 
     <TextView
-        android:id="@+id/tvProfileTitle"
+        android:id="@+id/Pe_titulo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
-        android:text="Tu Perfil"
+        android:fontFamily="@font/montserrat_extrabold"
+        android:text="@string/Pe_titulo"
         android:textColor="@color/white"
-        android:textSize="24sp"
+        android:textSize="34sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.084"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardProfileContainer"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginTop="16dp"
-        app:cardCornerRadius="12dp"
-        app:cardBackgroundColor="@color/grey"
-        app:layout_constraintStart_toStartOf="parent"
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="343dp"
+        android:layout_height="396dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="104dp"
+        android:layout_marginEnd="15dp"
+        android:background="@color/grey"
+        android:padding="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvProfileTitle">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="391dp"
-            android:orientation="vertical"
-            android:padding="16dp">
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
 
-            <ImageView
-                android:id="@+id/imgProfilePicture"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_gravity="center"
-                android:src="@drawable/anonymous"></ImageView>
+        <ImageView
+            android:id="@+id/pe_icon"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:layout_marginStart="117dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="118dp"
+            android:src="@drawable/anonymous"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-            <TextView
-                android:id="@+id/tvUserName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="8dp"
-                android:text="John Doe"
-                android:textColor="@color/white"
-                android:textSize="22sp" />
+        </ImageView>
 
-            <TextView
-                android:id="@+id/tvUserEmail"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="4dp"
-                android:text="johndoe@info.com"
-                android:textColor="@color/white"
-                android:textSize="14sp" />
+        <TextView
+            android:id="@+id/Pe_nombre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="107dp"
+            android:layout_marginEnd="110dp"
+            android:fontFamily="@font/montserrat_extrabold"
+            android:text="@string/Pe_Nombre"
+            android:textColor="@color/white"
+            android:textSize="26sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/pe_icon" />
 
-            <TextView
-                android:id="@+id/tvUserRole"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="4dp"
-                android:text="Director"
-                android:textColor="@color/white"
-                android:textSize="16sp" />
+        <TextView
+            android:id="@+id/Pe_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="3dp"
+            android:fontFamily="@font/montserrat_medium"
+            android:text="@string/Pe_email"
+            android:textColor="@color/white"
+            android:textSize="22sp"
+            app:layout_constraintEnd_toEndOf="@+id/Pe_rol"
+            app:layout_constraintStart_toStartOf="@+id/Pe_rol"
+            app:layout_constraintTop_toBottomOf="@+id/Pe_rol" />
+
+        <TextView
+            android:id="@+id/Pe_telefono"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/montserrat_medium"
+            android:text="@string/Pe_telefono"
+            android:textColor="@color/white"
+            android:textSize="22sp"
+            app:layout_constraintEnd_toEndOf="@+id/Pe_rol"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/Pe_rol"
+            app:layout_constraintTop_toTopOf="@+id/imageView" />
+
+        <TextView
+            android:id="@+id/Pe_estellas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/montserrat_medium"
+            android:text="@string/Pe_estellas"
+            android:textColor="@color/white"
+            android:textSize="22sp"
+            app:layout_constraintEnd_toEndOf="@+id/Pe_rol"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/Pe_rol"
+            app:layout_constraintTop_toTopOf="@+id/imageView3" />
+
+        <TextView
+            android:id="@+id/Pe_genero"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/montserrat_medium"
+            android:text="@string/Pe_genero"
+            android:textColor="@color/white"
+            android:textSize="22sp"
+            app:layout_constraintEnd_toEndOf="@+id/Pe_rol"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/Pe_rol"
+            app:layout_constraintTop_toTopOf="@+id/imageView5" />
+
+        <TextView
+            android:id="@+id/Pe_rol"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="101dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="101dp"
+            android:fontFamily="@font/montserrat_medium"
+            android:text="@string/Pe_rol"
+            android:textColor="@color/white"
+            android:textSize="22sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Pe_nombre" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="24dp"
+            android:src="@android:drawable/stat_sys_phone_call"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Pe_email" />
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="9dp"
+            android:src="@drawable/star"
+            app:layout_constraintStart_toStartOf="@+id/imageView"
+            app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/genero_neutro_blanco"
+            app:layout_constraintStart_toStartOf="@+id/imageView"
+            app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
 
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
+    </androidx.constraintlayout.widget.ConstraintLayout
 
-    <!-- Log out Button -->
     <Button
-        android:id="@+id/btnLogout"
+        android:id="@+id/pe_cerrarSesiom"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Cerrar Sesión"
+        android:text="@string/Pe_cerrar_sesion"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_margin="16dp"
+        android:layout_margin="17dp"
         android:backgroundTint="@color/white"
         android:textColor="@color/black" />
 
