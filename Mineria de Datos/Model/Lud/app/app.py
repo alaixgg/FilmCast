@@ -22,7 +22,7 @@ import numpy as np
 app = Flask(__name__)
 
 # Importar el dataset
-df = pd.read_csv("Actores.csv", sep=";")
+df = pd.read_csv("ActoresFilter.csv", sep=";")
 # Eliminar duplicados del dataset
 df = df.drop_duplicates()
 # Crear un dataframe únicamente con variables numéricas
