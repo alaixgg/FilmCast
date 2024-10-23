@@ -17,3 +17,6 @@ yarn-error.log*
 *.synctex.gz
 *.toc
 *.auctex-auto
+
+# Excluir el archivo problemático
+Mineria de Datos/Investigación/Papers/HIBoosting: A Recommender System Based on a Gradient Boosting Machine.pdf
