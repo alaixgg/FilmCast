@@ -1,2 +1,0 @@
-- Sapling Similarity: a performing and interpretable memory-based tool for recommendation: https://github.com/giamba95/SaplingSimilarity/tree/main
-- Enhancing VAEs for Collaborative Filtering: Flexible Priors & Gating Mechanisms: https://github.com/psywaves/EVCF
