@@ -31,7 +31,7 @@
             android:exported="false"
             android:theme="@style/Base.Theme.FilmCast"/>
         <activity
-            android:name=".menuActivity"
+            android:name=".MenuActivity"
             android:exported="false"
             android:theme="@style/Theme.FilmCast" />
         <activity
