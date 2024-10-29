@@ -5,35 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FilmCast</title>  
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="css/estilos.css">
-
+    <link rel="stylesheet" href="../static/estilos.css">
 </head>
 <body>
     <header>
         <nav>
-            <a href="#">Inicio</a>
-            <a href="#">Acerca de</a>
-            <a href="#">Portafolio</a>
-            <a href="#">Servicios</a>
-            <a href="#">Contacto</a>
+            <div class="botones">
+                <a href="{{ url_for('index') }}" class="btn btn-1">Inicio</a>
+                <a href="{{ url_for('login') }}" class="btn btn-2">Login</a>
+                <a href="{{ url_for('registro') }}" class="btn btn-3">Registro</a>
+            </div>
         </nav>
         <section class="textos-header">
             <h1>FilmCast</h1>
             <h2>Tu proyecto, nuestros actores.<br>La conexión perfecta</h2>
         </section>
-        <div class="wave" style="height: 150px; overflow: hidden;" ><svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;"><path d="M-0.00,49.85 C150.00,149.60 349.20,-49.85 500.00,49.85 L500.00,149.60 L-0.00,149.60 Z" style="stroke: none; fill: #fff;"></path></svg></div>
+        <div class="wave" style="height: 150px; overflow: hidden;" ><svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;"><path d="M-0.00,49.85 C150.00,149.60 349.20,-49.85 500.00,49.85 L500.00,149.60 L-0.00,149.60 Z" style="stroke: none; fill: #000000;"></path></svg></div>
     </header>
 
     <main>
-        <section class="contenedor-sobre-filmcast"> <!-- corregido: cotenedor a contenedor -->
-            <h2 class="titulo">Acerca de FilmCast</h2> <!-- clase correcta -->
-            <h3 class="subtitulo">Una aplicación para conectar<br>productores con actores</h3> <!-- clase correcta -->
+        <section class="contenedor-sobre-filmcast1">
+            <h2 class="titulo">Acerca de FilmCast</h2>
+            <h3 class="subtitulo">Una aplicación para conectar<br>productores con actores</h3>
             <div class="contenedor-sobre-filmcast">
-                <img src="img/2.jpg" alt="FilmCast">
+                <img src="{{ url_for('static', filename='img/telon.jpg') }}" alt="FilmCast">
                 <div class="contenido-textos">
-                    <h3><span>1</span> Sobre FilmCast</h3> <!-- corregido el cierre de span -->
+                    <h3><span>1</span> Sobre FilmCast</h3>
                     <p>FilmCast es una plataforma diseñada para que los productores puedan buscar actores según el perfil y las habilidades que requieran para sus proyectos.</p>
-                    <h3><span>2</span> ¿Por qué elegir FilmCast?</h3> <!-- corregido el cierre de span -->
+                    <h3><span>2</span> ¿Por qué elegir FilmCast?</h3>
                     <p>Ofrece una extensa base de datos de actores y actrices de diversos perfiles y habilidades, permitiéndote encontrar el talento perfecto para tus proyectos. Cuenta con herramientas avanzadas de búsqueda que permiten filtrar actores según características específicas, facilitando el proceso de selección.</p>
                 </div>
             </div>
@@ -45,28 +44,28 @@
                   <div class="imagen-como">
                     <img src="https://buffer.com/content/images/resources/wp-content/uploads/2015/08/social-media-manager.jpg" alt="Registrate">
                     <div class="hover-galeria">
-                        <img src="img/registro.png" alt="animacion">
+                        <img src="{{ url_for('static', filename='img/registro.png') }}" alt="animacion">
                         <p>1. Registrate</p>
                     </div>
                   </div>
                   <div class="imagen-como">
                     <img src="https://i.pinimg.com/originals/bb/c5/3f/bbc53f40a9333126f4ca187b6ec97134.jpg" alt="Busca">
                     <div class="hover-galeria">
-                        <img src="img/busca.png" alt="animacion">
+                        <img src="{{ url_for('static', filename='img/busca.png') }}" alt="animacion">
                         <p>2. Busca y Filtra</p>
                     </div>
                   </div>
                   <div class="imagen-como">
                     <img src="https://i.pinimg.com/originals/21/06/58/2106585dfc3442a173fe9697a0e5e5b5.jpg" alt="Explora">
                     <div class="hover-galeria">
-                        <img src="img/explora.png" alt="animacion">
+                        <img src="{{ url_for('static', filename='img/explora.png') }}" alt="animacion">
                         <p>3. Explora perfiles</p>
                     </div>
                   </div>
                   <div class="imagen-como">
                     <img src="https://kidskintha.com/wp-content/uploads/2021/08/Online-assessment-tools--1280x640.jpeg" alt="Conectate">
                     <div class="hover-galeria">
-                        <img src="img/conectate.png" alt="animacion">
+                        <img src="{{ url_for('static', filename='img/conectate.png') }}" alt="animacion">
                         <p>4. Conectate</p>
                     </div>
                   </div>  
@@ -74,7 +73,7 @@
             </div>
         </section>
         <section class="cliente-contenedor">
-            <h2 class="titulo">Actores destacados</h2>
+            <h2 class="titulo">Conoce Actores</h2>
             <div class="cards">
                 <div class="card">
                     <img src="https://i.pinimg.com/564x/ad/63/d9/ad63d96eb80cd5ec20da58b410694f30.jpg" alt="Perfil1">
@@ -99,27 +98,35 @@
                 </div>
             </div> 
         </section>
-
-        <div class="wave1" style="height: 150px; overflow: hidden;" >
-                <svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;">
-                <path d="M-27.99,88.08 C83.74,-58.56 342.21,320.36 523.92,-8.37 L508.12,-37.89 L-7.11,-73.32 Z" style="stroke: none; fill: rgb(0, 0, 0);"></path>
-            </svg>
-        </div>
-
-        <section class="contactanos">
-            <div class="contenedor">
-                <h2 class="titulo">Contáctanos</h2>
-                <div class="contacto-cont">
-                    <div class="contenedor-formulario">
-                        <h3>Contáctanos</h3>
-                        <p>Si tienes alguna consulta o comentario, no dudes en ponerte en contacto con nosotros.</p>
-                    </div>
-                    <div class="contacto-ind">
-                        <img src="https://i.pinimg.com/564x/09/ed/00/09ed00f9bda38c0130c8f87ac9f17898.jpg" alt="Contáctanos">
-                    </div>
+        <section class="container top-categories">
+            <h1 class="heading-1">Categorias</h1>
+            <div class="container-categories">
+                <div class="card-category category-Comedy">
+                    <p>Comedy</p>
+                    <a href="{{ url_for('busqueda') }}"><span>Ver más</span></a>
+                </div>
+                <div class="card-category category-Action">
+                    <p>Action</p>
+                    <a href="{{ url_for('busqueda') }}"><span>Ver más</span></a>
+                </div>
+                <div class="card-category category-Drama">
+                    <p>Drama</p>
+                    <a href="{{ url_for('busqueda') }}"><span>Ver más</span></a>
+                </div>
+                <div class="card-category category-Sci-Fi">
+                    <p>Sci-Fi</p>
+                    <a href="{{ url_for('busqueda') }}"><span>Ver más</span></a>
+                </div>
+                <div class="card-category category-Horror">
+                    <p>Horror</p>
+                    <a href="{{ url_for('busqueda') }}"><span>Ver más</span></a>
+                </div>
+                <div class="card-category category-Musical">
+                    <p>Musical</p>
+                    <a href="{{ url_for('busqueda') }}"><span>Ver más</span></a>
                 </div>
             </div>
-        </section>
+        </section>        
         
     </main>
     <footer>
@@ -146,7 +153,7 @@
                     
                     <!-- Enlace a Apple App Store -->
                     <a href="https://www.apple.com/app-store/" target="_blank">
-                        <img src="img/apple.jpg" alt="Apple App Store" width="150">
+                        <img src="{{ url_for('static', filename='img/apple.jpg') }}" alt="Apple App Store" width="150">
                     </a>
                 </p>
             </div>
