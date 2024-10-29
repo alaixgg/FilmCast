@@ -98,6 +98,26 @@
     <string name="Bu_Buscar">Buscar</string>
 
 
+    <!-- Recursos de activity_guardados.xml -->
+        <string name="GA_boton_buscar">Buscar</string>
+        <string name="GA_boton_volver">Volver</string>
+       <string name="GA_titulo">Título</string>
+        <string name="GA1_Nombre">Nombre</string>
+        <string name="GA1_Genero">Género</string>
+        <string name="GA1_precio">Precio</string>
+        <string name="GA1_cineGenero">Género Cine</string>
+
+        <!-- Recursos de activity_perfil.xml -->
+        <string name="Pe_titulo">Perfil</string>
+        <string name="Pe_Nombre">Nombre</string>
+        <string name="Pe_email">Email</string>
+        <string name="Pe_telefono">Teléfono</string>
+        <string name="Pe_estellas">Estrellas</string>
+        <string name="Pe_genero">Género</string>
+        <string name="Pe_rol">Rol</string>
+        <string name="Pe_cerrar_sesion">Cerrar sesión</string>
+
+
 
 
     <string-array name="Bu_edad">

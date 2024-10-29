@@ -13,12 +13,7 @@ class RegistroActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_register)
 
-        val R_iniciar_sesion= findViewById<Button>(R.id.R_iniciar_sesion)
-        R_iniciar_sesion.setOnClickListener{
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
         }
 
     }
 
-}

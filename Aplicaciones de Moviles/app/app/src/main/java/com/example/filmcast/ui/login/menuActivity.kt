@@ -11,13 +11,10 @@ class menuActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_principal_menu)
 
-        val Mn_perfil= findViewById<Button>(R.id.menu_titulo_perfil)
-        Mn_perfil.setOnClickListener{
-            val intent = Intent(this, RegistroActivity::class.java)
-            startActivity(intent)
-        }
+
+
+
 
     }
 }
