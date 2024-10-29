@@ -19,6 +19,18 @@
             android:theme="@style/Theme.FilmCast"
             />
         <activity
+            android:name=".PerfilActivity"
+            android:exported="false"
+            android:theme="@style/Base.Theme.FilmCast"/>
+        <activity
+            android:name=".ActorActivity"
+            android:exported="false"
+            android:theme="@style/Base.Theme.FilmCast"/>
+        <activity
+            android:name=".BuscarActivity"
+            android:exported="false"
+            android:theme="@style/Base.Theme.FilmCast"/>
+        <activity
             android:name=".menuActivity"
             android:exported="false"
             android:theme="@style/Theme.FilmCast" />
