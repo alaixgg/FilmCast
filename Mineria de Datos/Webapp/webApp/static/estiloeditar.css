@@ -1,0 +1,209 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+
+.perfil-usuario-bio h1 {
+    color: #000000;
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 40px;
+    margin-left: 270px;
+}
+
+
+.perfil-usuario-footer .form-group1 {
+    width: 100%;
+    list-style: none;
+    display: flex;
+    padding-left: 10px;
+    padding-top: 10px;
+    margin: 0;
+    align-items: center;
+    
+}
+
+.form-group1 input{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-top: 5px;
+    background: #f8f8f8;
+    appearance: none; /* Quita el estilo por defecto del navegador */
+    outline: none; /* Elimina el borde que aparece al hacer clic */
+}
+
+.form-group1 input:focus {
+    border-color: #6a6a6a;
+    box-shadow: 0 0 5px rgba(49, 50, 51, 0.5); 
+}
+
+.form-group1 label {
+    font-size: 16px;
+    margin-right: 25px;
+}
+
+.perfil-usuario-footer .form-group2 {
+    width: 100%;
+    list-style: none;
+    display: flex;
+    padding-left: 10px;
+    padding-top: 30px;
+    margin: 0;
+    align-items: center;
+    
+}
+
+.form-group2 input{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-top: 5px;
+    background: #f8f8f8;
+    appearance: none; /* Quita el estilo por defecto del navegador */
+    outline: none; /* Elimina el borde que aparece al hacer clic */
+
+}
+
+
+.form-group2 input:focus {
+    border-color: #6a6a6a;
+    box-shadow: 0 0 5px rgba(49, 50, 51, 0.5); 
+}
+
+.form-group2 label {
+    font-size: 16px;
+    margin-right: 25px;
+}
+
+
+.perfil-usuario-footer .form-group3 {
+    width: 100%;
+    list-style: none;
+    display: flex;
+    padding-left: 10px;
+    padding-top: 40px;
+    margin: 0;
+    
+}
+
+.form-group3 label {
+    font-size: 16px;
+    margin-right: 25px;
+}
+
+
+.perfil-usuario-footer .form-group4 {
+    width: 100%;
+    list-style: none;
+    display: flex;
+    padding-left: 10px;
+    padding-top: 30px;
+    margin: 0;
+    align-items: center;
+    
+}
+
+.form-group4 label {
+    font-size: 16px;
+    margin-right: 25px;
+}
+
+
+.btn-Guardar {
+    margin-top: 50px;
+    margin-left: -60px;
+    text-decoration: none;
+    color: #000000;
+    background-color: #ffffff;
+    border-color: transparent;
+    display: inline-block;
+    padding: 20px 20px;
+    text-transform: uppercase;
+    border-radius: 3rem;
+    font-size: 12px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-Guardar:hover {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+.btn-Cancelar {
+    margin-top: 30px;
+    text-decoration: none;
+    color: #000000;
+    background-color: #ffffff;
+    display: inline-block;
+    padding: 20px 20px;
+    text-transform: uppercase;
+    border-radius: 3rem;
+    font-size: 12px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    margin-left: 10px;
+}
+
+.btn-Cancelar:hover {
+    background-color: #782828;
+    color: #ffffff;
+}
+
+#Pais {
+    width: 100%; 
+    padding: 10px;
+    font-size: 16px; 
+    color: #333; 
+    background-color: #f8f8f8; 
+    border: 1px solid #ccc;
+    border-radius: 4px; 
+    appearance: none; /* Quita el estilo por defecto del navegador */
+    outline: none; /* Elimina el borde que aparece al hacer clic */
+}
+
+#Pais:focus {
+    border-color: #5f6061; /* Cambia el color del borde al hacer clic */
+    box-shadow: 0 0 5px rgba(34, 34, 34, 0.5); /* Agrega un resplandor al hacer clic */
+}
+
+#Pais option {
+    background-color: #fff; 
+    color: #333; 
+}
+
+#descripcion {
+    width: 100%; 
+    padding: 10px; /* Relleno interno */
+    font-size: 17px; /* Tamaño de la fuente */
+    color: #333;
+    background-color: #f8f8f8;
+    border: 1px solid #ccc; 
+    border-radius: 4px; 
+    resize: vertical;
+    outline: none; 
+    box-sizing: border-box; 
+}
+
+#descripcion:focus {
+    border-color: #6a6a6a;
+    box-shadow: 0 0 5px rgba(49, 50, 51, 0.5); 
+}
+
+.form-group3 {
+    margin-bottom: 15px; /* Espaciado inferior entre los campos del formulario */
+}
+
+.container-user a {
+    text-decoration: none; 
+    color: black;
+}
+
+.container-user a:hover {
+    color: gray; 
+}
+
+
