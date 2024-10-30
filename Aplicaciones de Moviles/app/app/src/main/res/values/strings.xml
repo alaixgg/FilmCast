@@ -19,7 +19,6 @@
     <string name="toggle_password_visibility"> </string>
 
 
-
     <!--Iniciar sesion-->
     <string name="IS_iniciar_sesion.tx">Iniciar Sesion</string>
     <string name="IS_email.tx">Email</string>
@@ -27,7 +26,7 @@
     <string name="IS_Registrarse">Registrarse</string>
     <string name="IS_Or">ó</string>
     <string name="IS_terminos">By continuing you are agreed the terms and conditions and privacy policy.</string>
-    
+
     <!-- Menu -->
     <string name="menu_titulo">"Menú"</string>
     <string name="menu_titulo2">"¿Que quieres hacer hoy?"</string>
@@ -110,7 +109,7 @@
     <!-- Recursos de activity_guardados.xml -->
     <string name="GA_boton_buscar">Buscar</string>
     <string name="GA_boton_volver">Volver</string>
-    <string name="GA_titulo">Título</string>
+    <string name="GA_titulo">Actores Guardados</string>
     <string name="GA1_Nombre">Nombre</string>
     <string name="GA1_Genero">Género</string>
     <string name="GA1_precio">Precio</string>
@@ -125,8 +124,6 @@
     <string name="Pe_genero">Género</string>
     <string name="Pe_rol">Rol</string>
     <string name="Pe_cerrar_sesion">Cerrar sesión</string>
-
-
 
 
     <string-array name="Bu_edad">
@@ -243,9 +240,6 @@
         <item>18.001–24.001</item>
         <item>24.001 o más</item>
     </string-array>
-
-
-
 
 
     <string name="lorem_ipsum">
