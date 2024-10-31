@@ -1,8 +1,10 @@
 package com.example.filmcast.ui.login
 
+import android.content.Intent
 import com.example.filmcast.R
 import android.os.Bundle
 import android.widget.ArrayAdapter
+import android.widget.ImageView
 import android.widget.Spinner
 import androidx.appcompat.app.AppCompatActivity
 
@@ -22,6 +24,17 @@ class ActivityBuscar : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_buscar)
+
+        val perfil = findViewById<ImageView>(R.id.BU_perfil)
+        perfil.setOnClickListener {
+            val intent = Intent(this, PerfilActivity::class.java)
+            startActivity(intent)
+        }
+        val menu = findViewById<ImageView>(R.id.Bu_menu)
+        menu.setOnClickListener {
+            val intent = Intent(this, menuActivity::class.java)
+            startActivity(intent)
+        }
 
 
         spinnerEdad = findViewById(R.id.BU_spinner_edad)
