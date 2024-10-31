@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    tools:context=".ui.login.EditarPerfil">
+
+    <!-- Título -->
+    <TextView
+        android:id="@+id/EDP_titulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/EDP_Titulo"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Nombre de usuario -->
+    <TextView
+        android:id="@+id/EDP_nombre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="50dp"
+        android:textColor="@color/white"
+        android:text="@string/EDP_Nombre"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/EDP_titulo" />
+
+    <EditText
+        android:id="@+id/EDP_Nombre_txt"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/EDP_Nombre"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toBottomOf="@id/EDP_nombre"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp" />
+
+    <!-- Descripción -->
+    <TextView
+        android:id="@+id/EDP_Descripcion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:text="@string/EDP_Descripcion"
+        app:layout_constraintTop_toBottomOf="@id/EDP_Nombre_txt"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp" />
+
+    <EditText
+        android:id="@+id/EDP_Descripcion_tx"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/EDP_Descripcion"
+        app:layout_constraintTop_toBottomOf="@id/EDP_Descripcion"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp" />
+
+    <!-- Teléfono -->
+    <TextView
+        android:id="@+id/EDP_Telefono"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/EDP_Telefono"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toBottomOf="@id/EDP_Descripcion_tx"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp" />
+
+    <EditText
+        android:id="@+id/EDP_Telefono_tx"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/EDP_Telefono"
+        android:inputType="phone"
+        app:layout_constraintTop_toBottomOf="@id/EDP_Telefono"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp" />
+
+    <!-- Nacionalidad -->
+    <TextView
+        android:id="@+id/EDP_Nacionalidad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/EDP_Nacionalidad"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toBottomOf="@id/EDP_Telefono_tx"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp" />
+
+    <EditText
+        android:id="@+id/EDP_Nacionalidad_tx"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/EDP_Nacionalidad"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toBottomOf="@id/EDP_Nacionalidad"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp" />
+
+    <!-- Email -->
+    <TextView
+        android:id="@+id/EDP_Email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/EDP_Email"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toBottomOf="@id/EDP_Nacionalidad_tx"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp" />
+
+    <EditText
+        android:id="@+id/EDP_Email_tx"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/EDP_Email"
+
+        android:inputType="textEmailAddress"
+        app:layout_constraintTop_toBottomOf="@id/EDP_Email"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp" />
+
+    <!-- Botones -->
+    <Button
+        android:id="@+id/EDP_Cancelar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:backgroundTint="@color/came"
+        android:text="@string/EDP_cancelar"
+        android:textColorLink="@color/came"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/EDP_Email_tx" />
+
+    <Button
+        android:id="@+id/EDP_Guardar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:backgroundTint="@color/came"
+        android:text="@string/EDP_Guardar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/EDP_Email_tx" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

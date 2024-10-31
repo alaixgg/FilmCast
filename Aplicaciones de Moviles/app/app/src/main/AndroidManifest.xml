@@ -13,6 +13,13 @@
         android:theme="@style/Theme.FilmCast"
         tools:targetApi="31">
         <activity
+            android:name=".ui.login.EditarPerfil"
+            android:exported="false" />
+        <activity
+            android:name=".ui.login.edit_perfilActivity"
+            android:exported="false"
+            android:theme="@style/Theme.FilmCast" />
+        <activity
             android:name=".BuscarActorActivity"
             android:exported="false" />
         <activity
@@ -24,11 +31,11 @@
             android:exported="false"
             android:theme="@style/Base.Theme.FilmCast" />
         <activity
-            android:name=".ActorActivity"
+            android:name=".ui.login.ActorActivity"
             android:exported="false"
             android:theme="@style/Base.Theme.FilmCast" />
         <activity
-            android:name=".BuscarActivity"
+            android:name=".ui.login.BuscarActivity"
             android:exported="false"
             android:theme="@style/Base.Theme.FilmCast" />
         <activity

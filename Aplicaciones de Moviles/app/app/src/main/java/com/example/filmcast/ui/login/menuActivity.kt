@@ -16,7 +16,7 @@ class menuActivity : AppCompatActivity() {
 
         val menu_perfil = findViewById<ImageView>(R.id.menu_titulo_perfil)
         menu_perfil.setOnClickListener {
-            val intent = Intent(this, perfilActivity::class.java)
+            val intent = Intent(this, PerfilActivity::class.java)
             startActivity(intent)
         }
         val menu_buscar = findViewById<Button>(R.id.menu_button_buscar)

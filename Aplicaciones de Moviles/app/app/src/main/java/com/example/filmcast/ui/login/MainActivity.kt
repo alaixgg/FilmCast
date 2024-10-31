@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, menuActivity::class.java)
             startActivity(intent)
 
-            //--ydfgydg-->
+            //--ydfggtytsfydg-->
         }
     }
 }

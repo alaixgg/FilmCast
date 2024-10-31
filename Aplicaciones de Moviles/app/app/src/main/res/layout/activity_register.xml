@@ -57,12 +57,12 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="30dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="24dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.55"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/et_email">
+        app:layout_constraintTop_toBottomOf="@+id/et_username">
 
         <EditText
             android:id="@+id/et_password"
@@ -85,22 +85,40 @@
             android:src="@drawable/iconojogris" />
     </LinearLayout>
 
-
-    <EditText
-        android:id="@+id/et_email"
+    <LinearLayout
+        android:id="@+id/linearLayout2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="30dp"
-        android:layout_marginTop="20dp"
-        android:hint="@string/hint_email"
-        android:minHeight="48dp"
-        android:padding="10dp"
-        android:textColor="@android:color/white"
-        android:textColorHint="@android:color/darker_gray"
+        android:layout_marginTop="24dp"
+        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.45"
+        app:layout_constraintHorizontal_bias="0.55"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/et_username" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
+        <EditText
+            android:id="@+id/et_confirpassword"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="@string/hint_confpassword"
+            android:inputType="textPassword"
+            android:padding="10dp"
+            android:textColor="@android:color/white"
+            android:textColorHint="@android:color/darker_gray"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <ImageView
+            android:id="@+id/confpasswordVisibilityToggle"
+            android:layout_width="52dp"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/toggle_password_visibility"
+            android:padding="10dp"
+            android:src="@drawable/iconojogris" />
+    </LinearLayout>
+
+
 
     <Button
         android:id="@+id/btn_login"
@@ -130,12 +148,11 @@
         android:id="@+id/btn_register"
         android:layout_width="180dp"
         android:layout_height="48dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="20dp"
         android:backgroundTint="#8B0000"
         android:text="@string/btn_register"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
+        tools:layout_editor_absoluteX="115dp" />
 
     <TextView
         android:id="@+id/textView"
