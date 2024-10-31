@@ -47,7 +47,7 @@
 
         <ImageView
             android:id="@+id/PA_perfil"
-            android:layout_width="49dp"
+            android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_marginTop="32dp"
             android:layout_marginEnd="52dp"

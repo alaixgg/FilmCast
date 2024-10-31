@@ -8,7 +8,7 @@
     android:background="@color/black"
     tools:context=".ui.login.EditarPerfil">
 
-    <!-- Título -->
+
     <TextView
         android:id="@+id/EDP_titulo"
         android:layout_width="wrap_content"
@@ -23,7 +23,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- Nombre de usuario -->
+
     <TextView
         android:id="@+id/EDP_nombre"
         android:layout_width="wrap_content"
@@ -49,7 +49,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp" />
 
-    <!-- Descripción -->
+
     <TextView
         android:id="@+id/EDP_Descripcion"
         android:layout_width="wrap_content"
@@ -66,6 +66,7 @@
         android:id="@+id/EDP_Descripcion_tx"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:textColor="@color/white"
         android:hint="@string/EDP_Descripcion"
         android:fontFamily="@font/montserrat_medium"
         app:layout_constraintTop_toBottomOf="@id/EDP_Descripcion"
@@ -74,12 +75,13 @@
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp" />
 
-    <!-- Teléfono -->
+
     <TextView
         android:id="@+id/EDP_Telefono"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/EDP_Telefono"
+
         android:textColor="@color/white"
         android:fontFamily="@font/montserrat_medium"
         app:layout_constraintTop_toBottomOf="@id/EDP_Descripcion_tx"
@@ -92,6 +94,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:hint="@string/EDP_Telefono"
+        android:textColor="@color/white"
         android:fontFamily="@font/montserrat_medium"
         android:inputType="phone"
         app:layout_constraintTop_toBottomOf="@id/EDP_Telefono"
@@ -100,7 +103,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp" />
 
-    <!-- Nacionalidad -->
+
     <TextView
         android:id="@+id/EDP_Nacionalidad"
         android:layout_width="wrap_content"
@@ -126,7 +129,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp" />
 
-    <!-- Email -->
+
     <TextView
         android:id="@+id/EDP_Email"
         android:layout_width="wrap_content"
@@ -144,6 +147,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:hint="@string/EDP_Email"
+        android:textColor="@color/white"
         android:fontFamily="@font/montserrat_medium"
         android:inputType="textEmailAddress"
         app:layout_constraintTop_toBottomOf="@id/EDP_Email"
@@ -152,7 +156,6 @@
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp" />
 
-    <!-- Botones -->
     <Button
         android:id="@+id/EDP_Cancelar"
         android:layout_width="wrap_content"

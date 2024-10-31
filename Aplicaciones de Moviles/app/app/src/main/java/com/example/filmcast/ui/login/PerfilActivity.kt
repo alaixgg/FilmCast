@@ -17,7 +17,7 @@ class PerfilActivity : AppCompatActivity() {
 
         val editarPerfil = findViewById<Button>(R.id.pe_editar_perfil)
         editarPerfil.setOnClickListener {
-            val intent = Intent(this, editarPerfil::class.java)
+            val intent = Intent(this, EditarPerfil::class.java)
             startActivity(intent)
         }
         val cerrarSesion  = findViewById<Button>(R.id.pe_cerrarSesiom)
@@ -31,5 +31,6 @@ class PerfilActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        }
+
     }
-}
