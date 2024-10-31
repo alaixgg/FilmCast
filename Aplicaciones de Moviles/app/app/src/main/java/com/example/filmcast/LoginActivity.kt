@@ -12,6 +12,16 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.FirebaseApp
 import com.google.firebase.auth.FirebaseAuth
+import okhttp3.Call
+import okhttp3.Callback
+import okhttp3.MediaType.Companion.toMediaType
+import okhttp3.OkHttpClient
+import okhttp3.Request
+import okhttp3.RequestBody.Companion.toRequestBody
+import okhttp3.Response
+import okhttp3.ResponseBody.Companion.toResponseBody
+import okio.IOException
+import org.json.JSONObject
 
 class LoginActivity : AppCompatActivity() {
     @SuppressLint("MissingInflatedId")
@@ -50,24 +60,12 @@ class LoginActivity : AppCompatActivity() {
             val emailText = username.text.toString().trim()
             val passwordText = password.text.toString().trim()
 
-            if (emailText.isNotEmpty() && passwordText.isNotEmpty()){
-                auth.signInWithEmailAndPassword(emailText,passwordText)
-                    .addOnCompleteListener(this){ task ->
-                        if (task.isSuccessful){
-                            Toast.makeText(this, "Inicio de sesion exitoso", Toast.LENGTH_SHORT).show()
-                            val intent = Intent(this, MenuActivity::class.java)
-                            startActivity(intent)
-                            finish()
-                        }
-                        else {
-                            Toast.makeText(this, "Error: ${task.exception?.message}", Toast.LENGTH_SHORT).show()
-                        }
-                    }
+            if (emailText.isNotEmpty() && passwordText.isNotEmpty()) {
+                iniciarSesion(emailText,passwordText)
             }
-            else {
-                Toast.makeText(this,"Por favor ingresa el correo y la contraseña",Toast.LENGTH_SHORT).show()
+            else{
+                Toast.makeText(this,"porfavor, ingresa todos los campos.",Toast.LENGTH_SHORT).show()
             }
-
         }
 
         registerbtn.setOnClickListener{
@@ -78,4 +76,44 @@ class LoginActivity : AppCompatActivity() {
         }
 
         }
+
+    private fun iniciarSesion(emailText: String, passwordText: String) {
+        val url = "aquivaellink.com"
+
+        val json = JSONObject()
+        json.put("email",emailText)
+        json.put("password",passwordText)
+
+        val mediaType = "application/json; charset=utf-8".toMediaType()
+        val body = json.toString().toRequestBody(mediaType)
+
+        val client = OkHttpClient()
+        val request = Request.Builder()
+            .url(url)
+            .post(body)
+            .build()
+
+        client.newCall(request).enqueue(object : Callback {
+            override fun onFailure(call: Call, e: IOException){
+                runOnUiThread{
+                    Toast.makeText(this@LoginActivity,"Error ${e.message}", Toast.LENGTH_SHORT).show()
+                }
+            }
+
+            override fun onResponse(call: Call, response: Response){
+                response.body?.toString()?.let {
+                    val jsonResponse = JSONObject(it)
+                    val success = jsonResponse.getBoolean("success")
+                    val message = jsonResponse.getString("message")
+
+                    runOnUiThread {
+                        Toast.makeText(this@LoginActivity,message,Toast.LENGTH_SHORT).show()
+                        if (success){
+                            startActivity(Intent(this@LoginActivity, MenuActivity::class.java))
+                            finish()                        }
+                    }
+                }
+            }
+        })
     }
+}

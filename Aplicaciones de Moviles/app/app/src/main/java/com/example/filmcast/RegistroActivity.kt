@@ -14,6 +14,12 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import org.json.JSONObject
+import okhttp3.*
+import okhttp3.MediaType.Companion.toMediaType
+import okhttp3.MediaType.Companion.toMediaTypeOrNull
+import okhttp3.RequestBody.Companion.toRequestBody
+import okio.IOException
 
 class RegistroActivity : AppCompatActivity() {
     @SuppressLint("MissingInflatedId", "CutPasteId")
@@ -60,38 +66,58 @@ class RegistroActivity : AppCompatActivity() {
             val passwordText = password.text.toString().trim()
 
             if (usernameText.isNotEmpty() && emailText.isNotEmpty() && passwordText.isNotEmpty()){
-                auth.createUserWithEmailAndPassword(emailText,passwordText)
-                    .addOnCompleteListener(this) { task ->
-                        if (task.isSuccessful){
-                            val userId = auth.currentUser?.uid
-                            val userMap = hashMapOf(
-                                "username" to usernameText,
-                                "email" to emailText
-                            )
-                            userId?.let {
-                                firestore.collection("users").document(it)
-                                    .set(userMap)
-                                    .addOnCompleteListener{
-                                        Toast.makeText(this, "Usuario Registrado con exito!",Toast.LENGTH_SHORT).show()
-                                        val intent = Intent(this, LoginActivity::class.java)
-                                        startActivity(intent)
-                                        finish()
-                                    }
-                                    .addOnFailureListener{e ->
-                                        Toast. makeText(this, "Error al guardar datos: ${e.message}", Toast.LENGTH_SHORT).show()
-                                    }
-                            }
-                        }
-                        else {
-                            Toast.makeText(this, "Error: ${task.exception?.message}", Toast.LENGTH_SHORT).show()
-                        }
-                    }
+                registrarUsuario(usernameText,emailText,passwordText)
             }
             else {
-                Toast.makeText(this, "por favor ingresa todos los campos", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this,"Por favor ingresa todos los campos.", Toast.LENGTH_SHORT).show()
             }
 
         }
 
+
+    }
+
+    private fun registrarUsuario(usernameText: String, emailText: String, passwordText: String) {
+        val url = "sitiodelservidor.com"
+
+        //crear json con los datos de usuario
+        val json =  JSONObject()
+        json.put("username",usernameText)
+        json.put("email",emailText)
+        json.put("password",passwordText)
+
+        //solicitud HTTP POST
+        val mediaType = "application/json; charset=utf-8".toMediaType()
+        val body = json.toString().toRequestBody(mediaType)
+
+        val client = OkHttpClient()
+        val request = Request.Builder()
+            .url(url)
+            .post(body)
+            .build()
+
+        client.newCall(request).enqueue(object : Callback{
+            override fun onFailure(call: Call,e : IOException){
+                runOnUiThread{
+                    Toast.makeText(this@RegistroActivity,"Error: ${e.message}",Toast.LENGTH_SHORT).show()
+                }
+            }
+
+            override fun onResponse(call: Call, response: Response) {
+                response.body?.string().let {
+                    val jsonResponse = JSONObject(it)
+                    val success = jsonResponse.getBoolean("success")
+                    val message = jsonResponse.getString("message")
+
+                    runOnUiThread {
+                        Toast.makeText(this@RegistroActivity, message, Toast.LENGTH_SHORT).show()
+                        if (success){
+                            startActivity(Intent(this@RegistroActivity, LoginActivity::class.java))
+                            finish()
+                        }
+                    }
+                }
+            }
+        })
     }
 }
