@@ -22,6 +22,8 @@ class MainActivity : AppCompatActivity() {
         IS_Iniciar_sesion.setOnClickListener{
             val intent = Intent(this, menuActivity::class.java)
             startActivity(intent)
+
+            //--ydfgydg-->
         }
     }
 }
