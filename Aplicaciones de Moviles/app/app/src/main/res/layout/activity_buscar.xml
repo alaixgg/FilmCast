@@ -86,35 +86,13 @@
                 app:layout_constraintStart_toStartOf="@+id/Bu_edad"
                 app:layout_constraintTop_toBottomOf="@+id/Bu_edad" />
 
-            <TextView
-                android:id="@+id/Bu_educacion"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="70dp"
-                android:background="@color/black"
-                android:fontFamily="@font/montserrat_extrabold"
-                android:gravity="center"
-                android:text="@string/Bu_educativo"
-                android:textColor="@color/white"
-                android:textFontWeight="700"
-                android:textSize="24sp"
-                app:layout_constraintStart_toStartOf="@+id/Bu_edad"
-                app:layout_constraintTop_toBottomOf="@+id/Bu_edad" />
-
-            <Spinner
-                android:id="@+id/BU_spinner_educacion"
-                android:layout_width="128dp"
-                android:layout_height="45dp"
-                android:spinnerMode="dropdown"
-                android:background="@color/white"
-                app:layout_constraintStart_toStartOf="@+id/Bu_educacion"
-                app:layout_constraintTop_toBottomOf="@+id/Bu_educacion" />
 
             <TextView
                 android:id="@+id/Bu_salario"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="50dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="388dp"
                 android:background="@color/black"
                 android:fontFamily="@font/montserrat_extrabold"
                 android:gravity="center"
@@ -122,8 +100,8 @@
                 android:textColor="@color/white"
                 android:textFontWeight="700"
                 android:textSize="24sp"
-                app:layout_constraintStart_toEndOf="@+id/Bu_educacion"
-                app:layout_constraintTop_toTopOf="@+id/Bu_educacion" />
+                app:layout_constraintStart_toEndOf="@+id/BU_spinner_años_act"
+                app:layout_constraintTop_toTopOf="@+id/BU_spinner_años_act" />
 
             <Spinner
                 android:id="@+id/BU_spinner_salario"
@@ -159,53 +137,8 @@
                 app:layout_constraintStart_toStartOf="@+id/Bu_años_act"
                 app:layout_constraintTop_toBottomOf="@+id/Bu_años_act" />
 
-            <TextView
-                android:id="@+id/Bu_genero"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="35dp"
-                android:background="@color/black"
-                android:fontFamily="@font/montserrat_extrabold"
-                android:gravity="center"
-                android:text="@string/Bu_genero"
-                android:textColor="@color/white"
-                android:textFontWeight="700"
-                android:textSize="24sp"
-                app:layout_constraintStart_toEndOf="@+id/Bu_años_act"
-                app:layout_constraintTop_toTopOf="@+id/Bu_años_act" />
 
-            <Spinner
-                android:id="@+id/BU_spinner_genero"
-                android:layout_width="128dp"
-                android:layout_height="45dp"
-                android:spinnerMode="dropdown"
-                android:background="@color/white"
-                app:layout_constraintStart_toStartOf="@+id/Bu_genero"
-                app:layout_constraintTop_toBottomOf="@+id/Bu_genero" />
 
-            <TextView
-                android:id="@+id/Bu_nacionalidad"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="84dp"
-                android:background="@color/black"
-                android:fontFamily="@font/montserrat_extrabold"
-                android:gravity="center"
-                android:text="@string/Bu_nacionalidad"
-                android:textColor="@color/white"
-                android:textFontWeight="700"
-                android:textSize="24sp"
-                app:layout_constraintStart_toEndOf="@+id/Bu_premios"
-                app:layout_constraintTop_toTopOf="@+id/Bu_premios" />
-
-            <Spinner
-                android:id="@+id/BU_spinner_nacionalidad"
-                android:layout_width="128dp"
-                android:layout_height="45dp"
-                android:spinnerMode="dropdown"
-                android:background="@color/white"
-                app:layout_constraintStart_toStartOf="@+id/Bu_nacionalidad"
-                app:layout_constraintTop_toBottomOf="@+id/Bu_nacionalidad" />
 
             <TextView
                 android:id="@+id/Bu_premios"
@@ -361,4 +294,12 @@
 
 
     </ScrollView>
+
+    <Button
+        android:id="@+id/Bu_Boton_Buscar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
