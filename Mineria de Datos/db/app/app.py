@@ -98,23 +98,36 @@ def register():
     data = request.get_json()
     
     # Validate input data
-    username = data.get('username')
-    password = data.get('password')
+    usuario = data.get('nombre')
+    contrasena = data.get('clave')
+    descripcion = data.get('descripcion')
+    pais = data.get('pais')
+    telefono = data.get('telefono')
+    correo = data.get('email')
     
-    if not username or not password:
-        return jsonify({"error": "Username and password are required!"}), 400
+    if not usuario or not contrasena:
+        return jsonify({"error": "Se requiere usuario y contraseña!"}), 400
     
-    password = password.encode('utf-8')
+    password = contrasena.encode('utf-8')
     hashed_password = bcrypt.hashpw(password, bcrypt.gensalt())
 
     try:
         connection = get_db_connection()
         with connection.cursor() as cursor:
-            cursor.execute(f"INSERT INTO users (username, password_hash) VALUES ({username}, {hashed_password})")
+            # Check if the user already exists
+            cursor.execute("SELECT * FROM users WHERE username = %s OR email = %s", (usuario, correo))
+            existing_user = cursor.fetchone()
+            
+            if existing_user:
+                return jsonify({"error": "Usuario ya existe!"}), 409
+            
+            # Insert new user if no existing user found
+            cursor.execute("INSERT INTO users (username, password_hash, descripcion, pais, telefono, email) VALUES (%s, %s, %s, %s, %s, %s)", 
+                           (usuario, hashed_password, descripcion, pais, telefono, correo))
             connection.commit()
     except Exception as e:
         logging.error("Database error during registration: %s", e)
-        return jsonify({"error": "Database error"}), 500
+        return jsonify({"error": "Problema en la bdd"}), 500
     finally:
         connection.close()
     
