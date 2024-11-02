@@ -215,7 +215,7 @@
     </string-array>
 
     <string-array name="Bu_likes">
-        <item>Liekes en redes</item>
+        <item>Likes en redes</item>
         <item>0–500</item>
         <item>501–1500</item>
         <item>1501–3000</item>
