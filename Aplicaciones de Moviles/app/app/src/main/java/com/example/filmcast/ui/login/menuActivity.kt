@@ -16,7 +16,7 @@ class menuActivity : AppCompatActivity() {
 
         val menu_perfil = findViewById<ImageView>(R.id.menu_titulo_perfil)
         menu_perfil.setOnClickListener {
-            val intent = Intent(this, perfilActivity::class.java)
+            val intent = Intent(this, PerfilActivity::class.java)
             startActivity(intent)
         }
         val menu_buscar = findViewById<Button>(R.id.menu_button_buscar)
@@ -24,8 +24,8 @@ class menuActivity : AppCompatActivity() {
             val intent = Intent(this, ActivityBuscar::class.java)
             startActivity(intent)
         }
-        val menu_gestionar = findViewById<Button>(R.id.menu_button_guardados)
-        menu_gestionar.setOnClickListener {
+        val menu_guardados = findViewById<Button>(R.id.menu_button_guardados)
+        menu_guardados.setOnClickListener {
             val intent = Intent(this, GuardadosActivity::class.java)
             startActivity(intent)
         }
