@@ -1,18 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FilmCast</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="../static/stylemenu.css"> 
-    <link rel="stylesheet" href="../static/estiloactor.css"> 
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" type="text/css" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link rel="stylesheet" href="../static/estiloencontra.css"> 
 </head>
-
 <body>
     <header>
         <div class="container-hero">
@@ -24,6 +20,7 @@
                         <span class="number">123-456-7890</span>
                     </div>
                 </div>
+
 
                 <div class="container-logo">
                     <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAflJREFUSEvN1s+rTVEUB/DPE8mPATL15NfAj6EyITPzR4hEyUDhX/CrjIxEzEw88jv/gYSRmcRAEVNlJAaIs27rvHa32+nc63j3rsleZ5+11nd/19577TVlTDI1JlwTBbwW6zrOxEd8KmOWjBfgDg52DFqHu4Vj+BMTJfBh3P5PoHXYGTzpBz5bLeRCWhzHzdQ/50rjcxHuYSV+4xC+pN157C70ZwWJp6mfw8V+4JgM53r+Bk7m9ylcTz224m7qj7Ev9Tgb77Ak93MbvuW/XnqTWA+jTHVMBHg9vxxvEAF/VEw3FwfkEfam7QE8SP00rqYeC40FhwwFHA478TydX2BX6qvwHjF+rc7Gphzjd9iHX0jYh9/QwOHcJuXBOJiH9Kc8MvW9barLg7EM29MxArxKvWYU1zDkJX6lvhWrU3+LLW2Bi9idqnFrGg9Xp2hFsMkCLu9xE+Mr+IkzWDxkaiLNvSJV3uO2wLXzmqqSXcKRvjhNa/mnVM85J0JUqGtFuZw34BpoT9bxFQ3InTIOnB3VwxF7H+O8MN6Ay4jnro0MZDzM4YoHIJ63E1jYBrGLyvUaG7F0CMDadCDjshEYIWYrl4GNQPnAt4oygtF+POwvIPHK3C86ihHiNrrM4uigZq/2Wl/1W9Mdo35A9G5zMlENfcdkB4cbG+O/Au1uHz3+eYkAAAAASUVORK5CYII="/>
@@ -41,9 +38,10 @@
                         <span class="text">Mensajes</span>
                         <span class="number">(0)</span>
                     </a>
-                </div>
+                </div>              
             </div>
         </div>
+
 
         <div class="container-navbar">
             <nav class="navbar container">
@@ -58,63 +56,38 @@
         </div>
     </header>
 
-    <section class="seccion-perfil-usuario">
-        <div class="perfil-usuario-header">
-            <div class="perfil-usuario-portada">
-                <div class="perfil-usuario-avatar">
-                    <img src="https://i.pinimg.com/564x/88/3d/74/883d74b5eca63acc4e07773f3a645ba6.jpg" alt="img-avatar">
-                </div>
-            </div>
-        </div>
-        <div class="perfil-usuario-body">
-            <div class="perfil-usuario-bio">
-                <h3 class="titulo">{{ actor[1] }}</h3>
-            </div>
-            
-            <div class="perfil-usuario-footer">
-                <ul class="lista-datos">
-                    <li><i class="fa-solid fa-user"></i> Edad: {{ actor[2] }}</li>
-                    <li><i class="icono fas fa-map-marker-alt"></i>Nacionalidad: {{ actor[4] }}</li>
-                    <li><i class="fa-solid fa-venus-mars"></i> Genero: {{ actor[3] }}</li> 
-                    <li><i class="fa-solid fa-film"></i> Genero especializado: {{ actor[6] }}</li>
-                    <li><i class="fa-solid fa-dollar-sign"></i> Sueldo: {{ actor[15] }}</li>
-                    <li><i class="fa-solid fa-person"></i> Nivel de Belleza: {{ actor[7] }}</li>
-                    <li><i class="icono fas fa-user-check"></i> Nivel de habilidad: {{ actor[8] }}</li>
-                </ul>
-                <ul class="lista-datos">
-                    <li><i class="icono fas fa-calendar-alt"></i> Años Activo: {{ actor[5] }}</li>
-                    <li><i class="fa-solid fa-school"></i> Educación: {{ actor[9] }}</li>
-                    <li><i class="fa-solid fa-award"></i> Premios Ganados: {{ actor[10] }}</li>
-                    <li><i class="icono fas fa-share-alt"></i>Media de Menciones: {{ actor[11] }}</li>
-                    <li><i class="fa-brands fa-instagram"></i> Media de Followers: {{ actor[12] }}</li>
-                    <li><i class="fa-solid fa-heart"></i> Media de Likes: {{ actor[13] }}</li>
-                    <li><i class="fa-solid fa-globe"></i> Tamaño de redes: {{ actor[14] }}</li>
-
-                </ul>
-                <a href="javascript:history.back()" class="btn btn-editar">Volver</a>
-                <a href="{{ url_for('mensajes') }}" class="btn btn-cerrar">Contactar</a> 
-                <form method="POST" action="{{ url_for('guardar_favorito', actor_id=actor[0]) }}">
-                    <button type="submit" class="btn btn-guardar">Guardar</button>
-                </form>
+    <main class="main-content">
+        <section class="container top-actores">
+            <h1 class="heading-1">Actores Encontrados</h1>
+            <div class="container-actores">
+                {% if nearest_records %}
+                    {% for actor in nearest_records %}
+                    <div class="card-product">
                 
-                {% with messages = get_flashed_messages(with_categories=true) %}
-                    {% if messages %}
-                    <ul class="flashes">
-                        {% for category, message in messages %}
-                        <li class="{{ category }}">{{ message }}</li>
-                        {% endfor %}
-                    </ul>
-                    {% endif %}
-                {% endwith %}
-                          
-
+                            <div class="container-img">
+                                <img src="https://i.pinimg.com/564x/88/3d/74/883d74b5eca63acc4e07773f3a645ba6.jpg" alt="{{ actor.Name }}" />
+                                <div class="recomen">
+                                    <h1>{{ actor.Name }}</h1>
+                                    <h2>{{ actor.Gender }}</h2>
+                                    <h2>{{ actor['Genre Specialization'] }}</h2>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    {% endfor %}
+                {% else %}
+                    <div class="alert alert-warning" role="alert">
+                        No se encontraron actores que coincidan con los criterios de búsqueda.
+                    </div>
+                {% endif %}
             </div>
             
-        </div>
-    </section>
-    <section class="fotter">
-    </section>   
+            
+            <a href="{{ url_for('busqueda_filtro') }}" class="btn btn-volver">Volver a la búsqueda</a>
+        </section>
+    </main>
     
-        
+    
+    
 </body>
 </html>
