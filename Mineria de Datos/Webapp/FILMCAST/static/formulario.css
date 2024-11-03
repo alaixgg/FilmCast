@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+	--primary-color: #2c2a29;
+	--background-color: #ffffff;
+	--dark-color: #151515;
+}
+
+html {
+	font-size: 62.5%;
+	font-family: 'Poppins', sans-serif;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+
+form {
+    background-color: #ffffff; 
+    border: 1px solid #ddd; 
+    border-radius: 10px; 
+    padding: 20px; 
+    margin: 20px auto; 
+    width: 70%; 
+    max-width: 1200px; 
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
+}
+
+
+form h2 {
+    font-size: 30px; 
+    margin-bottom: 10px; 
+    color: #000; 
+    text-align: center;
+}
+
+form h3 {
+    font-size: 25px; 
+    margin-bottom: 5px; 
+    margin-top: 15px;
+    color: #333; 
+    text-align: left; 
+}
+
+
+form label {
+    font-weight: bold;
+    margin-top: 5px; 
+    display: flexbox; 
+    font-size: 5px;
+}
+
+select {
+    background-color: #fff; 
+    border: 1px solid #ccc; 
+    border-radius: 4px; 
+    padding: 10px; 
+    font-size: 16px; 
+    color: #333; 
+    transition: border-color 0.3s ease; 
+    cursor: pointer;
+}
+
+select:focus {
+    border-color: #007bff; 
+    outline: none; 
+}
+
+
+select:disabled {
+    background-color: #e9ecef; 
+    cursor: not-allowed;
+}
+
+.btn-Consultar {
+    
+    margin-top: 20px;
+	margin-bottom: 7px;
+    text-decoration: none;
+    color: #000000;
+    background-color: #ffffff;
+    
+    padding: 20px 20px;
+    text-transform: uppercase;
+    border-radius: 3rem;
+    font-size: 12px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    margin-left: 0px;
+    border: none;
+}
+.btn-Consultar:hover {
+    background-color: #525c4f;
+    color: #ffffff;
+}
+
+
+input[type="radio"] {
+    display: none; 
+}
+
+
+#weight_0,
+#weight_1,
+#weight_2,
+#weight_3,
+#weight_4,
+#weight_5,
+#weight_6,
+#weight_7,
+#weight_8,
+#weight_9 {
+    display: flex;
+    gap: 10px;
+}
+
+
+
+input[type="radio"] + label {
+    background-color: #fff; 
+    border: 1px solid #ccc; 
+    border-radius: 5px;
+    padding: 15px 20px;
+    font-size: 16px; 
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+
+input[type="radio"] + label:hover {
+    background-color: #f0f0f0; 
+}
+
+
+input[type="radio"]:checked + label {
+    background-color: #007bff; 
+    border-color: #007bff; 
+    color: white;
+}
