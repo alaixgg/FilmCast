@@ -254,9 +254,9 @@
     <string name="tv_terms_conditions1">Al continuar, usted acepta los términos y condiciones, así como la política de privacidad.</string>
     <string name="hint_email">email</string>
     <string name="btn_login">Iniciar Sesion</string>
-    
-    
-    //editar perfil 
+
+
+    //editar perfil
     <string name="EDP_Titulo">Editar Perfil</string>
     <string name="EDP_Nombre">Nombre de usuario</string>
     <string name="EDP_Descripcion">Descripcion</string>
@@ -265,5 +265,41 @@
     <string name="EDP_Email">Email</string>
     <string name="EDP_cancelar">Cancelar</string>
     <string name="EDP_Guardar">Guardar</string>
-    
+
+    //creacion proyectos
+    <string name="Pro_nombre_proyecto">Nombre del Proyecto </string>
+    <string name="Pro_descripcion_proyecto">Descripción del Proyecto</string>
+    <string name="Pro_genero_cinematografico">Género Cinematográfico</string>
+    <string name="Pro_fecha_inicio">Fecha de Inicio</string>
+    <string name="Pro_fecha_fin">Fecha de Fin</string>
+    <string name="Pro_presupuesto">Presupuesto</string>
+    <string name="Pro_seleccionar_actores">Seleccionar Actores</string>
+    <string name="Pro_seleccionar_actores_boton">Agregar Actores</string>
+    <string name="Pro_guardar_proyecto_boton">Guardar Proyecto</string>
+
+//pantalla proyectos
+    <string name="Pr_Titulo">Tu Proyecto</string>
+    <string name="Pr_nombre_proyecto">Nombre del Proyecto </string>
+
+    <string name="Pr_descripcion_proyecto">Descripción</string>
+    <string name="Pr_descripcion_proyecto.re">API pueeuieuhwjohwdkdhekjdkenfknkdnkjcnjkndckcndkjdnk</string>
+
+    <string name="Pr_genero_cinematografico">Categoría Filmica</string>}
+    <string name="Pr_genero_cinematografico.re">API</string>
+
+    <string name="Pr_fecha_inicio">Fecha Inicio</string>
+    <string name="Pr_fecha_inicio.re">Api</string>
+
+    <string name="Pr_fecha_fin">Fecha Fin</string>
+    <string name="Pr_fecha_fin.re">API</string>
+
+    <string name="Pr_presupuesto">Presupuesto</string>
+    <string name="Pr_presupuesto.re">API</string>
+
+    <string name="Pr_actores_rel">Actores Relacionados</string>
+    <string name="Pr_seleccionar_actores.re">API</string>
+
+
+    <string name="Pr_guardar_proyecto_boton">Guardar Proyecto</string>
+    <string name="Pr_guardar_proyecto_boton.re">API</string>
 </resources>
