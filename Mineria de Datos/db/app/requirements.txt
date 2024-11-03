@@ -1,0 +1,7 @@
+flask
+Flask-Limiter
+PyJWT
+bcrypt
+PyMySQL
+gunicorn
+redis
