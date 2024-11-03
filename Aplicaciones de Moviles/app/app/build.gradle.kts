@@ -45,6 +45,7 @@ android {
 
 }
 
+
 dependencies {
 
     implementation(libs.androidx.core.ktx)
@@ -63,6 +64,9 @@ dependencies {
     implementation("com.google.firebase:firebase-auth")
     implementation("com.google.firebase:firebase-firestore-ktx")
     implementation("com.squareup.okhttp3:okhttp:4.11.0")
+    implementation("androidx.room:room-runtime")
+    implementation("androidx.room:room-ktx:")
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 }
+

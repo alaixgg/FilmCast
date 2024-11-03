@@ -3,14 +3,14 @@ package com.example.filmcast.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.filmcast.Perfil
+import com.example.filmcast.recycler.Perfil
 import com.example.filmcast.R
 
-class PerfilAdapter (private val perfilList: List<Perfil>) : RecyclerView.Adapter<PerfilViewHolder>(){
+class PerfilAdapter(private val perfilList: List<Perfil>) : RecyclerView.Adapter<PerfilViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PerfilViewHolder {
-        val layoutIflater = LayoutInflater.from(parent.context)
-        return PerfilViewHolder(layoutIflater.inflate(R.layout.item_perfil, parent, false))
+        val layoutInflater = LayoutInflater.from(parent.context)
+        return PerfilViewHolder(layoutInflater.inflate(R.layout.item_perfil, parent, false))
     }
 
     override fun getItemCount(): Int = perfilList.size
@@ -19,5 +19,4 @@ class PerfilAdapter (private val perfilList: List<Perfil>) : RecyclerView.Adapte
         val item = perfilList[position]
         holder.render(item)
     }
-
 }

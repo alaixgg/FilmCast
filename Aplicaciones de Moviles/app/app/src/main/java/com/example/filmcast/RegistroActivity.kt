@@ -2,22 +2,18 @@ package com.example.filmcast
 
 import android.annotation.SuppressLint
 import android.content.Intent
-import android.media.Image
 import android.os.Bundle
-import android.renderscript.ScriptGroup.Input
 import android.text.InputType
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import org.json.JSONObject
 import okhttp3.*
 import okhttp3.MediaType.Companion.toMediaType
-import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.RequestBody.Companion.toRequestBody
 import okio.IOException
 
@@ -78,7 +74,7 @@ class RegistroActivity : AppCompatActivity() {
     }
 
     private fun registrarUsuario(usernameText: String, emailText: String, passwordText: String) {
-        val url = "sitiodelservidor.com"
+        val url = "https://model.cuspide.club/nearest-records"
 
         //crear json con los datos de usuario
         val json =  JSONObject()

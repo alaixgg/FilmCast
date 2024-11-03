@@ -27,7 +27,7 @@
             android:exported="false"
             android:theme="@style/Base.Theme.FilmCast"/>
         <activity
-            android:name=".BuscarActivity"
+            android:name=".ActivityBuscar"
             android:exported="false"
             android:theme="@style/Base.Theme.FilmCast"/>
         <activity

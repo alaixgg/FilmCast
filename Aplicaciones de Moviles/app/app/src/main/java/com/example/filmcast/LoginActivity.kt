@@ -10,8 +10,6 @@ import android.widget.ImageView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import com.google.firebase.FirebaseApp
-import com.google.firebase.auth.FirebaseAuth
 import okhttp3.Call
 import okhttp3.Callback
 import okhttp3.MediaType.Companion.toMediaType
@@ -19,7 +17,6 @@ import okhttp3.OkHttpClient
 import okhttp3.Request
 import okhttp3.RequestBody.Companion.toRequestBody
 import okhttp3.Response
-import okhttp3.ResponseBody.Companion.toResponseBody
 import okio.IOException
 import org.json.JSONObject
 
@@ -27,14 +24,11 @@ class LoginActivity : AppCompatActivity() {
     @SuppressLint("MissingInflatedId")
 
     private var passwordVisible = false
-    private lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_login)
-        FirebaseApp.initializeApp(this)
-        auth = FirebaseAuth.getInstance()
 
         val username = findViewById<EditText>(R.id.et_username)
         val password = findViewById<EditText>(R.id.et_password)
