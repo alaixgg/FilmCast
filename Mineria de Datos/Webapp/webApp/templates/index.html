@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FilmCast</title>  
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../static/estilos.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="botones">
+                <a href="{{ url_for('index') }}" class="btn btn-1">Inicio</a>
+                <a href="{{ url_for('login') }}" class="btn btn-2">Login</a>
+                <a href="{{ url_for('registro') }}" class="btn btn-3">Registro</a>
+            </div>
+        </nav>
+        <section class="textos-header">
+            <h1>FilmCast</h1>
+            <h2>Tu proyecto, nuestros actores.<br>La conexión perfecta</h2>
+        </section>
+        <div class="wave" style="height: 150px; overflow: hidden;" ><svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;"><path d="M-0.00,49.85 C150.00,149.60 349.20,-49.85 500.00,49.85 L500.00,149.60 L-0.00,149.60 Z" style="stroke: none; fill: #000000;"></path></svg></div>
+    </header>
+
+    <main>
+        <section class="contenedor-sobre-filmcast1">
+            <h2 class="titulo">Acerca de FilmCast</h2>
+            <h3 class="subtitulo">Una aplicación para conectar<br>productores con actores</h3>
+            <div class="contenedor-sobre-filmcast">
+                <img src="{{ url_for('static', filename='img/telon.jpg') }}" alt="FilmCast">
+                <div class="contenido-textos">
+                    <h3><span>1</span> Sobre FilmCast</h3>
+                    <p>FilmCast es una plataforma diseñada para que los productores puedan buscar actores según el perfil y las habilidades que requieran para sus proyectos.</p>
+                    <h3><span>2</span> ¿Por qué elegir FilmCast?</h3>
+                    <p>Ofrece una extensa base de datos de actores y actrices de diversos perfiles y habilidades, permitiéndote encontrar el talento perfecto para tus proyectos. Cuenta con herramientas avanzadas de búsqueda que permiten filtrar actores según características específicas, facilitando el proceso de selección.</p>
+                </div>
+            </div>
+        </section>        
+        <section class="Como-Funciona">
+            <div class="contenedor">
+                <h2 class="titulo">¿Como Funciona?</h2>
+                <div class="galeria-como">
+                  <div class="imagen-como">
+                    <img src="https://buffer.com/content/images/resources/wp-content/uploads/2015/08/social-media-manager.jpg" alt="Registrate">
+                    <div class="hover-galeria">
+                        <img src="{{ url_for('static', filename='img/registro.png') }}" alt="animacion">
+                        <p>1. Registrate</p>
+                    </div>
+                  </div>
+                  <div class="imagen-como">
+                    <img src="https://i.pinimg.com/originals/bb/c5/3f/bbc53f40a9333126f4ca187b6ec97134.jpg" alt="Busca">
+                    <div class="hover-galeria">
+                        <img src="{{ url_for('static', filename='img/busca.png') }}" alt="animacion">
+                        <p>2. Busca y Filtra</p>
+                    </div>
+                  </div>
+                  <div class="imagen-como">
+                    <img src="https://i.pinimg.com/originals/21/06/58/2106585dfc3442a173fe9697a0e5e5b5.jpg" alt="Explora">
+                    <div class="hover-galeria">
+                        <img src="{{ url_for('static', filename='img/explora.png') }}" alt="animacion">
+                        <p>3. Explora perfiles</p>
+                    </div>
+                  </div>
+                  <div class="imagen-como">
+                    <img src="https://kidskintha.com/wp-content/uploads/2021/08/Online-assessment-tools--1280x640.jpeg" alt="Conectate">
+                    <div class="hover-galeria">
+                        <img src="{{ url_for('static', filename='img/conectate.png') }}" alt="animacion">
+                        <p>4. Conectate</p>
+                    </div>
+                  </div>  
+                </div>
+            </div>
+        </section>
+        <section class="cliente-contenedor">
+            <h2 class="titulo">Conoce Actores</h2>
+            <div class="cards">
+                <div class="card">
+                    <img src="https://i.pinimg.com/564x/ad/63/d9/ad63d96eb80cd5ec20da58b410694f30.jpg" alt="Perfil1">
+                    <div class="contenido-texto-card">
+                        <h4>Christopher Romero<br>Comedy</h4>
+                        <p>Edad: 46<br>Genero: Male<br>Nacioalidad: USA<br>Estudios: University<br>Award Wins: 13</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://i.pinimg.com/564x/02/9d/e3/029de3dc74827fec64dcca017f923a51.jpg" alt="Perfil2">
+                    <div class="contenido-texto-card">
+                        <h4>Sandra Kim<br>Sci-Fi</h4>
+                        <p>Edad: 49<br>Genero: Female<br>Nacioalidad: USA<br>Estudios: College<br>Award Wins: 12</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://i.pinimg.com/736x/7f/b1/c8/7fb1c8775f2cffad991ca8060b653bc8.jpg" alt="Perfil3">
+                    <div class="contenido-texto-card">
+                        <h4>Julie Brown<br>Action</h4>
+                        <p>Edad: 39<br>Genero: Male<br>Nacionalidad: USA<br>Estudios: University<br>Award Wins: 11</p>
+                    </div>
+                </div>
+            </div> 
+        </section>
+        <section class="container top-categories">
+            <h1 class="heading-1">Categorias</h1>
+            <div class="container-categories">
+                <div class="card-category category-Comedy">
+                    <p>Comedy</p>
+                    <a href="{{ url_for('busqueda') }}"><span>Ver más</span></a>
+                </div>
+                <div class="card-category category-Action">
+                    <p>Action</p>
+                    <a href="{{ url_for('busqueda') }}"><span>Ver más</span></a>
+                </div>
+                <div class="card-category category-Drama">
+                    <p>Drama</p>
+                    <a href="{{ url_for('busqueda') }}"><span>Ver más</span></a>
+                </div>
+                <div class="card-category category-Sci-Fi">
+                    <p>Sci-Fi</p>
+                    <a href="{{ url_for('busqueda') }}"><span>Ver más</span></a>
+                </div>
+                <div class="card-category category-Horror">
+                    <p>Horror</p>
+                    <a href="{{ url_for('busqueda') }}"><span>Ver más</span></a>
+                </div>
+                <div class="card-category category-Musical">
+                    <p>Musical</p>
+                    <a href="{{ url_for('busqueda') }}"><span>Ver más</span></a>
+                </div>
+            </div>
+        </section>        
+        
+    </main>
+    <footer>
+        <div class="contenedor-footer">
+            <div class="content-fo">
+                <h4>Contacto</h4>
+                <p>Tel: +51 999 999 999</p>
+                <p>FilmCast@gmail.com</p>
+                <p>Cra. 4 #22-61, Bogotá</p>
+            </div>
+            <div class="content-fo">
+                <h4>Redes Sociales</h4>
+                <p>Facebook</p>
+                <p>Instagram</p>
+                <p>Twitter</p>
+            </div>
+            <div class="content-fot">
+                <h4>Encuentranos en:</h4>
+                <p>
+                    <!-- Enlace a Google Play Store -->
+                    <a href="https://play.google.com/store" target="_blank">
+                        <img src="https://i.pinimg.com/enabled/564x/34/66/7a/34667aeaaafc091a9debe86888760aec.jpg" alt="Google Play Store" width="165">
+                    </a>
+                    
+                    <!-- Enlace a Apple App Store -->
+                    <a href="https://www.apple.com/app-store/" target="_blank">
+                        <img src="{{ url_for('static', filename='img/apple.jpg') }}" alt="Apple App Store" width="150">
+                    </a>
+                </p>
+            </div>
+        </div>
+        <h2 class="titulo-final">&copy; FilmCast | Mineria de datos </h2>
+    </footer>
+    
+</body>
+</html>

@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/Perfil_Actor"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    tools:context=".ui.login.menuActivity">
+
+    <TextView
+        android:id="@+id/menu_titulo"
+        android:layout_width="110dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="4dp"
+        android:background="@color/black"
+        android:fontFamily="@font/montserrat_extrabold"
+        android:gravity="center"
+        android:text="@string/menu_titulo"
+        android:textColor="@color/white"
+        android:textFontWeight="700"
+        android:textSize="35sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/menu_titulo_perfil"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/baseline_person_outline_24" />
+
+    <ScrollView
+        android:layout_width="412dp"
+        android:layout_height="802dp"
+        android:layout_marginTop="72dp"
+        android:background="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill_vertical">
+
+            <TextView
+                android:id="@+id/menu_titulo2"
+                android:layout_width="match_parent"
+                android:layout_height="59dp"
+                android:layout_marginTop="36dp"
+                android:background="@color/black"
+                android:fontFamily="@font/montserrat_extrabold"
+                android:gravity="center"
+                android:text="@string/menu_titulo2"
+                android:textColor="@color/white"
+                android:textFontWeight="700"
+                android:textSize="30sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/menu_conecta_text"
+                android:layout_width="169dp"
+                android:layout_height="100dp"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="72dp"
+                android:background="@color/black"
+                android:fontFamily="@font/montserrat_medium"
+                android:gravity="center"
+                android:text="@string/menu_conecta_text"
+                android:textColor="@color/white"
+                android:textFontWeight="700"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/menu_gestion" />
+
+            <TextView
+                android:id="@+id/menu_gestion_text"
+                android:layout_width="169dp"
+                android:layout_height="100dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="72dp"
+                android:layout_marginEnd="16dp"
+                android:background="@color/black"
+                android:fontFamily="@font/montserrat_medium"
+                android:gravity="center"
+                android:text="@string/menu_gestion_text"
+                android:textColor="@color/white"
+                android:textFontWeight="700"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.609"
+                app:layout_constraintStart_toEndOf="@+id/menu_conecta_text"
+                app:layout_constraintTop_toTopOf="@+id/menu_gestion" />
+
+            <TextView
+                android:id="@+id/menu_gestion"
+                android:layout_width="182dp"
+                android:layout_height="62dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="16dp"
+                android:background="@color/black"
+                android:fontFamily="@font/montserrat_extrabold"
+                android:gravity="center"
+                android:text="@string/menu_gestion"
+                android:textColor="@color/white"
+                android:textFontWeight="700"
+                android:textSize="25sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toEndOf="@+id/menu_conecta"
+                app:layout_constraintTop_toBottomOf="@+id/menu_titulo2" />
+
+            <TextView
+                android:id="@+id/menu_conecta"
+                android:layout_width="182dp"
+                android:layout_height="62dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="16dp"
+                android:background="@color/black"
+                android:fontFamily="@font/montserrat_extrabold"
+                android:gravity="center"
+                android:text="@string/menu_conecta"
+                android:textColor="@color/white"
+                android:textFontWeight="700"
+                android:textSize="25sp"
+                app:layout_constraintEnd_toStartOf="@+id/menu_gestion"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/menu_titulo2" />
+
+            <ImageView
+                android:id="@+id/action_menu_divider"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="5dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/menu_button_buscar"
+                app:srcCompat="@drawable/linea_horizonla_gris_1px" />
+
+            <Button
+                android:id="@+id/menu_button_buscar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="56dp"
+                android:layout_marginTop="16dp"
+                android:backgroundTint="@color/came"
+                android:text="@string/menu_conecta_boton"
+                android:textSize="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/menu_conecta_text" />
+
+            <Button
+                android:id="@+id/menu_button_guardados"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="18dp"
+                android:backgroundTint="@color/came"
+                android:text="@string/menu_gestion_boton"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.728"
+                app:layout_constraintStart_toEndOf="@+id/menu_button_buscar"
+                app:layout_constraintTop_toBottomOf="@+id/menu_gestion_text" />
+
+            <LinearLayout
+                android:layout_width="379dp"
+                android:layout_height="217dp"
+                android:layout_marginTop="20dp"
+                android:background="@color/grey"
+                android:orientation="vertical"
+                android:padding="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.484"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/action_menu_divider">
+
+                <TextView
+                    android:id="@+id/menu_titulo3"
+                    android:layout_width="173dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat_extrabold"
+                    android:gravity="center"
+                    android:text="@string/menu_proyectos"
+                    android:textColor="@color/white"
+                    android:textFontWeight="700"
+                    android:textSize="22sp" />
+
+                <LinearLayout
+                    android:layout_width="139dp"
+                    android:layout_height="139dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/black_claroxd" >
+
+                    <ImageView
+                        android:id="@+id/menu_proyectos_mensaje"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        app:srcCompat="@drawable/mensaje" />
+
+                    <TextView
+                        android:id="@+id/menu_proyectos_titulo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="TextView" />
+
+                    <ImageView
+                        android:id="@+id/menu_proyectos_persona"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        app:srcCompat="@drawable/baseline_person_24" />
+
+                    <ImageView
+                        android:id="@+id/menu_proyectos_ubicacion"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        app:srcCompat="@drawable/locacion" />
+
+                    <ImageView
+                        android:id="@+id/menu_proyectos_calendario"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        app:srcCompat="@drawable/baseline_date_range_24" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

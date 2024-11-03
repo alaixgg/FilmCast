@@ -1,0 +1,314 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+    font-family: "Open Sans", sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url("img/1.jpg") no-repeat;
+    background-size: cover;
+    background-position: center;
+    overflow-x: hidden; /* Esto ocultará cualquier contenido que se desborde horizontalmente */
+}
+
+/* Header */
+header {
+    width: 100%;
+    height: auto; /* Ajusta la altura según sea necesario */
+    position: absolute; /* Hace que el header esté en la parte superior */
+    top: 0; /* Asegura que esté en la parte más alta de la pantalla */
+    left: 0;
+    z-index: 10; /* Asegura que esté por encima de otros elementos */
+    background: transparent; /* Si no quieres que el header tenga fondo */
+}
+
+/* Nav dentro del header */
+nav {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end; /* Coloca los botones a la derecha */
+    padding: 20px 50px; /* Ajusta el padding según tu preferencia */
+}
+
+nav .botones > a {
+    color: #ffffff;
+    background: #3a3737;
+    font-weight: 300;
+    text-decoration: none;
+    margin-right: 10px;
+}
+
+nav > a:hover {
+    text-decoration: underline;
+}
+
+
+/* Botones */
+.btn{
+    text-decoration: none;
+    padding: 10px 20px;
+    font-size: 1 rem;
+    display: inline-block;
+    position: relative;
+}
+
+
+.btn-1 {
+    background-color: #3a3737;
+    color: #c84141;
+    border-radius: 50px; 
+    transition: transform 0.3s ease;
+}
+
+.btn-1::after, .btn-1::before {
+    content: "";
+    position: absolute;
+    opacity: 0.3;
+    background: #3a3737;
+    border-radius: inherit;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+    transition: transform 0.3s ease;
+}
+
+.btn-1:hover {
+    transform: translate(-12px, -12px);
+}   
+
+.btn-1:hover::after {
+    transform: translate(6px, 6px);
+}
+
+.btn-1:hover::before {
+    transform: translate(12px, 12px);
+}
+
+/*--*/
+
+.btn-2:hover {
+    transform: translate(-12px, -12px);
+}   
+
+.btn-2:hover::after {
+    transform: translate(6px, 6px);
+}
+
+.btn-2:hover::before {
+    transform: translate(12px, 12px);
+}
+
+
+.btn-2 {
+    background-color: #3a3737;
+    color: #c84141;
+    border-radius: 50px; 
+    transition: transform 0.3s ease;
+}
+
+.btn-2::after, .btn-1::before {
+    content: "";
+    position: absolute;
+    opacity: 0.3;
+    background: #3a3737;
+    border-radius: inherit;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+    transition: transform 0.3s ease;
+}
+
+.btn-2:hover {
+    transform: translate(-12px, -12px);
+}   
+
+.btn-2:hover::after {
+    transform: translate(6px, 6px);
+}
+
+.btn-2:hover::before {
+    transform: translate(12px, 12px);
+}
+
+.btn-3:hover {
+    transform: translate(-12px, -12px);
+}   
+
+.btn-3:hover::after {
+    transform: translate(6px, 6px);
+}
+
+.btn-3:hover::before {
+    transform: translate(12px, 12px);
+}
+
+
+.btn-3 {
+    background-color: #3a3737;
+    color: #c84141;
+    border-radius: 50px; 
+    transition: transform 0.3s ease;
+}
+
+.btn-3::after, .btn-1::before {
+    content: "";
+    position: absolute;
+    opacity: 0.3;
+    background: #3a3737;
+    border-radius: inherit;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+    transition: transform 0.3s ease;
+}
+
+
+.btn-3:hover {
+    transform: translate(-12px, -12px);
+}   
+
+.btn-3:hover::after {
+    transform: translate(6px, 6px);
+}
+
+.btn-3:hover::before {
+    transform: translate(12px, 12px);
+}
+
+.error-message {
+    color: rgb(189, 39, 39);
+    margin-top: 20px; /* Espacio arriba del mensaje de error */
+    margin-bottom: 15px; /* Espacio debajo del mensaje de error */
+    font-weight: bold; /* Resalta el texto del error */
+    text-align: center;
+}
+
+.wrapper {
+    width: 420px;
+    background: transparent;
+    border: 2px solid rgba(255,255,255,.5);
+    color: #ffffff;
+    border-radius: 10px;
+    padding: 30px 40px;
+}
+
+.wrapper h1 {
+    font-size: 36px;
+    text-align: center;
+}
+
+.wrapper .input-box {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    background: transparent;
+    margin: 30px 0px;
+}
+
+.input-box input{
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    border: 2px solid rgba(255,255,255,.5);
+    border-radius: 40px;
+    font-size: 16px;
+    color: #ffffff;
+    padding: 20px 45px 20px 20px;
+
+}
+
+.input-box input::placeholder {
+    color: #ffffff;
+}
+
+.input-box i {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+}
+
+.remember-forgot a:hover {
+    text-decoration: underline;
+}
+
+.wrapper .btn {
+    width: 100%;
+    height: 45px;
+    background: #ffffff;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,.1);
+    cursor: pointer;
+    font-size: 16px;
+    color: #333;
+    font-weight: 600;
+}
+
+
+.btn {
+    background-color: #ffffff;
+    color: #000000;
+    border-radius: 50px; 
+    transition: transform 0.3s ease;
+}
+
+.btn::after, .btn::before {
+    content: "";
+    position: absolute;
+    opacity: 0.3;
+    background: transparent;
+    border-radius: inherit;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+    transition: transform 0.3s ease;
+}
+
+.btn:hover {
+    transform: translate(-12px, -12px);
+}   
+
+.btn:hover::after {
+    transform: translate(6px, 6px);
+}
+
+.btn:hover::before {
+    transform: translate(12px, 12px);
+}
+
+.wrapper .register-link {
+    font-size: 14.5px;
+    text-align: center;
+    margin: 20px 0 15px;
+}
+
+.register-link p a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.register-link p a:hover {
+    text-decoration: underline;
+}

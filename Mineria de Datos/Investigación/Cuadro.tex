@@ -1,0 +1,109 @@
+\documentclass{scrartcl}
+
+\usepackage{amsmath, amsthm, amssymb, amsfonts}
+\usepackage{thmtools}
+\usepackage{graphicx}
+\usepackage{setspace}
+\usepackage{geometry}
+\usepackage{float}
+\usepackage[hidelinks]{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{framed}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{tcolorbox}
+\usepackage{tikz}
+\usepackage{caption}
+\usepackage{longtable}
+\usepackage{pdflscape}
+\usepackage{svg}
+\usepackage{subcaption}
+\usepackage{caption}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{listings}
+\usepackage{supertabular}
+
+\usepackage{tabularx}
+    \usepackage{longtable, tabu}
+\usepackage{ltablex}
+\usepackage{ltxtable}
+    \usepackage{booktabs, caption, apacite}
+    \usepackage{hhline, blindtext}
+
+
+\colorlet{LightGray}{White!90!Periwinkle}
+\colorlet{LightOrange}{Orange!15}
+\colorlet{LightGreen}{Green!15}
+
+
+
+\newcommand{\HRule}[1]{\rule{\linewidth}{#1}}
+
+\declaretheoremstyle[name=Theorem,]{thmsty}
+\declaretheorem[style=thmsty,numberwithin=section]{theorem}
+\tcolorboxenvironment{theorem}{colback=LightGray}
+
+\declaretheoremstyle[name=Proposition,]{prosty}
+\declaretheorem[style=prosty,numberlike=theorem]{proposition}
+\tcolorboxenvironment{proposition}{colback=LightOrange}
+
+\declaretheoremstyle[name=Principle,]{prcpsty}
+\declaretheorem[style=prcpsty,numberlike=theorem]{principle}
+\tcolorboxenvironment{principle}{colback=LightGreen}
+
+\newcolumntype{L}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+\begin{document}
+
+\begin{landscape}
+
+\thispagestyle{empty}
+
+
+\begin{longtable}{|C{0.1\textwidth}|C{0.15\textwidth}|C{0.15\textwidth}|C{0.1\textwidth}|C{0.4\textwidth}|C{0.25\textwidth}|}
+    \hline
+    \textbf{Tipo} & \textbf{Nombre} & \textbf{Autor} & \textbf{Modelos} & \textbf{Resumen} & \textbf{Hallazgos}  \\ \hline
+    Revista academica & Educación e ingreso como predictores de la esperanza de vida & Montero Rojas Eliana, Universidad de Costa Rica & Regresión lineal múltiple & El objetivo principal del estudio fue predecir la esperanza de vida a partir de el PIB per cápita (indicador de poder adquisitivo) y la tasa de matriculación combinada (indicador de educación). \newline
+    El artículo hace uso de un modelo de regresión lineal múltiple para realizar esta predicción. Este modelo permitió analizar cómo varias variables independientes, como la educación y el ingreso, influyen en la esperanza de vida. \newline
+    En el artículo se obtienen coeficientes de regresión que ayudaron a encontrar la importancia relativa de cada predictor. Mostró que la tasa de matriculación tenía tres veces más peso que el PIB per cápita, demostrando que la educación tiene un mayor impacto en la longevidad. \newline
+    & En el artículo se encuentra que la educación medida a través de la tasa de matriculación combinada es un predictor mucho más influyente en la esperanza de vida en comparación con el PIB per cápita. En el segundo modelo de regresión en el que se excluye valores extremos, muestra que el 80\% de la variabilidad en la esperanza de vida puede explicarse por estos dos factores.  \\
+\end{longtable}
+
+\begin{longtable}{|C{0.1\textwidth}|C{0.15\textwidth}|C{0.15\textwidth}|C{0.1\textwidth}|C{0.4\textwidth}|C{0.25\textwidth}|}
+     &  &  &  &
+    El análisis incluyó la comparación de dos modelos de regresión, uno incluyendo todos los países y otro excluyendo valores atípicos (Luxemburgo, Zambia y Malawi). Sin estos valores extremos, el poder predictivo del modelo mejoró notablemente.
+    & Esto da a entender la importancia de invertir en la educación para mejorar la longevidad de las poblaciones, incluso más que en programas de desarrollo económico. \\ \hline
+    Tesis de maestría & Implementación de un modelo de clusterización mediante la segmentación de perfil de clientes para corporación multi inversiones & Ana Carolina Carrillo García, Universidad Tecnológica Centroamericana (UNITEC) & K-Means (clusterización), RFM (Recencia, Frecuencia, Monto) & El estudio implementó un modelo de clusterización utilizando el algoritmo K-Means, una técnica no supervisada que agrupa a los clientes en clústeres en función de sus características de compra, con el objetivo de identificar patrones y similitudes en el comportamiento de los clientes de Corporación Multi Inversiones (CMI).La metodología RFM (Recencia, Frecuencia y Monto) fue aplicada previamente para clasificar a los clientes según sus transacciones, lo que permitió organizar los datos de manera que el algoritmo pudiera agrupar a los clientes en base a su comportamiento. & El modelo identificó varios clústeres de clientes con patrones de compra similares, incluyendo grupos con alta frecuencia de compra y alto valor monetario, así como grupos con baja frecuencia y menor valor. Los resultados permitieron a CMI identificar a los ``clientes más valiosos'' y a los ``clientes en riesgo de fuga'',
+  \end{longtable}
+
+\begin{longtable}{|C{0.1\textwidth}|C{0.15\textwidth}|C{0.15\textwidth}|C{0.1\textwidth}|C{0.4\textwidth}|C{0.25\textwidth}|}
+     &  &  &  &
+     El modelo fue ejecutado en la plataforma KNIME, que facilita el procesamiento de grandes volúmenes de datos y permite la visualización y el análisis de clústeres resultantes. La implementación del algoritmo K-Means permitió crear subgrupos de clientes homogéneos, que luego fueron utilizados para diseñar estrategias de marketing personalizadas y optimizar la asignación de recursos. & lo que facilitó la creación de estrategias específicas para mejorar la retención de clientes y aumentar la eficiencia en las campañas de marketing.  Además, se sugirió la posibilidad de implementar un sistema de recomendaciones basado en los patrones de compra identificados por el algoritmo, para mejorar la experiencia del cliente y aumentar la lealtad. \\ 
+     Tesis & Modelo de Clustering basado en Redes Neuronales para identificar el perfil de los alumnos por segmento enfocado a los servicios de Tecnologías de Información de la Universidad Peruana Unión & Moreno Tineo, Ronald Jesus; Pisco Sandoval, Edwad rAyax; Vela Becerra, Cristian Irvin Dr. Palza Vargas, Edgardo; Dr. Mamani Apaza, Guillermo; Mg. Acuña, Erika, Universidad Peruana Unión & K-medias (redes neuronales), CRISP-DM (minería de datos) & Este estudio utilizó el algoritmo de K-medias (técnica de aprendizaje no supervisado) para segmentar y agrupar a los estudiantes de la Universidad Peruana Unión, en función de su percepción de los servicios de Tecnologías de la Información (TI). El modelo de clustering les permitió identificar tres grupos de estudiantes con comportamientos y necesidades similares, el grupo terrorista (insatisfechos), realista (opinión equilibrada) y apóstol (mayormente satisfechos).Para el desarrollo del modelo se guiaron de la metodología CRISP-DM que es común en proyectos de minería de datos. Este método consta de seis fases que fueron utilizadas para gestionar la segmentación: entender el negocio, entender los datos, preparación de los datos, modelar, evaluar y desplegar. K-medias es un método para el clustering que busca minimizar la suma de las distancias entre los puntos de datos y el centro de su grupo asignado. & Los resultados del estudio encontraron que el 37.4\% de los estudiantes (Grupo Terrorista) está insatisfecho con todos los servicios de TI, principalmente con la velocidad de internet y la seguridad del portal académico. El "Grupo Realista" (27\% de los estudiantes) mostró satisfacción parcial, con un 50\% de aprobación de los servicios, mientras que el "Grupo Apóstol" (35.7\% de los estudiantes) expresó una alta satisfacción general, aunque también destacaron la necesidad de mejorar la velocidad del internet.
+\end{longtable}
+
+\begin{longtable}{|C{0.1\textwidth}|C{0.15\textwidth}|C{0.15\textwidth}|C{0.1\textwidth}|C{0.4\textwidth}|C{0.25\textwidth}|}
+     &  &  &  &
+     Al aplicar este método ene el estudio, el algoritmo identificó patrones y características comunes entre los estudiantes, agrupándolos según su nivel de satisfacción con los servicios de TI.
+    & Este análisis sugiere que las mejoras en los servicios de TI deben centrarse en aspectos críticos como la velocidad y disponibilidad del internet, así como la atención en los laboratorios de cómputo. \\ \hline
+    Paper & Sapling Similarity: a performing and interpretable memory-based tool for recommendation & Giambattista Albora, Lavinia Rossi Mori, Andrea Zaccaria & Graph Convolution Networks, Matrix Factorization & El paper utiliza el dataset de Amazon-Book y utiliza técnicas modernas de aprendizaje de máquina para implementar un sistema de recomendación con mejores resultados. & Sigue las ideas de los árboles de decisión y bosques aleatorios para encontrar la probabilidad de que un item sea recomendado a un usuario teniendo en cuenta un esquema de grafos tipo usuario-item. \\ \hline 
+    Paper & Enhancing VAEs for Collaborative Viltering: Flexible Priors \& Gating Mechanisms & Daeryong Kim, Bongwon Suh & Redes neuronales, VampPrior & Utilizando los datasets de Netflix y MovieLens, extienden el VampPrior para hacerlo más flexible y que permita ser utilizado para sistemas de recomendación y filtro colaborativo. & Encontraron que el VampPrior tiene un mejor rendimiento que muchos algoritmos en el estado del arte, incluyendo el Variational Autoencoder for Collaborative Filtering. Muestran, que al utilizar prioridades de distribuciones Gaussianas, se puede tener una mejor representación para las preferencias de un usuario. El modelo final que proponen es Hierarchical VampPrior VAEs with GLUs,
+  \end{longtable}
+
+ \begin{longtable}{|C{0.1\textwidth}|C{0.15\textwidth}|C{0.15\textwidth}|C{0.1\textwidth}|C{0.4\textwidth}|C{0.25\textwidth}|}
+   &  &  &  &    &  produciendo nuevos resultados para el estado del arte en la rama de filtro colaborativo. \\ \hline
+   Paper & Methods for Weighting Decisions to Assist Modelers and Decision Analysts & Barry Ezell, Christopher J. Lynch, Patrick T. Hester & Regresion Lineal (Ponderada) & El articulo revisa 8 tecnicas de analisis de decisiones multicriterio (MCDA) para representar la toma de desicions en simuladores y modelos computacionales. Se enfoca principalmente en 2 categorias: -Asinacion de proporciones -Tecnicas de aproximacion. Se compraran la aplicacion con 3 paradigmas de simulacion: -Modelado de agentes. - Dinamica de sistemas. -Simulacion de evetos discretos. & El estudio destaca como la ponderacion personalizada permite tomar desiciones mas realistas y adecuadas en la simulaciones, proporcionado criterios taxonomicos que se adaptan a los diferentes contextos \\
+   Paper & What are we Weighting for? & Gary Solon, Steven J. Haider, Jeffrey Wooldridge & Regresion Lineal (Ponderada) & En el Paper, se analiza y explica los casos de uso de la poderacion de la estimacion de datos. Propone tres casos principales: -Heterocedasticidad  -Correcion el muestreo de datos endogenos. -Estimacion de efectos promedio en presencia de heterogeneidad no modelada & Se concluye que es necesario tener claridad en uso del esta metodología. Se recomineda el diagnóstico y compraración cuidadosa entre las estimaciones ponderadas y no ponderadas para poder determinar cuando esta metodología es de utilidad para el proyecto en cuestión y de esta manera verificar la consistencia y presición del modelo.\\ 
+   Paper & Using Decision Trees and Random Forest Algorithms to Predicr and Determine Factors Contributing to First-Year University Students' Learning Performance. & Chaoyang University of Technology & Decision Trees, Random Forest, Multilayer Perceptron, Regression Trees & El estudio busca predecir el rendimiento académico de los estudiantes de primer año de una universidad técnica en Taiwán utilizando algoritmos de machine learning. Se emplearon datos familiares y socioeconómicos recolectados antes del inicio del semestre para construir modelos predictivos. & Las variables más importantes que influyeron en el rendimiento fueron: ocupación de la madre, departamento del estudiante, ocupación del padre, fuente principal de ingresos y estado de admisión. Regression Trees tuvo el mejor rendimiento, seguido por Random Forest. Ambos superaron a Decision Trees y MLP en precisión. \\ \hline
+   Paper & Large Language Models meet Collaborative Filtering: An Efficient All-round LLM-based Recommender System & Korea Advanced Institute of Science and Technology \& NAVER Corporation & Sistemas de filtro colaborativo, modelos LLM & El estudio presenta A-LLMRec, un sistema que combina filtrado colaborativo y modelos de lenguaje (LLM) para mejorar recomendaciones en escenarios fríos y cálidos, sin requerir ajustes adicionales. El objetivo es superar los problemas de cold start y mejorar las recomendaciones tanto en escenarios fríos como cálidos, sin necesidad de ajustar los modelos preentrenados. & El A-LLMRec demostró mejor rendimiento que los modelos tradicionales y LLM tanto en arranque frío como cálido, con mayor eficiencia de recursos y sin requerir reajustes. \\ \hline
+   Artículo Científico & Recommendation System for Adaptive Learning & Yunxiao Chen, Xiaoou Li, Jingchen Liu ,Zhiliang Ying & Modelos de decisión de Markov & Los modelos de decisión de Markov, permiten realizar recomendaciones secuenciales. En el caso de este artículo se vio aplicado en recomendaciones secuenciales del contenido educativo más adecuado, según sea la necesidad del estudiante, esto basandose en su nivel de habilidad actual. La evolución de las habilidades adqueridas por estudiantes on evaluadas por el modelo mediante un proceso de Markov oculto, lo que permite el ajuste progresivo y adaptativo a lo largo de la ejecución. & El uso de modelos de desicion estocástico, en este caso los de Markov, permiten y aseguran un proceso de aprendizaje adaptado al usuario, lo que lo hace más eficiente y personalizado. \\ \hline
+  \end{longtable}
+
+
+\end{landscape}
+
+
+\end{document}

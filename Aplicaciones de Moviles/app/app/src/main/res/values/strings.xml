@@ -1,0 +1,269 @@
+<resources>
+    <string name="app_name">Film Cast</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+
+    <string name="toggle_password_visibility"> </string>
+
+
+    <!--Iniciar sesion-->
+    <string name="IS_iniciar_sesion.tx">Iniciar Sesion</string>
+    <string name="IS_email.tx">Email</string>
+    <string name="IS_Contraseña">Contraseña</string>
+    <string name="IS_Registrarse">Registrarse</string>
+    <string name="IS_Or">ó</string>
+    <string name="IS_terminos">By continuing you are agreed the terms and conditions and privacy policy.</string>
+
+    <!-- Menu -->
+    <string name="menu_titulo">"Menú"</string>
+    <string name="menu_titulo2">"¿Que quieres hacer hoy?"</string>
+
+    <!-- Menu S1-->
+    <string name="menu_conecta">"Conecta con el actor perfecto"</string>
+    <string name="menu_conecta_text">"Solo dinos que estamos buscando, nosotros hacemos la magia"</string>
+    <string name="menu_conecta_boton">"Buscar"</string>
+
+    <string name="menu_gestion">"Gestiona tus actores"</string>
+    <string name="menu_gestion_text">"Gestiona a tus actores y asegura el intérprete perfecto para cada personaje."</string>
+    <string name="menu_gestion_boton">"Guardados"</string>
+
+    <!-- Menu S2 Proyectos -->
+    <string name="menu_proyectos">"Tus Proyectos"</string>
+
+    <!-- Estos datos deberian salir del dataset hp (harry potter) -->
+    <string name="pr1_titulo">"Casa embrujada"</string>
+    <string name="pr1_info_actores">"3 confirmados, 1 por confirmar"</string>
+    <string name="pr1_fecha">"2 de marzo"</string>
+    <string name="pr1_mensaje">"2 mensajes nuevos"</string>
+    <string name="pr1_direccion">"Cra 4# 22 66"</string>
+
+    <!-- Estos datos deberian salir del dataset hp (harry potter) -->
+    <string name="pr2_titulo">"Titanic 2"</string>
+    <string name="pr2_info_actores">"700 confirmados, 1500 por confirmar"</string>
+    <string name="pr2_fecha">"30 de febrero"</string>
+    <string name="pr2_mensaje">"60 mensajes nuevos"</string>
+    <string name="pr2_direccion">"Oceano Atrantico"</string>
+
+
+    <!-- Menu S3-->
+
+
+    <!-- Buscar Actor-->
+    <string name="Perfil_actor">"Perfil del Actor"</string>
+    <string name="PA_Edad">"Edad"</string>
+    <string name="PA_Nacionalidad">"Nacionalidad"</string>
+    <string name="PA_Actividad_años">"Años de Actividad"</string>
+    <string name="PA_genero">"Genero"</string>
+    <string name="PA_Belleza">"Belleza"</string>
+    <string name="PA_exp">"Habilidad"</string>
+    <string name="PA_Educacion">"Grado de educacion"</string>
+    <string name="PA_premios">"Premios ganados"</string>
+    <string name="PA_media">"Menciones en redes sociales"</string>
+    <string name="PA_genero_cine">Categoría fílmica</string>
+
+
+    <string name="PA_Nombre_txt">"Valor retornado por el modelo"</string>
+    <string name="PA_Edad_txt">"Valor retornado por el modelo"</string>
+    <string name="PA_Nacionalidad_txt">"Valor retornado por el modelo"</string>
+    <string name="PA_Actividad_años_txt">"Valor retornado por el modelo"</string>
+    <string name="PA_genero_txt">"Valor retornado por el modelo"</string>
+    <string name="PA_Belleza_txt">"Valor retornado por el modelo"</string>
+    <string name="PA_exp_txt">"Valor retornado por el modelo"</string>
+    <string name="PA_Educacion_txt">"Valor retornado por el modelo"</string>
+    <string name="PA_premios_txt">"Valor retornado por el modelo"</string>
+    <string name="PA_media_txt">"Valor retornado por el modelo"</string>
+
+
+    <!---buscar-->
+
+    <string name="Bu_titulo">Buscar</string>
+    <string name="Bu_edad">Edad</string>
+    <string name="Bu_filmico">Genero Filmico</string>
+    <string name="Bu_salario">Salario</string>
+    <string name="Bu_educativo">Educacion</string>
+    <string name="Bu_año_act">Años Actividad</string>
+    <string name="Bu_nacionalidad">Nacionalidad</string>
+    <string name="Bu_premios">Premios</string>
+    <string name="Bu_redes_menciones">Menciones</string>
+    <string name="Bu_tamaño_pagina">Pagina</string>
+    <string name="Bu_redes_likes">Likes</string>
+    <string name="Bu_redes_seguidores">Seguidores</string>
+    <string name="Bu_genero">Genero</string>
+    <string name="Bu_rango_belleza">Belleza</string>
+    <string name="Bu_Buscar">Buscar</string>
+
+
+    <!-- Recursos de activity_guardados.xml -->
+    <string name="GA_boton_buscar">Buscar</string>
+    <string name="GA_boton_volver">Volver</string>
+    <string name="GA_titulo">Actores Guardados</string>
+    <string name="GA1_Nombre">Nombre</string>
+    <string name="GA1_Genero">Género</string>
+    <string name="GA1_precio">Precio</string>
+    <string name="GA1_cineGenero">Género Cine</string>
+
+    <!-- Recursos de activity_perfil.xml -->
+    <string name="Pe_titulo">Perfil</string>
+    <string name="Pe_Nombre">Nombre</string>
+    <string name="Pe_email">Email</string>
+    <string name="Pe_telefono">Teléfono</string>
+    <string name="Pe_estellas">Estrellas</string>
+    <string name="Pe_genero">Género</string>
+    <string name="Pe_rol">Rol</string>
+    <string name="Pe_cerrar_sesion">Cerrar sesión</string>
+    <string name="Pe_editar_perfil">Editar Perfil</string>
+
+
+    <string-array name="Bu_edad">
+        <item>Edad</item>
+        <item>18–20</item>
+        <item>20–25</item>
+        <item>26–30</item>
+        <item>31–35</item>
+        <item>36–40</item>
+        <item>41–45</item>
+        <item>46–50</item>
+        <item>51 o más</item>
+    </string-array>
+
+    <string-array name="Bu_Cinematigrafia">
+        <item>Cinematografia</item>
+        <item>Comedia</item>
+        <item>Drama</item>
+        <item>Accion</item>
+        <item>Sci-Fi</item>
+        <item>Romance</item>
+    </string-array>
+
+    <string-array name="Bu_educacion">
+        <item>Nivel educactivo</item>
+        <item>Universidad</item>
+        <item>Colegiatura</item>
+        <item>Graduado</item>
+        <item>Secundaria</item>
+    </string-array>
+    <string-array name="Bu_salario">
+        <item>Rango Salarial</item>
+        <item>10.000–50.000</item>
+        <item>50.001–100.000</item>
+        <item>100001–500.000</item>
+        <item>500001–1´000.000</item>
+        <item>1´000.001–1´500.000</item>
+        <item>1´500.001–000</item>
+    </string-array>
+    <string-array name="Bu_Belleza">
+        <item>Belleza</item>
+        <item>0–2</item>
+        <item>2–4</item>
+        <item>4–6</item>
+        <item>6–8</item>
+        <item>8–10</item>
+    </string-array>
+
+
+    <string-array name="Bu_Nacionalidad">
+        <item>Nacionalidad</item>
+        <item>USA</item>
+        <item>Canada</item>
+    </string-array>
+
+
+    <string-array name="Bu_premios">
+        <item>Numero de premios</item>
+        <item>0–3</item>
+        <item>3–7</item>
+        <item>7–10</item>
+        <item>10–14</item>
+        <item>14–20</item>
+    </string-array>
+
+
+    <string-array name="Bu_genero">
+        <item>Genero de nacimiento</item>
+        <item>Femenino</item>
+        <item>Maculino</item>
+    </string-array>
+
+    <string-array name="Bu_habilidad">
+        <item>Nivel de Habilidad</item>
+        <item>0–2</item>
+        <item>3–5</item>
+        <item>6–8</item>
+        <item>9–10</item>
+    </string-array>
+
+    <string-array name="Bu_Menciones">
+        <item>Menciones en redes</item>
+        <item>0–15</item>
+        <item>16–30</item>
+        <item>31–45</item>
+        <item>46–60</item>
+        <item>60 o más</item>
+    </string-array>
+
+    <string-array name="Bu_likes">
+        <item>Likes en redes</item>
+        <item>0–500</item>
+        <item>501–1500</item>
+        <item>1501–3000</item>
+        <item>3001–4500</item>
+        <item>4501–6000</item>
+        <item>6001 o más</item>
+    </string-array>
+
+    <string-array name="Bu_tamaño_pag">
+        <item>Tamaño de pagina</item>
+        <item>0–2</item>
+        <item>2–4</item>
+        <item>4–6</item>
+        <item>6–8</item>
+        <item>8–10</item>
+    </string-array>
+
+    <string-array name="Bu_seguidores">
+        <item>0–1000</item>
+        <item>1001–8000</item>
+        <item>8001–12.000</item>
+        <item>12.001–18.000</item>
+        <item>18.001–24.001</item>
+        <item>24.001 o más</item>
+    </string-array>
+
+    //registro
+    <string name="tv_registro">Registrarse</string>
+    <string name="hint_username">Nombre de usuario</string>
+    <string name="tv_login">Iniciar Sesion</string>
+    <string name="hint_password">Contraseña</string>
+    <string name="hint_confpassword">Confirmar Contraseña</string>
+    <string name="btn_register">Registrarse</string>
+    <string name="tv_or">Or</string>
+    <string name="tv_terms_conditions">By continuing you are agreed the terms and conditions and privacy policy.</string>
+    <string name="tv_terms_conditions1">Al continuar, usted acepta los términos y condiciones, así como la política de privacidad.</string>
+    <string name="hint_email">email</string>
+    <string name="btn_login">Iniciar Sesion</string>
+    
+    
+    //editar perfil 
+    <string name="EDP_Titulo">Editar Perfil</string>
+    <string name="EDP_Nombre">Nombre de usuario</string>
+    <string name="EDP_Descripcion">Descripcion</string>
+    <string name="EDP_Telefono">Telefono</string>
+    <string name="EDP_Nacionalidad">Nacionalidad</string>
+    <string name="EDP_Email">Email</string>
+    <string name="EDP_cancelar">Cancelar</string>
+    <string name="EDP_Guardar">Guardar</string>
+    
+</resources>

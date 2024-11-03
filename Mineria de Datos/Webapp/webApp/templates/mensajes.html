@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FilmCast</title>
+    <link rel="stylesheet" href="../static/stylemenu.css"> 
+    <link rel="stylesheet" href="../static/estiloperfil.css"> 
+    <link rel="stylesheet" type="text/css" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+</head>
+
+<body>
+    <header>
+        <div class="container-hero">
+            <div class="container hero">
+                <div class="customer-support">
+                    <i class="fa-solid fa-headset"></i>
+                    <div class="content-customer-support">
+                        <span class="text">Soporte al cliente</span>
+                        <span class="number">123-456-7890</span>
+                    </div>
+                </div>
+
+                <div class="container-logo">
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAflJREFUSEvN1s+rTVEUB/DPE8mPATL15NfAj6EyITPzR4hEyUDhX/CrjIxEzEw88jv/gYSRmcRAEVNlJAaIs27rvHa32+nc63j3rsleZ5+11nd/19577TVlTDI1JlwTBbwW6zrOxEd8KmOWjBfgDg52DFqHu4Vj+BMTJfBh3P5PoHXYGTzpBz5bLeRCWhzHzdQ/50rjcxHuYSV+4xC+pN157C70ZwWJp6mfw8V+4JgM53r+Bk7m9ylcTz224m7qj7Ev9Tgb77Ak93MbvuW/XnqTWA+jTHVMBHg9vxxvEAF/VEw3FwfkEfam7QE8SP00rqYeC40FhwwFHA478TydX2BX6qvwHjF+rc7Gphzjd9iHX0jYh9/QwOHcJuXBOJiH9Kc8MvW9barLg7EM29MxArxKvWYU1zDkJX6lvhWrU3+LLW2Bi9idqnFrGg9Xp2hFsMkCLu9xE+Mr+IkzWDxkaiLNvSJV3uO2wLXzmqqSXcKRvjhNa/mnVM85J0JUqGtFuZw34BpoT9bxFQ3InTIOnB3VwxF7H+O8MN6Ay4jnro0MZDzM4YoHIJ63E1jYBrGLyvUaG7F0CMDadCDjshEYIWYrl4GNQPnAt4oygtF+POwvIPHK3C86ihHiNrrM4uigZq/2Wl/1W9Mdo35A9G5zMlENfcdkB4cbG+O/Au1uHz3+eYkAAAAASUVORK5CYII="/>
+                    <h1 class="logo"><a href="/">FilmCast</a></h1>
+                </div>
+
+                <div class="container-user"> 
+                    <a href="{{ url_for('perfil') }}">
+                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAb1JREFUSEvN1k3ITUEYB/DfK18lJcmOhCyUKCs7lGJhQcpGoXyUlJ0US5LsUD42rFCilLKwYMVCCYWVfKWUkgUbCTN1jt6ue95nzts5XbOd5/x/M819Zu6YEY2xEbkmA0/BNiyvFv0SN/C7zSbawmtwBcsGkFfYiceleBt4Pe5iekP4d2zAoxK8FJ6F95gbhH7AUvyI8FJ4Ly5FYdV8Pv+bUW0pfAH7o7Bq/jQOR7Wl8EXsi8Kq+fM4ENWWwkdxPAqr5o/gVFRbCueefRGFVb28JLXWm6i2FM45l7ErCDyDQxGa59vAM6obanNDcF7YHvzqGq4XugNbxvX0J1zD7RKwrmmz4za5Ye1/Dy/A1nQjrUiPxKLUWlMHtvQz/fDepiN4hlv4GG052vFKnMSmKGhg/k51e+VXa+iYCM431TlMa4nW5fmh2J2e0KvDvm+Ct+P6JMHxn+XW2oh7g1nD4Plppe8wswM4R3zBQuT3+u8YBp/FwY7QOuZYOrITEfw5ne28juEnWD0RvBivO0bruNn41nRz5T9zD3uCc2s+b4LX4n5P8Do8aILnYFVP8FN8bYJ7Mv+Nja7M3hYyMvgPElg8H/XErXYAAAAASUVORK5CYII=" />
+                    </a>
+                
+                    <a href="{{ url_for('mensajes') }}">
+                        <i class='bx bxs-chat'></i>
+                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAUdJREFUSEvt1sEqBXEUx/HPXVEsrC1ENvZSduwsbSQrNoqsvAEeAqU8AF6AN7BQsmRB3kBKKMX9153bGHPvTP1n7mzMZmrmf873/M/5/f/ntDT0tBriKgMewQqmIoJ8wjneEx9F4DHcYDoCmpjeYxZv4UMReAeHFUATF5s4LQOOYQ5jCUcY7zg6aL/36wYnQQf4ZRG4DiEN4aMfuDYh4bsfuDYhFYFD0fdi1JSx7QrpH5w9Tv+pjtVZnri22rfYyaBT/YA5vA4SvI6LXm2xTnH9KVu6LTYG3sZxrKJS9l0h5flM7zg0iVtMVgD/JaQicPg/ilVMdBYvYiHH8BpXPQJ8zAqpDDi7Jq/uYRTaxVdMZopmrjT4Exs4iwEmtmXBz+36L+OuCmiZmSvseB5r7fS+VAUtA55BmIeT0aUydlGqKwNlHTUG/gHwKlYfkJWuMAAAAABJRU5ErkJggg=="/>
+                        <span class="text">Mensajes</span>
+                        <span class="number">(0)</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-navbar">
+            <nav class="navbar container">
+                <i class="fa-solid fa-bars"></i>
+                <ul class="menu">
+                    <li><a href="{{ url_for('menu') }}">Inicio</a></li>
+                    <li><a href="{{ url_for('busqueda_filtro') }}">Buscar</a></li>
+                    <li><a href="{{ url_for('misproyectos') }}">Mis Proyectos</a></li>
+                    <li><a href="{{ url_for('misfavoritos') }}">Mis Favoritos</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>

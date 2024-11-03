@@ -1,0 +1,14 @@
+gunicorn
+blinker
+click
+Flask
+itsdangerous
+Jinja2
+MarkupSafe
+numpy
+pandas
+python-dateutil
+pytz
+six
+tzdata
+Werkzeug

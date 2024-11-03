@@ -1,0 +1,712 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    overflow-x: hidden; /* Esto ocultará cualquier contenido que se desborde horizontalmente */
+    background-color: #000000;
+}
+
+.contenedor {
+    padding: 60px 0;
+    width: 90%;
+    max-width: 1000px;
+    margin: auto;
+    overflow: hidden;
+}
+
+.titulo {
+    color: #ffffff;
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+/* Header */
+header {
+    width: 100%;
+    height: 700px;
+    background-image: url("img/1.jpg");
+    background-size: cover; /* Asegura que la imagen cubra todo el área del header */
+    background-position: center; /* Centra la imagen dentro del header */
+    background-attachment: fixed; /* Fija la imagen mientras se desplaza la página */
+    position: relative;
+}
+
+nav {
+    text-align: right;
+    padding: 30px 50px 0 0;
+}
+
+nav .botones > a {
+    color: #fff;
+    font-weight: 300;
+    text-decoration: none;
+    margin-right: 10px;
+}
+
+nav > a:hover {
+    text-decoration: underline;
+}
+
+/* Botones */
+.btn{
+    text-decoration: none;
+    padding: 10px 20px;
+    font-size: 1 rem;
+    display: inline-block;
+    position: relative;
+}
+
+
+.btn-1 {
+    background-color: #3a3737;
+    color: #c84141;
+    border-radius: 50px; 
+    transition: transform 0.3s ease;
+}
+
+.btn-1::after, .btn-1::before {
+    content: "";
+    position: absolute;
+    opacity: 0.3;
+    background: #3a3737;
+    border-radius: inherit;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+    transition: transform 0.3s ease;
+}
+
+.btn-1:hover {
+    transform: translate(-12px, -12px);
+}   
+
+.btn-1:hover::after {
+    transform: translate(6px, 6px);
+}
+
+.btn-1:hover::before {
+    transform: translate(12px, 12px);
+}
+
+/*--*/
+
+.btn-2:hover {
+    transform: translate(-12px, -12px);
+}   
+
+.btn-2:hover::after {
+    transform: translate(6px, 6px);
+}
+
+.btn-2:hover::before {
+    transform: translate(12px, 12px);
+}
+
+
+.btn-2 {
+    background-color: #3a3737;
+    color: #c84141;
+    border-radius: 50px; 
+    transition: transform 0.3s ease;
+}
+
+.btn-2::after, .btn-1::before {
+    content: "";
+    position: absolute;
+    opacity: 0.3;
+    background: #3a3737;
+    border-radius: inherit;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+    transition: transform 0.3s ease;
+}
+
+.btn-2:hover {
+    transform: translate(-12px, -12px);
+}   
+
+.btn-2:hover::after {
+    transform: translate(6px, 6px);
+}
+
+.btn-2:hover::before {
+    transform: translate(12px, 12px);
+}
+
+.btn-3:hover {
+    transform: translate(-12px, -12px);
+}   
+
+.btn-3:hover::after {
+    transform: translate(6px, 6px);
+}
+
+.btn-3:hover::before {
+    transform: translate(12px, 12px);
+}
+
+
+.btn-3 {
+    background-color: #3a3737;
+    color: #c84141;
+    border-radius: 50px; 
+    transition: transform 0.3s ease;
+}
+
+.btn-3::after, .btn-1::before {
+    content: "";
+    position: absolute;
+    opacity: 0.3;
+    background: #3a3737;
+    border-radius: inherit;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+    transition: transform 0.3s ease;
+}
+
+.btn-3:hover {
+    transform: translate(-12px, -12px);
+}   
+
+.btn-3:hover::after {
+    transform: translate(6px, 6px);
+}
+
+.btn-3:hover::before {
+    transform: translate(12px, 12px);
+}
+
+/*-------------------------------------------------------*/
+header .textos-header {
+    display: flex;
+    height: 430px;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.textos-header h1 {
+    font-size: 100px;
+    color: #fff;
+}
+
+.textos-header h2 {
+    font-size: 30px;
+    font-weight: 300;
+    color: #fff;
+}
+
+.wave {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+
+
+/* -------------------------Sobre FilmCast------------------------------- */
+.contenedor-sobre-filmcast {
+    display: flex; /* Usar flexbox para alinear elementos en línea */
+    justify-content: space-evenly; /* Espacio entre elementos */
+    background-color: #000000;
+}
+
+.contenedor-sobre-filmcast img {
+    width: 30%; /* Ajustar al ancho deseado, puedes cambiarlo */
+    /*border-radius: 50%;
+    box-shadow: 0 0 6px 0 rgba(0, 0, 0, .5);*/
+    margin: 0 0px 50px 0px;
+}
+
+.contenedor-sobre-filmcast .contenido-textos {
+    width: 38%; /* Opcional: limita el ancho del texto */
+} 
+
+.contenido-textos h3 {
+    margin: 0 0 25px 0;
+    font-size: 25px;
+    color: #ffffff;
+
+}
+
+.contenido-textos h3 span {
+    background: #851f1f;    
+    color: #ffffff;
+    border-radius: 50%;
+    display: inline-block;
+    text-align: center;
+    width: 40px;
+    height: 40px;
+    padding: 2px;
+    box-shadow: 0 0 6px 0 rgba(255, 255, 255, 0.821);
+    margin-right: 5px;
+}
+
+.contenido-textos p {
+    font-size: 20px;   
+    padding: 10px 0px 30px 15px;
+    font-weight: 300;
+    text-align: justify;
+    color: #ffffff;
+}
+
+.contenido-textos {
+    margin-top: 80px; /* Agrega margen superior al contenedor de los textos */
+}
+
+.contenedor-sobre-filmcast1 {
+    background-color: #000000;
+    position: relative;
+}
+
+.contenedor-sobre-filmcast1 .titulo {
+    position:center;
+    font-size: 30px;
+    font-weight: bold;
+    color: #ffffff;
+    margin: 30px 0 20px 0px;
+}
+
+.contenedor-sobre-filmcast1 .subtitulo {
+    position: center;
+    font-size: 35px; /* Ajusta el tamaño del texto */   
+    font-weight: bold; /* Asegura que el texto sea negrita */
+    color: #ffffff;  /* Asegura que el texto sea blanco */
+    text-align: center; /* Centrar el texto dentro del elemento */
+    width: 100%; /* Ajusta el ancho del elemento */
+    margin: 0px 0 10px 0px;
+}
+
+h3 {
+    margin: 0px 0; /* Margen superior e inferior para separar títulos */
+
+}
+
+/*--------------------------Como Funciona-----------------------*/
+.Como-Funciona {
+    background: #f2f2f2;
+}
+
+.galeria-como {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.imagen-como {
+    width: 24%;
+    margin-bottom: 10px;
+    height: 200px;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    box-shadow: 0 0 6px 0 rgba(0, 0, 0, .5);
+}
+
+.imagen-como > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.imagen-como > .hover-galeria {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    transform: scale(0);
+    background: hsla(273, 91%, 27%, 0.7);
+    transition: transform .5s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.imagen-como > .hover-galeria > img {
+    width: 50px;
+}
+
+.imagen-como > .hover-galeria > p {
+    color: #fff;
+}
+
+.imagen-como:hover > .hover-galeria {
+    transform: scale(1);
+}
+
+.Como-Funciona .titulo {
+    position: center; /* Ajusta la distancia desde el lado izquierdo */
+    font-size: 30px;
+    font-weight: bold;
+    color: #000000;
+}
+
+/*--------------------------cliente contenedor-----------------------*/
+.cards {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.cards .card {
+    background: rgb(98, 96, 96);
+    display: flex;
+    width: 23%;
+    height: 200px;
+    align-items: center;
+    justify-content: space-evenly;
+    border-radius: 5px;
+    box-shadow: 0 0 6px 0 rgba(0, 0, 0, .6);
+}
+
+.cards .card > img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border: 3px solid #fff;
+    border-radius: 50%;
+    display: block;
+}
+
+.cards .card > .contenido-texto-card {
+    width: 60%;
+    color: #fff;
+}
+
+.cards .card > .contenido-texto-card p {
+    font-weight: 300;
+    padding-top: 10px;
+}
+
+.cliente-contenedor{
+    background: #000000;
+    padding: 60px 0;
+    overflow: hidden;
+}
+
+.cliente-contenedor .titulo {
+    position: center; /* Ajusta la distancia desde el lado izquierdo */
+    font-size: 30px;
+    font-weight: bold;
+    color: #ffffff;
+    margin-top: 20px;
+}
+
+/*-----------CATEGORIAS---------------*/
+
+
+.container .top-categories {
+	max-width: 120rem;
+	margin: 0 auto;
+    text-decoration: none;
+}
+
+.top-categories {
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+	margin-bottom: 3rem;
+    background: #f2f2f2;
+}
+
+.top-categories h1 {
+    font-size: 30px;
+    color: #000000;
+    padding-left: 690px;
+    padding-top: 50px;
+    font-weight: bold;
+}
+
+.container-categories {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 3rem;
+    background: #f2f2f2;
+}
+
+.card-category {
+	height: 15rem;
+    width: 25rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	border-radius: 2rem;
+	gap: 2rem;
+}
+
+.container-categories .card-category:hover {
+    transform: scale(1.1); /* Aumenta ligeramente el tamaño de la tarjeta al pasar el mouse */
+    transition: transform 0.3s; /* Transición para un efecto más suave */
+}
+
+a {
+    text-decoration: none;
+}
+
+
+.category-Comedy {
+	background-image: linear-gradient(#00000080, #00000080),
+		url('https://i.pinimg.com/736x/89/38/c4/8938c415dab27fe78a997099ddf99443.jpg');
+	background-size: cover;
+	background-position: bottom;
+	background-repeat: no-repeat;
+    margin: 15px 20px 5px 70px;
+
+}
+
+.category-Action {
+	background-image: linear-gradient(#00000080, #00000080),
+		url('https://i.pinimg.com/736x/37/97/f2/3797f257cb864d05f57f35686dd69bc2.jpg');
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+    margin: 15px 10px 5px 20px;
+}
+
+.category-Drama {
+	background-image: linear-gradient(#00000080, #00000080),
+		url('https://i.pinimg.com/564x/bd/82/5e/bd825e148e6a398e6b6c82257b665ffd.jpg');
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+    margin: 15px 40px 5px 0px;
+}
+
+
+.category-Sci-Fi {
+	background-image: linear-gradient(#00000080, #00000080),
+		url('https://i.pinimg.com/564x/e0/1b/f4/e01bf4c963c32d8911882cefa06c65aa.jpg');
+	background-size: cover;
+	background-position: bottom;
+	background-repeat: no-repeat;
+    margin: 5px 20px 20px 70px;
+
+}
+
+.category-Horror {
+	background-image: linear-gradient(#00000080, #00000080),
+		url('https://i.pinimg.com/564x/40/4c/86/404c86b143fe008c5fba2c182ee83b11.jpg');
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+    margin: 5px 10px 35px 20px;
+}
+
+.category-Musical {
+	background-image: linear-gradient(#00000080, #00000080),
+		url('https://i.pinimg.com/564x/6d/8f/5b/6d8f5bd470e7522e139d8323bb5cb1c5.jpg');
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+    margin: 5px 40px 35px 0px;
+}
+
+.card-category p {
+	font-size: 2.5rem;
+	color: #fff;
+	text-transform: capitalize;
+	position: relative;
+}
+
+
+.imagen-como > .hover-galeria {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    transform: scale(0);
+    background: hsla(273, 47%, 49%, 0.7);
+    transition: transform .5s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+
+.card-category p::after {
+	content: '';
+	width: 2.5rem;
+	height: 2px;
+	background-color: #fff;
+	position: absolute;
+	bottom: -1rem;
+	left: 50%;
+	transform: translate(-50%, 50%);
+}
+
+.card-category span{
+	font-size: 1.6rem;
+	color: #fff;
+    text-decoration: none;
+	cursor: pointer;
+}
+
+
+
+
+
+/*--------------------------Footer-----------------------*/
+footer {
+    background: #000000;
+    padding: 0px 0 30px 0;
+    margin: auto;
+    overflow: hidden;
+}
+
+.contenedor-footer {
+    display: flex;
+    width: 90%; /* Ajusta el ancho deseado */
+    justify-content: space-evenly;
+    margin: auto;
+    padding-bottom: 50px;
+    border-bottom: 1px solid #ccc;
+}
+
+.contenedor-footer {
+    text-align: center;
+}
+
+.contenedor-footer h4 {   
+    color: #ffffff;
+    border-bottom: 3px solid #ffffff;
+    padding-bottom: 5px;
+    margin-bottom: 10px;    
+}
+
+.contenedor-footer p {
+    color: #ffffff;
+}
+
+.titulo-final {
+    color: #ffffff;
+    text-align: center;
+    font-size: 24px;
+    margin: 20px 0 0 0;
+}
+
+.content-fot img {
+    object-fit: cover; /* Asegura que la imagen cubra todo el contenedor */
+    border-radius: 15px; /* Ajusta el valor según el nivel de redondeo que desees */
+    transition: transform 0.3s; /* Efecto de transición al pasar el mouse */
+}
+
+.content-fot img:hover {
+    transform: scale(1.05); 
+}
+
+
+@media screen and (max-width:900px) {
+
+    .header{
+        background-position: center;
+    }
+
+    .contenedor-sobre-filmcast{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .contenedor-sobre-filmcast img {
+        width: 90%;
+    }   
+
+    .contenedor-sobre-filmcast .contenido-textos {
+        width: 90%;
+    }
+
+    .contenedor-sobre-filmcast .titulo {
+        position: center;
+        font-size: 30px;
+        font-weight: bold;
+        color: #000000;
+        margin: 20px 0 0 0;
+    }
+    
+    .contenedor-sobre-filmcast .subtitulo {
+        position: center;
+        font-size: 35px;    
+        font-weight: bold;
+        color: #000000;  
+        text-align: center; 
+        width: 100%; 
+    }
+
+    .contenedor-sobre-filmcast {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /*Galeria*/
+
+    .imagen-como {
+        width: 45%;
+    }
+
+    /*Actores*/
+
+    .cards {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .cards .card {
+        width: 60%;
+    }
+
+    .cards .card:first-child {
+        margin-bottom: 30px;
+    }
+
+    .cards .card:nth-child(2) {
+        margin-bottom: 30px;
+    }
+
+    /*contactanos*/
+    .contactanos .contenedor {
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .contactanos .contacto-ind {
+        width: 100%;
+        text-align: center;
+    }
+
+    .contactanos .contacto-ind img {
+        width: 90%;
+    }
+
+    .contactanos .contenedor-formulario {
+        width: 100%;
+    }
+
+
+
+
+    
+}
+

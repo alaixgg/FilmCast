@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/Registro"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    tools:context=".ui.login.MainActivity">
+
+
+    <ImageView
+        android:id="@+id/IS_logoFilmCast"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:src="@drawable/logblanco_sf"
+        app:layout_constraintBottom_toTopOf="@id/IS__titulo_iniciar_sesion"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/IS__titulo_iniciar_sesion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:fontFamily="@font/montserrat_extrabold"
+        android:text="@string/IS_iniciar_sesion.tx"
+        android:textColor="@android:color/white"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/IS_logoFilmCast" />
+
+    <EditText
+        android:id="@+id/IS_email"
+        android:layout_width="355dp"
+        android:layout_height="60dp"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginTop="55dp"
+        android:autofillHints="@string/prompt_email"
+        android:hint="@string/IS_email.tx"
+        android:inputType="textEmailAddress"
+        android:padding="10dp"
+        android:selectAllOnFocus="true"
+        android:textColor="@android:color/white"
+        android:textColorHint="@android:color/darker_gray"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.55"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/IS__titulo_iniciar_sesion" />
+
+    <LinearLayout
+        android:id="@+id/IS_contraseña"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginTop="30dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.55"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/IS_email">
+
+        <EditText
+            android:id="@+id/IS_contraseña.tx"
+            android:layout_width="299dp"
+            android:layout_height="60dp"
+            android:layout_weight="1"
+            android:hint="@string/IS_Contraseña"
+            android:inputType="textPassword"
+            android:padding="10dp"
+            android:textColor="@android:color/white"
+            android:textColorHint="@android:color/darker_gray" />
+
+        <ImageView
+            android:id="@+id/IS_contraseña_vis"
+            android:layout_width="52dp"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/toggle_password_visibility"
+            android:padding="10dp"
+            android:src="@drawable/iconojogris" />
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/IS_Register"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:backgroundTint="#B0B0B0"
+        android:text="@string/IS_Registrarse"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/separatorOr" />
+
+    <TextView
+        android:id="@+id/separatorOr"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/IS_Or"
+        android:textColor="@android:color/white"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/IS_iniciar_sesion" />
+
+    <Button
+        android:id="@+id/IS_iniciar_sesion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="33dp"
+        android:backgroundTint="#8B0000"
+        android:text="@string/IS_iniciar_sesion.tx"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/IS_contraseña" />
+
+
+    <TextView
+        android:id="@+id/IS_terminos"
+        android:layout_width="345dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="80dp"
+        android:text="@string/IS_terminos"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/IS_Register" />
+
+    <ImageView
+        android:id="@+id/IS_or1"
+        android:layout_width="187dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginEnd="12dp"
+        app:layout_constraintEnd_toStartOf="@+id/separatorOr"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/separatorOr"
+        app:srcCompat="@drawable/linea_horizonla_gris_1px" />
+
+    <ImageView
+        android:id="@+id/IS_or2"
+        android:layout_width="187dp"
+        android:layout_height="24dp"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/separatorOr"
+        app:layout_constraintTop_toTopOf="@+id/separatorOr"
+        app:srcCompat="@drawable/linea_horizonla_gris_1px" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
