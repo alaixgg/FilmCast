@@ -176,8 +176,8 @@
                 app:layout_constraintTop_toBottomOf="@+id/menu_gestion_text" />
 
             <LinearLayout
-                android:layout_width="379dp"
-                android:layout_height="217dp"
+                android:layout_width="384dp"
+                android:layout_height="282dp"
                 android:layout_marginTop="20dp"
                 android:background="@color/grey"
                 android:orientation="vertical"
@@ -202,7 +202,7 @@
                     android:layout_width="139dp"
                     android:layout_height="139dp"
                     android:layout_marginTop="10dp"
-                    android:background="@color/black_claroxd" >
+                    android:background="@color/black_claroxd">
 
                     <ImageView
                         android:id="@+id/menu_proyectos_mensaje"
@@ -240,6 +240,13 @@
                         app:srcCompat="@drawable/baseline_date_range_24" />
 
                 </LinearLayout>
+
+                <Button
+                    android:id="@+id/nuv_proyecto"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/came"
+                    android:text="@string/menu_nuevo_boton" />
 
             </LinearLayout>
 

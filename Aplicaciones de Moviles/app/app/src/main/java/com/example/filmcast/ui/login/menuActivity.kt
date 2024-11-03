@@ -29,6 +29,11 @@ class menuActivity : AppCompatActivity() {
             val intent = Intent(this, GuardadosActivity::class.java)
             startActivity(intent)
         }
+        val menu_nuevo_proyecto =findViewById<Button>(R.id.nuv_proyecto)
+        menu_nuevo_proyecto.setOnClickListener{
+            val intent= Intent(this,Crea_proyecto::class.java)
+            startActivity(intent)
+        }
 
     }
 }

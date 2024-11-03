@@ -6,6 +6,7 @@ import android.widget.Button
 import android.widget.ImageView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.widget.ConstraintLayout
 import com.example.filmcast.R
 
 class GuardadosActivity : AppCompatActivity() {
@@ -14,12 +15,12 @@ class GuardadosActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_actores_lista)
         val volver= findViewById<Button>(R.id.GA_boton_volver)
-        volver.setOnClickListener{
-            val intent = Intent(this, menuActivity::class.java)
-            startActivity(intent)
-        }
+        volver.setOnClickListener {
+                finish()
+            }
+
         val buscar= findViewById<Button>(R.id.menu_button_buscar)
-        volver.setOnClickListener{
+        buscar.setOnClickListener{
             val intent = Intent(this, ActivityBuscar::class.java)
             startActivity(intent)
         }
@@ -34,6 +35,10 @@ class GuardadosActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        val myButton = findViewById<ConstraintLayout>(R.id.Ga_perfil_actor)
+        myButton.setOnClickListener {
+            val intent = Intent(this, ActorActivity::class.java)
+            startActivity(intent)
 
 
 
@@ -42,3 +47,4 @@ class GuardadosActivity : AppCompatActivity() {
 
 
     }
+}

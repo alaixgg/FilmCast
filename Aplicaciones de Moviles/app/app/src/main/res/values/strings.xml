@@ -42,6 +42,7 @@
 
     <!-- Menu S2 Proyectos -->
     <string name="menu_proyectos">"Tus Proyectos"</string>
+    <string name="menu_nuevo_boton">Crea un nuevo proyecto</string>
 
     <!-- Estos datos deberian salir del dataset hp (harry potter) -->
     <string name="pr1_titulo">"Casa embrujada"</string>
@@ -94,7 +95,7 @@
     <string name="Bu_filmico">Genero Filmico</string>
     <string name="Bu_salario">Salario</string>
     <string name="Bu_educativo">Educacion</string>
-    <string name="Bu_año_act">Años Actividad</string>
+    <string name="Bu_año_act">Años act</string>
     <string name="Bu_nacionalidad">Nacionalidad</string>
     <string name="Bu_premios">Premios</string>
     <string name="Bu_redes_menciones">Menciones</string>
@@ -276,6 +277,7 @@
     <string name="Pro_seleccionar_actores">Seleccionar Actores</string>
     <string name="Pro_seleccionar_actores_boton">Agregar Actores</string>
     <string name="Pro_guardar_proyecto_boton">Guardar Proyecto</string>
+    <string name="Pro_agrega_actor">Agrega a los actores gaurdados para tu proyecto</string>
 
 //pantalla proyectos
     <string name="Pr_Titulo">Tu Proyecto</string>

@@ -7,6 +7,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.Body
 import retrofit2.http.POST
 
+// Data class para la selección de actor
 data class SeleccionData(
     val edad: String,
     val salario: String,
@@ -18,12 +19,8 @@ data class SeleccionData(
     val menciones: String,
     val tamañoPagina: String
 )
-interface ApiService {
-    @POST("ruta_endpoint")
-    fun enviarSeleccion(@Body data: SeleccionData): Call<Void>
-}
 
-
+// Data class para la creación de proyectos
 data class Proyecto(
     val nombre: String,
     val descripcion: String,
@@ -32,12 +29,8 @@ data class Proyecto(
     val fechaFin: String,
     val presupuesto: Double
 )
-interface enviarProyecto {
-    @POST("ruta_endpoint")
-    fun enviarSeleccion(@Body data: Proyecto): Call<Void>
-}
 
-
+// Data class para el registro de usuario
 data class RegistroRequest(
     val nombre: String,
     val clave: String,
@@ -46,15 +39,41 @@ data class RegistroRequest(
     val telefono: String = "",
     val email: String = ""
 )
-interface RegistroApiService {
+
+// Data class para guardar perfil
+data class PerfilRequest(
+    val nombre: String,
+    val descripcion: String,
+    val telefono: String,
+    val nacionalidad: String,
+    val email: String
+)
+
+// Interfaz principal de la API
+interface ApiService {
+
+    // Endpoint para buscar actor
+    @POST("ruta_endpoint_seleccion") // Cambia esta ruta
+    fun enviarSeleccion(@Body data: SeleccionData): Call<Void>
+
+    // Endpoint para crear proyecto
+    @POST("ruta_endpoint_proyecto") // Cambia esta ruta
+    fun enviarProyecto(@Body proyecto: Proyecto): Call<Void>
+
+    // Endpoint para registro
     @POST("/registro")
     suspend fun registrarUsuario(@Body request: RegistroRequest): Response<Void>
+
+    // Endpoint para guardar perfil
+    @POST("ruta/de/la/api") // Cambia esta ruta
+    fun guardarPerfil(@Body perfil: PerfilRequest): Call<Void>
 }
 
+// Objeto de instancia de Retrofit
 object RetrofitInstance {
     private val retrofit by lazy {
         Retrofit.Builder()
-            .baseUrl("https://db.cuspide.club/registro")
+            .baseUrl("https://db.cuspide.club/") // Cambia la URL base según tu configuración
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }
@@ -63,5 +82,3 @@ object RetrofitInstance {
         retrofit.create(ApiService::class.java)
     }
 }
-
-

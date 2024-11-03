@@ -49,20 +49,10 @@
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/baseline_person_outline_24" />
 
-        <ImageView
-            android:id="@+id/PA_mensaje"
-            android:layout_width="41dp"
-            android:layout_height="43dp"
-            android:layout_marginTop="100dp"
-            android:layout_marginEnd="32dp"
-
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/mensaje" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="392dp"
-            android:layout_height="583dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="7dp"
             android:layout_marginTop="200dp"
             android:layout_marginEnd="7dp"

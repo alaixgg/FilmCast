@@ -9,7 +9,6 @@
     android:background="@color/black"
     tools:context=".ui.login.Crea_proyecto">
 
-
     <TextView
         android:id="@+id/Pro_titulo"
         android:layout_width="wrap_content"
@@ -33,13 +32,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-
     <ImageView
         android:id="@+id/BU_perfil"
         android:layout_width="49dp"
         android:layout_height="40dp"
         android:layout_marginTop="32dp"
-
         android:layout_marginEnd="4dp"
         app:layout_constraintEnd_toStartOf="@+id/Bu_menu"
         app:layout_constraintTop_toTopOf="parent"
@@ -52,12 +49,11 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="50dp"
         android:fontFamily="@font/montserrat_medium"
+        android:textSize="16dp"
         android:text="@string/Pro_nombre_proyecto"
         android:textColor="@color/white"
-        app:layout_constraintMarginStart="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Pro_titulo" />
-
 
     <EditText
         android:id="@+id/Pro_nombre_proyecto"
@@ -69,11 +65,8 @@
         android:inputType="text"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintMarginEnd="16dp"
-        app:layout_constraintMarginStart="16dp"
         app:layout_constraintStart_toStartOf="@+id/Pro_nombre"
         app:layout_constraintTop_toBottomOf="@id/Pro_nombre" />
-
 
     <TextView
         android:id="@+id/Pro_descripcion"
@@ -82,8 +75,7 @@
         android:fontFamily="@font/montserrat_medium"
         android:text="@string/Pro_descripcion_proyecto"
         android:textColor="@color/white"
-        app:layout_constraintMarginStart="16dp"
-        app:layout_constraintMarginTop="16dp"
+        android:textSize="16dp"
         app:layout_constraintStart_toStartOf="@+id/Pro_nombre"
         app:layout_constraintTop_toBottomOf="@id/Pro_nombre_proyecto" />
 
@@ -97,11 +89,8 @@
         android:inputType="textMultiLine"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintMarginEnd="16dp"
-        app:layout_constraintMarginStart="16dp"
         app:layout_constraintStart_toStartOf="@+id/Pro_nombre_proyecto"
         app:layout_constraintTop_toBottomOf="@id/Pro_descripcion" />
-
 
     <TextView
         android:id="@+id/Pro_genero"
@@ -110,8 +99,7 @@
         android:fontFamily="@font/montserrat_medium"
         android:text="@string/Pro_genero_cinematografico"
         android:textColor="@color/white"
-        app:layout_constraintMarginStart="16dp"
-        app:layout_constraintMarginTop="16dp"
+        android:textSize="16dp"
         app:layout_constraintStart_toStartOf="@+id/Pro_nombre"
         app:layout_constraintTop_toBottomOf="@id/Pro_descripcion_proyecto" />
 
@@ -125,11 +113,8 @@
         android:inputType="text"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintMarginEnd="16dp"
-        app:layout_constraintMarginStart="16dp"
         app:layout_constraintStart_toStartOf="@+id/Pro_nombre"
         app:layout_constraintTop_toBottomOf="@id/Pro_genero" />
-
 
     <TextView
         android:id="@+id/Pro_fecha_inicio_label"
@@ -138,10 +123,9 @@
         android:fontFamily="@font/montserrat_medium"
         android:text="@string/Pro_fecha_inicio"
         android:textColor="@color/white"
-        app:layout_constraintMarginStart="16dp"
-        app:layout_constraintMarginTop="16dp"
-        app:layout_constraintTop_toBottomOf="@id/Pro_genero_cinematografico"
-        tools:layout_editor_absoluteX="16dp" />
+        android:textSize="16dp"
+        app:layout_constraintStart_toStartOf="@+id/Pro_nombre"
+        app:layout_constraintTop_toBottomOf="@id/Pro_genero_cinematografico" />
 
     <EditText
         android:id="@+id/Pro_fecha_inicio"
@@ -153,11 +137,8 @@
         android:inputType="date"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintMarginEnd="16dp"
-        app:layout_constraintMarginStart="16dp"
         app:layout_constraintStart_toStartOf="@+id/Pro_nombre"
         app:layout_constraintTop_toBottomOf="@id/Pro_fecha_inicio_label" />
-
 
     <TextView
         android:id="@+id/Pro_fecha_fin_label"
@@ -166,25 +147,22 @@
         android:fontFamily="@font/montserrat_medium"
         android:text="@string/Pro_fecha_fin"
         android:textColor="@color/white"
-        app:layout_constraintMarginStart="16dp"
-        app:layout_constraintMarginTop="16dp"
-        app:layout_constraintTop_toBottomOf="@id/Pro_fecha_inicio"
-        tools:layout_editor_absoluteX="16dp" />
+        android:textSize="16dp"
+        app:layout_constraintStart_toStartOf="@+id/Pro_nombre"
+        app:layout_constraintTop_toBottomOf="@id/Pro_fecha_inicio" />
 
     <EditText
         android:id="@+id/Pro_fecha_fin"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
         android:fontFamily="@font/montserrat_medium"
         android:hint="@string/Pro_fecha_fin"
         android:inputType="date"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="@+id/Pro_fecha_inicio"
-        app:layout_constraintMarginEnd="16dp"
-        app:layout_constraintMarginStart="16dp"
         app:layout_constraintStart_toStartOf="@+id/Pro_nombre"
         app:layout_constraintTop_toBottomOf="@id/Pro_fecha_fin_label" />
-
 
     <TextView
         android:id="@+id/Pro_presupuesto_label"
@@ -193,10 +171,9 @@
         android:fontFamily="@font/montserrat_medium"
         android:text="@string/Pro_presupuesto"
         android:textColor="@color/white"
-        app:layout_constraintMarginStart="16dp"
-        app:layout_constraintMarginTop="16dp"
-        app:layout_constraintTop_toBottomOf="@id/Pro_fecha_fin"
-        tools:layout_editor_absoluteX="16dp" />
+        android:textSize="16dp"
+        app:layout_constraintStart_toStartOf="@+id/Pro_nombre"
+        app:layout_constraintTop_toBottomOf="@id/Pro_fecha_fin" />
 
     <EditText
         android:id="@+id/Pro_presupuesto"
@@ -208,22 +185,43 @@
         android:inputType="numberDecimal"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintMarginEnd="16dp"
-        app:layout_constraintMarginStart="16dp"
         app:layout_constraintStart_toStartOf="@+id/Pro_fecha_inicio_label"
         app:layout_constraintTop_toBottomOf="@id/Pro_presupuesto_label" />
 
+    <TextView
+        android:id="@+id/Pro_agrega_actor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/black"
+        android:fontFamily="@font/montserrat_medium"
+        android:gravity="center"
+        android:text="@string/Pro_agrega_actor"
+        android:textColor="@color/white"
+        android:textFontWeight="700"
+        android:textSize="16dp"
+        app:layout_constraintStart_toStartOf="@+id/Pro_presupuesto_label"
+        app:layout_constraintTop_toBottomOf="@+id/Pro_presupuesto" />
+
+    <Spinner
+        android:id="@+id/BU_spinner_educacion"
+        android:layout_width="377dp"
+        android:layout_height="42dp"
+        android:background="@color/white"
+        android:spinnerMode="dropdown"
+        app:layout_constraintEnd_toEndOf="@+id/Pro_presupuesto"
+        app:layout_constraintStart_toStartOf="@+id/Pro_agrega_actor"
+        app:layout_constraintTop_toBottomOf="@+id/Pro_agrega_actor" />
 
     <Button
         android:id="@+id/Pro_guardar_proyecto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="30dp"
         android:backgroundTint="@color/came"
         android:fontFamily="@font/montserrat_medium"
         android:text="Guardar Proyecto"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Pro_presupuesto" />
+        app:layout_constraintTop_toBottomOf="@+id/BU_spinner_educacion" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
