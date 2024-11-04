@@ -22,12 +22,12 @@ class PerfilActivity : AppCompatActivity() {
         }
         val cerrarSesion  = findViewById<Button>(R.id.pe_cerrarSesiom)
         cerrarSesion.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
         }
         val menu = findViewById<ImageView>(R.id.Pe_menu)
         menu.setOnClickListener {
-            val intent = Intent(this, menuActivity::class.java)
+            val intent = Intent(this, MenuActivity::class.java)
             startActivity(intent)
         }
 
