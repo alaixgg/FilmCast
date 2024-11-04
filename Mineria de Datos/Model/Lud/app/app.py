@@ -196,8 +196,6 @@ def find_closest_actors():
     # Initialize the KNN model to find 5 neighbors using weighted Euclidean distance
     knn = joblib.load('knn_model.pkl')
 
-    # Fit the KNN model to the scaled (weighted) actor data
-    knn.fit(scaled_actor_data)
 
     # Find the 5 nearest neighbors based on the weighted query point
     distances, indices = knn.kneighbors(normalized_query_point)
