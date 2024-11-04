@@ -19,7 +19,6 @@ TODO:
 import os
 from flask import Flask, request, jsonify
 import jwt
-import joblib
 import bcrypt
 import datetime
 from functools import wraps
@@ -28,6 +27,7 @@ from flask_limiter.util import get_remote_address
 import pymysql.cursors
 from redis import Redis
 import time
+import joblib
 import logging
 from sklearn.neighbors import NearestNeighbors
 from sklearn.preprocessing import MinMaxScaler
@@ -195,9 +195,6 @@ def find_closest_actors():
 
     # Initialize the KNN model to find 5 neighbors using weighted Euclidean distance
     knn = joblib.load('knn_model.pkl')
-
-    # Fit the KNN model to the scaled (weighted) actor data
-    knn.fit(scaled_actor_data)
 
     # Find the 5 nearest neighbors based on the weighted query point
     distances, indices = knn.kneighbors(normalized_query_point)
