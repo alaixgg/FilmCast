@@ -81,14 +81,14 @@ def token_required(f):
     def decorated(*args, **kwargs):
         token = request.headers.get("Authorization")
         if not token:
-            return jsonify({"error": "Token is missing!"}), 401
+            return jsonify({"error": "Falta un token"}), 401
         try:
             payload = jwt.decode(token, app.config['SECRET_KEY'], algorithms=["HS256"])
             request.user_id = payload['user_id']  # Attach user_id to request for access control
         except jwt.ExpiredSignatureError:
-            return jsonify({"error": "Token expired!"}), 401
+            return jsonify({"error": "Token expirado!"}), 401
         except jwt.InvalidTokenError:
-            return jsonify({"error": "Invalid token!"}), 401
+            return jsonify({"error": "Token invalido!"}), 401
         return f(*args, **kwargs)
     return decorated
 
@@ -157,8 +157,10 @@ def login():
         # Check if user exists and verify password
         if user and bcrypt.checkpw(contrasena.encode('utf-8'), user[1].encode('utf-8')):  # Change user[0] to user[1]
             token = generate_token(user_id=user[0])  # user[0] is the ID
+            logging.info(f"Ha entrado el usuario {usuario}")
             return jsonify({"token": token}), 200
         else:
+            logging.error(f"Error: Credenciales invalidas para usuario {usuario}")
             return jsonify({"error": "Credenciales inválidas"}), 401
     
     except Exception as e:
@@ -177,7 +179,7 @@ def get_data():
     return jsonify({"data": "Here is your protected data!"}), 200
 
 # editar perfil
-@app.route('/editar_perfil', methods=['GET'])
+@app.route('/editar_perfil', methods=['POST'])
 @token_required
 def edit_pefil():
     data = request.get_json()
@@ -194,24 +196,14 @@ def edit_pefil():
         with connection.cursor() as cursor:
             # Fetch user details by user ID
             cursor.execute("""
-                SELECT id, email, telefono, descripcion, nacionalidad 
-                FROM usuarios 
+                UPDATE usuarios 
+                SET telefono = %s, email = %s, descripcion = %s, Pais = %s 
                 WHERE id = %s
-            """, (request.user_id,))
-            user = cursor.fetchone()
-        
-        # Check if user data is retrieved
-        if user:
-            user_data = {
-                "id": user[0],
-                "email": user[1],
-                "telefono": user[2],
-                "descripcion": user[3],
-                "nacionalidad": user[4]
-            }
-            return jsonify(user_data), 200
-        else:
-            return jsonify({"error": "Usuario no encontrado"}), 404
+            """, (telefono, email, descripcion, Pais, request.user_id, ))
+            connection.commit()
+            connection.close()
+            
+            jsonify({"message": "Usuario registrado!"}), 201
     
     except Exception as e:
         logging.error(f"Error en la base de datos al obtener el perfil: {e}")
@@ -246,8 +238,10 @@ def get_pefil():
                 "descripcion": user[3],
                 "nacionalidad": user[4]
             }
+            logging.info(f"Se envía información de usuario {user[0]}")
             return jsonify(user_data), 200
         else:
+            logging.error(f"Error: Usuario {user[0]} no encontrado")
             return jsonify({"error": "Usuario no encontrado"}), 404
     
     except Exception as e:
