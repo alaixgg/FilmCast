@@ -10,12 +10,16 @@ import retrofit2.http.POST
 // Data class para la selección de actor
 data class SeleccionData(
     val edad: String,
+    val generoCine: String,
     val salario: String,
+    val educacion :String,
     val aniosAct: String,
     val likes: String,
+    val genero: String,
     val belleza: String,
     val seguidores: String,
     val premios: String,
+    val nacionalidad: String,
     val menciones: String,
     val tamañoPagina: String
 )
