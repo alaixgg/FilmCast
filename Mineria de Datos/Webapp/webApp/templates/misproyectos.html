@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>FilmCast</title>
     <link rel="stylesheet" href="../static/normaze.css">
+    <link rel="stylesheet" href="../static/estilocreapro.css">
 </head>
 <body>
     <header>
@@ -48,7 +49,7 @@
                     <li><a href="{{ url_for('menu') }}">Inicio</a></li>
                     <li><a href="{{ url_for('busqueda_filtro') }}">Buscar</a></li>
                     <li><a href="{{ url_for('misproyectos') }}">Mis Proyectos</a></li>
-                    <li><a href="#">Más</a></li>
+                    <li><a href="{{ url_for('misfavoritos') }}">Mis Favoritos</a></li>
                 </ul>
             </nav>
         </div>
@@ -58,31 +59,37 @@
     <main class="main-content">
         <section class="container top-actores">
             <h1 class="heading-1">Mis Proyectos</h1>
+            <a href="{{ url_for('crear_proyecto') }}" class="btn btn-crear_proyecto">Crear Proyecto</a>
+
             <div class="container-actores">
                 {% if proyectos %}
                     {% for proyecto in proyectos %}
                     <div class="card-product">
-                        <a href="{{ url_for('info_proyecto', proyecto_id=proyecto[0]) }}">  <!-- Enlace a info_proyecto -->
+                        <form action="{{ url_for('eliminar_proyecto', proyecto_id=proyecto[0]) }}" method="POST" style="display:inline;">
+                            <button type="submit" class="btn btn-elimina" onclick="return confirm('¿Estás seguro de que deseas eliminar este proyecto?');">Eliminar</button>
+                        </form>
+                        <a href="{{ url_for('info_proyecto', proyecto_id=proyecto[0]) }}">  
                             <div class="container-img">
-                                <img src="https://i.pinimg.com/564x/e4/aa/56/e4aa56c9a7f46e10fa4d334067b34f3d.jpg" />
+                                <img src="https://i.pinimg.com/564x/e4/aa/56/e4aa56c9a7f46e10fa4d334067b34f3d.jpg" alt="Imagen del proyecto" />
                                 <span class="discount">{{ proyecto[4] }}</span> 
-                                <div class="button-group">
-                                    <span>
-                                        <i class="fa-regular fa-eye"></i>
-                                    </span>
-                                    <span>
-                                        <i class="fa-regular fa-heart"></i>
-                                    </span>
-                                    <span>
-                                        <i class="fa-solid fa-code-compare"></i>
-                                    </span>
-                                </div>
                             </div>
                             <div class="content-card-product">
                                 <h3>{{ proyecto[1] }}</h3>  <!-- Título del proyecto -->
                                 <h2>{{ proyecto[3] }}</h2>  <!-- Género del proyecto -->
                             </div>
                         </a>
+                        <div class="button-group">
+                            <span>
+                                <i class="fa-regular fa-eye"></i>
+                            </span>
+                            <span>
+                                <i class="fa-regular fa-heart"></i>
+                            </span>
+                            <span>
+                                <i class="fa-solid fa-code-compare"></i>
+                            </span>
+                            
+                        </div>
                     </div>
                     {% endfor %}
                 {% else %}
@@ -92,6 +99,7 @@
             
         </section>
     </main>
+    
 
 
     <footer class="footer">
@@ -104,27 +112,71 @@
                         <li>Email: FilmCast@gmail.com</li>
                         <li>Cra. 4 #22-61, Bogotá</li>
                     </ul>
+                    <div class="social-icons">
+                        <span class="facebook">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </span>
+                        <span class="twitter">
+                            <i class="fa-brands fa-twitter"></i>
+                        </span>
+                        <span class="youtube">
+                            <i class="fa-brands fa-youtube"></i>
+                        </span>
+                        <span class="pinterest">
+                            <i class="fa-brands fa-pinterest-p"></i>
+                        </span>
+                        <span class="instagram">
+                            <i class="fa-brands fa-instagram"></i>
+                        </span>
+                    </div>
                 </div>
+
                 <div class="information">
                     <p class="title-footer">Información</p>
                     <ul>
-                        <li><a href="#">Políticas de Privacidad</a></li>
+                        <li><a href="#">Politicas de Privacidad</a></li>
                         <li><a href="#">Términos y condiciones</a></li>
-                        <li><a href="#">Contáctanos</a></li>
+                        <li><a href="#">Contactános</a></li>
                     </ul>
                 </div>
+
+                <div class="my-account">
+                    <p class="title-footer">Mi cuenta</p>
+
+                    <ul>
+                        <li><a href="#">Mi cuenta</a></li>
+                        <li><a href="#">Historial</a></li>
+                        <li><a href="#">Lista de proyectos</a></li>
+                    </ul>
+                </div>
+
+                <div class="newsletter">
+                    <p class="title-footer">¿Tienes problemas o preguntas?</p>
+
+                    <div class="content">
+                        <p>
+                            Si tienes alguna dificultad o necesitas ayuda con nuestro servicio, no dudes en contactarnos. Nuestro equipo está aquí para asistirte. 
+                        </p>
+                        <input type="text" placeholder="Ingresa la inconformidad aqui...">
+                        <button>Enviar</button>
+                    </div>
+                </div>
             </div>
+
             <div class="copyright">
-                <p>&copy; FilmCast | Minería de datos</p>
+                <p>
+                    &copy; FilmCast | Mineria de datos 
+                </p>
+                
             </div>
         </div>
     </footer>
-
-
-    <script src="https://kit.fontawesome.com/81581fb069.js" crossorigin="anonymous"></script>
+    <script
+        src="https://kit.fontawesome.com/81581fb069.js"
+        crossorigin="anonymous"
+    ></script>
 </body>
 </html>
-
 
 
 

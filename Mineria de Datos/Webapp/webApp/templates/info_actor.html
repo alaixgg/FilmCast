@@ -52,11 +52,12 @@
                     <li><a href="{{ url_for('menu') }}">Inicio</a></li>
                     <li><a href="{{ url_for('busqueda_filtro') }}">Buscar</a></li>
                     <li><a href="{{ url_for('misproyectos') }}">Mis Proyectos</a></li>
-                    <li><a href="#">Más</a></li>
+                    <li><a href="{{ url_for('misfavoritos') }}">Mis Favoritos</a></li>
                 </ul>
             </nav>
         </div>
     </header>
+
     <section class="seccion-perfil-usuario">
         <div class="perfil-usuario-header">
             <div class="perfil-usuario-portada">
@@ -73,7 +74,7 @@
             <div class="perfil-usuario-footer">
                 <ul class="lista-datos">
                     <li><i class="fa-solid fa-user"></i> Edad: {{ actor[2] }}</li>
-                    <li><i class="icono fas fa-map-marker-alt"></i> Nacionalidad: {{ actor[4] }}</li>
+                    <li><i class="icono fas fa-map-marker-alt"></i>Nacionalidad: {{ actor[4] }}</li>
                     <li><i class="fa-solid fa-venus-mars"></i> Genero: {{ actor[3] }}</li> 
                     <li><i class="fa-solid fa-film"></i> Genero especializado: {{ actor[6] }}</li>
                     <li><i class="fa-solid fa-dollar-sign"></i> Sueldo: {{ actor[15] }}</li>
@@ -84,18 +85,35 @@
                     <li><i class="icono fas fa-calendar-alt"></i> Años Activo: {{ actor[5] }}</li>
                     <li><i class="fa-solid fa-school"></i> Educación: {{ actor[9] }}</li>
                     <li><i class="fa-solid fa-award"></i> Premios Ganados: {{ actor[10] }}</li>
-                    <li><i class="icono fas fa-share-alt"></i> Media de Menciones: {{ actor[11] }}</li>
+                    <li><i class="icono fas fa-share-alt"></i>Media de Menciones: {{ actor[11] }}</li>
                     <li><i class="fa-brands fa-instagram"></i> Media de Followers: {{ actor[12] }}</li>
                     <li><i class="fa-solid fa-heart"></i> Media de Likes: {{ actor[13] }}</li>
                     <li><i class="fa-solid fa-globe"></i> Tamaño de redes: {{ actor[14] }}</li>
 
                 </ul>
-                <a href="{{ url_for('menu') }}" class="btn btn-editar">Volver</a>
+                <a href="javascript:history.back()" class="btn btn-editar">Volver</a>
                 <a href="{{ url_for('mensajes') }}" class="btn btn-cerrar">Contactar</a> 
+                <form method="POST" action="{{ url_for('guardar_favorito', actor_id=actor[0]) }}">
+                    <button type="submit" class="btn btn-guardar">Guardar</button>
+                </form>
+                
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                    <ul class="flashes">
+                        {% for category, message in messages %}
+                        <li class="{{ category }}">{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+                {% endwith %}
+                          
+
             </div>
             
         </div>
     </section>
+    <section class="fotter">
+    </section>   
     
         
 </body>

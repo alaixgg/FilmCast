@@ -6,9 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FilmCast</title>
     <link rel="stylesheet" href="../static/stylemenu.css"> 
-    <link rel="stylesheet" href="../static/estiloperfil.css"> 
+    <link rel="stylesheet" href="../static/estiloinfopro.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" /> 
+
 </head>
 
 <body>
@@ -50,7 +52,7 @@
                     <li><a href="{{ url_for('menu') }}">Inicio</a></li>
                     <li><a href="{{ url_for('busqueda_filtro') }}">Buscar</a></li>
                     <li><a href="{{ url_for('misproyectos') }}">Mis Proyectos</a></li>
-                    <li><a href="#">Más</a></li>
+                    <li><a href="{{ url_for('misfavoritos') }}">Mis Favoritos</a></li>
                 </ul>
             </nav>
         </div>
@@ -66,23 +68,23 @@
         <div class="perfil-usuario-body">
             <div class="perfil-usuario-bio">
                 <h3 class="titulo">{{ proyecto[1] }}</h3>
+                <h1> {{ proyecto[2] }}</h1>
             </div>
             <div class="perfil-usuario-footer">
                 <ul class="lista-datos">
-                <h1>{{ proyecto[2] }}</h1>
-                <h2>{{ proyecto[3] }}</h2> 
-                <h2>{{ proyecto[4] }}</h2>
-                <h2>{{ proyecto[5] }}</h2>
-                <p>{{ proyecto[6] }}</p> 
+                <h2>Genero: {{ proyecto[3] }}</h2> 
+                <h2>Fecha de inicio: {{ proyecto[4] }}</h2>
+                <h2>Fecha de fin: {{ proyecto[5] }}</h2>
+                <h2>Presupuesto: {{ proyecto[6] }}</h2> 
 
                 <h3>Actores relacionados:</h3>
                 <ul>
                     {% for actor in actores %}
-                        <li>{{ actor[1] }} ({{ actor[3] }})</li>  <!-- Nombre y género del actor -->
+                        <li><a href="{{ url_for('info_actor', actor_id=actor[0]) }}">{{ actor[1] }} {{ actor[3] }}</a></li>
                     {% endfor %}
                 </ul>
 
-                <a href="{{ url_for('misproyectos') }}" class="btn btn-cerrar">Volver</a>  <!-- Botón para volver -->
+                <a href="{{ url_for('misproyectos') }}" class="btn btn-volver">Volver</a>
             </div>
     </section>
 

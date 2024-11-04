@@ -1,0 +1,44 @@
+.btn-crear_proyecto {
+    
+    margin-top: 0px;
+	margin-bottom: 7px;
+    text-decoration: none;
+    color: #000000;
+    background-color: #ffffff;
+    
+    padding: 10px 10px;
+    text-transform: uppercase;
+    border-radius: 3rem;
+    font-size: 12px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    margin-left: 0px;
+    border: none;
+}
+.btn-crear_proyecto:hover {
+    background-color: #525c4f;
+    color: #ffffff;
+
+}
+.btn-elimina {
+    margin-top: 0px;
+	margin-bottom: 7px;
+    text-decoration: none;
+    color: #000000;
+    background-color: #ffffff;
+    
+    padding: 10px 10px;
+    text-transform: uppercase;
+    border-radius: 3rem;
+    font-size: 12px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    margin-left: 0px;
+    border: none;
+}
+.btn-elimina:hover {
+    background-color: #d84141;
+    color: #ffffff;
+
+}
+
