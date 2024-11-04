@@ -27,5 +27,6 @@ class RegistroActivity : AppCompatActivity() {
 
         }
 
+        //comentario para probar git
     }
 }
