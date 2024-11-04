@@ -25,4 +25,3 @@ def get_db_connection(host=None, user=None, password=None, database=None):
             logging.warning(f"Error!!!!! -> {e}")
             logging.warning("Database connection failed, retrying in 5 seconds...")
             time.sleep(5)
-
