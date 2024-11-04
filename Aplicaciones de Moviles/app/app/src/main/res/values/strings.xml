@@ -19,14 +19,6 @@
     <string name="toggle_password_visibility"> </string>
 
 
-    <!--Iniciar sesion-->
-    <string name="IS_iniciar_sesion.tx">Iniciar Sesion</string>
-    <string name="IS_email.tx">Email</string>
-    <string name="IS_Contraseña">Contraseña</string>
-    <string name="IS_Registrarse">Registrarse</string>
-    <string name="IS_Or">ó</string>
-    <string name="IS_terminos">By continuing you are agreed the terms and conditions and privacy policy.</string>
-
     <!-- Menu -->
     <string name="menu_titulo">"Menú"</string>
     <string name="menu_titulo2">"¿Que quieres hacer hoy?"</string>
@@ -107,23 +99,25 @@
 
 
     <!-- Recursos de activity_guardados.xml -->
-    <string name="GA_boton_buscar">Buscar</string>
-    <string name="GA_boton_volver">Volver</string>
-    <string name="GA_titulo">Actores Guardados</string>
-    <string name="GA1_Nombre">Nombre</string>
-    <string name="GA1_Genero">Género</string>
-    <string name="GA1_precio">Precio</string>
-    <string name="GA1_cineGenero">Género Cine</string>
+        <string name="GA_boton_buscar">Buscar</string>
+        <string name="GA_boton_volver">Volver</string>
+       <string name="GA_titulo">Título</string>
+        <string name="GA1_Nombre">Nombre</string>
+        <string name="GA1_Genero">Género</string>
+        <string name="GA1_precio">Precio</string>
+        <string name="GA1_cineGenero">Género Cine</string>
 
-    <!-- Recursos de activity_perfil.xml -->
-    <string name="Pe_titulo">Perfil</string>
-    <string name="Pe_Nombre">Nombre</string>
-    <string name="Pe_email">Email</string>
-    <string name="Pe_telefono">Teléfono</string>
-    <string name="Pe_estellas">Estrellas</string>
-    <string name="Pe_genero">Género</string>
-    <string name="Pe_rol">Rol</string>
-    <string name="Pe_cerrar_sesion">Cerrar sesión</string>
+        <!-- Recursos de activity_perfil.xml -->
+        <string name="Pe_titulo">Perfil</string>
+        <string name="Pe_Nombre">Nombre</string>
+        <string name="Pe_email">Email</string>
+        <string name="Pe_telefono">Teléfono</string>
+        <string name="Pe_estellas">Estrellas</string>
+        <string name="Pe_genero">Género</string>
+        <string name="Pe_rol">Rol</string>
+        <string name="Pe_cerrar_sesion">Cerrar sesión</string>
+
+
 
 
     <string-array name="Bu_edad">
@@ -242,6 +236,9 @@
     </string-array>
 
 
+
+
+
     <string name="lorem_ipsum">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in scelerisque sem. Mauris
         volutpat, dolor id interdum ullamcorper, risus dolor egestas lectus, sit amet mattis purus
@@ -288,5 +285,4 @@
     <string name="tv_terms_conditions1">Al continuar, usted acepta los términos y condiciones, así como la política de privacidad.</string>
     <string name="hint_email">email</string>
     <string name="btn_login">Iniciar Sesion</string>
-    <string name="hint_confirm_password">Confirmar Contraseña</string>
 </resources>

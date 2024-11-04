@@ -36,9 +36,16 @@ android {
     buildFeatures {
         viewBinding = true
     }
+
+    viewBinding {
+        enable = true
+    }
+
+
 }
 
 dependencies {
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
@@ -50,10 +57,6 @@ dependencies {
     implementation(libs.androidx.lifecycle.livedata.ktx)
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
     testImplementation(libs.junit)
-    implementation("com.squareup.okhttp3:okhttp:4.11.0")
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 }
-
-// Aplica el plugin de Google Services después del bloque de dependencias
-apply(plugin = "com.google.gms.google-services")

@@ -22,14 +22,13 @@
         android:id="@+id/Pe_titulo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
         android:layout_marginTop="28dp"
         android:fontFamily="@font/montserrat_extrabold"
         android:text="@string/Pe_titulo"
         android:textColor="@color/white"
         android:textSize="34sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.084"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -185,14 +184,31 @@
         android:id="@+id/pe_cerrarSesiom"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="@string/Pe_cerrar_sesion"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         android:layout_margin="17dp"
+        android:fontFamily="@font/montserrat_medium"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="16dp"
         android:backgroundTint="@color/white"
-        android:textColor="@color/black" />
+        android:text="@string/Pe_cerrar_sesion"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
+    <Button
+        android:id="@+id/pe_editar_perfil"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_medium"
+        android:layout_margin="17dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="@color/white"
+        android:text="@string/Pe_editar_perfil"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
