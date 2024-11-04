@@ -1,0 +1,56 @@
+version: '3'
+services:
+  db:
+    image: mariadb
+    container_name: db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${DB_NAME}
+      MYSQL_USER: ${DB_USER}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+    volumes:
+      - ./vol:/var/lib/mysql
+    networks:
+      - backend
+
+  api:
+    image: spanishhans/cet-mineria:db
+    container_name: api
+    environment:
+      - SECRET_KEY=${SECRET_KEY}
+      - DB_HOST=db
+      - DB_NAME=${DB_NAME}
+      - DB_USER=${DB_USER}
+      - DB_PASSWORD=${DB_PASSWORD}
+    depends_on:
+      - db
+    ports:
+      - "10301:5000"
+    networks:
+      - backend
+
+  redis:
+    image: redis:alpine
+    container_name: redis
+    networks:
+      - backend
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    container_name: phpmyadmin
+    restart: always
+    environment:
+      PMA_HOST: db
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+    ports:
+      - "10302:80"
+    depends_on:
+      - db
+    networks:
+      - backend
+
+networks:
+  backend:
+    name: back
+    driver: bridge

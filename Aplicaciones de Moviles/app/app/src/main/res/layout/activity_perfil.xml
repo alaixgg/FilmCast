@@ -87,9 +87,9 @@
             android:text="@string/Pe_email"
             android:textColor="@color/white"
             android:textSize="22sp"
-            app:layout_constraintEnd_toEndOf="@+id/Pe_rol"
-            app:layout_constraintStart_toStartOf="@+id/Pe_rol"
-            app:layout_constraintTop_toBottomOf="@+id/Pe_rol" />
+            app:layout_constraintEnd_toEndOf="@+id/Pe_descripcion"
+            app:layout_constraintStart_toStartOf="@+id/Pe_descripcion"
+            app:layout_constraintTop_toBottomOf="@+id/Pe_descripcion" />
 
         <TextView
             android:id="@+id/Pe_telefono"
@@ -100,41 +100,29 @@
             android:text="@string/Pe_telefono"
             android:textColor="@color/white"
             android:textSize="22sp"
-            app:layout_constraintEnd_toEndOf="@+id/Pe_rol"
+            app:layout_constraintEnd_toEndOf="@+id/Pe_descripcion"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/Pe_rol"
+            app:layout_constraintStart_toStartOf="@+id/Pe_descripcion"
             app:layout_constraintTop_toTopOf="@+id/imageView" />
 
         <TextView
-            android:id="@+id/Pe_estellas"
+            android:id="@+id/Pe_nacionalidad"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:fontFamily="@font/montserrat_medium"
-            android:text="@string/Pe_estellas"
+            android:text="@string/Pe_nacionalidad"
             android:textColor="@color/white"
             android:textSize="22sp"
-            app:layout_constraintEnd_toEndOf="@+id/Pe_rol"
+            app:layout_constraintEnd_toEndOf="@+id/Pe_descripcion"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/Pe_rol"
+            app:layout_constraintStart_toStartOf="@+id/Pe_descripcion"
             app:layout_constraintTop_toTopOf="@+id/imageView3" />
 
-        <TextView
-            android:id="@+id/Pe_genero"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:fontFamily="@font/montserrat_medium"
-            android:text="@string/Pe_genero"
-            android:textColor="@color/white"
-            android:textSize="22sp"
-            app:layout_constraintEnd_toEndOf="@+id/Pe_rol"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/Pe_rol"
-            app:layout_constraintTop_toTopOf="@+id/imageView5" />
+
 
         <TextView
-            android:id="@+id/Pe_rol"
+            android:id="@+id/Pe_descripcion"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -168,14 +156,7 @@
             app:layout_constraintStart_toStartOf="@+id/imageView"
             app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
-        <ImageView
-            android:id="@+id/imageView5"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginTop="10dp"
-            android:src="@drawable/genero_neutro_blanco"
-            app:layout_constraintStart_toStartOf="@+id/imageView"
-            app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+       " />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
