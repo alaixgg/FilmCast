@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-
 """
 Casting Inteligente: Algoritmos para la selección óptima de actores
 
@@ -79,11 +78,94 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
 redis_client = Redis(host='redis', port=6379)
 
+host_env = os.getenv('DB_HOST')
+user_env = os.getenv('DB_USER')
+pass_env = os.getenv('DB_PASSWORD')
+db_env = os.getenv('DB_NAME')
+
+
 limiter = Limiter(
     key_func=get_remote_address,
     storage_uri="redis://redis:6379"
 )
 limiter.init_app(app)
+
+
+def get_db_connection(host=None, user=None, password=None, database=None):
+    while True:
+        try:
+            connection = pymysql.connect(
+                host = host_env,
+                uesr = user_env,
+                password = pass_env,
+                database = db_env
+            )
+            return connection
+        except pymysql.err.OperationalError as e:
+            logging.warning(f"Error!!! -> {e}")
+            logging.warning("Database connection failed, retrying in 5 seconds...")
+            time.sleep(5)
+
+
+
+def generate_token(user_id):
+    payload = {
+        "user_id": user_id,
+        "exp": datetime.datetime.utcnow() + datetime.timedelta(minutes=30)
+    }
+    token = jwt.encode(payload, app.config['SECRET_KEY'], algorithm="HS256")
+    return token
+
+def token_required(f):
+    @wraps(f)
+    def decorated(*args, **kwargs):
+        token = request.headers.get("Authorization")
+        if not token:
+            return jsonify({"error": "Token is missing!"}), 401
+        try:
+            payload = jwt.decode(token, app.config['SECRET_KEY'], algorithms=["HS256"])
+            request.user_id = payload['user_ide']
+        except jwt.ExpiredSignatureError:
+            return jsonify({"error": "Token expired!"}), 401
+        except jwt.InvalidTokenError:
+            return jsonify({"error": "Invalid token!"}), 401
+        return f(*args, **kwargs)
+    return decorated
+
+@app.route('/login', methods=['POST'])
+@limiter.limit("5 per minute")
+def login():
+    data = request.get_json()
+    usuario = data.get('nombre')
+    contrasena = data.get('clave')
+
+    if not usuario or not contrasena:
+        return jsonify({"error": "Se requiere nombre de usuario y contraseña!"}), 400
+
+    connection = None
+    try:
+        connection = get_db_connection()
+        with connection.cursor() as cursor:
+            cursor.execute("SELECT id, clave FROM usuarios WHERE nombre = %s", (usuario,))
+            user = cursor.fetchone()
+
+        if user and bcrypt.checkpw(contrasena.encode('utf-8'), user[1].encode('utf-8')):
+            token = generate_token(user_id=user[0])
+            return jsonify({"token":token}), 200
+        else:
+            return jsonify({"error": "Credenciales invalidas"}), 401
+
+    except Exception as e:
+        logging.error(f"Error en la base de datos durante el inicio de sesión: {e}")
+        return jsonify({"error": "Problema en la base de datos"}), 500
+
+    finally:
+        if connection:
+            connection.close
+
+
+
+
 
 # KNN search function
 @app.route('/find_closest_actors', methods=['POST'])
