@@ -121,7 +121,7 @@ class LoginActivity : AppCompatActivity() {
                             Toast.makeText(this@LoginActivity, "Inicio de sesión exitoso.", Toast.LENGTH_SHORT).show()
                             val intent = Intent(this@LoginActivity, MenuActivity::class.java)
                             startActivity(intent)
-                            finish()
+                            finish()//holi
                         }
 
                         400, 401 -> {
