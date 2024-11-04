@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -14,28 +16,28 @@
         tools:targetApi="31">
 
         <activity
-            android:name=".RegistroActivity"
+            android:name=".ui.login.RegistroActivity"
             android:exported="false"
             android:theme="@style/Theme.FilmCast"
             />
         <activity
-            android:name=".PerfilActivity"
+            android:name=".ui.login.PerfilActivity"
             android:exported="false"
             android:theme="@style/Base.Theme.FilmCast"/>
         <activity
-            android:name=".ActorActivity"
+            android:name=".ui.login.ActorActivity"
             android:exported="false"
             android:theme="@style/Base.Theme.FilmCast"/>
         <activity
-            android:name=".ActivityBuscar"
+            android:name=".ui.login.ActivityBuscar"
             android:exported="false"
             android:theme="@style/Base.Theme.FilmCast"/>
         <activity
-            android:name=".MenuActivity"
+            android:name=".ui.login.MenuActivity"
             android:exported="false"
             android:theme="@style/Theme.FilmCast" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".ui.login.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

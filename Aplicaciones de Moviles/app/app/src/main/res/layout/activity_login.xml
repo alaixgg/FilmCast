@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#000000"
-    tools:context=".RegistroActivity">
+    tools:context=".ui.login.RegistroActivity">
 
 
     <ImageView
@@ -42,7 +42,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="30dp"
         android:layout_marginTop="68dp"
-        android:hint="@string/hint_email"
+        android:hint="@string/hint_username"
         android:minHeight="48dp"
         android:padding="10dp"
         android:textColor="@android:color/white"

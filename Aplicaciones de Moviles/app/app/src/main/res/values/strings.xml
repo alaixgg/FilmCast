@@ -288,4 +288,5 @@
     <string name="tv_terms_conditions1">Al continuar, usted acepta los términos y condiciones, así como la política de privacidad.</string>
     <string name="hint_email">email</string>
     <string name="btn_login">Iniciar Sesion</string>
+    <string name="hint_confirm_password">Confirmar Contraseña</string>
 </resources>

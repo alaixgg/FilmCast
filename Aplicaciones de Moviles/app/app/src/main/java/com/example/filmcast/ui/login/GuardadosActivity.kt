@@ -3,7 +3,11 @@ package com.example.filmcast.ui.login
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.filmcast.R
+import com.example.filmcast.adapter.PerfilAdapter
+import com.example.filmcast.recycler.PerfilProvider
 
 class GuardadosActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -12,4 +16,10 @@ class GuardadosActivity : AppCompatActivity() {
         setContentView(R.layout.activity_actores_lista)
 
         }
+
+    private fun initRecyclerView(){
+        val recyclerView = findViewById<RecyclerView>(R.id.recyclerProfile)
+        recyclerView.layoutManager = LinearLayoutManager(this)
+        recyclerView.adapter = PerfilAdapter(PerfilProvider.perfilList)
     }
+}

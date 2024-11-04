@@ -1,7 +1,6 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
-    id("com.google.gms.google-services")
 }
 
 android {
@@ -37,17 +36,9 @@ android {
     buildFeatures {
         viewBinding = true
     }
-
-    viewBinding {
-        enable = true
-    }
-
-
 }
 
-
 dependencies {
-
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
@@ -59,14 +50,10 @@ dependencies {
     implementation(libs.androidx.lifecycle.livedata.ktx)
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
     testImplementation(libs.junit)
-    implementation(platform("com.google.firebase:firebase-bom:33.5.1"))
-    implementation("com.google.firebase:firebase-analytics-ktx")
-    implementation("com.google.firebase:firebase-auth")
-    implementation("com.google.firebase:firebase-firestore-ktx")
     implementation("com.squareup.okhttp3:okhttp:4.11.0")
-    implementation("androidx.room:room-runtime")
-    implementation("androidx.room:room-ktx:")
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 }
 
+// Aplica el plugin de Google Services después del bloque de dependencias
+apply(plugin = "com.google.gms.google-services")
