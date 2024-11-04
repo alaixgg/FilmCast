@@ -34,7 +34,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/IS_logoFilmCast" />
-
     <EditText
         android:id="@+id/IS_email"
         android:layout_width="355dp"
@@ -90,14 +89,11 @@
         android:id="@+id/IS_Register"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
         android:backgroundTint="@color/grey"
         android:fontFamily="@font/montserrat_medium"
         android:text="@string/IS_Registrarse"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/IS_iniciar_sesion"
-        app:layout_constraintTop_toBottomOf="@+id/separatorOr"
-        app:layout_constraintVertical_bias="0.218" />
+        app:layout_constraintTop_toBottomOf="@+id/separatorOr" />
 
     <TextView
         android:id="@+id/separatorOr"
