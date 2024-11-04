@@ -83,12 +83,15 @@ def token_required(f):
         if not token:
             return jsonify({"error": "Falta un token"}), 401
         try:
+            # Ensure token format is "Bearer <token>"
+            if "Bearer " in token:
+                token = token.split(" ")[1]
             payload = jwt.decode(token, app.config['SECRET_KEY'], algorithms=["HS256"])
-            request.user_id = payload['user_id']  # Attach user_id to request for access control
+            request.user_id = payload['user_id']
         except jwt.ExpiredSignatureError:
             return jsonify({"error": "Token expirado!"}), 401
         except jwt.InvalidTokenError:
-            return jsonify({"error": "Token invalido!"}), 401
+            return jsonify({"error": "Token inválido!"}), 401
         return f(*args, **kwargs)
     return decorated
 
@@ -135,32 +138,29 @@ def register():
 
 # Login endpoint
 @app.route('/login', methods=['POST'])
-@limiter.limit("5 per minute")  # Rate limit to prevent abuse
+@limiter.limit("5 per minute")  # Rate limiting to prevent abuse
 def login():
     data = request.get_json()
     usuario = data.get('nombre')
     contrasena = data.get('clave')
     
-    # Check if required fields are provided
     if not usuario or not contrasena:
+        logging.error(f"Error: Se requiere nombre de usuario y contraseña!")
         return jsonify({"error": "Se requiere nombre de usuario y contraseña!"}), 400
 
-    # Establish database connection
     connection = None
     try:
         connection = get_db_connection()
         with connection.cursor() as cursor:
-            # Fetch user by username
             cursor.execute("SELECT id, clave FROM usuarios WHERE nombre = %s", (usuario,))
             user = cursor.fetchone()
         
-        # Check if user exists and verify password
-        if user and bcrypt.checkpw(contrasena.encode('utf-8'), user[1].encode('utf-8')):  # Change user[0] to user[1]
-            token = generate_token(user_id=user[0])  # user[0] is the ID
+        if user and bcrypt.checkpw(contrasena.encode('utf-8'), user[1].encode('utf-8')):
+            token = generate_token(user_id=user[0])
             logging.info(f"Ha entrado el usuario {usuario}")
             return jsonify({"token": token}), 200
         else:
-            logging.error(f"Error: Credenciales invalidas para usuario {usuario}")
+            logging.error(f"Error: Credenciales inválidas para usuario {usuario}")
             return jsonify({"error": "Credenciales inválidas"}), 401
     
     except Exception as e:
@@ -178,58 +178,21 @@ def get_data():
     # Only accessible by logged-in users with valid tokens
     return jsonify({"data": "Here is your protected data!"}), 200
 
-# editar perfil
-@app.route('/editar_perfil', methods=['POST'])
-@token_required
-def edit_pefil():
-    data = request.get_json()
-
-    telefono = request.form.get('telefono')
-    email = request.form.get('email')
-    descripcion = request.form.get('descripcion')
-    Pais = request.form.get('Pais')
-
-    connection = None
-    try:
-        # Establish database connection
-        connection = get_db_connection()
-        with connection.cursor() as cursor:
-            # Fetch user details by user ID
-            cursor.execute("""
-                UPDATE usuarios 
-                SET telefono = %s, email = %s, descripcion = %s, Pais = %s 
-                WHERE id = %s
-            """, (telefono, email, descripcion, Pais, request.user_id, ))
-            connection.commit()
-            connection.close()
-            
-            jsonify({"message": "Usuario registrado!"}), 201
-    
-    except Exception as e:
-        logging.error(f"Error en la base de datos al obtener el perfil: {e}")
-        return jsonify({"error": "Problema en la base de datos"}), 500
-    
-    finally:
-        if connection:
-            connection.close()
-
+# obtener perfil
 @app.route('/perfil', methods=['GET'])
 @token_required
-def get_pefil():
+def get_perfil():
     connection = None
     try:
-        # Establish database connection
         connection = get_db_connection()
         with connection.cursor() as cursor:
-            # Fetch user details by user ID
             cursor.execute("""
-                SELECT id, email, telefono, descripcion, nacionalidad 
+                SELECT id, email, telefono, descripcion, Pais 
                 FROM usuarios 
                 WHERE id = %s
             """, (request.user_id,))
             user = cursor.fetchone()
         
-        # Check if user data is retrieved
         if user:
             user_data = {
                 "id": user[0],
@@ -241,8 +204,46 @@ def get_pefil():
             logging.info(f"Se envía información de usuario {user[0]}")
             return jsonify(user_data), 200
         else:
-            logging.error(f"Error: Usuario {user[0]} no encontrado")
+            logging.error("Error: Usuario no encontrado")
             return jsonify({"error": "Usuario no encontrado"}), 404
+    
+    except Exception as e:
+        logging.error(f"Error en la base de datos al obtener el perfil: {e}")
+        return jsonify({"error": "Problema en la base de datos"}), 500
+    
+    finally:
+        if connection:
+            connection.close()
+
+# editar perfil
+@app.route('/editar_perfil', methods=['POST'])
+@token_required
+def edit_pefil():
+    data = request.get_json()
+    id_usuario=request.user_id
+    logging.info(f"Se va a editar el usuario {id_usuario}")
+
+    telefono = data.get('telefono')
+    email = data.get('email')
+    descripcion = data.get('descripcion')
+    Pais = data.get('Pais')
+
+    connection = None
+    try:
+        # Establish database connection
+        connection = get_db_connection()
+        with connection.cursor() as cursor:
+            # Fetch user details by user ID
+            cursor.execute("""
+                UPDATE usuarios 
+                SET telefono = %s, email = %s, descripcion = %s, Pais = %s 
+                WHERE id = %s
+            """, (telefono, email, descripcion, Pais, id_usuario, ))
+            connection.commit()
+            connection.close()
+            
+            logging.info(f"Se actualiza info en DB")
+            jsonify({"message": "Se actualiza info en DB"}), 201
     
     except Exception as e:
         logging.error(f"Error en la base de datos al obtener el perfil: {e}")
