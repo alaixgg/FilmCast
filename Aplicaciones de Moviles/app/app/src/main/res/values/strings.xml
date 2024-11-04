@@ -121,9 +121,9 @@
     <string name="Pe_Nombre">Nombre</string>
     <string name="Pe_email">Email</string>
     <string name="Pe_telefono">Teléfono</string>
-    <string name="Pe_estellas">Estrellas</string>
+    <string name="Pe_nacionalidad">Nacionalidad</string>
     <string name="Pe_genero">Género</string>
-    <string name="Pe_rol">Rol</string>
+    <string name="Pe_rol">Descripcion</string>
     <string name="Pe_cerrar_sesion">Cerrar sesión</string>
     <string name="Pe_editar_perfil">Editar Perfil</string>
 

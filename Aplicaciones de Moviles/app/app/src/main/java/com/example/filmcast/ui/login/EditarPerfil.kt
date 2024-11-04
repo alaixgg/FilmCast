@@ -1,54 +1,78 @@
-package com.example.filmcast.ui.login
+package com.example.filmcast
 
 import android.os.Bundle
-import android.widget.Button
-import android.widget.EditText
+import com.example.filmcast.
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.filmcast.R
-import com.example.filmcast.data.RetroFit.PerfilRequest
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
+import com.example.filmcast.data.RetroFit.RetrofitClient
+import com.example.filmcast.databinding.ActivityEditarPerfilBinding
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class EditarPerfil : AppCompatActivity() {
+    private lateinit var binding: ActivityEditarPerfilBinding
+    private val apiService = RetrofitClient.getClient().create(Perfil::class.java)
+    private val token = "Bearer " + // Aquí debes obtener el token desde el almacenamiento seguro.
 
-    private val retrofit by lazy {
-        Retrofit.Builder()
-            .baseUrl("https://api.example.com/") // Cambia esto a la URL base de tu API
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
-    }
-
-
-
-    override fun onCreate(savedInstanceState: Bundle?) {
+            override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_editar_perfil)
+        binding = ActivityEditarPerfilBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-
-        val cancelarButton = findViewById<Button>(R.id.EDP_Cancelar)
-        cancelarButton.setOnClickListener {
-            finish()
-        }
-
-
-        val guardarButton = findViewById<Button>(R.id.EDP_Guardar)
-        guardarButton.setOnClickListener {
-            enviarDatos()
-        }
+        cargarDatosPerfil()
+        binding.EDPGuardar.setOnClickListener { actualizarPerfil() }
     }
 
-    private fun enviarDatos() {
+    private fun cargarDatosPerfil() {
+        apiService.obtenerPerfil(token).enqueue(object : Callback<UsuarioInfo> {
+            override fun onResponse(call: Call<UsuarioInfo>, response: Response<UsuarioInfo>) {
+                if (response.isSuccessful) {
+                    val usuario = response.body()
+                    usuario?.let {
+                        binding.EDPNombreTxt.setText(it.nombre) // Solo para visualización
+                        binding.EDPDescripcionTx.setText(it.descripcion)
+                        binding.EDPTelefonoTx.setText(it.telefono)
+                        binding.EDPNacionalidadTx.setText(it.Pais)
+                        binding.EDPEmailTx.setText(it.email)
+                    }
+                } else {
+                    Toast.makeText(this@EditarPerfil, "Error al cargar el perfil", Toast.LENGTH_SHORT).show()
+                }
+            }
 
-        val nombre = findViewById<EditText>(R.id.EDP_Nombre_txt).text.toString()
-        val descripcion = findViewById<EditText>(R.id.EDP_Descripcion_tx).text.toString()
-        val telefono = findViewById<EditText>(R.id.EDP_Telefono_tx).text.toString()
-        val nacionalidad = findViewById<EditText>(R.id.EDP_Nacionalidad_tx).text.toString()
-        val email = findViewById<EditText>(R.id.EDP_Email_tx).text.toString()
+            override fun onFailure(call: Call<UsuarioInfo>, t: Throwable) {
+                Toast.makeText(this@EditarPerfil, "Error de conexión", Toast.LENGTH_SHORT).show()
+            }
+        })
+    }
 
+    private fun actualizarPerfil() {
+        val datosPerfil = PerfilEditData(
+            telefono = binding.EDPTelefonoTx.text.toString(),
+            email = binding.EDPEmailTx.text.toString(),
+            descripcion = binding.EDPDescripcionTx.text.toString(),
+            Pais = binding.EDPNacionalidadTx.text.toString()
+        )
 
-        val perfilRequest = PerfilRequest(nombre, descripcion, telefono, nacionalidad, email)
+        apiService.editarPerfil(token, datosPerfil).enqueue(object : Callback<RespuestaEditarPerfil> {
+            override fun onResponse(call: Call<RespuestaEditarPerfil>, response: Response<RespuestaEditarPerfil>) {
+                if (response.isSuccessful) {
+                    val resultado = response.body()
+                    if (resultado?.success == true) {
+                        Toast.makeText(this@EditarPerfil, "Perfil actualizado exitosamente", Toast.LENGTH_SHORT).show()
+                        finish()
+                    } else {
+                        Toast.makeText(this@EditarPerfil, "Error: ${resultado?.message}", Toast.LENGTH_SHORT).show()
+                    }
+                } else {
+                    Toast.makeText(this@EditarPerfil, "Error al actualizar el perfil", Toast.LENGTH_SHORT).show()
+                }
+            }
 
-
-
+            override fun onFailure(call: Call<RespuestaEditarPerfil>, t: Throwable) {
+                Toast.makeText(this@EditarPerfil, "Error de conexión", Toast.LENGTH_SHORT).show()
+            }
+        })
     }
 }
