@@ -1,72 +1,51 @@
 package com.example.filmcast.ui.login
 
+<<<<<<<< HEAD:Aplicaciones de Moviles/app/app/src/main/java/com/example/filmcast/ui/login/menuActivity.kt
+import android.content.Intent
 import android.os.Bundle
-import android.widget.Toast
+import android.widget.Button
+import android.widget.ImageView
+========
+import android.os.Bundle
+>>>>>>>> refs/remotes/origin/Alejandro:Aplicaciones de Moviles/app/app/src/main/java/com/example/filmcast/ui/login/PerfilActivity.kt
+import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import com.example.filmcast.Constants
-import com.example.filmcast.Perfil
-import com.example.filmcast.UsuarioInfo
-import com.example.filmcast.databinding.ActivityPerfilBinding
-import okhttp3.OkHttpClient
-import okhttp3.logging.HttpLoggingInterceptor
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
+import com.example.filmcast.R
 
-
-class PerfilActivity : AppCompatActivity() {
-
-    private lateinit var binding: ActivityPerfilBinding
-
+<<<<<<<< HEAD:Aplicaciones de Moviles/app/app/src/main/java/com/example/filmcast/ui/login/menuActivity.kt
+class menuActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityPerfilBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        enableEdgeToEdge()
+        setContentView(R.layout.activity_menu)
 
-        val token = "Bearer TU_TOKEN_AQUI"  // Reemplaza con el token de autenticación
-        obtenerPerfil(token)
-    }
+        val menu_perfil = findViewById<ImageView>(R.id.menu_titulo_perfil)
+        menu_perfil.setOnClickListener {
+            val intent = Intent(this, PerfilActivity::class.java)
+            startActivity(intent)
+        }
+        val menu_buscar = findViewById<Button>(R.id.menu_button_buscar)
+        menu_buscar.setOnClickListener {
+            val intent = Intent(this, ActivityBuscar::class.java)
+            startActivity(intent)
+        }
+        val menu_guardados = findViewById<Button>(R.id.menu_button_guardados)
+        menu_guardados.setOnClickListener {
+            val intent = Intent(this, GuardadosActivity::class.java)
+            startActivity(intent)
+        }
+        val menu_nuevo_proyecto =findViewById<Button>(R.id.nuv_proyecto)
+        menu_nuevo_proyecto.setOnClickListener{
+            val intent= Intent(this,Crea_proyecto::class.java)
+            startActivity(intent)
+        }
+========
+class PerfilActivity: AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
+        setContentView(R.layout.activity_perfil)
+>>>>>>>> refs/remotes/origin/Alejandro:Aplicaciones de Moviles/app/app/src/main/java/com/example/filmcast/ui/login/PerfilActivity.kt
 
-    private fun obtenerPerfil(token: String) {
-        // Configura Retrofit
-        val logging = HttpLoggingInterceptor().apply { level = HttpLoggingInterceptor.Level.BODY }
-        val client = OkHttpClient.Builder().addInterceptor(logging).build()
-
-        val retrofit = Retrofit.Builder()
-            .baseUrl(Constants.BASE_URL)
-            .client(client)
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
-
-        val perfilService = retrofit.create(Perfil::class.java)
-        val call = perfilService.obtenerPerfil(token)
-
-        // Realiza la llamada a la API
-        call.enqueue(object : Callback<UsuarioInfo> {
-            override fun onResponse(call: Call<UsuarioInfo>, response: Response<UsuarioInfo>) {
-                if (response.isSuccessful) {
-                    val usuarioInfo = response.body()
-                    if (usuarioInfo != null) {
-                        mostrarDatosPerfil(usuarioInfo)
-                    }
-                } else {
-                    Toast.makeText(this@PerfilActivity, "Error al obtener el perfil", Toast.LENGTH_LONG).show()
-                }
-            }
-
-            override fun onFailure(call: Call<UsuarioInfo>, t: Throwable) {
-                Toast.makeText(this@PerfilActivity, "Error de red: ${t.message}", Toast.LENGTH_LONG).show()
-            }
-        })
-    }
-
-    private fun mostrarDatosPerfil(usuarioInfo: UsuarioInfo) {
-        binding.PeNombre.text = usuarioInfo.id
-        binding.PeEmail.text = usuarioInfo.email
-        binding.PeTelefono.text = usuarioInfo.telefono
-        binding.PeDescripcion.text = usuarioInfo.descripcion
-        binding.PeNacionalidad.text = usuarioInfo.nacionalidad
     }
 }

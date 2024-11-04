@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "17122202035",
+    "project_id": "filmcast-17392",
+    "storage_bucket": "filmcast-17392.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:17122202035:android:9433377b10207efc34fbc6",
+        "android_client_info": {
+          "package_name": "com.example.filmcast"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBKz6QQkIlzPWiPq2fqt9Jm_It0qyKzYBg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

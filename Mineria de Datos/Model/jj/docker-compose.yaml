@@ -1,7 +1,7 @@
 version: '3.7'
 services:
   api_lud:
-    image: spanishhans/cet-mineria:api_jj
+    image: spanishhans/cet-mineria:api_lud
     container_name: api_lud
     restart: unless-stopped
     ports:

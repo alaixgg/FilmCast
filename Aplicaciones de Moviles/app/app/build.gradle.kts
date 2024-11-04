@@ -36,12 +36,6 @@ android {
     buildFeatures {
         viewBinding = true
     }
-
-    viewBinding {
-        enable = true
-    }
-
-
 }
 
 dependencies {
@@ -55,17 +49,11 @@ dependencies {
     implementation(libs.androidx.annotation)
     implementation(libs.androidx.lifecycle.livedata.ktx)
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
-    //retrofit
-    implementation ("com.squareup.retrofit2:retrofit:2.11.0")
-    implementation ("com.squareup.retrofit2:converter-gson:2.11.0")
-    implementation(libs.retrofit)
-    implementation(libs.converter.gson)
-
-    // Agrega esta línea para OkHttp y el interceptor de logging
-    implementation ("com.squareup.okhttp3:okhttp:4.9.3")
-    implementation ("com.squareup.okhttp3:logging-interceptor:4.9.3")
-
     testImplementation(libs.junit)
+    implementation("com.squareup.okhttp3:okhttp:4.11.0")
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 }
+
+// Aplica el plugin de Google Services después del bloque de dependencias
+apply(plugin = "com.google.gms.google-services")
