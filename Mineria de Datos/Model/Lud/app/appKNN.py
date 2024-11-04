@@ -27,6 +27,7 @@ from flask_limiter.util import get_remote_address
 import pymysql.cursors
 from redis import Redis
 import time
+import joblib
 import logging
 from sklearn.neighbors import NearestNeighbors
 from sklearn.preprocessing import MinMaxScaler
@@ -50,19 +51,7 @@ data = pd.read_csv('ActoresIndexOneHot.csv', sep=',')
 #     "Income": (1188216, 1188220)
 # }
 
-# # Define weights for each feature (higher weight means higher priority)
-# weights = {
-#     "Age": 0.5,
-#     "Years Active": 0.7,
-#     "Beauty": 0.5,
-#     "Skill Level": 2.0,
-#     "Award Wins": 1.5,
-#     "Media Mentions": 1.0,
-#     "Social Media Followers": 0.8,
-#     "Social Media Likes": 0.8,
-#     "Network Size": 100.0,
-#     "Income": 0.7
-# }
+
 
 num_variables = ['Age', 'Years Active', 'Beauty', 'Skill Level', 'Award Wins', 'Media Mentions', 'Social Media Followers', 'Social Media Likes', 'Network Size', 'Income']
 cat_variables = ['Gender_Female', 'Gender_Male', 'Nationality_Canada', 'Nationality_USA',
@@ -173,23 +162,22 @@ def find_closest_actors():
     # Parse the incoming JSON request
     request_data = request.get_json()
 
-    # Retrieve criteria_ranges and weights from the request
-    criteria_ranges = request_data.get('criteria_ranges')
-    weights = request_data.get('weights')
+    # Retrieve criteria_ranges from the request
+    predecir = request_data.get('predecir')
 
-    if not criteria_ranges or not weights:
-        return jsonify({"error": "Both criteria_ranges and weights must be provided."}), 400
+    if not predecir:
+        return jsonify({"error": "predecir must be provided."}), 400
 
     # Initialize a dictionary to store normalized query point values
     normalized_query_point = []
 
     # Assume that num_variables are predefined
-    num_variables = list(criteria_ranges.keys())
+    num_variables = list(predecir.keys())
 
     # Normalize each feature from the dataset based on the provided criteria_ranges
     scaled_actor_data = np.empty_like(data[num_variables].values)
 
-    for i, (feature, rng) in enumerate(criteria_ranges.items()):
+    for i, (feature, rng) in enumerate(predecir.items()):
         # Initialize a MinMaxScaler for each feature's range
         scaler = MinMaxScaler()
         scaler.fit([[rng[0]], [rng[1]]])
@@ -204,17 +192,9 @@ def find_closest_actors():
     # Convert the query point into a numpy array and reshape it for KNN
     normalized_query_point = np.array(normalized_query_point).reshape(1, -1)
 
-    # Apply weights to both the scaled actor data and the query point
-    for i, feature in enumerate(criteria_ranges.keys()):
-        weight = weights[feature]
-        scaled_actor_data[:, i] *= weight  # Scale the actor data by the feature weight
-        normalized_query_point[:, i] *= weight  # Scale the query point by the feature weight
 
     # Initialize the KNN model to find 5 neighbors using weighted Euclidean distance
-    knn = NearestNeighbors(n_neighbors=5, metric='euclidean')
-
-    # Fit the KNN model to the scaled (weighted) actor data
-    knn.fit(scaled_actor_data)
+    knn = joblib.load('knn_model.pkl')
 
     # Find the 5 nearest neighbors based on the weighted query point
     distances, indices = knn.kneighbors(normalized_query_point)
