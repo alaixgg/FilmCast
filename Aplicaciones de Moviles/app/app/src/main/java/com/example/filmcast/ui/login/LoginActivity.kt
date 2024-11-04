@@ -80,8 +80,8 @@ class LoginActivity : AppCompatActivity() {
         val url = "https://db.cuspide.club/login" // Reemplaza con tu URL de login en el servidor
 
         val json = JSONObject()
-        json.put("email", emailText)
-        json.put("password", passwordText)
+        json.put("nombre", emailText)
+        json.put("clave", passwordText)
 
         val mediaType = "application/json; charset=utf-8".toMediaType()
         val body = json.toString().toRequestBody(mediaType)
@@ -108,9 +108,9 @@ class LoginActivity : AppCompatActivity() {
                     runOnUiThread {
                         Toast.makeText(this@LoginActivity, message, Toast.LENGTH_SHORT).show()
                         if (success) {
-                            guardarSesion() // Guarda el estado de la sesión
-                            startActivity(Intent(this@LoginActivity, MenuActivity::class.java))
-                            finish()
+                            val token =  jsonResponse.getString("token")
+                            guardarToken(token)
+                            verificarToken(token)
                         }
                     }
                 } ?: runOnUiThread {
@@ -118,6 +118,56 @@ class LoginActivity : AppCompatActivity() {
                 }
             }
         })
+    }
+
+    private fun verificarToken(token: String) {
+        val url = "https://db.cuspide.club/login"
+
+        val json = JSONObject()
+        json.put("token", token)
+
+        val mediaType = "application/json; charset=utf-8".toMediaType()
+        val body = json.toString().toRequestBody(mediaType)
+
+        val client = OkHttpClient()
+        val request = Request.Builder()
+            .url(url)
+            .post(body)
+            .build()
+
+        client.newCall(request).enqueue(object: Callback {
+            override fun onFailure(call: Call, e: IOException) {
+                runOnUiThread {
+                    Toast.makeText(this@LoginActivity, "Error: ${e.message}", Toast.LENGTH_SHORT).show()
+                }
+            }
+
+            override fun onResponse(call: Call, response: Response) {
+                response.body?.string()?.let { responseBody ->
+                    val jsonResponse = JSONObject(responseBody)
+                    val success = jsonResponse.getBoolean("success")
+                    val message = jsonResponse.getString("message")
+
+                    runOnUiThread {
+                        Toast.makeText(this@LoginActivity, message, Toast.LENGTH_SHORT).show()
+                        if (success) {
+                            guardarSesion()
+                            val intent = Intent(this@LoginActivity, MenuActivity::class.java)
+                            startActivity(intent)
+                        }
+                    }
+                } ?: runOnUiThread {
+                    Toast.makeText(this@LoginActivity, "Error en la respuesta del servidor.", Toast.LENGTH_SHORT).show()
+                }
+            }
+        })
+    }
+
+    private fun guardarToken(token: String) {
+        val sharedPreferences = getSharedPreferences("AppPrefs", Context.MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+        editor.putString("token", token)
+        editor.apply()
     }
 
     private fun guardarSesion() {
