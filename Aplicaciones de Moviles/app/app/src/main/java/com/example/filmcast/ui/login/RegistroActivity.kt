@@ -104,17 +104,16 @@ class RegistroActivity : AppCompatActivity() {
             }
 
             override fun onResponse(call: Call, response: Response) {
-                response.body?.string().let {
-                    val jsonResponse = JSONObject(it)
-                    val success = jsonResponse.getBoolean("success")
-                    val message = jsonResponse.getString("message")
-
-                    runOnUiThread {
-                        Toast.makeText(this@RegistroActivity, message, Toast.LENGTH_SHORT).show()
-                        if (success){
-                            startActivity(Intent(this@RegistroActivity, LoginActivity::class.java))
-                            finish()
-                        }
+                if (response.isSuccessful){
+                    runOnUiThread{
+                        Toast.makeText(this@RegistroActivity,"Registro exitoso.", Toast.LENGTH_SHORT).show()
+                        startActivity(Intent(this@RegistroActivity,LoginActivity::class.java))
+                        finish()
+                    }
+                }
+                else{
+                    runOnUiThread{
+                        Toast.makeText(this@RegistroActivity,"Error al registrar el usuario.", Toast.LENGTH_SHORT).show()
                     }
                 }
             }

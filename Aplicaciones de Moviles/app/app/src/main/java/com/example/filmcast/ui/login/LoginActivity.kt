@@ -46,14 +46,17 @@ class LoginActivity : AppCompatActivity() {
         val username = findViewById<EditText>(R.id.et_username)
         val password = findViewById<EditText>(R.id.et_password)
         val IS_registro = findViewById<Button>(R.id.btn_register)
-        val IS_Iniciar_sesion= findViewById<Button>(R.id.btn_login)
+        val IS_Iniciar_sesion = findViewById<Button>(R.id.btn_login)
         val togglebtn = findViewById<ImageView>(R.id.passwordVisibilityToggle)
 
+        //boton para mostrar/ocultar contraseña
         togglebtn.setOnClickListener {
             if (passwordVisible) {
-                password.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
+                password.inputType =
+                    InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
             } else {
-                password.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD
+                password.inputType =
+                    InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD
             }
             password.setSelection(password.text.length)
             passwordVisible = !passwordVisible
@@ -71,7 +74,8 @@ class LoginActivity : AppCompatActivity() {
             if (usernameText.isNotEmpty() && passwordText.isNotEmpty()) {
                 iniciarSesion(usernameText, passwordText)
             } else {
-                Toast.makeText(this, "Por favor, ingresa todos los campos.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Por favor, ingresa todos los campos.", Toast.LENGTH_SHORT)
+                    .show()
             }
         }
     }
@@ -95,69 +99,51 @@ class LoginActivity : AppCompatActivity() {
         client.newCall(request).enqueue(object : Callback {
             override fun onFailure(call: Call, e: IOException) {
                 runOnUiThread {
-                    Toast.makeText(this@LoginActivity, "Error: ${e.message}", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(
+                        this@LoginActivity,
+                        "Error de conexión: ${e.message}",
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
             }
 
             override fun onResponse(call: Call, response: Response) {
-                response.body?.string()?.let { responseBody ->
-                    val jsonResponse = JSONObject(responseBody)
-                    val success = jsonResponse.getBoolean("success")
-                    val message = jsonResponse.getString("message")
-
-                    runOnUiThread {
-                        Toast.makeText(this@LoginActivity, message, Toast.LENGTH_SHORT).show()
-                        if (success) {
-                            val token =  jsonResponse.getString("token")
-                            guardarToken(token)
-                            verificarToken(token)
-                        }
-                    }
-                } ?: runOnUiThread {
-                    Toast.makeText(this@LoginActivity, "Error en la respuesta del servidor.", Toast.LENGTH_SHORT).show()
-                }
-            }
-        })
-    }
-
-    private fun verificarToken(token: String) {
-        val url = "https://db.cuspide.club/login"
-
-        val json = JSONObject()
-        json.put("token", token)
-
-        val mediaType = "application/json; charset=utf-8".toMediaType()
-        val body = json.toString().toRequestBody(mediaType)
-
-        val client = OkHttpClient()
-        val request = Request.Builder()
-            .url(url)
-            .post(body)
-            .build()
-
-        client.newCall(request).enqueue(object: Callback {
-            override fun onFailure(call: Call, e: IOException) {
                 runOnUiThread {
-                    Toast.makeText(this@LoginActivity, "Error: ${e.message}", Toast.LENGTH_SHORT).show()
-                }
-            }
+                    when (response.code) {
+                        200 -> {
+                            val responseBody = response.body?.string()
+                            val jsonResponse = JSONObject(responseBody ?: "")
+                            val token = jsonResponse.getString("token")
 
-            override fun onResponse(call: Call, response: Response) {
-                response.body?.string()?.let { responseBody ->
-                    val jsonResponse = JSONObject(responseBody)
-                    val success = jsonResponse.getBoolean("success")
-                    val message = jsonResponse.getString("message")
-
-                    runOnUiThread {
-                        Toast.makeText(this@LoginActivity, message, Toast.LENGTH_SHORT).show()
-                        if (success) {
+                            guardarToken(token)
                             guardarSesion()
-                            val intent = Intent(this@LoginActivity, MenuActivity::class.java)
+
+                            Toast.makeText(
+                                this@LoginActivity,
+                                "Inicio de sesión exitoso.",
+                                Toast.LENGTH_SHORT
+                            ).show()
                             startActivity(intent)
+                            finish()
+                        }
+
+                        400, 401 -> {
+                            val responseBody = response.body?.string()
+                            val jsonResponse = JSONObject(responseBody ?: "")
+                            val errorMessage =
+                                jsonResponse.optString("error", "Error en las credenciales")
+                            Toast.makeText(this@LoginActivity, errorMessage, Toast.LENGTH_SHORT)
+                                .show()
+                        }
+
+                        else -> {
+                            Toast.makeText(
+                                this@LoginActivity,
+                                "Error en el servidor. Intente mas tarde.",
+                                Toast.LENGTH_SHORT
+                            ).show()
                         }
                     }
-                } ?: runOnUiThread {
-                    Toast.makeText(this@LoginActivity, "Error en la respuesta del servidor.", Toast.LENGTH_SHORT).show()
                 }
             }
         })
@@ -176,4 +162,5 @@ class LoginActivity : AppCompatActivity() {
         editor.putBoolean("sesion_iniciada", true)
         editor.apply()
     }
+
 }
