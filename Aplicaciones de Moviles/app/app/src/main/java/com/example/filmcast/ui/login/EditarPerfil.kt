@@ -1,10 +1,9 @@
 package com.example.filmcast
 
 import android.os.Bundle
-import com.example.filmcast.
+import com.example.filmcast.*
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.filmcast.data.RetroFit.RetrofitClient
 import com.example.filmcast.databinding.ActivityEditarPerfilBinding
 import retrofit2.Call
 import retrofit2.Callback
@@ -12,7 +11,6 @@ import retrofit2.Response
 
 class EditarPerfil : AppCompatActivity() {
     private lateinit var binding: ActivityEditarPerfilBinding
-    private val apiService = RetrofitClient.getClient().create(Perfil::class.java)
     private val token = "Bearer " + // Aquí debes obtener el token desde el almacenamiento seguro.
 
             override fun onCreate(savedInstanceState: Bundle?) {

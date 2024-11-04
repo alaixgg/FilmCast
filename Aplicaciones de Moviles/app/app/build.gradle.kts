@@ -58,9 +58,6 @@ dependencies {
     //retrofit
     implementation ("com.squareup.retrofit2:retrofit:2.11.0")
     implementation ("com.squareup.retrofit2:converter-gson:2.11.0")
-    implementation(libs.retrofit)
-    implementation(libs.converter.gson)
-
     // Agrega esta línea para OkHttp y el interceptor de logging
     implementation ("com.squareup.okhttp3:okhttp:4.9.3")
     implementation ("com.squareup.okhttp3:logging-interceptor:4.9.3")

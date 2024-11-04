@@ -7,7 +7,14 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.filmcast.R
 
-class Proyectos : AppCompatActivity() {
+class Proyectos(
+    nombre: String,
+    descripcion: String,
+    genero: String,
+    fechaInicio: String,
+    fechaFin: String,
+    presupuesto: Double
+) : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()

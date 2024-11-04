@@ -9,8 +9,6 @@ import android.widget.Spinner
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.filmcast.R
-import com.example.filmcast.data.RetroFit.RetrofitClient
-import com.example.filmcast.data.RetroFit.SeleccionData
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -43,7 +41,7 @@ class ActivityBuscar : AppCompatActivity() {
         }
         val menu = findViewById<ImageView>(R.id.Bu_menu)
         menu.setOnClickListener {
-            val intent = Intent(this, menuActivity::class.java)
+            val intent = Intent(this, MenuActivity::class.java)
             startActivity(intent)
         }
 
@@ -120,39 +118,9 @@ class ActivityBuscar : AppCompatActivity() {
         val enviarButton = findViewById<Button>(R.id.Bu_Boton_Buscar)
 
         enviarButton.setOnClickListener {
-            val seleccionData = SeleccionData(
-                edad = spinnerEdad.selectedItem.toString(),
-                generoCine = spinnerGeneroCine.selectedItem.toString(),
-                educacion = spinnerEducacion.selectedItem.toString(),
-                salario = spinnerSalario.selectedItem.toString(),
-                aniosAct = spinnerAniosAct.selectedItem.toString(),
-                genero = spinnerGenero.selectedItem.toString(),
-                likes = spinnerLikes.selectedItem.toString(),
-                belleza = spinnerBeLleza.selectedItem.toString(),
-                seguidores = spinnerSeguidores.selectedItem.toString(),
-                nacionalidad = spinnerNacionalidad.selectedItem.toString(),
-                premios = spinnerPremios.selectedItem.toString(),
-                menciones = spinnerMenciones.selectedItem.toString(),
-                tamañoPagina = spinnerTamañoPagina.selectedItem.toString()
-            )
 
-            enviarSeleccion(seleccionData)
         }
     }
 
-    private fun enviarSeleccion(data: SeleccionData) {
-        RetrofitClient.instance.enviarSeleccion(data).enqueue(object : Callback<Void> {
-            override fun onResponse(call: Call<Void>, response: Response<Void>) {
-                if (response.isSuccessful) {
-                    Toast.makeText(this@ActivityBuscar, "Selección enviada exitosamente", Toast.LENGTH_SHORT).show()
-                } else {
-                    Toast.makeText(this@ActivityBuscar, "Error al enviar selección", Toast.LENGTH_SHORT).show()
-                }
-            }
 
-            override fun onFailure(call: Call<Void>, t: Throwable) {
-                Toast.makeText(this@ActivityBuscar, "Error de conexión: ${t.message}", Toast.LENGTH_SHORT).show()
-            }
-        })
-    }
 }

@@ -279,7 +279,7 @@
     <string name="Pro_guardar_proyecto_boton">Guardar Proyecto</string>
     <string name="Pro_agrega_actor">Agrega a los actores gaurdados para tu proyecto</string>
 
-//pantalla proyectos
+    //pantalla proyectos
     <string name="Pr_Titulo">Tu Proyecto</string>
     <string name="Pr_nombre_proyecto">Nombre del Proyecto </string>
 
