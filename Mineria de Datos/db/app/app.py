@@ -176,5 +176,88 @@ def get_data():
     # Only accessible by logged-in users with valid tokens
     return jsonify({"data": "Here is your protected data!"}), 200
 
+# editar perfil
+@app.route('/editar_perfil', methods=['GET'])
+@token_required
+def edit_pefil():
+    data = request.get_json()
+
+    telefono = request.form.get('telefono')
+    email = request.form.get('email')
+    descripcion = request.form.get('descripcion')
+    Pais = request.form.get('Pais')
+
+    connection = None
+    try:
+        # Establish database connection
+        connection = get_db_connection()
+        with connection.cursor() as cursor:
+            # Fetch user details by user ID
+            cursor.execute("""
+                SELECT id, email, telefono, descripcion, nacionalidad 
+                FROM usuarios 
+                WHERE id = %s
+            """, (request.user_id,))
+            user = cursor.fetchone()
+        
+        # Check if user data is retrieved
+        if user:
+            user_data = {
+                "id": user[0],
+                "email": user[1],
+                "telefono": user[2],
+                "descripcion": user[3],
+                "nacionalidad": user[4]
+            }
+            return jsonify(user_data), 200
+        else:
+            return jsonify({"error": "Usuario no encontrado"}), 404
+    
+    except Exception as e:
+        logging.error(f"Error en la base de datos al obtener el perfil: {e}")
+        return jsonify({"error": "Problema en la base de datos"}), 500
+    
+    finally:
+        if connection:
+            connection.close()
+
+@app.route('/perfil', methods=['GET'])
+@token_required
+def get_pefil():
+    connection = None
+    try:
+        # Establish database connection
+        connection = get_db_connection()
+        with connection.cursor() as cursor:
+            # Fetch user details by user ID
+            cursor.execute("""
+                SELECT id, email, telefono, descripcion, nacionalidad 
+                FROM usuarios 
+                WHERE id = %s
+            """, (request.user_id,))
+            user = cursor.fetchone()
+        
+        # Check if user data is retrieved
+        if user:
+            user_data = {
+                "id": user[0],
+                "email": user[1],
+                "telefono": user[2],
+                "descripcion": user[3],
+                "nacionalidad": user[4]
+            }
+            return jsonify(user_data), 200
+        else:
+            return jsonify({"error": "Usuario no encontrado"}), 404
+    
+    except Exception as e:
+        logging.error(f"Error en la base de datos al obtener el perfil: {e}")
+        return jsonify({"error": "Problema en la base de datos"}), 500
+    
+    finally:
+        if connection:
+            connection.close()
+
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
