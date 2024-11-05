@@ -53,22 +53,23 @@
 
     <section class="container top-actores">
         <h1 class="heading-1">Mis Actores Favoritos</h1>
-
+    
         <div class="container-actores">
             {% if actors %}
                 {% for actor in actors %}
                 <div class="card-product">  
-                    <form action="{{ url_for('eliminar_favorito', actor_id=actor[0]) }}" method="POST">
+                    <form action="{{ url_for('eliminar_favorito', actor_id=actor['id']) }}" method="POST">
                         <button type="submit" class="btn-eliminar">Eliminar</button>
                     </form>
-                    <a href="{{ url_for('info_actor', actor_id=actor[0]) }}">
+                    <a href="{{ url_for('info_actor', actor_id=actor['id']) }}">
                         <div class="container-img">
-                            <img src="https://i.pinimg.com/564x/88/3d/74/883d74b5eca63acc4e07773f3a645ba6.jpg" alt="{{ actor[1] }}" />
+                            <img src="https://i.pinimg.com/564x/88/3d/74/883d74b5eca63acc4e07773f3a645ba6.jpg" alt="{{ actor['name'] }}" />
                         </div>
                         <div class="recomen">
-                            <h1>{{ actor[1] }}</h1>  <!-- Nombre -->
-                            <h2>{{ actor[2] }}</h2>  <!-- Género -->
-                            <h3>{{ actor[3] }}</h3>  <!-- Género de especialización -->
+                            <p>{{ actor['age'] }}</p>
+                            <h1>{{ actor['name'] }}</h1>  <!-- Nombre -->
+                            <h2>{{ actor['gender'] }}</h2>  <!-- Género -->
+                            <h3>{{ actor['genre_specialization'] }}</h3>  <!-- Género de especialización -->
                         </div>
                     </a>
                 </div>
@@ -76,8 +77,9 @@
             {% else %}
                 <p>No tienes actores favoritos guardados.</p>
             {% endif %}
-        </div>				
+        </div>                
     </section>
+    
 
 
     <footer class="footer">

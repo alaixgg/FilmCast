@@ -63,48 +63,44 @@
         </div>
         <div class="perfil-usuario-body">
             <div class="perfil-usuario-bio">
-                <h3 class="titulo">{{ actor[1] }}</h3>
+                <h3 class="titulo">{{ actor['name'] }}</h3>
             </div>
-            
+
             <div class="perfil-usuario-footer">
-                <ul class="lista-datos">
-                    <li><i class="fa-solid fa-user"></i> Edad: {{ actor[2] }}</li>
-                    <li><i class="icono fas fa-map-marker-alt"></i>Nacionalidad: {{ actor[4] }}</li>
-                    <li><i class="fa-solid fa-venus-mars"></i> Genero: {{ actor[3] }}</li> 
-                    <li><i class="fa-solid fa-film"></i> Genero especializado: {{ actor[6] }}</li>
-                    <li><i class="fa-solid fa-dollar-sign"></i> Sueldo: {{ actor[15] }}</li>
-                    <li><i class="fa-solid fa-person"></i> Nivel de Belleza: {{ actor[7] }}</li>
-                    <li><i class="icono fas fa-user-check"></i> Nivel de habilidad: {{ actor[8] }}</li>
-                </ul>
-                <ul class="lista-datos">
-                    <li><i class="icono fas fa-calendar-alt"></i> Años Activo: {{ actor[5] }}</li>
-                    <li><i class="fa-solid fa-school"></i> Educación: {{ actor[9] }}</li>
-                    <li><i class="fa-solid fa-award"></i> Premios Ganados: {{ actor[10] }}</li>
-                    <li><i class="icono fas fa-share-alt"></i>Media de Menciones: {{ actor[11] }}</li>
-                    <li><i class="fa-brands fa-instagram"></i> Media de Followers: {{ actor[12] }}</li>
-                    <li><i class="fa-solid fa-heart"></i> Media de Likes: {{ actor[13] }}</li>
-                    <li><i class="fa-solid fa-globe"></i> Tamaño de redes: {{ actor[14] }}</li>
-
-                </ul>
-                <a href="javascript:history.back()" class="btn btn-editar">Volver</a>
-                <form method="POST" action="{{ url_for('guardar_favorito', actor_id=actor[0]) }}">
-                    <button type="submit" class="btn btn-guardar">Guardar</button>
-                </form>
-                
-                {% with messages = get_flashed_messages(with_categories=true) %}
-                    {% if messages %}
-                    <ul class="flashes">
-                        {% for category, message in messages %}
-                        <li class="{{ category }}">{{ message }}</li>
-                        {% endfor %}
-                    </ul>
-                    {% endif %}
-                {% endwith %}
-                          
-
-            </div>
+            <ul class="lista-datos">
+                <li><i class="fa-solid fa-user"></i> Edad: {{ actor['age'] }}</li>
+                <li><i class="fas fa-map-marker-alt"></i> Nacionalidad: {{ actor['nationality'] }}</li>
+                <li><i class="fa-solid fa-venus-mars"></i> Género: {{ actor['gender'] }}</li>
+                <li><i class="fa-solid fa-film"></i> Género especializado: {{ actor['genre_specialization'] }}</li>
+                <li><i class="fa-solid fa-dollar-sign"></i> Sueldo: {{ actor['income'] }}</li>
+                <li><i class="fa-solid fa-person"></i> Nivel de Belleza: {{ actor['beauty'] }}</li>
+                <li><i class="fa-solid fa-trophy"></i> Premios Ganados: {{ actor['award_wins'] }}</li>
+            </ul>
+            <ul class="lista-datos">
+                <li><i class="fa-solid fa-level-up-alt"></i> Nivel de habilidad: {{ actor['skill_level'] }}</li>
+                <li><i class="fa-solid fa-calendar-alt"></i> Años Activo: {{ actor['years_active'] }}</li>
+                <li><i class="fa-solid fa-school"></i> Educación: {{ actor['education_level'] }}</li>
+                <li><i class="fas fa-share-alt"></i> Media de Menciones: {{ actor['media_mentions'] }}</li>
+                <li><i class="fa-brands fa-instagram"></i> Media de Followers: {{ actor['social_media_followers'] }}</li>
+                <li><i class="fa-solid fa-heart"></i> Media de Likes: {{ actor['social_media_likes'] }}</li>
+                <li><i class="fa-solid fa-globe"></i> Tamaño de redes: {{ actor['network_size'] }}</li>
+            </ul>
+            <a href="javascript:history.back()" class="btn btn-editar">Volver</a>
+            <form method="POST" action="{{ url_for('guardar_favorito', actor_id=actor['id']) }}">
+                <button type="submit" class="btn btn-guardar">Guardar</button>
+            </form>
             
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                <ul class="flashes">
+                    {% for category, message in messages %}
+                    <li class="{{ category }}">{{ message }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            {% endwith %}
         </div>
+    
     </section>
     <section class="fotter">
     </section>   

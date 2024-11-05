@@ -60,17 +60,16 @@
                 {% if proyectos %}
                     {% for proyecto in proyectos %}
                     <div class="card-product">
-                        <form action="{{ url_for('eliminar_proyecto', proyecto_id=proyecto[0]) }}" method="POST" style="display:inline;">
+                        <form action="{{ url_for('eliminar_proyecto', proyecto_id=proyecto['id']) }}" method="POST" style="display:inline;">
                             <button type="submit" class="btn btn-elimina" onclick="return confirm('¿Estás seguro de que deseas eliminar este proyecto?');">Eliminar</button>
                         </form>
-                        <a href="{{ url_for('info_proyecto', proyecto_id=proyecto[0]) }}">  
+                        <a href="{{ url_for('info_proyecto', proyecto_id=proyecto['id']) }}">  
                             <div class="container-img">
                                 <img src="https://i.pinimg.com/564x/e4/aa/56/e4aa56c9a7f46e10fa4d334067b34f3d.jpg" alt="Imagen del proyecto" />
-                                <span class="discount">{{ proyecto[4] }}</span> 
                             </div>
                             <div class="content-card-product">
-                                <h3>{{ proyecto[1] }}</h3>  <!-- Título del proyecto -->
-                                <h2>{{ proyecto[3] }}</h2>  <!-- Género del proyecto -->
+                                <h3>{{ proyecto['titulo'] }}</h3>  <!-- Título del proyecto -->
+                                <h2>{{ proyecto['genero'] }}</h2>  <!-- Género del proyecto -->
                             </div>
                         </a>
                         <div class="button-group">

@@ -19,18 +19,24 @@ html {
 
 
 form {
-    background-color: #ffffff; 
-    border: 1px solid #ddd; 
-    border-radius: 10px; 
-    padding: 20px; 
-    margin: 20px auto; 
-    width: 70%; 
-    max-width: 1200px; 
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
-    flex-wrap: wrap; /* Permite que los elementos se salten a la siguiente línea */
-    justify-content: space-between; /* Espacia los elementos uniformemente */
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Dos columnas */
+    gap: 20px; /* Espacio entre las columnas */
+    max-width: 800px; /* Ancho máximo del formulario */
+    margin: 0 auto; /* Centrar el formulario en la página */
 }
 
+h3 {
+    grid-column: span 2; /* Los encabezados ocupan ambas columnas */
+}
+
+select {
+    width: 100%; /* Hacer que los select ocupen el ancho completo de la columna */
+    padding: 8px; /* Espaciado interno para los select */
+    border: 1px solid #ccc; /* Borde del select */
+    border-radius: 4px; /* Bordes redondeados */
+    font-size: 16px; /* Tamaño de fuente */
+}
 
 form h2 {
     font-size: 30px; 

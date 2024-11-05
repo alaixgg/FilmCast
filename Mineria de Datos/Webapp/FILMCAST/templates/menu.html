@@ -91,35 +91,39 @@
 			</section>
 
 			<section class="container top-actores">
-				<h1 class="heading-1">Recomendaciones del dia</h1>
-
+				<h1 class="heading-1">Recomendaciones del día</h1>
+			
 				<div class="container-actores">
-					{% for actor in actors %}
-					<a href="{{ url_for('info_actor', actor_id=actor[0]) }}" class="card-actor">  <!-- Enlace al info_actor -->
-						<div class="container-img">
-							<img src="https://i.pinimg.com/564x/88/3d/74/883d74b5eca63acc4e07773f3a645ba6.jpg" alt="{{ actor[1] }}" />
-							<span class="discount">{{ discount }}% para ti</span>
-							<div class="button-group">
-								<span>
-									<i class="fa-regular fa-eye"></i>
-								</span>
-								<span>
-									<i class="fa-regular fa-heart"></i>
-								</span>
-								<span>
-									<i class="fa-solid fa-code-compare"></i>
-								</span>
-							</div>
-						</div>
-						<div class="recomen">
-							<h1>{{ actor[1] }}</h1>  <!-- Nombre -->
-							<h2>{{ actor[3] }}</h2>  <!-- Género -->
-							<h3>{{ actor[6] }}</h3>  <!-- Género de especialización -->
-						</div>
-					</a>
-					{% endfor %}
-				</div>				
+					{% if actors %}
+						{% for actor in actors %}
+							<a href="{{ url_for('info_actor', actor_id=actor['id']) }}" class="card-actor"> <!-- Enlace al info_actor -->
+								<div class="container-img">
+									<img src="https://i.pinimg.com/564x/88/3d/74/883d74b5eca63acc4e07773f3a645ba6.jpg" alt="{{ actor[1] }}" />
+									<div class="button-group">
+										<span>
+											<i class="fa-regular fa-eye"></i>
+										</span>
+										<span>
+											<i class="fa-regular fa-heart"></i>
+										</span>
+										<span>
+											<i class="fa-solid fa-code-compare"></i>
+										</span>
+									</div>
+								</div>
+								<div class="recomen">
+									<h1>{{ actor['name'] }}</h1>  <!-- Nombre -->
+									<h2>{{ actor['gender'] }}</h2>  <!-- Género -->
+									<h3>{{ actor['genre_specialization'] }}</h3>  <!-- Género de especialización -->
+								</div>
+							</a>
+						{% endfor %}
+					{% else %}
+						<p>No hay actores destacados disponibles en este momento.</p>
+					{% endif %}
+				</div>                
 			</section>
+			
 		</main>
 
 		<footer class="footer">
