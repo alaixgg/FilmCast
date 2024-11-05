@@ -10,6 +10,7 @@ import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Toast
 import android.content.Context
+import android.util.Log
 import com.example.filmcast.R
 import okhttp3.Call
 import okhttp3.Callback
@@ -81,7 +82,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun iniciarSesion(emailText: String, passwordText: String) {
-        val url = "https://db.cuspide.club/login" // Reemplaza con tu URL de login en el servidor
+        val url = "https://db.cuspide.club/login"
 
         val json = JSONObject()
         json.put("nombre", emailText)
@@ -115,13 +116,14 @@ class LoginActivity : AppCompatActivity() {
                             val jsonResponse = JSONObject(responseBody ?: "")
                             val token = jsonResponse.getString("token")
 
+                            // Guardar el token en SharedPreferences
                             guardarToken(token)
                             guardarSesion()
 
-                            Toast.makeText(this@LoginActivity, "Inicio de sesión exitoso.", Toast.LENGTH_SHORT).show()
+
                             val intent = Intent(this@LoginActivity, MenuActivity::class.java)
                             startActivity(intent)
-                            finish()//holi
+                            finish() // Finaliza LoginActivity para que no se quede en la pila
                         }
 
                         400, 401 -> {
@@ -136,7 +138,7 @@ class LoginActivity : AppCompatActivity() {
                         else -> {
                             Toast.makeText(
                                 this@LoginActivity,
-                                "Error en el servidor. Intente mas tarde.",
+                                "Error en el servidor. Intente más tarde.",
                                 Toast.LENGTH_SHORT
                             ).show()
                         }
@@ -146,11 +148,15 @@ class LoginActivity : AppCompatActivity() {
         })
     }
 
+
+
     private fun guardarToken(token: String) {
-        val sharedPreferences = getSharedPreferences("AppPrefs", Context.MODE_PRIVATE)
+        val sharedPreferences = getSharedPreferences("app_preferences", Context.MODE_PRIVATE)
         val editor = sharedPreferences.edit()
         editor.putString("token", token)
         editor.apply()
+
+        Log.d("LoginActivity", "Token guardado: $token")
     }
 
     private fun guardarSesion() {
