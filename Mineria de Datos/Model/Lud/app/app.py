@@ -28,6 +28,7 @@ from flask_limiter.util import get_remote_address
 import pymysql.cursors
 from redis import Redis
 import time
+import ast
 import logging
 from sklearn.neighbors import NearestNeighbors
 from sklearn.preprocessing import MinMaxScaler
@@ -157,6 +158,8 @@ def login():
 
 
 # KNN search function without normalization
+import ast  # To safely evaluate the string as a list
+
 @app.route('/find_closest_actors', methods=['POST'])
 def find_closest_actors():
     # Parse the incoming JSON request
@@ -171,8 +174,26 @@ def find_closest_actors():
     # Assume that num_variables are predefined
     num_variables = list(predecir.keys())
 
-    # Extract the raw query values (use the midpoint of the provided ranges)
-    query_point = [(rng[0] + rng[1]) / 2 for rng in predecir.values()]
+    # Initialize an empty list for the query point
+    query_point = []
+
+    # Loop through the 'predecir' values and parse them if they are in string format
+    for feature, rng_str in predecir.items():
+        if isinstance(rng_str, str):
+            try:
+                # Convert the string to a list using ast.literal_eval (safe way to parse string)
+                rng = ast.literal_eval(rng_str)
+                if not isinstance(rng, list) or len(rng) != 2:
+                    return jsonify({"error": f"Invalid format for {feature}, expected list format."}), 400
+            except (ValueError, SyntaxError):
+                return jsonify({"error": f"Invalid string format for {feature}."}), 400
+        else:
+            # If not a string, assume it's already in the correct format (a list)
+            rng = rng_str
+
+        # Extract the raw query values (use the midpoint of the provided ranges)
+        midpoint = (rng[0] + rng[1]) / 2
+        query_point.append(midpoint)
 
     # Convert the query point into a numpy array
     query_point = np.array(query_point).reshape(1, -1)
@@ -188,6 +209,7 @@ def find_closest_actors():
 
     # Return the closest records' indices as a response
     return jsonify({"closest_indices": closest_records_sklearn['Index'].to_numpy().tolist()})
+
 
 
 # @app.route('/find_closest_actors', methods=['GET'])
