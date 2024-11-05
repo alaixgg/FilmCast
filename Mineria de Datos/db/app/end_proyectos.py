@@ -66,7 +66,7 @@ def get_proyecto(proyecto_id):
         column_names = [column[0] for column in cursor.description]  # Get column names from cursor
         proyecto_data = dict(zip(column_names, proyecto_info))  # Create a dictionary for the project using column names
 
-        logging.info(f"||get_proyecto|| Se envía información del proyecto con ID {proyecto_id}: {proyecto_data}")
+        logging.info(f"||get_proyecto|| Se envía información del proyecto {proyecto_id}")
         return jsonify(proyecto_data), 200
 
     except Exception as e:
