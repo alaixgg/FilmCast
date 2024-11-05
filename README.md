@@ -1,21 +1,33 @@
+# Tabla de Contenidos
+
+- [Filmcast](#filmcast)
+- [Integrantes Minería de Datos](#proyecto-de-minería-de-datos)
+- [Integrantes Aplicaciones Móviles](#proyecto-de-aplicaciones-móviles)
+- [Aplicación Web](#aplicativo-web)
+- [Aplicación Móvil](#aplicación-móvil)
+- [Modelo KNN](#modelo-de-minería-de-datos)
+
 # Filmcast
+
+![logo](img/5.png)
+
 
 Filmcast está dedicado para aquellos directores que quieren tener recomendaciones de actores y actrices de acuerdo a diferentes características que el director quiera. 
 
 Desarrollar una aplicación móvil que permita a los productores conectar y comunicarse de manera eficiente con actores, utilizando un modelo que encuentre al mejor actor haciendo uso de un modelo de regresion lineal, con el fin de identificar y mostrar perfiles que se ajusten a los requerimientos específicos de los proyectos audiovisuales.
 
-## Proyecto de Mineria de Datos
+## Proyecto de Minería de Datos
+- Alaix Perez Andrés
+
 - Alvarado Becerra Ludwig
 
-- Alaix Perez Andres
+- Chocontá Rojas Daniela
 
-- Choconta Rojas Daniela
+- Martínez Guerrero Juan José
 
-- Martinez Guerrero Juan Jose
+## Proyecto de Aplicaciones Móviles
 
-## Proyecto de Aplicaciones Moviles
-
-- Alaix Perez Andres Julian
+- Alaix Perez Andrés Julián
 
 - Reyes Reina Alejandro
 
