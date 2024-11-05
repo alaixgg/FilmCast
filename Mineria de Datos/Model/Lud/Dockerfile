@@ -8,7 +8,7 @@ RUN apt-get update && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
-COPY ../../Model/Lud/app /app
+COPY ./app /app
 #COPY app/requirements.txt /app/requirements.txt
 
 RUN python3 -m venv venv
@@ -20,6 +20,6 @@ RUN /app/venv/bin/pip install --upgrade pip && \
 
 ENV PATH="/app/venv/bin:$PATH"
 
-EXPOSE 1234
+EXPOSE 5000
 
-CMD ["gunicorn", "-b", "0.0.0.0:1234", "app:app"]
+CMD ["gunicorn", "-b", "0.0.0.0:5000", "app:app"]
