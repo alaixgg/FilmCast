@@ -190,11 +190,11 @@ def find_closest_actors():
     return jsonify({"closest_indices": closest_records_sklearn['Index'].to_numpy().tolist()})
 
 
-@app.route('/find_closest_actors', methods=['GET'])
-@limiter.limit("5 per minute")  # Limit requests to prevent abuse
-def closest_actors_endpoint():
-    closest_indices = find_closest_actors()
-    return jsonify({"closest_indices": closest_indices.tolist()})
+# @app.route('/find_closest_actors', methods=['GET'])
+# @limiter.limit("5 per minute")  # Limit requests to prevent abuse
+# def closest_actors_endpoint():
+#     closest_indices = find_closest_actors()
+#     return jsonify({"closest_indices": closest_indices.tolist()})
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
