@@ -156,7 +156,7 @@ def login():
 
 
 
-# KNN search function
+# KNN search function without normalization
 @app.route('/find_closest_actors', methods=['POST'])
 def find_closest_actors():
     # Parse the incoming JSON request
@@ -168,43 +168,27 @@ def find_closest_actors():
     if not predecir:
         return jsonify({"error": "predecir must be provided."}), 400
 
-    # Initialize a dictionary to store normalized query point values
-    normalized_query_point = []
-
     # Assume that num_variables are predefined
     num_variables = list(predecir.keys())
 
-    # Normalize each feature from the dataset based on the provided criteria_ranges
-    scaled_actor_data = np.empty_like(data[num_variables].values)
+    # Extract the raw query values (use the midpoint of the provided ranges)
+    query_point = [(rng[0] + rng[1]) / 2 for rng in predecir.values()]
 
-    for i, (feature, rng) in enumerate(predecir.items()):
-        # Initialize a MinMaxScaler for each feature's range
-        scaler = MinMaxScaler()
-        scaler.fit([[rng[0]], [rng[1]]])
+    # Convert the query point into a numpy array
+    query_point = np.array(query_point).reshape(1, -1)
 
-        # Normalize the actor data for this feature
-        scaled_actor_data[:, i] = scaler.transform(data[[feature]]).flatten()
-
-        # Normalize the query value (target range midpoint)
-        midpoint = np.array([[(rng[0] + rng[1]) / 2]])
-        normalized_query_point.append(scaler.transform(midpoint).flatten())
-
-    # Convert the query point into a numpy array and reshape it for KNN
-    normalized_query_point = np.array(normalized_query_point).reshape(1, -1)
-
-
-    # Initialize the KNN model to find 5 neighbors using weighted Euclidean distance
+    # Initialize the KNN model to find 5 neighbors using Euclidean distance (without normalization)
     knn = joblib.load('knn_model.pkl')
 
-
-    # Find the 5 nearest neighbors based on the weighted query point
-    distances, indices = knn.kneighbors(normalized_query_point)
+    # Find the 5 nearest neighbors based on the raw query point
+    distances, indices = knn.kneighbors(query_point)
 
     # Retrieve the closest records based on the indices
     closest_records_sklearn = data.iloc[indices[0]][['Index'] + num_variables]
 
     # Return the closest records' indices as a response
     return jsonify({"closest_indices": closest_records_sklearn['Index'].to_numpy().tolist()})
+
 
 @app.route('/find_closest_actors', methods=['GET'])
 @limiter.limit("5 per minute")  # Limit requests to prevent abuse
