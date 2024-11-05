@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FilmCast</title>
+    <link rel="stylesheet" href="../static/stylemenu.css"> 
+    <link rel="stylesheet" type="text/css" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.6.3/nouislider.min.css">
+    <link rel="stylesheet" href="../static/estiloknn.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.6.3/nouislider.min.js"></script>
+</head>
+<body>
+    <header>
+        <div class="container-hero">
+            <div class="container hero">
+                <div class="customer-support">
+                    <i class="fa-solid fa-headset"></i>
+                    <div class="content-customer-support">
+                        <span class="text">Soporte al cliente</span>
+                        <span class="number">123-456-7890</span>
+                    </div>
+                </div>
+
+                <div class="container-logo">
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAflJREFUSEvN1s+rTVEUB/DPE8mPATL15NfAj6EyITPzR4hEyUDhX/CrjIxEzEw88jv/gYSRmcRAEVNlJAaIs27rvHa32+nc63j3rsleZ5+11nd/19577TVlTDI1JlwTBbwW6zrOxEd8KmOWjBfgDg52DFqHu4Vj+BMTJfBh3P5PoHXYGTzpBz5bLeRCWhzHzdQ/50rjcxHuYSV+4xC+pN157C70ZwWJp6mfw8V+4JgM53r+Bk7m9ylcTz224m7qj7Ev9Tgb77Ak93MbvuW/XnqTWA+jTHVMBHg9vxxvEAF/VEw3FwfkEfam7QE8SP00rqYeC40FhwwFHA478TydX2BX6qvwHjF+rc7Gphzjd9iHX0jYh9/QwOHcJuXBOJiH9Kc8MvW9barLg7EM29MxArxKvWYU1zDkJX6lvhWrU3+LLW2Bi9idqnFrGg9Xp2hFsMkCLu9xE+Mr+IkzWDxkaiLNvSJV3uO2wLXzmqqSXcKRvjhNa/mnVM85J0JUqGtFuZw34BpoT9bxFQ3InTIOnB3VwxF7H+O8MN6Ay4jnro0MZDzM4YoHIJ63E1jYBrGLyvUaG7F0CMDadCDjshEYIWYrl4GNQPnAt4oygtF+POwvIPHK3C86ihHiNrrM4uigZq/2Wl/1W9Mdo35A9G5zMlENfcdkB4cbG+O/Au1uHz3+eYkAAAAASUVORK5CYII="/>
+                    <h1 class="logo"><a href="/">FilmCast</a></h1>
+                </div>
+
+                <div class="container-user"> 
+                    <a href="{{ url_for('perfil') }}">
+                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAb1JREFUSEvN1k3ITUEYB/DfK18lJcmOhCyUKCs7lGJhQcpGoXyUlJ0US5LsUD42rFCilLKwYMVCCYWVfKWUkgUbCTN1jt6ue95nzts5XbOd5/x/M819Zu6YEY2xEbkmA0/BNiyvFv0SN/C7zSbawmtwBcsGkFfYiceleBt4Pe5iekP4d2zAoxK8FJ6F95gbhH7AUvyI8FJ4Ly5FYdV8Pv+bUW0pfAH7o7Bq/jQOR7Wl8EXsi8Kq+fM4ENWWwkdxPAqr5o/gVFRbCueefRGFVb28JLXWm6i2FM45l7ErCDyDQxGa59vAM6obanNDcF7YHvzqGq4XugNbxvX0J1zD7RKwrmmz4za5Ye1/Dy/A1nQjrUiPxKLUWlMHtvQz/fDepiN4hlv4GG052vFKnMSmKGhg/k51e+VXa+iYCM431TlMa4nW5fmh2J2e0KvDvm+Ct+P6JMHxn+XW2oh7g1nD4Plppe8wswM4R3zBQuT3+u8YBp/FwY7QOuZYOrITEfw5ne28juEnWD0RvBivO0bruNn41nRz5T9zD3uCc2s+b4LX4n5P8Do8aILnYFVP8FN8bYJ7Mv+Nja7M3hYyMvgPElg8H/XErXYAAAAASUVORK5CYII=" />
+                    </a>
+                
+                </div>
+            </div>
+        </div>
+
+        <div class="container-navbar">
+            <nav class="navbar container">
+                <i class="fa-solid fa-bars"></i>
+                <ul class="menu">
+                    <li><a href="{{ url_for('menu') }}">Inicio</a></li>
+                    <li><a href="{{ url_for('busqueda_filtro') }}">Buscar</a></li>
+                    <li><a href="{{ url_for('misproyectos') }}">Mis Proyectos</a></li>
+                    <li><a href="{{ url_for('misfavoritos') }}">Mis Favoritos</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="formulario">
+        <form action="{{ url_for('consulta_actor') }}" method="POST">
+            <label for="age">Age</label>
+            <input type="text" name="range_0" id="age" placeholder="min-max">
+        
+            <label for="years_active">Years Active</label>
+            <input type="text" name="range_1" id="years_active" placeholder="min-max">
+        
+            <label for="beauty">Beauty</label>
+            <input type="text" name="range_2" id="beauty" placeholder="min-max">
+        
+            <label for="skill_level">Skill Level</label>
+            <input type="text" name="range_3" id="skill_level" placeholder="min-max">
+        
+            <label for="award_wins">Award Wins</label>
+            <input type="text" name="range_4" id="award_wins" placeholder="min-max">
+        
+            <label for="media_mentions">Media Mentions</label>
+            <input type="text" name="range_5" id="media_mentions" placeholder="min-max">
+        
+            <label for="social_media_followers">Social Media Followers</label>
+            <input type="text" name="range_6" id="social_media_followers" placeholder="min-max">
+        
+            <label for="social_media_likes">Social Media Likes</label>
+            <input type="text" name="range_7" id="social_media_likes" placeholder="min-max">
+        
+            <label for="network_size">Network Size</label>
+            <input type="text" name="range_8" id="network_size" placeholder="min-max">
+        
+            <label for="income">Income</label>
+            <input type="text" name="range_9" id="income" placeholder="min-max">
+        
+            <!-- Controles para las variables categóricas -->
+            <label for="gender_female">Gender - Female</label>
+            <input type="checkbox" name="gender_female" id="gender_female" value="1"> Sí
+            <input type="hidden" name="gender_female" value="0">
+        
+            <label for="gender_male">Gender - Male</label>
+            <input type="checkbox" name="gender_male" id="gender_male" value="1"> Sí
+            <input type="hidden" name="gender_male" value="0">
+        
+            <label for="nationality_canada">Nationality - Canada</label>
+            <input type="checkbox" name="nationality_canada" id="nationality_canada" value="1"> Sí
+            <input type="hidden" name="nationality_canada" value="0">
+        
+            <label for="nationality_usa">Nationality - USA</label>
+            <input type="checkbox" name="nationality_usa" id="nationality_usa" value="1"> Sí
+            <input type="hidden" name="nationality_usa" value="0">
+        
+            <label for="genre_action">Genre Specialization - Action</label>
+            <input type="checkbox" name="genre_action" id="genre_action" value="1"> Sí
+            <input type="hidden" name="genre_action" value="0">
+        
+            <label for="genre_comedy">Genre Specialization - Comedy</label>
+            <input type="checkbox" name="genre_comedy" id="genre_comedy" value="1"> Sí
+            <input type="hidden" name="genre_comedy" value="0">
+        
+            <label for="genre_drama">Genre Specialization - Drama</label>
+            <input type="checkbox" name="genre_drama" id="genre_drama" value="1"> Sí
+            <input type="hidden" name="genre_drama" value="0">
+        
+            <label for="genre_horror">Genre Specialization - Horror</label>
+            <input type="checkbox" name="genre_horror" id="genre_horror" value="1"> Sí
+            <input type="hidden" name="genre_horror" value="0">
+        
+            <label for="genre_musical">Genre Specialization - Musical</label>
+            <input type="checkbox" name="genre_musical" id="genre_musical" value="1"> Sí
+            <input type="hidden" name="genre_musical" value="0">
+        
+            <label for="genre_sci_fi">Genre Specialization - Sci-Fi</label>
+            <input type="checkbox" name="genre_sci_fi" id="genre_sci_fi" value="1"> Sí
+            <input type="hidden" name="genre_sci_fi" value="0">
+        
+            <label for="education_college">Education Level - College</label>
+            <input type="checkbox" name="education_college" id="education_college" value="1"> Sí
+            <input type="hidden" name="education_college" value="0">
+        
+            <label for="education_graduate">Education Level - Graduate</label>
+            <input type="checkbox" name="education_graduate" id="education_graduate" value="1"> Sí
+            <input type="hidden" name="education_graduate" value="0">
+        
+            <label for="education_high_school">Education Level - High School</label>
+            <input type="checkbox" name="education_high_school" id="education_high_school" value="1"> Sí
+            <input type="hidden" name="education_high_school" value="0">
+        
+            <label for="education_university">Education Level - University</label>
+            <input type="checkbox" name="education_university" id="education_university" value="1"> Sí
+            <input type="hidden" name="education_university" value="0">
+            
+            <button type="submit" class="btn-Consultar">Consultar</button>
+        </form>
+    </div>
+    
+
+    <script>
+        document.getElementById('actorForm').addEventListener('submit', function(event) {
+            event.preventDefault(); 
+            
+            const formData = new FormData(this);
+            const jsonData = {
+                num_variables: {},
+                cat_variables: {}
+            };
+
+            jsonData.num_variables = {
+                Age: formData.get('Age').split('-'),
+                'Years Active': formData.get('Years Active').split('-'),
+                Beauty: formData.get('Beauty').split('-'),
+                'Skill Level': formData.get('Skill Level').split('-'),
+                'Award Wins': formData.get('Award Wins').split('-'),
+                'Media Mentions': formData.get('Media Mentions').split('-'),
+                'Social Media Followers': formData.get('Social Media Followers').split('-'),
+                'Social Media Likes': formData.get('Social Media Likes').split('-'),
+                'Network Size': formData.get('Network Size').split('-'),
+                Income: formData.get('Income').split('-')
+            };
+
+            // Procesar las variables categóricas
+            jsonData.cat_variables = {
+                Gender_Female: formData.get('Gender_Female') ? 1 : 0,
+                Gender_Male: formData.get('Gender_Male') ? 1 : 0,
+                Nationality_Canada: formData.get('Nationality_Canada') ? 1 : 0,
+                Nationality_USA: formData.get('Nationality_USA') ? 1 : 0,
+                'Genre Specialization_Action': formData.get('Genre Specialization_Action') ? 1 : 0,
+                'Genre Specialization_Comedy': formData.get('Genre Specialization_Comedy') ? 1 : 0,
+                'Genre Specialization_Drama': formData.get('Genre Specialization_Drama') ? 1 : 0,
+                'Genre Specialization_Horror': formData.get('Genre Specialization_Horror') ? 1 : 0,
+                'Genre Specialization_Musical': formData.get('Genre Specialization_Musical') ? 1 : 0,
+                'Genre Specialization_Sci-Fi': formData.get('Genre Specialization_Sci-Fi') ? 1 : 0,
+                'Education Level_High School': formData.get('Education Level_High School') ? 1 : 0,
+                'Education Level_College': formData.get('Education Level_College') ? 1 : 0,
+                'Education Level_Graduate': formData.get('Education Level_Graduate') ? 1 : 0,
+                'Education Level_University': formData.get('Education Level_University') ? 1 : 0
+            };
+
+            // Aquí puedes enviar jsonData a tu ruta en Flask
+            console.log(JSON.stringify(jsonData));
+        });
+    </script>
+</body>
+</html>
+
+
+

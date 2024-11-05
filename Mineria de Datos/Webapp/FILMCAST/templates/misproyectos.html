@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FilmCast</title>
+    <link rel="stylesheet" href="../static/normaze.css">
+    <link rel="stylesheet" href="../static/estilocreapro.css">
+</head>
+<body>
+    <header>
+        <div class="container-hero">
+            <div class="container hero">
+                <div class="customer-support">
+                    <i class="fa-solid fa-headset"></i>
+                    <div class="content-customer-support">
+                        <span class="text">Soporte al cliente</span>
+                        <span class="number">123-456-7890</span>
+                    </div>
+                </div>
+
+
+                <div class="container-logo">
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAflJREFUSEvN1s+rTVEUB/DPE8mPATL15NfAj6EyITPzR4hEyUDhX/CrjIxEzEw88jv/gYSRmcRAEVNlJAaIs27rvHa32+nc63j3rsleZ5+11nd/19577TVlTDI1JlwTBbwW6zrOxEd8KmOWjBfgDg52DFqHu4Vj+BMTJfBh3P5PoHXYGTzpBz5bLeRCWhzHzdQ/50rjcxHuYSV+4xC+pN157C70ZwWJp6mfw8V+4JgM53r+Bk7m9ylcTz224m7qj7Ev9Tgb77Ak93MbvuW/XnqTWA+jTHVMBHg9vxxvEAF/VEw3FwfkEfam7QE8SP00rqYeC40FhwwFHA478TydX2BX6qvwHjF+rc7Gphzjd9iHX0jYh9/QwOHcJuXBOJiH9Kc8MvW9barLg7EM29MxArxKvWYU1zDkJX6lvhWrU3+LLW2Bi9idqnFrGg9Xp2hFsMkCLu9xE+Mr+IkzWDxkaiLNvSJV3uO2wLXzmqqSXcKRvjhNa/mnVM85J0JUqGtFuZw34BpoT9bxFQ3InTIOnB3VwxF7H+O8MN6Ay4jnro0MZDzM4YoHIJ63E1jYBrGLyvUaG7F0CMDadCDjshEYIWYrl4GNQPnAt4oygtF+POwvIPHK3C86ihHiNrrM4uigZq/2Wl/1W9Mdo35A9G5zMlENfcdkB4cbG+O/Au1uHz3+eYkAAAAASUVORK5CYII="/>
+                    <h1 class="logo"><a href="/">FilmCast</a></h1>
+                </div>
+
+                <div class="container-user"> 
+                    <a href="{{ url_for('perfil') }}">
+                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAb1JREFUSEvN1k3ITUEYB/DfK18lJcmOhCyUKCs7lGJhQcpGoXyUlJ0US5LsUD42rFCilLKwYMVCCYWVfKWUkgUbCTN1jt6ue95nzts5XbOd5/x/M819Zu6YEY2xEbkmA0/BNiyvFv0SN/C7zSbawmtwBcsGkFfYiceleBt4Pe5iekP4d2zAoxK8FJ6F95gbhH7AUvyI8FJ4Ly5FYdV8Pv+bUW0pfAH7o7Bq/jQOR7Wl8EXsi8Kq+fM4ENWWwkdxPAqr5o/gVFRbCueefRGFVb28JLXWm6i2FM45l7ErCDyDQxGa59vAM6obanNDcF7YHvzqGq4XugNbxvX0J1zD7RKwrmmz4za5Ye1/Dy/A1nQjrUiPxKLUWlMHtvQz/fDepiN4hlv4GG052vFKnMSmKGhg/k51e+VXa+iYCM431TlMa4nW5fmh2J2e0KvDvm+Ct+P6JMHxn+XW2oh7g1nD4Plppe8wswM4R3zBQuT3+u8YBp/FwY7QOuZYOrITEfw5ne28juEnWD0RvBivO0bruNn41nRz5T9zD3uCc2s+b4LX4n5P8Do8aILnYFVP8FN8bYJ7Mv+Nja7M3hYyMvgPElg8H/XErXYAAAAASUVORK5CYII=" />
+                    </a>
+                
+                    
+                </div>              
+            </div>
+        </div>
+
+
+        <div class="container-navbar">
+            <nav class="navbar container">
+                <i class="fa-solid fa-bars"></i>
+                <ul class="menu">
+                    <li><a href="{{ url_for('menu') }}">Inicio</a></li>
+                    <li><a href="{{ url_for('busqueda_filtro') }}">Buscar</a></li>
+                    <li><a href="{{ url_for('misproyectos') }}">Mis Proyectos</a></li>
+                    <li><a href="{{ url_for('misfavoritos') }}">Mis Favoritos</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+
+    <main class="main-content">
+        <section class="container top-actores">
+            <h1 class="heading-1">Mis Proyectos</h1>
+            <a href="{{ url_for('crear_proyecto') }}" class="btn btn-crear_proyecto">Crear Proyecto</a>
+
+            <div class="container-actores">
+                {% if proyectos %}
+                    {% for proyecto in proyectos %}
+                    <div class="card-product">
+                        <form action="{{ url_for('eliminar_proyecto', proyecto_id=proyecto[0]) }}" method="POST" style="display:inline;">
+                            <button type="submit" class="btn btn-elimina" onclick="return confirm('¿Estás seguro de que deseas eliminar este proyecto?');">Eliminar</button>
+                        </form>
+                        <a href="{{ url_for('info_proyecto', proyecto_id=proyecto[0]) }}">  
+                            <div class="container-img">
+                                <img src="https://i.pinimg.com/564x/e4/aa/56/e4aa56c9a7f46e10fa4d334067b34f3d.jpg" alt="Imagen del proyecto" />
+                                <span class="discount">{{ proyecto[4] }}</span> 
+                            </div>
+                            <div class="content-card-product">
+                                <h3>{{ proyecto[1] }}</h3>  <!-- Título del proyecto -->
+                                <h2>{{ proyecto[3] }}</h2>  <!-- Género del proyecto -->
+                            </div>
+                        </a>
+                        <div class="button-group">
+                            <span>
+                                <i class="fa-regular fa-eye"></i>
+                            </span>
+                            <span>
+                                <i class="fa-regular fa-heart"></i>
+                            </span>
+                            <span>
+                                <i class="fa-solid fa-code-compare"></i>
+                            </span>
+                            
+                        </div>
+                    </div>
+                    {% endfor %}
+                {% else %}
+                    <p>No tienes proyectos en tu lista.</p>
+                {% endif %}
+            </div>
+            
+        </section>
+    </main>
+    
+
+
+    <footer class="footer">
+        <div class="container container-footer">
+            <div class="menu-footer">
+                <div class="contact-info">
+                    <p class="title-footer">Información de Contacto</p>
+                    <ul>
+                        <li>Tel: +51 999 999 999</li>
+                        <li>Email: FilmCast@gmail.com</li>
+                        <li>Cra. 4 #22-61, Bogotá</li>
+                    </ul>
+                    <div class="social-icons">
+                        <span class="facebook">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </span>
+                        <span class="twitter">
+                            <i class="fa-brands fa-twitter"></i>
+                        </span>
+                        <span class="youtube">
+                            <i class="fa-brands fa-youtube"></i>
+                        </span>
+                        <span class="pinterest">
+                            <i class="fa-brands fa-pinterest-p"></i>
+                        </span>
+                        <span class="instagram">
+                            <i class="fa-brands fa-instagram"></i>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="information">
+                    <p class="title-footer">Información</p>
+                    <ul>
+                        <li><a href="#">Politicas de Privacidad</a></li>
+                        <li><a href="#">Términos y condiciones</a></li>
+                        <li><a href="#">Contactános</a></li>
+                    </ul>
+                </div>
+
+                <div class="my-account">
+                    <p class="title-footer">Mi cuenta</p>
+
+                    <ul>
+                        <li><a href="#">Mi cuenta</a></li>
+                        <li><a href="#">Historial</a></li>
+                        <li><a href="#">Lista de proyectos</a></li>
+                    </ul>
+                </div>
+
+                <div class="newsletter">
+                    <p class="title-footer">¿Tienes problemas o preguntas?</p>
+
+                    <div class="content">
+                        <p>
+                            Si tienes alguna dificultad o necesitas ayuda con nuestro servicio, no dudes en contactarnos. Nuestro equipo está aquí para asistirte. 
+                        </p>
+                        <input type="text" placeholder="Ingresa la inconformidad aqui...">
+                        <button>Enviar</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="copyright">
+                <p>
+                    &copy; FilmCast | Mineria de datos 
+                </p>
+                
+            </div>
+        </div>
+    </footer>
+    <script
+        src="https://kit.fontawesome.com/81581fb069.js"
+        crossorigin="anonymous"
+    ></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FilmCast</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/stylemenu.css"> 
+
+    <link rel="stylesheet" href="../static/estiloencontra.css"> 
+</head>
+<body>
+    <header>
+        <div class="container-hero">
+            <div class="container hero">
+                <div class="customer-support">
+                    <i class="fa-solid fa-headset"></i>
+                    <div class="content-customer-support">
+                    </div>
+                </div>
+
+                <div class="container-logo">
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAflJREFUSEvN1s+rTVEUB/DPE8mPATL15NfAj6EyITPzR4hEyUDhX/CrjIxEzEw88jv/gYSRmcRAEVNlJAaIs27rvHa32+nc63j3rsleZ5+11nd/19577TVlTDI1JlwTBbwW6zrOxEd8KmOWjBfgDg52DFqHu4Vj+BMTJfBh3P5PoHXYGTzpBz5bLeRCWhzHzdQ/50rjcxHuYSV+4xC+pN157C70ZwWJp6mfw8V+4JgM53r+Bk7m9ylcTz224m7qj7Ev9Tgb77Ak93MbvuW/XnqTWA+jTHVMBHg9vxxvEAF/VEw3FwfkEfam7QE8SP00rqYeC40FhwwFHA478TydX2BX6qvwHjF+rc7Gphzjd9iHX0jYh9/QwOHcJuXBOJiH9Kc8MvW9barLg7EM29MxArxKvWYU1zDkJX6lvhWrU3+LLW2Bi9idqnFrGg9Xp2hFsMkCLu9xE+Mr+IkzWDxkaiLNvSJV3uO2wLXzmqqSXcKRvjhNa/mnVM85J0JUqGtFuZw34BpoT9bxFQ3InTIOnB3VwxF7H+O8MN6Ay4jnro0MZDzM4YoHIJ63E1jYBrGLyvUaG7F0CMDadCDjshEYIWYrl4GNQPnAt4oygtF+POwvIPHK3C86ihHiNrrM4uigZq/2Wl/1W9Mdo35A9G5zMlENfcdkB4cbG+O/Au1uHz3+eYkAAAAASUVORK5CYII="/>
+                    <h1 class="logo"><a href="/">FilmCast</a></h1>
+                </div>
+
+            </div>
+        </div>
+        <div class="container-navbar">
+            <nav class="navbar container">
+                <i class="fa-solid fa-bars"></i>
+                <ul class="menu">
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main class="main-content">
+        <section class="container top-actores">
+            <h1 class="heading-1">Actores Encontrados</h1>
+            <div class="container-actores">
+                {% if nearest_records %}
+                    {% for actor in nearest_records %}
+                    <div class="card-product">
+                        <div class="container-img">
+                            <img src="https://i.pinimg.com/564x/88/3d/74/883d74b5eca63acc4e07773f3a645ba6.jpg" alt="{{ actor.Name }}" />
+                            <div class="recomen">
+                                <h1>{{ actor.Name }}</h1>
+                                <h2>{{ actor.Gender }}</h2>
+                                <h2>{{ actor.Age }}</h2>
+                                <h2>{{ actor['Genre Specialization'] }}</h2>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                {% else %}
+                    <div class="alert alert-warning" role="alert">
+                        No se encontraron actores que coincidan con los criterios de búsqueda.
+                    </div>
+                {% endif %}
+            </div>
+            
+            <a href="{{ url_for('index') }}" class="btn btn-volver">Volver a la búsqueda</a>
+        </section>
+    </main>
+    
+    
+    
+    
+</body>
+</html>
