@@ -1,26 +1,9 @@
 from flask import Flask, session, jsonify , redirect, url_for, render_template, request, flash
-import pandas as pd 
-import numpy as np
-from openpyxl import Workbook
-import os 
-from datetime import datetime
-import requests 
-import random
+import requests
 
 
 app = Flask(__name__)
 app.secret_key = 'tu_clave_secreta' 
-
-import psycopg2
-
-def get_db_connection():
-    conn = psycopg2.connect(
-        host="localhost",
-        user="postgres",
-        password="123",
-        database="1"
-    )
-    return conn
 
 @app.route('/')
 def index():
@@ -651,4 +634,4 @@ def eliminar_favorito(actor_id):
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=5000)
