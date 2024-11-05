@@ -42,4 +42,6 @@ El modelo busca los actores más cercanos de acuerdo a las características que 
 ![5 vecinos más cercanos del punto marcado con x](https://miro.medium.com/v2/resize:fit:720/format:webp/0*YXH-PXGg_RPpupEB) 
 
 
+## Entrenamiento y uso del modelo
 
+El modelo entrenado se encuentra en `Mineria de Datos/Model/Lud/app/knn_model.pkl`, para el entrenamiento se utilizó el set de datos `ActoresIndexOneHot.csv` ubicado en `Mineria de Datos/Model/Lud/app/ActoresIndexOneHot.csv` y el modelo fue generado en el archivo `Mineria de Datos/Model/Others/trainModel.py`. Se utiliza el algoritmo KNN para retornar los 5 actores que se ajustan más a la petición del director
