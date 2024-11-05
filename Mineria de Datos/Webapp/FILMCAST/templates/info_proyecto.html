@@ -62,20 +62,20 @@
         </div>
         <div class="perfil-usuario-body">
             <div class="perfil-usuario-bio">
-                <h3 class="titulo">{{ proyecto[1] }}</h3>
-                <h1> {{ proyecto[2] }}</h1>
+                <h3 class="titulo">{{ proyecto['titulo'] }}</h3>
+                <h1> {{ proyecto['descripcion'] }}</h1>
             </div>
             <div class="perfil-usuario-footer">
                 <ul class="lista-datos">
-                <h2>Genero: {{ proyecto[3] }}</h2> 
-                <h2>Fecha de inicio: {{ proyecto[4] }}</h2>
-                <h2>Fecha de fin: {{ proyecto[5] }}</h2>
-                <h2>Presupuesto: {{ proyecto[6] }}</h2> 
+                <h2>Genero: {{ proyecto['genero'] }}</h2> 
+                <h2>Fecha de inicio: {{ proyecto['fecha_inicio'] }}</h2>
+                <h2>Fecha de fin: {{ proyecto['fecha_fin'] }}</h2>
+                <h2>Presupuesto: {{ proyecto['presupuesto'] }}</h2> 
 
                 <h3>Actores relacionados:</h3>
                 <ul>
                     {% for actor in actores %}
-                        <li><a href="{{ url_for('info_actor', actor_id=actor[0]) }}">{{ actor[1] }} {{ actor[3] }}</a></li>
+                        <li><a href="{{ url_for('info_actor', actor_id=actor['id']) }}">{{ actor['name'] }} {{ actor['age'] }}</a></li>
                     {% endfor %}
                 </ul>
 

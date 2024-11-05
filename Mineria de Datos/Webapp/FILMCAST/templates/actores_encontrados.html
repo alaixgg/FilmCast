@@ -36,8 +36,6 @@
                 </div>              
             </div>
         </div>
-
-
         <div class="container-navbar">
             <nav class="navbar container">
                 <i class="fa-solid fa-bars"></i>
@@ -57,26 +55,24 @@
             <div class="container-actores">
                 {% if nearest_records %}
                     {% for actor in nearest_records %}
-                    <div class="card-product">
-                
-                            <div class="container-img">
-                                <img src="https://i.pinimg.com/564x/88/3d/74/883d74b5eca63acc4e07773f3a645ba6.jpg" alt="{{ actor.Name }}" />
-                                <div class="recomen">
-                                    <h1>{{ actor.Name }}</h1>
-                                    <h2>{{ actor.Gender }}</h2>
-                                    <h2>{{ actor.Age }}</h2>
-                                    <h2>{{ actor['Genre Specialization'] }}</h2>
+                        <div class="card-product">
+                            <a href="{{ url_for('info_actor', actor_id=actor.id) }}"> 
+                                <div class="container-img">
+                                    <img src="https://i.pinimg.com/564x/88/3d/74/883d74b5eca63acc4e07773f3a645ba6.jpg" alt="{{ actor.name }}" />
                                 </div>
-                            </div>
-                        </a>
-                    </div>
+                                <div class="recomen">
+                                    <h1>{{ actor.name }}</h1>
+                                    <h2>{{ actor.gender }}</h2>
+                                    <h2>{{ actor.age }}</h2>
+                                    <h2>{{ actor['genre_specialization'] }}</h2>
+                                </div>
+                            </a> 
+                        </div>
                     {% endfor %}
                 {% else %}
-                    <div class="alert alert-warning" role="alert">
-                        No se encontraron actores que coincidan con los criterios de búsqueda.
-                    </div>
+                    <p>No se encontraron actores.</p>
                 {% endif %}
-            </div>
+            </div>            
             
             
             <a href="{{ url_for('busqueda_filtro') }}" class="btn btn-volver">Volver a la búsqueda</a>

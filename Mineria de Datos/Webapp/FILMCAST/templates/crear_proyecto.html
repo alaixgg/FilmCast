@@ -81,14 +81,15 @@
 
 
             <label>Seleccionar Actores:</label>
-            <div class="actores-container">
-                {% for actor in actores %}
-                    <div class="actor-item">
-                        <input type="checkbox" name="actores" value="{{ actor[0] }}" id="actor_{{ actor[0] }}">
-                        <label for="actor_{{ actor[0] }}">{{ actor[1] }}</label>
-                    </div>
-                {% endfor %}
-            </div>
+                <div class="actores-container">
+                    {% for actor in actores %}
+                        <div class="actor-item">
+                            <input type="checkbox" name="actores" value="{{ actor['id'] }}" id="actor_{{ actor['id'] }}">
+                            <label for="actor_{{ actor['id'] }}">{{ actor['name'] }}</label>
+                        </div>
+                    {% endfor %}
+                </div>
+                
 
 
         
