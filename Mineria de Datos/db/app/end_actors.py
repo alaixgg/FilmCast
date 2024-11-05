@@ -66,3 +66,37 @@ def get_destacados():
     finally:
         if connection:
             connection.close()
+
+# actores relacionados
+@app.route('/actores_relacionados/<int:proyecto_id>', methods=['GET'])
+@token_required
+def get_relaciondos(proyecto_id):
+    connection = None
+    try:
+        connection = get_db_connection()
+        with connection.cursor() as cursor:
+            cursor.execute("""
+                SELECT DISTINCT a.id, a.name, act.rol
+                FROM actores a 
+                JOIN actividad act ON a.id = act.actor_id 
+                WHERE act.proyecto_id = %s
+            """, (proyecto_id,))
+            actores = cursor.fetchall()
+
+            if actores:
+                column_names = [desc[0] for desc in cursor.description]
+                actor_data = dict(zip(column_names, actores))
+                logging.info(f"||get_relaciondos|| Se envía información de actores de {proyecto_id}.")
+                return jsonify(actor_data), 200
+                
+            else:
+                logging.warning(f"||get_relaciondos|| No se encontró el proyecto {proyecto_id}.")
+                return jsonify({"error": "No se encuentra actor"}), 404
+    
+    except Exception as e:
+        logging.error(f"||get_relaciondos|| Error en la base de datos al cargar actores para el proyecto {proyecto_id}: {e}")
+        return jsonify({"error": "Problema en la base de datos."}), 500
+    
+    finally:
+        if connection:
+            connection.close()
