@@ -85,13 +85,13 @@ def get_relaciondos(proyecto_id):
 
             if actores:
                 column_names = [desc[0] for desc in cursor.description]
-                actor_data = dict(zip(column_names, actores))
-                logging.info(f"||get_relaciondos|| Se envía información de actores de {proyecto_id}.")
+                actor_data = [dict(zip(column_names, row)) for row in actores]
+                logging.info(f"||get_relacionados|| Se envía información de actores de proyecto {proyecto_id}.")
                 return jsonify(actor_data), 200
                 
             else:
                 logging.warning(f"||get_relaciondos|| No se encontró el proyecto {proyecto_id}.")
-                return jsonify({"error": "No se encuentra actor"}), 404
+                return jsonify({"error": "No se encuentra proyecto"}), 404
     
     except Exception as e:
         logging.error(f"||get_relaciondos|| Error en la base de datos al cargar actores para el proyecto {proyecto_id}: {e}")
