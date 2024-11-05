@@ -98,8 +98,9 @@ class EditarPerfil : AppCompatActivity() {
                             etTelefono.setText(jsonObject.optString("telefono", ""))
                             etEmail.setText(jsonObject.optString("email", ""))
                             etDescripcion.setText(jsonObject.optString("descripcion", ""))
-                            etNacionalidad.setText(jsonObject.optString("Pais",""))  // Aquí colocas el valor de "Pais"
+                            etNacionalidad.setText(jsonObject.optString("nacionalidad",""))
 
+                            Log.d("PerfilActivity", "nacionalidad: ${jsonObject.optString("nacionalidad", "Campo no encontrado")}")
 
                         }
                     } catch (e: Exception) {
