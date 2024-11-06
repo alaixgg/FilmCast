@@ -1,75 +1,70 @@
 package com.example.filmcast.recycler
 
-import android.widget.Toast
-import com.google.gson.Gson
 import okhttp3.Call
 import okhttp3.Callback
-import okhttp3.Headers
-import okhttp3.Headers.Companion.toHeaders
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import okhttp3.Response
-import org.json.JSONException
 import org.json.JSONObject
 import java.io.IOException
 
 class ResultadoProvider {
     companion object {
-        private const val SERVER_URL = "https://db.cuspide.club/info_actor"
+        private const val SERVER_URL = "https://db.cuspide.club/info_actor" // Endpoint para obtener la info del actor
         private val client = OkHttpClient()
-
-        // Lista local de perfiles
         var perfilList = mutableListOf<Perfil>()
 
-        // Función para obtener la información de un actor
-        fun getActorInfo(
-            actorId: String,
-            headers: Map<String, String>,
-            onResult: (Perfil?) -> Unit,
-            onError: (String) -> Unit
-        ) {
-            // Construir la solicitud GET con el actorId y los headers
-            val request = Request.Builder()
-                .url("$SERVER_URL/$actorId")
-                .headers(headers.toHeaders())
-                .build()
+        // Esta función obtiene los detalles de los actores usando sus IDs
+        fun fetchActorDetails(actorIds: List<String>, onResult: (List<Perfil>) -> Unit, onError: (String) -> Unit) {
+            val requestBuilder = Request.Builder()
 
-            // Ejecutar la solicitud
-            client.newCall(request).enqueue(object : Callback {
-                override fun onFailure(call: Call, e: IOException) {
-                    onError("Error de red: ${e.message ?: "desconocido"}")
-                }
+            // Iteramos sobre los IDs de los actores y realizamos una solicitud por cada uno
+            for (actorId in actorIds) {
+                val request = requestBuilder
+                    .url("$SERVER_URL$actorId") // Concatenamos el ID del actor con el URL base
+                    .build()
 
-                override fun onResponse(call: Call, response: Response) {
-                    if (response.isSuccessful) {
-                        response.body?.string()?.let { responseBody ->
-                            val perfil = parseJsonToPerfil(responseBody)
+                client.newCall(request).enqueue(object : Callback {
+                    override fun onFailure(call: Call, e: IOException) {
+                        onError("Error de red al obtener los detalles del actor $actorId: ${e.message}")
+                    }
+
+                    override fun onResponse(call: Call, response: Response) {
+                        if (response.isSuccessful) {
+                            val responseData = response.body?.string()
+                            val perfil = parseJsonToPerfil(responseData)
+
+                            // Si el actor es válido, lo agregamos a la lista
                             if (perfil != null) {
-                                // Añadir el perfil a la lista
                                 perfilList.add(perfil)
                             }
-                            onResult(perfil)
-                        } ?: onError("Respuesta vacía del servidor")
-                    } else {
-                        onError("Error al obtener información del actor: ${response.message}")
+
+                            // Llamamos a onResult después de obtener todos los actores
+                            if (actorIds.size == perfilList.size) {
+                                onResult(perfilList)
+                            }
+                        } else {
+                            onError("Error al obtener el detalle del actor $actorId: ${response.message}")
+                        }
                     }
-                }
-            })
+                })
+            }
         }
 
-        // Función para convertir el JSON de respuesta en un objeto Perfil
-        private fun parseJsonToPerfil(json: String): Perfil? {
-            return try {
+        // Esta función es para parsear la respuesta JSON a un objeto Perfil
+        private fun parseJsonToPerfil(json: String?): Perfil? {
+            if (json.isNullOrEmpty()) return null
+
+            try {
                 val jsonObject = JSONObject(json)
-                // Aquí extraemos los datos del JSON y los usamos para crear el objeto Perfil
-                Perfil(
+                return Perfil(
                     nombre = jsonObject.getString("nombre"),
                     genero = jsonObject.getString("genero"),
                     precio = jsonObject.getString("precio"),
                     generoCine = jsonObject.getString("generoCine")
                 )
-            } catch (e: JSONException) {
-                null // Si hay un error en el parseo, devolvemos null
+            } catch (e: Exception) {
+                return null
             }
         }
     }
