@@ -21,6 +21,11 @@
             android:screenOrientation="portrait"/>
 
         <activity
+            android:name=".ui.login.ResultadoActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"/>
+
+        <activity
             android:name=".ui.login.Crea_proyecto"
             android:exported="false"
             android:screenOrientation="portrait"/>

@@ -13,7 +13,6 @@ class PerfilViewHolder(view: View): RecyclerView.ViewHolder(view) {
     val genero = view.findViewById<TextView>(R.id.tv_genero)
     val precio = view.findViewById<TextView>(R.id.tv_precio)
     val generoCine = view.findViewById<TextView>(R.id.tv_genero_pelicula)
-    val foto = view.findViewById<ImageView>(R.id.iv_perfil)
 
     fun render(perfil: Perfil){
         nombre.text = perfil.nombre

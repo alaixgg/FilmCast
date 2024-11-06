@@ -10,7 +10,7 @@
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/Perfil_Actor1"
+        android:id="@+id/cl_lista"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/black">
