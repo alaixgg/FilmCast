@@ -300,4 +300,15 @@
 
     <string name="Pr_guardar_proyecto_boton">Guardar Proyecto</string>
     <string name="Pr_guardar_proyecto_boton.re">API</string>
+
+    <!-- Recursos de activity_guardados.xml -->
+    <string name="LP_boton_buscar">Buscar</string>
+    <string name="LP_boton_volver">Volver</string>
+    <string name="LP_titulo">Lista Proyectos</string>
+    <string name="LP1_fecha">Fecha</string>
+    <string name="LP1_Genero">Género</string>
+    <string name="LP1_precio">Precio</string>
+    <string name="LP1_nombre_pr">Nombre Pr</string>
+
+
 </resources>

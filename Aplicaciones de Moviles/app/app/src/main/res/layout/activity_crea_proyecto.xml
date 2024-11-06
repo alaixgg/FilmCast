@@ -127,14 +127,16 @@
         app:layout_constraintStart_toStartOf="@+id/Pro_nombre"
         app:layout_constraintTop_toBottomOf="@id/Pro_genero_cinematografico" />
 
-    <EditText
+    <!-- TextView en lugar de EditText para la fecha de inicio -->
+    <TextView
         android:id="@+id/Pro_fecha_inicio"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="378dp"
+        android:layout_height="47dp"
         android:layout_marginEnd="16dp"
+        android:background="@color/black"
+        android:clickable="true"
+        android:focusable="true"
         android:fontFamily="@font/montserrat_medium"
-        android:hint="@string/Pro_fecha_fin"
-        android:inputType="date"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/Pro_nombre"
@@ -151,17 +153,18 @@
         app:layout_constraintStart_toStartOf="@+id/Pro_nombre"
         app:layout_constraintTop_toBottomOf="@id/Pro_fecha_inicio" />
 
-    <EditText
+    <!-- TextView en lugar de EditText para la fecha de fin -->
+    <TextView
         android:id="@+id/Pro_fecha_fin"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
+        android:layout_width="382dp"
+        android:layout_height="49dp"
+        android:background="@color/black"
+        android:clickable="true"
+        android:focusable="true"
         android:fontFamily="@font/montserrat_medium"
-        android:hint="@string/Pro_fecha_fin"
-        android:inputType="date"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="@+id/Pro_fecha_inicio"
-        app:layout_constraintStart_toStartOf="@+id/Pro_nombre"
+        app:layout_constraintStart_toStartOf="@+id/Pro_fecha_inicio"
         app:layout_constraintTop_toBottomOf="@id/Pro_fecha_fin_label" />
 
     <TextView
