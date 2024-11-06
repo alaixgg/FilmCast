@@ -44,7 +44,7 @@ class PerfilProvider {
                     genero = jsonObject.getString("genero"),
                     precio = jsonObject.getString("precio"),
                     generoCine = jsonObject.getString("generoCine"),
-                    foto = jsonObject.getString("foto")
+
                 )
                 perfiles.add(perfil)
             }

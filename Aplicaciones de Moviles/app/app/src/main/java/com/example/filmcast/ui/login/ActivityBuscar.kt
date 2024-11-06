@@ -1,5 +1,6 @@
 package com.example.filmcast.ui.login
 
+import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
@@ -16,7 +17,7 @@ import java.io.IOException
 
 class ActivityBuscar : AppCompatActivity() {
 
-
+    // Definición de los Spinners
     private lateinit var spinnerEdad: Spinner
     private lateinit var spinnerGeneroCine: Spinner
     private lateinit var spinnerEducacion: Spinner
@@ -37,7 +38,7 @@ class ActivityBuscar : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_buscar)
 
-
+        // Inicialización de los Spinners
         spinnerEdad = findViewById(R.id.BU_spinner_edad)
         spinnerGeneroCine = findViewById(R.id.BU_genero_cine)
         spinnerEducacion = findViewById(R.id.BU_spinner_educacion)
@@ -173,6 +174,8 @@ class ActivityBuscar : AppCompatActivity() {
                 }
             }
 
+            private val actorIds = mutableListOf<String>()
+
             override fun onResponse(call: Call, response: Response) {
                 if (response.isSuccessful) {
                     // Obtener los datos de la respuesta
@@ -181,17 +184,22 @@ class ActivityBuscar : AppCompatActivity() {
                     // Log para ver la respuesta completa de la API
                     Log.d("ActivityBuscar", "Respuesta de la API: $responseData")
 
-                    // Usamos runOnUiThread para actualizar la UI en el hilo principal
+
                     runOnUiThread {
                         try {
-                            // Si la respuesta es JSON, puedes parsearla aquí.
                             val jsonResponse = JSONObject(responseData)
-                            // Ejemplo de cómo manejar la respuesta:
+
                             if (jsonResponse.getString("status") == "success") {
-                                // Mostrar un mensaje de éxito
+                                val actorId = jsonResponse.getJSONArray("actor_id")
+
+                                actorIds.clear()
+
+                                for (i in 0 until actorId.length()) {
+                                    actorIds.add(actorId.getString(i))
+                                }
+
                                 Toast.makeText(this@ActivityBuscar, "Búsqueda exitosa", Toast.LENGTH_SHORT).show()
                             } else {
-                                // Manejar el caso en que la respuesta no sea exitosa
                                 Toast.makeText(this@ActivityBuscar, "No se encontraron resultados", Toast.LENGTH_SHORT).show()
                             }
                         } catch (e: Exception) {
@@ -205,10 +213,13 @@ class ActivityBuscar : AppCompatActivity() {
                         Toast.makeText(this@ActivityBuscar, "Error en la búsqueda", Toast.LENGTH_SHORT).show()
                     }
                 }
+                val intent = Intent(this@ActivityBuscar, ResultadoActivity::class.java)
+                startActivity(intent)
             }
         })
     }
 
+    // Función para obtener el token de SharedPreferences
     private fun getTokenFromPreferences(): String? {
         return sharedPreferences.getString("token", null)
     }
