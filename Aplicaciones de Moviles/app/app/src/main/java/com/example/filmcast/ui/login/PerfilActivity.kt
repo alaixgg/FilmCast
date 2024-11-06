@@ -29,7 +29,7 @@ class PerfilActivity : AppCompatActivity() {
         setContentView(R.layout.activity_perfil)
 
         // Referencias a los elementos del layout
-        tvNombre = findViewById(R.id.Pe_nombre)
+
         tvEmail = findViewById(R.id.Pe_email)
         tvTelefono = findViewById(R.id.Pe_telefono)
         tvDescripcion = findViewById(R.id.Pe_descripcion)

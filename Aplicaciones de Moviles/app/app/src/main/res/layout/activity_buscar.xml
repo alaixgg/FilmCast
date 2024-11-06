@@ -58,7 +58,7 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="400dp"
+            android:layout_height="900dp"
             android:layout_gravity="fill_vertical">
 
             <TextView
@@ -81,8 +81,8 @@
                 android:id="@+id/BU_spinner_edad"
                 android:layout_width="106dp"
                 android:layout_height="46dp"
-                android:spinnerMode="dropdown"
                 android:background="@color/white"
+                android:spinnerMode="dropdown"
                 app:layout_constraintStart_toStartOf="@+id/Bu_edad"
                 app:layout_constraintTop_toBottomOf="@+id/Bu_edad" />
 
@@ -105,9 +105,9 @@
                 android:id="@+id/BU_genero_cine"
                 android:layout_width="219dp"
                 android:layout_height="45dp"
-                android:spinnerMode="dropdown"
                 android:layout_marginTop="4dp"
                 android:background="@color/white"
+                android:spinnerMode="dropdown"
                 app:layout_constraintStart_toStartOf="@+id/Bu_genero_cine"
                 app:layout_constraintTop_toBottomOf="@+id/Bu_genero_cine" />
 
@@ -130,8 +130,8 @@
                 android:id="@+id/BU_spinner_educacion"
                 android:layout_width="128dp"
                 android:layout_height="45dp"
-                android:spinnerMode="dropdown"
                 android:background="@color/white"
+                android:spinnerMode="dropdown"
                 app:layout_constraintStart_toStartOf="@+id/Bu_educacion"
                 app:layout_constraintTop_toBottomOf="@+id/Bu_educacion" />
 
@@ -154,9 +154,9 @@
                 android:id="@+id/BU_spinner_salario"
                 android:layout_width="128dp"
                 android:layout_height="45dp"
-                android:spinnerMode="dropdown"
                 android:layout_marginTop="5dp"
                 android:background="@color/white"
+                android:spinnerMode="dropdown"
                 app:layout_constraintStart_toStartOf="@+id/Bu_salario"
                 app:layout_constraintTop_toBottomOf="@+id/Bu_salario" />
 
@@ -178,8 +178,8 @@
                 android:id="@+id/BU_spinner_años_act"
                 android:layout_width="128dp"
                 android:layout_height="45dp"
-                android:spinnerMode="dropdown"
                 android:background="@color/white"
+                android:spinnerMode="dropdown"
                 app:layout_constraintStart_toStartOf="@+id/Bu_años_act"
                 app:layout_constraintTop_toBottomOf="@+id/Bu_años_act" />
 
@@ -202,8 +202,8 @@
                 android:id="@+id/BU_spinner_genero"
                 android:layout_width="128dp"
                 android:layout_height="45dp"
-                android:spinnerMode="dropdown"
                 android:background="@color/white"
+                android:spinnerMode="dropdown"
                 app:layout_constraintStart_toStartOf="@+id/Bu_genero"
                 app:layout_constraintTop_toBottomOf="@+id/Bu_genero" />
 
@@ -225,8 +225,8 @@
                 android:id="@+id/BU_spinner_habilidad"
                 android:layout_width="128dp"
                 android:layout_height="45dp"
-                android:spinnerMode="dropdown"
                 android:background="@color/white"
+                android:spinnerMode="dropdown"
                 app:layout_constraintStart_toStartOf="@+id/Bu_habilidad"
                 app:layout_constraintTop_toBottomOf="@+id/Bu_habilidad" />
 
@@ -249,8 +249,8 @@
                 android:id="@+id/Bu_spinner_premios"
                 android:layout_width="128dp"
                 android:layout_height="45dp"
-                android:spinnerMode="dropdown"
                 android:background="@color/white"
+                android:spinnerMode="dropdown"
                 app:layout_constraintStart_toStartOf="@+id/Bu_premios"
                 app:layout_constraintTop_toBottomOf="@+id/Bu_premios" />
 
@@ -287,8 +287,8 @@
                 android:id="@+id/BU_spinner_menciones"
                 android:layout_width="128dp"
                 android:layout_height="45dp"
-                android:spinnerMode="dropdown"
                 android:background="@color/white"
+                android:spinnerMode="dropdown"
                 app:layout_constraintStart_toStartOf="@+id/Bu_redes"
                 app:layout_constraintTop_toBottomOf="@+id/Bu_redes" />
 
@@ -296,8 +296,8 @@
                 android:id="@+id/BU_spinner_Tamaño_pagina"
                 android:layout_width="128dp"
                 android:layout_height="45dp"
-                android:spinnerMode="dropdown"
                 android:background="@color/white"
+                android:spinnerMode="dropdown"
                 app:layout_constraintStart_toStartOf="@+id/Bu_Tamaño_pagina"
                 app:layout_constraintTop_toBottomOf="@+id/Bu_Tamaño_pagina" />
 
@@ -320,8 +320,8 @@
                 android:id="@+id/BU_spinner_redes_likes"
                 android:layout_width="128dp"
                 android:layout_height="45dp"
-                android:spinnerMode="dropdown"
                 android:background="@color/white"
+                android:spinnerMode="dropdown"
                 app:layout_constraintStart_toStartOf="@+id/Bu_redes_likes"
                 app:layout_constraintTop_toBottomOf="@+id/Bu_redes_likes" />
 
@@ -345,8 +345,8 @@
                 android:id="@+id/BU_spinner_redes_seguidores"
                 android:layout_width="128dp"
                 android:layout_height="45dp"
-                android:spinnerMode="dropdown"
                 android:background="@color/white"
+                android:spinnerMode="dropdown"
                 app:layout_constraintStart_toStartOf="@+id/Bu_redes_seguidores"
                 app:layout_constraintTop_toBottomOf="@+id/Bu_redes_seguidores" />
 
@@ -368,11 +368,10 @@
                 android:id="@+id/BU_spinner_belleza"
                 android:layout_width="128dp"
                 android:layout_height="45dp"
-                android:spinnerMode="dropdown"
                 android:background="@color/white"
+                android:spinnerMode="dropdown"
                 app:layout_constraintStart_toStartOf="@+id/Bu_belleza"
                 app:layout_constraintTop_toBottomOf="@+id/Bu_belleza" />
-
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
