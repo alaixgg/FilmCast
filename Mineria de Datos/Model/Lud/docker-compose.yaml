@@ -1,8 +1,30 @@
 version: '3.7'
 services:
-  api_lud:
-    image: spanishhans/cet-mineria:api_lud
-    container_name: api_lud
+  api_knn:
+    image: spanishhans/cet-mineria:api_knn
+    container_name: api_knn
     restart: unless-stopped
     ports:
-      - '10303:1234'
+      - '10303:5000'
+    environment:
+      - DB_HOST=db
+      - SECRET_KEY=${SECRET_KEY}
+      - DB_NAME=${DB_NAME}
+      - DB_USER=${DB_USER}
+      - DB_PASSWORD=${DB_PASSWORD}
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+    depends_on:
+      - redis
+
+
+  redis:
+    image: redis:alpine
+    container_name: redis_knn
+    networks:
+      - backend
+
+networks:
+  backend:
+    name: back_model
+    driver: bridge

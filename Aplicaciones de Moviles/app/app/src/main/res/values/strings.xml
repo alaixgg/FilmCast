@@ -96,7 +96,7 @@
     <string name="Bu_salario">Salario</string>
     <string name="Bu_educativo">Educacion</string>
     <string name="Bu_año_act">Años act</string>
-    <string name="Bu_nacionalidad">Nacionalidad</string>
+    <string name="Bu_habilidad">Habilidad</string>
     <string name="Bu_premios">Premios</string>
     <string name="Bu_redes_menciones">Menciones</string>
     <string name="Bu_tamaño_pagina">Pagina</string>
@@ -127,53 +127,52 @@
     <string name="Pe_cerrar_sesion">Cerrar sesión</string>
     <string name="Pe_editar_perfil">Editar Perfil</string>
 
-
     <string-array name="Bu_edad">
         <item>Edad</item>
-        <item>18–20</item>
-        <item>20–25</item>
-        <item>26–30</item>
-        <item>31–35</item>
-        <item>36–40</item>
-        <item>41–45</item>
-        <item>46–50</item>
-        <item>51 o más</item>
+        <item>18-22</item>
+        <item>23-29</item>
+        <item>30-36</item>
+        <item>37-43</item>
+        <item>44-50</item>
+        <item>51-57</item>
+        <item>58-64</item>
+        <item>65-71</item>
+        <item>72-80</item>
     </string-array>
 
     <string-array name="Bu_Cinematigrafia">
-        <item>Cinematografia</item>
+        <item>Cinematografía</item>
         <item>Comedia</item>
         <item>Drama</item>
-        <item>Accion</item>
+        <item>Acción</item>
         <item>Sci-Fi</item>
         <item>Romance</item>
     </string-array>
 
     <string-array name="Bu_educacion">
-        <item>Nivel educactivo</item>
+        <item>Nivel educativo</item>
         <item>Universidad</item>
         <item>Colegiatura</item>
         <item>Graduado</item>
         <item>Secundaria</item>
     </string-array>
+
     <string-array name="Bu_salario">
         <item>Rango Salarial</item>
-        <item>10.000–50.000</item>
-        <item>50.001–100.000</item>
-        <item>100001–500.000</item>
-        <item>500001–1´000.000</item>
-        <item>1´000.001–1´500.000</item>
-        <item>1´500.001–000</item>
-    </string-array>
-    <string-array name="Bu_Belleza">
-        <item>Belleza</item>
-        <item>0–2</item>
-        <item>2–4</item>
-        <item>4–6</item>
-        <item>6–8</item>
-        <item>8–10</item>
+        <item>0-400,000</item>
+        <item>400001-700000</item>
+        <item>700001-1000000</item>
+        <item>1000001-2000000</item>
     </string-array>
 
+    <string-array name="Bu_Belleza">
+        <item>Belleza</item>
+        <item>0-3</item>
+        <item>4-6</item>
+        <item>7-9</item>
+        <item>10-12</item>
+        <item>13-16</item>
+    </string-array>
 
     <string-array name="Bu_Nacionalidad">
         <item>Nacionalidad</item>
@@ -181,66 +180,63 @@
         <item>Canada</item>
     </string-array>
 
-
     <string-array name="Bu_premios">
-        <item>Numero de premios</item>
-        <item>0–3</item>
-        <item>3–7</item>
-        <item>7–10</item>
-        <item>10–14</item>
-        <item>14–20</item>
+        <item>Número de premios</item>
+        <item>0-3</item>
+        <item>4-6</item>
+        <item>7-9</item>
+        <item>10-12</item>
+        <item>13-18</item>
     </string-array>
 
-
     <string-array name="Bu_genero">
-        <item>Genero de nacimiento</item>
+        <item>Género de nacimiento</item>
         <item>Femenino</item>
-        <item>Maculino</item>
+        <item>Masculino</item>
     </string-array>
 
     <string-array name="Bu_habilidad">
-        <item>Nivel de Habilidad</item>
-        <item>0–2</item>
-        <item>3–5</item>
-        <item>6–8</item>
-        <item>9–10</item>
+        <item>Nivel de habilidad</item>
+        <item>0-3</item>
+        <item>4-6</item>
+        <item>7-9</item>
+        <item>10-12</item>
+        <item>13-16</item>
     </string-array>
 
     <string-array name="Bu_Menciones">
         <item>Menciones en redes</item>
-        <item>0–15</item>
-        <item>16–30</item>
-        <item>31–45</item>
-        <item>46–60</item>
-        <item>60 o más</item>
+        <item>0-9</item>
+        <item>10-19</item>
+        <item>20-39</item>
+        <item>40-59</item>
+        <item>60-70</item>
     </string-array>
 
     <string-array name="Bu_likes">
         <item>Likes en redes</item>
-        <item>0–500</item>
-        <item>501–1500</item>
-        <item>1501–3000</item>
-        <item>3001–4500</item>
-        <item>4501–6000</item>
-        <item>6001 o más</item>
+        <item>0-500</item>
+        <item>501-1000</item>
+        <item>1,001-5000</item>
+        <item>5,001-10000</item>
     </string-array>
 
     <string-array name="Bu_tamaño_pag">
-        <item>Tamaño de pagina</item>
-        <item>0–2</item>
-        <item>2–4</item>
-        <item>4–6</item>
-        <item>6–8</item>
-        <item>8–10</item>
+        <item>Tamaño de página</item>
+        <item>1-5</item>
+        <item>6-10</item>
+        <item>11-20</item>
+        <item>21-40</item>
+        <item>41-50</item>
     </string-array>
 
     <string-array name="Bu_seguidores">
-        <item>0–1000</item>
-        <item>1001–8000</item>
-        <item>8001–12.000</item>
-        <item>12.001–18.000</item>
-        <item>18.001–24.001</item>
-        <item>24.001 o más</item>
+        <item>Seguidores en redes</item>
+        <item>0-1,000</item>
+        <item>1001-5000</item>
+        <item>5001-10000</item>
+        <item>10001-20000</item>
+        <item>20001-50000</item>
     </string-array>
 
     //registro

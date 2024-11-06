@@ -28,6 +28,7 @@ from flask_limiter.util import get_remote_address
 import pymysql.cursors
 from redis import Redis
 import time
+import ast
 import logging
 from sklearn.neighbors import NearestNeighbors
 from sklearn.preprocessing import MinMaxScaler
@@ -156,7 +157,9 @@ def login():
 
 
 
-# KNN search function
+# KNN search function without normalization
+import ast  # To safely evaluate the string as a list
+
 @app.route('/find_closest_actors', methods=['POST'])
 def find_closest_actors():
     # Parse the incoming JSON request
@@ -168,37 +171,38 @@ def find_closest_actors():
     if not predecir:
         return jsonify({"error": "predecir must be provided."}), 400
 
-    # Initialize a dictionary to store normalized query point values
-    normalized_query_point = []
-
     # Assume that num_variables are predefined
     num_variables = list(predecir.keys())
 
-    # Normalize each feature from the dataset based on the provided criteria_ranges
-    scaled_actor_data = np.empty_like(data[num_variables].values)
+    # Initialize an empty list for the query point
+    query_point = []
 
-    for i, (feature, rng) in enumerate(predecir.items()):
-        # Initialize a MinMaxScaler for each feature's range
-        scaler = MinMaxScaler()
-        scaler.fit([[rng[0]], [rng[1]]])
+    # Loop through the 'predecir' values and parse them if they are in string format
+    for feature, rng_str in predecir.items():
+        if isinstance(rng_str, str):
+            try:
+                # Convert the string to a list using ast.literal_eval (safe way to parse string)
+                rng = ast.literal_eval(rng_str)
+                if not isinstance(rng, list) or len(rng) != 2:
+                    return jsonify({"error": f"Invalid format for {feature}, expected list format."}), 400
+            except (ValueError, SyntaxError):
+                return jsonify({"error": f"Invalid string format for {feature}."}), 400
+        else:
+            # If not a string, assume it's already in the correct format (a list)
+            rng = rng_str
 
-        # Normalize the actor data for this feature
-        scaled_actor_data[:, i] = scaler.transform(data[[feature]]).flatten()
+        # Extract the raw query values (use the midpoint of the provided ranges)
+        midpoint = (rng[0] + rng[1]) / 2
+        query_point.append(midpoint)
 
-        # Normalize the query value (target range midpoint)
-        midpoint = np.array([[(rng[0] + rng[1]) / 2]])
-        normalized_query_point.append(scaler.transform(midpoint).flatten())
+    # Convert the query point into a numpy array
+    query_point = np.array(query_point).reshape(1, -1)
 
-    # Convert the query point into a numpy array and reshape it for KNN
-    normalized_query_point = np.array(normalized_query_point).reshape(1, -1)
-
-
-    # Initialize the KNN model to find 5 neighbors using weighted Euclidean distance
+    # Initialize the KNN model to find 5 neighbors using Euclidean distance (without normalization)
     knn = joblib.load('knn_model.pkl')
 
-
-    # Find the 5 nearest neighbors based on the weighted query point
-    distances, indices = knn.kneighbors(normalized_query_point)
+    # Find the 5 nearest neighbors based on the raw query point
+    distances, indices = knn.kneighbors(query_point)
 
     # Retrieve the closest records based on the indices
     closest_records_sklearn = data.iloc[indices[0]][['Index'] + num_variables]
@@ -206,11 +210,13 @@ def find_closest_actors():
     # Return the closest records' indices as a response
     return jsonify({"closest_indices": closest_records_sklearn['Index'].to_numpy().tolist()})
 
-@app.route('/find_closest_actors', methods=['GET'])
-@limiter.limit("5 per minute")  # Limit requests to prevent abuse
-def closest_actors_endpoint():
-    closest_indices = find_closest_actors()
-    return jsonify({"closest_indices": closest_indices.tolist()})
+
+
+# @app.route('/find_closest_actors', methods=['GET'])
+# @limiter.limit("5 per minute")  # Limit requests to prevent abuse
+# def closest_actors_endpoint():
+#     closest_indices = find_closest_actors()
+#     return jsonify({"closest_indices": closest_indices.tolist()})
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)

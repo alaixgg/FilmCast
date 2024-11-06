@@ -52,5 +52,5 @@ services:
 
 networks:
   backend:
-    name: back
+    name: back_api
     driver: bridge

@@ -1,0 +1,4 @@
+Link al repo de GitHub :)
+https://github.com/alaixgg/FilmCast/
+Recomendación:
+Para evitar preocupaciones por la salud mental de los autores, se recomienda no revisar los mensajes de commit ni de Pull Request. Muchas gracias 

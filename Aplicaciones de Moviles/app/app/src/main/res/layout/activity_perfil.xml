@@ -22,20 +22,21 @@
         android:id="@+id/Pe_titulo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
         android:layout_marginTop="28dp"
         android:fontFamily="@font/montserrat_extrabold"
         android:text="@string/Pe_titulo"
         android:textColor="@color/white"
         android:textSize="34sp"
         android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.084"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="343dp"
-        android:layout_height="396dp"
+        android:layout_width="359dp"
+        android:layout_height="512dp"
         android:layout_marginStart="15dp"
         android:layout_marginTop="104dp"
         android:layout_marginEnd="15dp"
@@ -63,21 +64,6 @@
         </ImageView>
 
         <TextView
-            android:id="@+id/Pe_nombre"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginStart="107dp"
-            android:layout_marginEnd="110dp"
-            android:fontFamily="@font/montserrat_extrabold"
-            android:text="@string/Pe_Nombre"
-            android:textColor="@color/white"
-            android:textSize="26sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/pe_icon" />
-
-        <TextView
             android:id="@+id/Pe_email"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -101,8 +87,7 @@
             android:textColor="@color/white"
             android:textSize="22sp"
             app:layout_constraintEnd_toEndOf="@+id/Pe_descripcion"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/Pe_descripcion"
+            app:layout_constraintStart_toEndOf="@+id/imageView"
             app:layout_constraintTop_toTopOf="@+id/imageView" />
 
         <TextView
@@ -114,12 +99,20 @@
             android:text="@string/Pe_nacionalidad"
             android:textColor="@color/white"
             android:textSize="22sp"
-            app:layout_constraintEnd_toEndOf="@+id/Pe_descripcion"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/Pe_descripcion"
+            app:layout_constraintStart_toStartOf="@+id/Pe_telefono"
             app:layout_constraintTop_toTopOf="@+id/imageView3" />
 
-
+        <TextView
+            android:id="@+id/Pe_genero"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/montserrat_medium"
+            android:text="@string/Pe_genero"
+            android:textColor="@color/white"
+            android:textSize="22sp"
+            app:layout_constraintStart_toStartOf="@+id/Pe_nacionalidad"
+            app:layout_constraintTop_toTopOf="@+id/imageView5" />
 
         <TextView
             android:id="@+id/Pe_descripcion"
@@ -127,15 +120,15 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginStart="101dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="28dp"
             android:layout_marginEnd="101dp"
             android:fontFamily="@font/montserrat_medium"
             android:text="@string/Pe_rol"
             android:textColor="@color/white"
-            android:textSize="22sp"
+            android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/Pe_nombre" />
+            app:layout_constraintTop_toBottomOf="@+id/pe_icon" />
 
         <ImageView
             android:id="@+id/imageView"
@@ -156,7 +149,14 @@
             app:layout_constraintStart_toStartOf="@+id/imageView"
             app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
-       " />
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/genero_neutro_blanco"
+            app:layout_constraintStart_toStartOf="@+id/imageView"
+            app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -166,13 +166,10 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="17dp"
-        android:fontFamily="@font/montserrat_medium"
-        android:layout_marginEnd="40dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="24dp"
         android:backgroundTint="@color/white"
         android:text="@string/Pe_cerrar_sesion"
         android:textColor="@color/black"
-        android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -180,16 +177,14 @@
         android:id="@+id/pe_editar_perfil"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/montserrat_medium"
         android:layout_margin="17dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="24dp"
         android:backgroundTint="@color/white"
         android:text="@string/Pe_editar_perfil"
         android:textColor="@color/black"
-        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

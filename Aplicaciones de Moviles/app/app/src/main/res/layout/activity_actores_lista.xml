@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black"
-    tools:context=".ui.login.LoginActivity">
+    tools:context=".ui.login.GuardadosActivity">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -28,7 +28,7 @@
             android:backgroundTint="@color/came"
             android:fontFamily="@font/montserrat_medium"
             android:text="@string/GA_boton_buscar"
-            android:textSize="16dp"
+            android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
@@ -41,7 +41,7 @@
             android:backgroundTint="@color/came"
             android:fontFamily="@font/montserrat_medium"
             android:text="@string/GA_boton_volver"
-            android:textSize="16dp"
+            android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
