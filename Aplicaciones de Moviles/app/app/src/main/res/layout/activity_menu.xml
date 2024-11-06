@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black"
-    tools:context=".ui.login.menuActivity">
+    tools:context=".ui.login.MenuActivity">
 
     <TextView
         android:id="@+id/menu_titulo"
@@ -24,16 +24,6 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/menu_titulo_perfil"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="24dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/baseline_person_outline_24" />
 
     <ScrollView
         android:layout_width="412dp"
@@ -178,12 +168,12 @@
             <LinearLayout
                 android:layout_width="379dp"
                 android:layout_height="217dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="16dp"
                 android:background="@color/grey"
                 android:orientation="vertical"
                 android:padding="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.484"
+                app:layout_constraintHorizontal_bias="0.515"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/action_menu_divider">
 
@@ -197,49 +187,21 @@
                     android:textColor="@color/white"
                     android:textFontWeight="700"
                     android:textSize="22sp" />
+                
+                
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="149dp">
 
-                <LinearLayout
-                    android:layout_width="139dp"
-                    android:layout_height="139dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@color/black_claroxd" >
-
-                    <ImageView
-                        android:id="@+id/menu_proyectos_mensaje"
-                        android:layout_width="wrap_content"
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recyclerProyectos"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        app:srcCompat="@drawable/mensaje" />
+                         android:layout_width="match_parent">
 
-                    <TextView
-                        android:id="@+id/menu_proyectos_titulo"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="TextView" />
-
-                    <ImageView
-                        android:id="@+id/menu_proyectos_persona"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        app:srcCompat="@drawable/baseline_person_24" />
-
-                    <ImageView
-                        android:id="@+id/menu_proyectos_ubicacion"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        app:srcCompat="@drawable/locacion" />
-
-                    <ImageView
-                        android:id="@+id/menu_proyectos_calendario"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        app:srcCompat="@drawable/baseline_date_range_24" />
-
-                </LinearLayout>
+                    </androidx.recyclerview.widget.RecyclerView>
+                    
+                    
+                </FrameLayout>
 
             </LinearLayout>
 
@@ -247,6 +209,14 @@
 
     </ScrollView>
 
-
+    <ImageView
+        android:id="@+id/menu_titulo_perfil"
+        android:layout_width="60dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/baseline_person_outline_24" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
