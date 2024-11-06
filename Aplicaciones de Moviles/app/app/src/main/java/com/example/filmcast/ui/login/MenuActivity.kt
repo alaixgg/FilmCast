@@ -35,6 +35,11 @@ class MenuActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        val menu_crear_pr = findViewById<Button>(R.id.menu_button_crear_pr)
+        menu_crear_pr.setOnClickListener {
+            val intent = Intent(this, Crea_proyecto::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun initRecyclerView() {
