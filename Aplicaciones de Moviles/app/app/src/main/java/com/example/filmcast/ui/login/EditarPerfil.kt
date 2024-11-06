@@ -26,27 +26,21 @@ class EditarPerfil : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_editar_perfil)
 
-        // Inicializar los elementos de la vista
         btnGuardar = findViewById(R.id.EDP_Guardar)
         etTelefono = findViewById(R.id.EDP_Telefono_tx)
         etEmail = findViewById(R.id.EDP_Email_tx)
         etDescripcion = findViewById(R.id.EDP_Descripcion_tx)
         etNacionalidad = findViewById(R.id.EDP_Nacionalidad_tx)
 
-        // Recuperar el token de SharedPreferences
         token = getTokenFromPreferences()
 
         if (token.isNullOrEmpty()) {
-            // Si el token no está disponible, mostrar un mensaje de error o redirigir a LoginActivity
             Toast.makeText(this, "Token no disponible. Inicia sesión nuevamente.", Toast.LENGTH_SHORT).show()
-            // Redirigir al login o hacer otro manejo adecuado
             return
         }
 
-        // Cargar los datos del perfil usando el token (si está disponible)
         obtenerPerfil(token)
 
-        // Configurar el botón "Guardar"
         btnGuardar.setOnClickListener {
             val telefono = etTelefono.text.toString()
             val email = etEmail.text.toString()
@@ -58,18 +52,15 @@ class EditarPerfil : AppCompatActivity() {
 
     }
 
-    // Función para obtener el token desde SharedPreferences
     private fun getTokenFromPreferences(): String {
         val sharedPreferences = getSharedPreferences("app_preferences", Context.MODE_PRIVATE)
         return sharedPreferences.getString("token", "") ?: ""
 
-        // Log para verificar si el token se recupera correctamente
         Log.d("PerfilActivity", "Token recuperado: $token")
     }
 
-    // Función para obtener los datos del perfil
     private fun obtenerPerfil(token: String) {
-        val url = "https://db.cuspide.club/perfil" // URL para obtener los datos del perfil
+        val url = "https://db.cuspide.club/perfil"
 
         val client = OkHttpClient()
         val request = Request.Builder()
@@ -90,9 +81,8 @@ class EditarPerfil : AppCompatActivity() {
                     try {
                         val jsonObject = JSONObject(responseData)
 
-                        // Verifica si la clave "Pais" existe en la respuesta
-                        val pais = jsonObject.optString("Pais", "")  // Asegúrate de que el nombre sea "Pais"
-                        Log.d("EditarPerfil", "Pais recibido: $pais")  // Esto te ayudará a verificar qué se recibe.
+                        val pais = jsonObject.optString("Pais", "")
+                        Log.d("EditarPerfil", "Pais recibido: $pais")
 
                         runOnUiThread {
                             etTelefono.setText(jsonObject.optString("telefono", ""))
@@ -118,9 +108,8 @@ class EditarPerfil : AppCompatActivity() {
     }
 
 
-    // Función para actualizar el perfil
     private fun actualizarPerfil(token: String, telefono: String, email: String, descripcion: String, nacionalidad: String) {
-        val url = "https://db.cuspide.club/editar_perfil" // Cambia esta URL si es necesario
+        val url = "https://db.cuspide.club/editar_perfil"
 
         val payload = JSONObject().apply {
             put("telefono", telefono)

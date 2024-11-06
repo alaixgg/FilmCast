@@ -43,13 +43,13 @@ class Crea_proyecto : AppCompatActivity() {
         binding = ActivityCreaProyectoBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Configuración del spinner de actores
-        val actores = listOf("Actor 1", "Actor 2", "Actor 3") // Cambiar por los actores reales
+
+        val actores = listOf("Actor 1", "Actor 2", "Actor 3")
         val spinnerAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, actores)
         spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         binding.BUSpinnerEducacion.adapter = spinnerAdapter
 
-        // Configurar el botón de guardar proyecto
+
         binding.ProGuardarProyecto.setOnClickListener {
             val titulo = binding.ProNombreProyecto.text.toString()
             val descripcion = binding.ProDescripcionProyecto.text.toString()
@@ -58,14 +58,12 @@ class Crea_proyecto : AppCompatActivity() {
             val fechaFin = binding.ProFechaFin.text.toString()
             val presupuesto = binding.ProPresupuesto.text.toString().toDoubleOrNull()
 
-            // Verificar que los campos no estén vacíos
+
             if (titulo.isNotBlank() && descripcion.isNotBlank() && genero.isNotBlank() &&
                 fechaInicio.isNotBlank() && fechaFin.isNotBlank() && presupuesto != null) {
 
-                // Obtener el actor seleccionado desde el spinner
                 val actorSeleccionado = binding.BUSpinnerEducacion.selectedItem.toString()
 
-                // Crear el proyecto directamente en la solicitud
                 val proyecto = mapOf(
                     "titulo" to titulo,
                     "descripcion" to descripcion,
@@ -76,25 +74,21 @@ class Crea_proyecto : AppCompatActivity() {
                     "actores_seleccionados" to listOf(actorSeleccionado)
                 )
 
-                // Llamar a la API para crear el proyecto
                 crearProyecto(proyecto)
             } else {
                 Toast.makeText(this, "Por favor complete todos los campos", Toast.LENGTH_SHORT).show()
             }
         }
 
-        // Configurar el DatePicker para fecha de inicio
         binding.ProFechaInicio.setOnClickListener {
             showDatePickerDialog(binding.ProFechaInicio)
         }
 
-        // Configurar el DatePicker para fecha de fin
         binding.ProFechaFin.setOnClickListener {
             showDatePickerDialog(binding.ProFechaFin)
         }
     }
 
-    // Función para mostrar el DatePicker
     private fun showDatePickerDialog(textView: TextView) {
         val calendar = Calendar.getInstance()
         val datePickerDialog = DatePickerDialog(
@@ -111,7 +105,6 @@ class Crea_proyecto : AppCompatActivity() {
         datePickerDialog.show()
     }
 
-    // Función para hacer la solicitud POST
     private fun crearProyecto(proyecto: Map<String, Any>) {
         lifecycleScope.launch {
             try {
@@ -129,7 +122,6 @@ class Crea_proyecto : AppCompatActivity() {
         }
     }
 
-    // Definir la interfaz de la API directamente en la misma actividad
     interface ApiService {
         @POST("/crear_proyecto")
         suspend fun crearProyecto(
@@ -137,6 +129,5 @@ class Crea_proyecto : AppCompatActivity() {
         ): Response<ApiResponse>
     }
 
-    // Clase de respuesta para manejar la respuesta de la API
     data class ApiResponse(val message: String)
 }

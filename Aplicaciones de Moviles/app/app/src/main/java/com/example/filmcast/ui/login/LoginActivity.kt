@@ -29,12 +29,10 @@ class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        // Verifica si ya hay una sesión iniciada
         val sharedPreferences = getSharedPreferences("Sesion", Context.MODE_PRIVATE)
         val sesionIniciada = sharedPreferences.getBoolean("sesion_iniciada", false)
 
         if (sesionIniciada) {
-            // Redirige directamente a MenuActivity si la sesión está iniciada
             val intent = Intent(this, MenuActivity::class.java)
             startActivity(intent)
             finish()
@@ -50,7 +48,6 @@ class LoginActivity : AppCompatActivity() {
         val IS_Iniciar_sesion = findViewById<Button>(R.id.btn_login)
         val togglebtn = findViewById<ImageView>(R.id.passwordVisibilityToggle)
 
-        //boton para mostrar/ocultar contraseña
         togglebtn.setOnClickListener {
             if (passwordVisible) {
                 password.inputType =
