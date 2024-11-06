@@ -97,7 +97,7 @@ class PerfilActivity : AppCompatActivity() {
 
                     // Actualizar la UI con la información obtenida
                     runOnUiThread {
-                        tvNombre.text = nombre
+
                         tvEmail.text = email
                         tvTelefono.text = telefono
                         tvDescripcion.text = descripcion
