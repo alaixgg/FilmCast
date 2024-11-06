@@ -16,7 +16,7 @@ import java.io.IOException
 
 class ActivityBuscar : AppCompatActivity() {
 
-    // Definición de los Spinners
+
     private lateinit var spinnerEdad: Spinner
     private lateinit var spinnerGeneroCine: Spinner
     private lateinit var spinnerEducacion: Spinner
@@ -37,7 +37,7 @@ class ActivityBuscar : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_buscar)
 
-        // Inicialización de los Spinners
+
         spinnerEdad = findViewById(R.id.BU_spinner_edad)
         spinnerGeneroCine = findViewById(R.id.BU_genero_cine)
         spinnerEducacion = findViewById(R.id.BU_spinner_educacion)
@@ -209,7 +209,6 @@ class ActivityBuscar : AppCompatActivity() {
         })
     }
 
-    // Función para obtener el token de SharedPreferences
     private fun getTokenFromPreferences(): String? {
         return sharedPreferences.getString("token", null)
     }
