@@ -25,17 +25,17 @@ class Crea_proyecto : AppCompatActivity() {
     // Inicializar Retrofit
     private val retrofit by lazy {
         Retrofit.Builder()
-            .baseUrl("https://api.example.com/")  // Cambia la URL base a la de tu API
+            .baseUrl("https://cuspide.club")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }
 
-    // Servicio Retrofit para la API
+
     private val apiService by lazy {
         retrofit.create(ApiService::class.java)
     }
 
-    // Formato para las fechas
+
     private val dateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -96,7 +96,7 @@ class Crea_proyecto : AppCompatActivity() {
             { _, year, monthOfYear, dayOfMonth ->
                 calendar.set(year, monthOfYear, dayOfMonth)
                 val selectedDate = dateFormat.format(calendar.time)
-                textView.setText(selectedDate) // Establecer la fecha en el TextView
+                textView.setText(selectedDate)
             },
             calendar.get(Calendar.YEAR),
             calendar.get(Calendar.MONTH),
