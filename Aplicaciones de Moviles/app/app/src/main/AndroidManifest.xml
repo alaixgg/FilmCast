@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
-    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -11,58 +12,60 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        tools:targetApi="31"
-        android:theme="@style/Theme.AppCompat.Light.NoActionBar" >
-
-
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+        tools:targetApi="31">
+        <activity
+            android:name=".Maitem_proyect"
+            android:exported="false" />
+        <activity
+            android:name=".Lista_proyectActivity"
+            android:exported="false" />
         <activity
             android:name=".ui.login.Proyectos"
             android:exported="false"
-            android:screenOrientation="portrait"/>
-
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ui.login.Crea_proyecto"
             android:exported="false"
-            android:screenOrientation="portrait"/>
-
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ui.login.EditarPerfil"
-            android:screenOrientation="portrait"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ui.login.RegistroActivity"
-            android:screenOrientation="portrait"
             android:exported="false"
+            android:screenOrientation="portrait"
             android:theme="@style/Theme.FilmCast" />
         <activity
             android:name=".ui.login.ActorActivity"
-            android:screenOrientation="portrait"
             android:exported="false"
+            android:screenOrientation="portrait"
             android:theme="@style/Base.Theme.FilmCast" />
         <activity
             android:name=".ui.login.MenuActivity"
-            android:screenOrientation="portrait"
             android:exported="false"
+            android:screenOrientation="portrait"
             android:theme="@style/Theme.FilmCast" />
         <activity
             android:name=".ui.login.ActivityBuscar"
-            android:screenOrientation="portrait"
             android:exported="false"
+            android:screenOrientation="portrait"
             android:theme="@style/Theme.FilmCast" />
         <activity
             android:name=".ui.login.GuardadosActivity"
-            android:screenOrientation="portrait"
             android:exported="false"
+            android:screenOrientation="portrait"
             android:theme="@style/Theme.FilmCast" />
         <activity
             android:name=".ui.login.PerfilActivity"
-            android:screenOrientation="portrait"
             android:exported="false"
+            android:screenOrientation="portrait"
             android:theme="@style/Theme.FilmCast" />
         <activity
-            android:screenOrientation="portrait"
             android:name=".ui.login.LoginActivity"
-            android:exported="true">
+            android:exported="true"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
