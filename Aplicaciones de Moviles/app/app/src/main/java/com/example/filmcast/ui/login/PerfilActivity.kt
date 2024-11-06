@@ -15,7 +15,7 @@ import java.io.IOException
 
 class PerfilActivity : AppCompatActivity() {
 
-    private lateinit var tvNombre: TextView
+
     private lateinit var tvEmail: TextView
     private lateinit var tvTelefono: TextView
     private lateinit var tvDescripcion: TextView
@@ -28,7 +28,7 @@ class PerfilActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_perfil)
 
-        // Referencias a los elementos del layout
+
 
         tvEmail = findViewById(R.id.Pe_email)
         tvTelefono = findViewById(R.id.Pe_telefono)
@@ -38,7 +38,6 @@ class PerfilActivity : AppCompatActivity() {
         btnEditarPerfil = findViewById(R.id.pe_editar_perfil)
         imgMenu = findViewById(R.id.Pe_menu)
 
-        // Obtener el token desde SharedPreferences o donde lo tengas almacenado
         val token = getTokenFromPreferences()
 
 
@@ -49,25 +48,21 @@ class PerfilActivity : AppCompatActivity() {
             Toast.makeText(this, "No se ha encontrado el token de sesión.", Toast.LENGTH_SHORT).show()
         }
 
-        // Configuración para el botón "Editar Perfil"
         btnEditarPerfil.setOnClickListener {
             val intent = Intent(this, EditarPerfil::class.java)
             startActivity(intent)
         }
 
-        // Configuración para el botón "Cerrar Sesión"
         btnCerrarSesion.setOnClickListener {
             cerrarSesion()
         }
 
-        // Configuración para el botón "Menú"
         imgMenu.setOnClickListener {
             val intent = Intent(this, MenuActivity::class.java)
             startActivity(intent)
         }
     }
 
-    // Función para obtener el perfil del usuario desde la API
     private fun obtenerPerfil(token: String) {
         val url = "https://db.cuspide.club/perfil"
 
@@ -89,13 +84,11 @@ class PerfilActivity : AppCompatActivity() {
                     val responseData = response.body?.string()
                     val jsonObject = JSONObject(responseData)
 
-                    val nombre = jsonObject.optString("nombre", "No disponible")
                     val email = jsonObject.optString("email", "No disponible")
                     val telefono = jsonObject.optString("telefono", "No disponible")
                     val descripcion = jsonObject.optString("descripcion", "No disponible")
                     val nacionalidad = jsonObject.optString("nacionalidad", "No disponible")
 
-                    // Actualizar la UI con la información obtenida
                     runOnUiThread {
 
                         tvEmail.text = email
@@ -112,18 +105,15 @@ class PerfilActivity : AppCompatActivity() {
         })
     }
 
-    // Función para obtener el token desde SharedPreferences (o donde lo tengas almacenado)
     private fun getTokenFromPreferences(): String? {
         val sharedPreferences = getSharedPreferences("app_preferences", MODE_PRIVATE)
         val token = sharedPreferences.getString("token", null)
 
-        // Log para verificar si el token se recupera correctamente
         Log.d("PerfilActivity", "Token recuperado: $token")
 
         return token
     }
 
-    // Función para cerrar sesión
     private fun cerrarSesion() {
         val sharedPreferences = getSharedPreferences("app_preferences", MODE_PRIVATE)
         with(sharedPreferences.edit()) {
