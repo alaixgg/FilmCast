@@ -26,5 +26,5 @@ services:
 
 networks:
   backend:
-    name: back
+    name: back_model
     driver: bridge

@@ -35,8 +35,8 @@ limiter.init_app(app)
 from mod_token import generate_token, token_required
 from mod_conn import get_db_connection
 from end_auth import post_login, post_register
-from end_usuarios import get_perfil,post_perfil
-from end_actors import get_actor,get_destacados
+from end_usuarios import get_perfil, post_perfil
+from end_actors import get_actor, get_destacados, get_relaciondos
 from end_favoritos import post_favorito, get_favoritos, del_favorito
 from end_proyectos import get_proyectos, get_proyecto, del_proyecto
 

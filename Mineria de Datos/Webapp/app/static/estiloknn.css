@@ -1,0 +1,78 @@
+.formulario {
+    max-width: 800px; 
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc; 
+    border-radius: 8px; 
+}
+
+.formulario form {
+    display: flex; 
+    flex-wrap: wrap; 
+}
+
+.formulario label {
+    flex: 1 0 50%; /* Ocupa el 50% del ancho del contenedor */
+    box-sizing: border-box; /* Incluye el padding y el borde en el ancho total */
+    padding: 10px; /* Espacio alrededor de las etiquetas */
+}
+
+.formulario select {
+    flex: 1 0 50%; /* Ocupa el 50% del ancho del contenedor */
+    box-sizing: border-box; /* Incluye el padding y el borde en el ancho total */
+    padding: 8px; /* Espacio dentro de los selectores */
+    margin-bottom: 20px; /* Espacio entre las filas */
+}
+
+.formulario br {
+    display: none; /* Elimina los saltos de línea innecesarios */
+}
+
+label {
+    font-size: 18px; /* Tamaño de la fuente */
+    font-weight: bold; /* Negrita */
+    margin-bottom: 8px; /* Espacio inferior */
+    display: block; /* Las etiquetas ocupan toda la línea */
+    color: #333; /* Color del texto */
+}
+
+input[type="text"] {
+    margin-bottom: 15px; 
+    padding: 10px; 
+    border: 1px solid #ccc; 
+    border-radius: 4px; 
+    width: calc(50% - 22px); 
+    font-size: 16px; 
+    color: #333; 
+}
+
+input[type="checkbox"] {
+    margin-right: 20px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    transform: scale(1.7); 
+    cursor: pointer; 
+}
+
+
+.btn-Consultar {
+    margin-top: 20px;
+	margin-bottom: 7px;
+    text-decoration: none;
+    color: #000000;
+    background-color: #ffffff;
+    padding: 20px 20px;
+    text-transform: uppercase;
+    border-radius: 3rem;
+    font-size: 12px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    margin-left: 0px;
+    border: none;
+}
+.btn-Consultar:hover {
+    background-color: #525c4f;
+    color: #ffffff;
+}
+
+
