@@ -6,11 +6,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black"
-    tools:context=".ui.login.">
+    tools:context=".ui.login.GuardadosActoresActivity">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/cl_lista"
+        android:id="@+id/Perfil_Actor1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/black"
@@ -28,12 +28,12 @@
             android:backgroundTint="@color/came"
             android:fontFamily="@font/montserrat_medium"
             android:text="@string/GA_boton_buscar"
-            android:textSize="16dp"
+            android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
         <Button
-            android:id="@+id/resl_boton_volver"
+            android:id="@+id/GA_boton_volver"
             android:layout_width="139dp"
             android:layout_height="49dp"
             android:layout_marginStart="32dp"
@@ -41,7 +41,7 @@
             android:backgroundTint="@color/came"
             android:fontFamily="@font/montserrat_medium"
             android:text="@string/GA_boton_volver"
-            android:textSize="16dp"
+            android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
@@ -73,7 +73,7 @@
             android:background="@color/black"
             android:fontFamily="@font/montserrat_extrabold"
             android:gravity="center"
-            android:text="@string/GA_boton_buscar"
+            android:text="@string/GA_titulo"
             android:textColor="@color/white"
             android:textFontWeight="700"
             android:textSize="28sp"
