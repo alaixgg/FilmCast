@@ -14,6 +14,7 @@ import okhttp3.*
 import okhttp3.MediaType.Companion.toMediaType
 import org.json.JSONObject
 import java.io.IOException
+import java.util.ArrayList
 
 class ActivityBuscar : AppCompatActivity() {
 
@@ -153,6 +154,7 @@ class ActivityBuscar : AppCompatActivity() {
         val client = OkHttpClient()
 
 
+        // val requestBody = RequestBody.create("application/json".toMediaType(), params.toString())
         val requestBody = RequestBody.create("application/json".toMediaType(), params.toString())
 
 
@@ -211,6 +213,7 @@ class ActivityBuscar : AppCompatActivity() {
                     }
                 }
                 val intent = Intent(this@ActivityBuscar, ResultadoActivity::class.java)
+                intent.putStringArrayListExtra("ACTOR_IDS", ArrayList(actorIds))
                 startActivity(intent)
             }
         })
