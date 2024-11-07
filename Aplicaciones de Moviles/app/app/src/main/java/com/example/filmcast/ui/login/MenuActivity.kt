@@ -31,7 +31,7 @@ class MenuActivity : AppCompatActivity() {
         }
         val menu_gestionar = findViewById<Button>(R.id.menu_button_guardados)
         menu_gestionar.setOnClickListener {
-            val intent = Intent(this, GuardadosActivity::class.java)
+            val intent = Intent(this, GuardadosActoresActivity::class.java)
             startActivity(intent)
         }
 
