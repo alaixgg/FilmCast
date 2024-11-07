@@ -94,6 +94,7 @@ El formulario para crear un nuevo proyecto cinematográfico, pide la infromacion
 
 
 
+
 # Aplicación Móvil
 
 # Modelo de Minería de Datos
