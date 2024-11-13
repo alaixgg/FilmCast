@@ -117,7 +117,7 @@ class LoginActivity : AppCompatActivity() {
                             guardarToken(token)
                             guardarSesion()
 
-
+//revisar
                             val intent = Intent(this@LoginActivity, MenuActivity::class.java)
                             startActivity(intent)
                             finish() // Finaliza LoginActivity para que no se quede en la pila

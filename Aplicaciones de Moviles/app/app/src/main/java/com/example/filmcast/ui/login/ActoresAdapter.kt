@@ -23,7 +23,7 @@ class ActoresAdapter(
     override fun getItemCount(): Int = actores.size
 
     inner class ActorViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        private val nombreTextView: TextView = itemView.findViewById(R.id.tv_nombre)
+        private val nombreTextView: TextView = itemView.findViewById(R.id.Rc_nombre)
 
 
         fun bind(actor: Map<String, Any>) {
