@@ -12,6 +12,7 @@ import com.example.filmcast.R
 import com.example.filmcast.adapter.ProyectoAdapter
 import com.example.filmcast.recycler.ProyectoProvider
 
+
 class MenuActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
