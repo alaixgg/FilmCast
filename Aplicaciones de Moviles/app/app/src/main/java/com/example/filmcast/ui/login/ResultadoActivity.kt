@@ -1,7 +1,9 @@
 package com.example.filmcast.ui.login
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -18,6 +20,12 @@ class ResultadoActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_actores_resultado)
 
+        val menu_perfil = findViewById<ImageView>(R.id.PA_perfil)
+        menu_perfil.setOnClickListener {
+            val intent = Intent(this, PerfilActivity::class.java)
+            startActivity(intent)
+        }
+
         Log.d(TAG, "onCreate: Actividad iniciada.")
 
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerProfile)
@@ -27,10 +35,17 @@ class ResultadoActivity : AppCompatActivity() {
         val token = getSharedPreferences("app_preferences", MODE_PRIVATE).getString("token", null)
         Log.d(TAG, "onCreate: Token obtenido: $token")
 
-        if (token != null) {
-            Log.d(TAG, "onCreate: Token encontrado. Iniciando solicitud de perfiles.")
+        val sharedPreferences = getSharedPreferences("app_preferences", MODE_PRIVATE)
+        val actorIds = sharedPreferences.getStringSet("actor_ids", emptySet())?.toList() ?: emptyList()
+
+        Log.d(TAG, "onCreate: Actor IDs obtenidos: $actorIds")
+
+        if (token != null && actorIds.isNotEmpty()) {
+            Log.d(TAG, "onCreate: Token y Actor IDs encontrados. Iniciando solicitud de perfiles.")
+
             val infoPerfilProvider = InfoPerfilProvider(this)
-            infoPerfilProvider.getActorProfiles(token) { actorProfiles ->
+
+            infoPerfilProvider.getActorProfiles(actorIds, token) { actorProfiles ->
                 Log.d(TAG, "onCreate: Datos de actores recibidos. Cantidad de perfiles: ${actorProfiles.size}")
 
                 // Actualizar el RecyclerView con la lista de perfiles
@@ -40,7 +55,7 @@ class ResultadoActivity : AppCompatActivity() {
                 }
             }
         } else {
-            Log.e(TAG, "onCreate: Token no encontrado.")
+            Log.e(TAG, "onCreate: Token o Actor IDs no encontrados.")
         }
     }
 }
