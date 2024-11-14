@@ -1,6 +1,5 @@
 package com.example.filmcast.ui.login
 
-
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
@@ -59,7 +58,6 @@ class ActivityBuscar : AppCompatActivity() {
 
         // Obtener las SharedPreferences
         sharedPreferences = getSharedPreferences("app_preferences", MODE_PRIVATE)
-
         Log.d("ActivityBuscar", "onCreate: SharedPreferences cargados.")
 
         // Configurar los spinners con los valores de arrays en los recursos
@@ -183,42 +181,57 @@ class ActivityBuscar : AppCompatActivity() {
                 }
             }
 
-            private val actorIds = mutableListOf<String>()
+
 
             override fun onResponse(call: Call, response: Response) {
                 if (response.isSuccessful) {
                     val responseData = response.body?.string()
-                    Log.d("ActivityBuscar", "Respuesta de la API: $responseData")
+                    Log.d("ActivityBuscar", "Respuesta cruda de la API: $responseData")
 
-                    runOnUiThread {
+                    if (responseData != null) {
                         try {
                             val jsonResponse = JSONObject(responseData)
 
-                            if (jsonResponse.getString("status") == "success") {
-                                val actorId = jsonResponse.getJSONArray("actor_id")
+                            // Verificar si el JSON contiene la clave "closest_indices"
+                            if (jsonResponse.has("closest_indices")) {
+                                val closestIndicesJsonArray = jsonResponse.getJSONArray("closest_indices")
 
-                                actorIds.clear()
-                                for (i in 0 until actorId.length()) {
-                                    actorIds.add(actorId.getString(i))
+                                // Limpiar la lista de closestIndices antes de agregar nuevos valores
+                                val closestIndices = mutableListOf<Int>()
+                                Log.d("ActivityBuscar", "closestIndices lista limpia: $closestIndices")
+
+                                // Agregar los índices al array
+                                for (i in 0 until closestIndicesJsonArray.length()) {
+                                    val index = closestIndicesJsonArray.getInt(i)  // Obtener el valor entero
+                                    closestIndices.add(index)
+                                    Log.d("ActivityBuscar", "Índice agregado: $index")
                                 }
 
-                                // Guardar los IDs de actores en SharedPreferences
-                                val sharedPreferences = getSharedPreferences("app_preferences", MODE_PRIVATE)
-                                sharedPreferences.edit().putStringSet("actor_ids", actorIds.toSet()).apply()
+                                // Guardar los índices en SharedPreferences como un Set<String> (puedes guardar como Set<Int> si lo prefieres)
+                                sharedPreferences.edit().putStringSet("closest_indices", closestIndices.map { it.toString() }.toSet()).commit()
 
-                                Log.d("ActivityBuscar", "onResponse: Actores encontrados y guardados.")
+                                // Confirmar que los datos se han guardado en SharedPreferences
+                                Log.d("ActivityBuscar", "closest_indices guardados en SharedPreferences: ${closestIndices.map { it.toString() }}")
 
-                                Toast.makeText(this@ActivityBuscar, "Búsqueda exitosa", Toast.LENGTH_SHORT).show()
+                                // Verificar que los datos se han guardado correctamente
+                                val savedIndices = sharedPreferences.getStringSet("closest_indices", emptySet())
+                                Log.d("ActivityBuscar", "closest_indices recuperados de SharedPreferences: $savedIndices")
+
                             } else {
-                                Toast
-
-                                    .makeText(this@ActivityBuscar, "No se encontraron resultados", Toast.LENGTH_SHORT).show()
+                                Log.e("ActivityBuscar", "La respuesta JSON no contiene closest_indices.")
                             }
+
                         } catch (e: Exception) {
-                            Log.e("ActivityBuscar", "onResponse: Error en la respuesta: ${e.message}")
-                            Toast.makeText(this@ActivityBuscar, "Error en la respuesta: ${e.message}", Toast.LENGTH_SHORT).show()
+                            Log.e("ActivityBuscar", "Error al parsear la respuesta: ${e.message}")
                         }
+                    } else {
+                        Log.e("ActivityBuscar", "responseData es null, no se pudo procesar la respuesta.")
                     }
+
+                    runOnUiThread {
+                        Toast.makeText(this@ActivityBuscar, "Búsqueda exitosa", Toast.LENGTH_SHORT).show()
+                    }
+
                 } else {
                     Log.e("ActivityBuscar", "onResponse: Error en la búsqueda")
                     runOnUiThread {
@@ -227,6 +240,7 @@ class ActivityBuscar : AppCompatActivity() {
                 }
 
                 // Navegar a la actividad de resultados
+                Log.d("ActivityBuscar", "Redirigiendo a ResultadoActivity.")
                 val intent = Intent(this@ActivityBuscar, ResultadoActivity::class.java)
                 startActivity(intent)
             }
