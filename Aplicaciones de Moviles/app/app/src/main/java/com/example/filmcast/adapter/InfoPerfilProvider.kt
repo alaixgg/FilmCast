@@ -30,7 +30,7 @@ class InfoPerfilProvider(private val context: Context) {
         for (actorId in actorIds) {
             Log.d(TAG, "getActorProfiles: Recuperando datos del actor con ID: $actorId")
             val request = Request.Builder()
-                .url("https://model.cuspide.club/info_actor/$actorId")
+                .url("https://db.cuspide.club/info_actor/$actorId")
                 .addHeader("Authorization", "Bearer $token")
                 .build()
 
@@ -41,11 +41,11 @@ class InfoPerfilProvider(private val context: Context) {
                             try {
                                 val jsonResponse = JSONObject(responseBody)
 
-                                // Extraer los datos que necesitas
+                                // Extraer solo los campos requeridos
                                 val perfil = InfoPerfil(
                                     infoNombre = jsonResponse.getString("name"),
                                     infoGenero = jsonResponse.getString("gender"),
-                                    infoPrecio = jsonResponse.getString("salary"),
+                                    infoPrecio = jsonResponse.getString("income"),
                                     infoFilm = jsonResponse.getString("genre_specialization")
                                 )
                                 actorProfiles.add(perfil)

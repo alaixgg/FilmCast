@@ -12,6 +12,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.filmcast.R
+import com.example.filmcast.adapter.InfoPerfil
+import com.example.filmcast.adapter.InfoPerfilAdapter
 import com.google.gson.Gson
 import okhttp3.*
 import okhttp3.MediaType.Companion.toMediaType
@@ -20,13 +22,20 @@ import java.io.IOException
 
 class ResultadoActivity : AppCompatActivity() {
 
-
     private lateinit var sharedPreferences: SharedPreferences
     private lateinit var token: String
+    private lateinit var recyclerView: RecyclerView  // RecyclerView para mostrar los actores
+    private lateinit var infoPerfilAdapter: InfoPerfilAdapter  // Adaptador para el RecyclerView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_actores_resultado)
+
+        // Inicializar RecyclerView
+        recyclerView = findViewById(R.id.recyclerProfile)
+        recyclerView.layoutManager = LinearLayoutManager(this)  // Usamos un LinearLayoutManager
+        infoPerfilAdapter = InfoPerfilAdapter(emptyList())  // Inicializamos el adaptador vacío
+        recyclerView.adapter = infoPerfilAdapter  // Asignamos el adaptador al RecyclerView
 
         // Obtener SharedPreferences
         sharedPreferences = getSharedPreferences("app_preferences", MODE_PRIVATE)
@@ -44,11 +53,17 @@ class ResultadoActivity : AppCompatActivity() {
         if (token != null && closestIndices != null && closestIndices.isNotEmpty()) {
             Log.d("ActivityResultado", "Datos válidos para enviar: token y closestIndices no son nulos.")
             // Realizamos una petición por cada actor_id
+            val actorProfiles = mutableListOf<InfoPerfil>()
             for (actorIdString in closestIndices) {
                 val actorId = actorIdString.toIntOrNull()  // Convertir cada ID a entero
                 if (actorId != null) {
                     Log.d("ActivityResultado", "Enviando solicitud para el actor con ID: $actorId")
-                    obtenerInfoActor(actorId, token)  // Llamada a la API para cada actor
+                    obtenerInfoActor(actorId, token) { perfil ->
+                        actorProfiles.add(perfil)  // Agregar el perfil al listado
+                        // Actualizar el adaptador con los datos nuevos
+                        infoPerfilAdapter = InfoPerfilAdapter(actorProfiles)
+                        recyclerView.adapter = infoPerfilAdapter
+                    }  // Llamada a la API para cada actor
                 } else {
                     Log.e("ActivityResultado", "ID de actor inválido: $actorIdString")
                 }
@@ -67,7 +82,7 @@ class ResultadoActivity : AppCompatActivity() {
     }
 
     // Método para obtener la información de un actor por su ID
-    private fun obtenerInfoActor(actorId: Int, token: String) {
+    private fun obtenerInfoActor(actorId: Int, token: String, onComplete: (InfoPerfil) -> Unit) {
         val url = "https://db.cuspide.club/info_actor/$actorId" // URL de la API con el actor_id
         Log.d("ActivityResultado", "Preparando solicitud para el actor ID: $actorId en la URL: $url")
 
@@ -96,9 +111,22 @@ class ResultadoActivity : AppCompatActivity() {
                     val responseData = response.body?.string()
                     Log.d("ActivityResultado", "Respuesta de la API para actor ID $actorId: $responseData")
 
-                    // Aquí puedes procesar la respuesta
-                    runOnUiThread {
-                        Toast.makeText(this@ResultadoActivity, "Información del actor $actorId recibida con éxito", Toast.LENGTH_SHORT).show()
+                    // Aquí procesamos la respuesta de la API
+                    try {
+                        val jsonResponse = JSONObject(responseData)
+                        val perfil = InfoPerfil(
+                            infoNombre = jsonResponse.getString("name"),
+                            infoGenero = jsonResponse.getString("gender"),
+                            infoPrecio = jsonResponse.getString("income"),
+                            infoFilm = jsonResponse.getString("genre_specialization")
+                        )
+
+                        // Pasamos el perfil al callback
+                        runOnUiThread {
+                            onComplete(perfil)  // Llamamos al callback con el perfil
+                        }
+                    } catch (e: Exception) {
+                        Log.e("ActivityResultado", "Error al procesar los datos para el actor ID $actorId: ${e.message}")
                     }
                 } else {
                     Log.e("ActivityResultado", "Error en la respuesta de la API para actor ID $actorId: ${response.message}")
