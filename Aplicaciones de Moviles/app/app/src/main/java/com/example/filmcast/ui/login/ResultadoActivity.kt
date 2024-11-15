@@ -1,11 +1,14 @@
 package com.example.filmcast.ui.login
 
+import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -30,6 +33,24 @@ class ResultadoActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_actores_resultado)
+
+        val res_perfil = findViewById<ImageView>(R.id.PA_perfil)
+        res_perfil.setOnClickListener {
+            val intent = Intent(this, PerfilActivity::class.java)
+            startActivity(intent)
+        }
+        val res_menu = findViewById<ImageView>(R.id.Pa_menu)
+        res_menu.setOnClickListener {
+            val intent = Intent(this, PerfilActivity::class.java)
+            startActivity(intent)
+        }
+        val resl_boton_volver = findViewById<Button>(R.id.resl_boton_volver)
+        resl_boton_volver.setOnClickListener {
+            val intent = Intent(this, ActivityBuscar::class.java)
+            startActivity(intent)
+        }
+
+        
 
         // Inicializar RecyclerView
         recyclerView = findViewById(R.id.recyclerProfile)

@@ -1,8 +1,14 @@
 package com.example.filmcast.adapter
 
 import android.content.Context
+import android.content.Intent
 import android.content.SharedPreferences
 import android.util.Log
+import android.widget.ImageView
+import com.example.filmcast.R
+import com.example.filmcast.ui.login.ActorActivity
+import com.example.filmcast.ui.login.PerfilActivity
+import com.example.filmcast.ui.login.ResultadoActivity
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import org.json.JSONObject
@@ -24,6 +30,12 @@ class InfoPerfilProvider(private val context: Context) {
         if (actorIds.isEmpty()) {
             Log.e(TAG, "getActorProfiles: No se encontraron IDs de actores.")
             return
+        }
+
+        val Rc_imagen = (context as? ResultadoActivity)?.findViewById<ImageView>(R.id.Rc_imagen)
+        Rc_imagen?.setOnClickListener {
+            val intent = Intent(context, ActorActivity::class.java)
+            context.startActivity(intent)
         }
 
         // Recorrer los IDs de actores y obtener sus detalles

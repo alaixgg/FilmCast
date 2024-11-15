@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.ArrayAdapter
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.Spinner
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -37,6 +38,18 @@ class ActivityBuscar : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_buscar)
+
+        val bu_perfil = findViewById<ImageView>(R.id.BU_perfil)
+        bu_perfil.setOnClickListener {
+            val intent = Intent(this, PerfilActivity::class.java)
+            startActivity(intent)
+        }
+        val bu_menu = findViewById<ImageView>(R.id.Bu_menu)
+        bu_menu.setOnClickListener {
+            val intent = Intent(this, PerfilActivity::class.java)
+            startActivity(intent)
+        }
+
 
         Log.d("ActivityBuscar", "onCreate: Actividad iniciada.")
 
