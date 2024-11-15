@@ -6,16 +6,6 @@
     android:layout_height="180dp"
     android:background="@color/grey">
 
-    <ImageView
-        android:id="@+id/iv_perfil"
-        android:layout_width="136dp"
-        android:layout_height="124dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="28dp"
-        android:src="@drawable/anonymous"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <TextView
         android:id="@+id/Rc_nombre"
         android:layout_width="wrap_content"
@@ -23,9 +13,9 @@
         android:layout_marginStart="40dp"
         android:layout_marginTop="28dp"
         android:fontFamily="@font/montserrat_extrabold"
-        android:text="TextView"
+        android:text="Actor Name"
         android:textSize="20sp"
-        app:layout_constraintStart_toEndOf="@+id/iv_perfil"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -35,8 +25,9 @@
         android:layout_marginStart="40dp"
         android:layout_marginTop="8dp"
         android:fontFamily="@font/montserrat_medium"
-        android:text="TextView"
-        app:layout_constraintStart_toEndOf="@+id/iv_perfil"
+        android:text="Gender"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Rc_nombre" />
 
     <TextView
@@ -44,10 +35,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="20dp"
         android:fontFamily="@font/montserrat_medium"
-        android:text="TextView"
-        app:layout_constraintStart_toEndOf="@+id/iv_perfil"
+        android:text="Income"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Rc_genero" />
 
     <TextView
@@ -57,8 +48,8 @@
         android:layout_marginStart="40dp"
         android:layout_marginTop="16dp"
         android:fontFamily="@font/montserrat_medium"
-        android:text="TextView"
-        app:layout_constraintStart_toEndOf="@+id/iv_perfil"
+        android:text="Genre"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Rc_precio" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
