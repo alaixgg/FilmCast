@@ -18,20 +18,24 @@
         <activity
             android:name=".ui.login.ResultadoActivity"
             android:exported="false"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:theme="@style/Base.Theme.FilmCast"/>
         <activity
             android:name=".ui.login.GuardadosActoresActivity"
             android:exported="false"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:theme="@style/Base.Theme.FilmCast"/>
 
         <activity
             android:name=".ui.login.Crea_proyecto"
             android:exported="false"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:theme="@style/Base.Theme.FilmCast"/>
         <activity
             android:name=".ui.login.EditarPerfil"
             android:exported="false"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:theme="@style/Base.Theme.FilmCast"/>
         <activity
             android:name=".ui.login.RegistroActivity"
             android:exported="false"
@@ -61,7 +65,8 @@
         <activity
             android:name=".ui.login.LoginActivity"
             android:exported="true"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:theme="@style/Base.Theme.FilmCast">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
