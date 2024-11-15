@@ -1,11 +1,13 @@
 package com.example.filmcast.ui.login
 
+import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
 import android.widget.ArrayAdapter
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.Spinner
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -17,7 +19,6 @@ import java.io.IOException
 
 class ActivityBuscar : AppCompatActivity() {
 
-    // Definición de los Spinners
     private lateinit var spinnerEdad: Spinner
     private lateinit var spinnerGeneroCine: Spinner
     private lateinit var spinnerEducacion: Spinner
@@ -38,7 +39,21 @@ class ActivityBuscar : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_buscar)
 
-        // Inicialización de los Spinners
+        val bu_perfil = findViewById<ImageView>(R.id.BU_perfil)
+        bu_perfil.setOnClickListener {
+            val intent = Intent(this, PerfilActivity::class.java)
+            startActivity(intent)
+        }
+        val bu_menu = findViewById<ImageView>(R.id.Bu_menu)
+        bu_menu.setOnClickListener {
+            val intent = Intent(this, PerfilActivity::class.java)
+            startActivity(intent)
+        }
+
+
+        Log.d("ActivityBuscar", "onCreate: Actividad iniciada.")
+
+        // Inicializar los spinners
         spinnerEdad = findViewById(R.id.BU_spinner_edad)
         spinnerGeneroCine = findViewById(R.id.BU_genero_cine)
         spinnerEducacion = findViewById(R.id.BU_spinner_educacion)
@@ -54,10 +69,11 @@ class ActivityBuscar : AppCompatActivity() {
         spinnerTamañoPagina = findViewById(R.id.BU_spinner_Tamaño_pagina)
         btnBuscar = findViewById(R.id.Bu_Boton_Buscar)
 
-        // Inicialización de SharedPreferences para obtener el token
+        // Obtener las SharedPreferences
         sharedPreferences = getSharedPreferences("app_preferences", MODE_PRIVATE)
+        Log.d("ActivityBuscar", "onCreate: SharedPreferences cargados.")
 
-        // Configurar los adaptadores para los Spinners con los valores de strings.xml
+        // Configurar los spinners con los valores de arrays en los recursos
         setupSpinner(spinnerEdad, R.array.Bu_edad)
         setupSpinner(spinnerGeneroCine, R.array.Bu_Cinematigrafia)
         setupSpinner(spinnerEducacion, R.array.Bu_educacion)
@@ -72,9 +88,14 @@ class ActivityBuscar : AppCompatActivity() {
         setupSpinner(spinnerMenciones, R.array.Bu_Menciones)
         setupSpinner(spinnerTamañoPagina, R.array.Bu_tamaño_pag)
 
-        // Configurar el Button para realizar la búsqueda
+        Log.d("ActivityBuscar", "onCreate: Spinners configurados.")
+
+        // Configurar el botón de búsqueda
         btnBuscar.setOnClickListener {
-            // Obtener los valores seleccionados en los Spinners y pasarlos por parseRange
+
+            Log.d("ActivityBuscar", "btnBuscar: Botón de búsqueda presionado.")
+
+            // Obtener los valores seleccionados de los spinners y convertirlos a rangos
             val edad = parseRange(spinnerEdad.selectedItem.toString())
             val aniosAct = parseRange(spinnerAniosAct.selectedItem.toString())
             val belleza = parseRange(spinnerBelleza.selectedItem.toString())
@@ -86,7 +107,7 @@ class ActivityBuscar : AppCompatActivity() {
             val tamañoPagina = parseRange(spinnerTamañoPagina.selectedItem.toString())
             val salario = parseRange(spinnerSalario.selectedItem.toString())
 
-            // Crear el objeto con los parámetros de búsqueda
+            // Crear el objeto JSON con los parámetros
             val params = JSONObject().apply {
                 put("predecir", JSONObject().apply {
                     put("Age", edad)
@@ -102,124 +123,144 @@ class ActivityBuscar : AppCompatActivity() {
                 })
             }
 
-            // Log para ver los parámetros que estamos enviando
             Log.d("ActivityBuscar", "Parámetros enviados a la API: $params")
 
-            // Llamar a la función para realizar la búsqueda
+            // Realizar la búsqueda enviando los parámetros
             realizarBusqueda(params)
         }
     }
 
-    // Configurar el Spinner
+    // Método para configurar los spinners con los valores de recursos
     private fun setupSpinner(spinner: Spinner, arrayResId: Int) {
         val adapter = ArrayAdapter.createFromResource(
-            this,  // 'this' se refiere al contexto actual de la actividad
-            arrayResId,  // El ID del array en strings.xml
-            android.R.layout.simple_spinner_item  // Layout predeterminado para el spinner
+            this,
+            arrayResId,
+            android.R.layout.simple_spinner_item
         )
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinner.adapter = adapter
     }
 
-    // Función para parsear rangos y convertir valores
+    // Método para convertir un valor de spinner a un rango de enteros
     private fun parseRange(value: String): List<Any> {
         return try {
-            // Verificar si el valor tiene un formato de rango (por ejemplo "18-22")
             val range = value.split("-")
             if (range.size == 2) {
-                // Si es un rango, convertimos ambos valores a enteros y los devolvemos como lista
                 listOf(range[0].toInt(), range[1].toInt())
             } else {
-                // Si no es un rango, devolvemos el valor como un solo número
                 listOf(value.toInt())
             }
         } catch (e: NumberFormatException) {
-            // Si no es un número, devolvemos una lista con el valor como String (por ejemplo "Canada")
             listOf(value)
         }
     }
 
-    // Función para realizar la búsqueda y enviar los parámetros a la API
+    // Método para realizar la solicitud HTTP a la API
     private fun realizarBusqueda(params: JSONObject) {
-        // URL de la API a la que se va a hacer la solicitud
-        val url = "https://model.cuspide.club/find_closest_actors"
 
-        // Recuperar el token del SharedPreferences
+        val url = "https://model.cuspide.club/find_closest_actors" // Reemplazar con la URL de tu API
+
+        // Obtener el token de sesión desde SharedPreferences
         val token = getTokenFromPreferences()
 
         if (token == null) {
+            Log.e("ActivityBuscar", "realizarBusqueda: Token de sesión no encontrado.")
             Toast.makeText(this, "No se ha encontrado el token de sesión.", Toast.LENGTH_SHORT).show()
             return
         }
 
-        // Crear cliente OkHttp
+        Log.d("ActivityBuscar", "realizarBusqueda: Token de sesión encontrado.")
+
         val client = OkHttpClient()
 
-        // Crear el cuerpo de la solicitud POST
+        // Crear el cuerpo de la solicitud con el JSON de parámetros
         val requestBody = RequestBody.create("application/json".toMediaType(), params.toString())
 
-        // Crear la solicitud HTTP
+        // Crear la solicitud con el encabezado de autorización
         val request = Request.Builder()
             .url(url)
-            .post(requestBody)  // Usamos POST ya que es el método que estás utilizando en tu API
+            .post(requestBody)  // Usamos POST para la API
             .addHeader("Authorization", "Bearer $token")  // Agregar el token al encabezado
             .build()
 
-        // Realizar la solicitud de forma asíncrona
+        Log.d("ActivityBuscar", "realizarBusqueda: Solicitud enviada.")
+
+        // Enviar la solicitud
         client.newCall(request).enqueue(object : Callback {
             override fun onFailure(call: Call, e: IOException) {
-                // Si la solicitud falla
+                Log.e("ActivityBuscar", "onFailure: Error en la búsqueda: ${e.message}")
                 runOnUiThread {
                     Toast.makeText(this@ActivityBuscar, "Error en la búsqueda: ${e.message}", Toast.LENGTH_SHORT).show()
                 }
             }
 
-            private val actorIds = mutableListOf<String>()
+
 
             override fun onResponse(call: Call, response: Response) {
                 if (response.isSuccessful) {
-                    // Obtener los datos de la respuesta
                     val responseData = response.body?.string()
+                    Log.d("ActivityBuscar", "Respuesta cruda de la API: $responseData")
 
-                    // Log para ver la respuesta completa de la API
-                    Log.d("ActivityBuscar", "Respuesta de la API: $responseData")
-
-
-                    runOnUiThread {
+                    if (responseData != null) {
                         try {
                             val jsonResponse = JSONObject(responseData)
 
-                            if (jsonResponse.getString("status") == "success") {
-                                val actorId = jsonResponse.getJSONArray("actor_id")
+                            // Verificar si el JSON contiene la clave "closest_indices"
+                            if (jsonResponse.has("closest_indices")) {
+                                val closestIndicesJsonArray = jsonResponse.getJSONArray("closest_indices")
 
-                                actorIds.clear()
+                                // Limpiar la lista de closestIndices antes de agregar nuevos valores
+                                val closestIndices = mutableListOf<Int>()
+                                Log.d("ActivityBuscar", "closestIndices lista limpia: $closestIndices")
 
-                                for (i in 0 until actorId.length()) {
-                                    actorIds.add(actorId.getString(i))
+                                // Agregar los índices al array
+                                for (i in 0 until closestIndicesJsonArray.length()) {
+                                    val index = closestIndicesJsonArray.getInt(i)  // Obtener el valor entero
+                                    closestIndices.add(index)
+                                    Log.d("ActivityBuscar", "Índice agregado: $index")
                                 }
 
-                                Toast.makeText(this@ActivityBuscar, "Búsqueda exitosa", Toast.LENGTH_SHORT).show()
+                                // Guardar los índices en SharedPreferences como un Set<String> (puedes guardar como Set<Int> si lo prefieres)
+                                sharedPreferences.edit().putStringSet("closest_indices", closestIndices.map { it.toString() }.toSet()).commit()
+
+                                // Confirmar que los datos se han guardado en SharedPreferences
+                                Log.d("ActivityBuscar", "closest_indices guardados en SharedPreferences: ${closestIndices.map { it.toString() }}")
+
+                                // Verificar que los datos se han guardado correctamente
+                                val savedIndices = sharedPreferences.getStringSet("closest_indices", emptySet())
+                                Log.d("ActivityBuscar", "closest_indices recuperados de SharedPreferences: $savedIndices")
+
                             } else {
-                                Toast.makeText(this@ActivityBuscar, "No se encontraron resultados", Toast.LENGTH_SHORT).show()
+                                Log.e("ActivityBuscar", "La respuesta JSON no contiene closest_indices.")
                             }
+
                         } catch (e: Exception) {
-                            // En caso de error al parsear la respuesta
-                            Toast.makeText(this@ActivityBuscar, "Error en la respuesta: ${e.message}", Toast.LENGTH_SHORT).show()
+                            Log.e("ActivityBuscar", "Error al parsear la respuesta: ${e.message}")
                         }
+                    } else {
+                        Log.e("ActivityBuscar", "responseData es null, no se pudo procesar la respuesta.")
                     }
+
+                    runOnUiThread {
+                        Toast.makeText(this@ActivityBuscar, "Búsqueda exitosa", Toast.LENGTH_SHORT).show()
+                    }
+
                 } else {
-                    // Si la respuesta no fue exitosa
+                    Log.e("ActivityBuscar", "onResponse: Error en la búsqueda")
                     runOnUiThread {
                         Toast.makeText(this@ActivityBuscar, "Error en la búsqueda", Toast.LENGTH_SHORT).show()
                     }
                 }
+
+                // Navegar a la actividad de resultados
+                Log.d("ActivityBuscar", "Redirigiendo a ResultadoActivity.")
                 val intent = Intent(this@ActivityBuscar, ResultadoActivity::class.java)
                 startActivity(intent)
             }
         })
     }
 
-    // Función para obtener el token de SharedPreferences
+    // Obtener el token de sesión desde SharedPreferences
     private fun getTokenFromPreferences(): String? {
         return sharedPreferences.getString("token", null)
     }

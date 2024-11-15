@@ -6,54 +6,60 @@
     android:layout_height="180dp"
     android:background="@color/grey">
 
-    <ImageView
-        android:id="@+id/iv_perfil"
-        android:layout_width="136dp"
-        android:layout_height="124dp"
-        android:layout_marginStart="16dp"
+    <TextView
+        android:id="@+id/Rc_nombre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
         android:layout_marginTop="28dp"
-        android:src="@drawable/anonymous"
+        android:fontFamily="@font/montserrat_extrabold"
+        android:text="Actor Name"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tv_nombre"
+        android:id="@+id/Rc_genero"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="28dp"
-        android:text="TextView"
-        app:layout_constraintStart_toEndOf="@+id/iv_perfil"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/montserrat_medium"
+        android:text="Gender"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Rc_nombre" />
 
     <TextView
-        android:id="@+id/tv_genero"
+        android:id="@+id/Rc_precio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/montserrat_medium"
+        android:text="Income"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Rc_genero" />
+
+    <TextView
+        android:id="@+id/Rc_genero_pelicula"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
         android:layout_marginTop="16dp"
-        android:text="TextView"
-        app:layout_constraintStart_toEndOf="@+id/iv_perfil"
-        app:layout_constraintTop_toBottomOf="@+id/tv_nombre" />
+        android:fontFamily="@font/montserrat_medium"
+        android:text="Genre"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Rc_precio" />
 
-    <TextView
-        android:id="@+id/tv_precio"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="16dp"
-        android:text="TextView"
-        app:layout_constraintStart_toEndOf="@+id/iv_perfil"
-        app:layout_constraintTop_toBottomOf="@+id/tv_genero" />
-
-    <TextView
-        android:id="@+id/tv_genero_pelicula"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="16dp"
-        android:text="TextView"
-        app:layout_constraintStart_toEndOf="@+id/iv_perfil"
-        app:layout_constraintTop_toBottomOf="@+id/tv_precio" />
+    <ImageView
+        android:id="@+id/Rc_imagen"
+        android:layout_width="103dp"
+        android:layout_height="131dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/anonymous" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

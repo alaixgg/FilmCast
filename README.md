@@ -29,8 +29,6 @@ Desarrollar una aplicación móvil que permita a los productores conectar y comu
 
 - Alaix Perez Andrés Julián
 
-- Reyes Reina Alejandro
-
 # Aplicativo Web
 
 Para acceder a la web, puede utilizar el siguiente enlace [https://filmcast.cuspide.club/](https://filmcast.cuspide.club/), toda la infraestructura es propia de los autores.

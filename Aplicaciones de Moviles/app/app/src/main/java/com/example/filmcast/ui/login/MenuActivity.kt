@@ -12,6 +12,7 @@ import com.example.filmcast.R
 import com.example.filmcast.adapter.ProyectoAdapter
 import com.example.filmcast.recycler.ProyectoProvider
 
+
 class MenuActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,7 +32,7 @@ class MenuActivity : AppCompatActivity() {
         }
         val menu_gestionar = findViewById<Button>(R.id.menu_button_guardados)
         menu_gestionar.setOnClickListener {
-            val intent = Intent(this, GuardadosActivity::class.java)
+            val intent = Intent(this, GuardadosActoresActivity::class.java)
             startActivity(intent)
         }
 

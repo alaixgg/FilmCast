@@ -50,7 +50,6 @@ class RegistroActivity : AppCompatActivity() {
             passwordVisible = !passwordVisible
         }
 
-        //boton para ir al LoginActivity
         loginbtn.setOnClickListener{
             val intent = Intent(this,LoginActivity::class.java)
             startActivity(intent)

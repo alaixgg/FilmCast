@@ -1,5 +1,6 @@
 package com.example.filmcast.ui.login
 
+import ActoresAdapter
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
@@ -17,14 +18,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.filmcast.R
 import com.example.filmcast.adapter.InfoPerfil
 import com.example.filmcast.adapter.InfoPerfilAdapter
-import com.google.gson.Gson
 import okhttp3.*
-import okhttp3.MediaType.Companion.toMediaType
+import org.json.JSONArray
 import org.json.JSONObject
 import java.io.IOException
 
-class ResultadoActivity : AppCompatActivity() {
-
+class GuardadosActoresActivity : AppCompatActivity() {
     private lateinit var sharedPreferences: SharedPreferences
     private lateinit var token: String
     private lateinit var recyclerView: RecyclerView  // RecyclerView para mostrar los actores
@@ -32,7 +31,7 @@ class ResultadoActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_actores_resultado)
+        setContentView(R.layout.activity_actores_guardados)
 
         val res_perfil = findViewById<ImageView>(R.id.PA_perfil)
         res_perfil.setOnClickListener {
@@ -50,7 +49,7 @@ class ResultadoActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        
+
 
         // Inicializar RecyclerView
         recyclerView = findViewById(R.id.recyclerProfile)
@@ -123,7 +122,7 @@ class ResultadoActivity : AppCompatActivity() {
             override fun onFailure(call: Call, e: IOException) {
                 Log.e("ActivityResultado", "Error al enviar solicitud para el actor ID $actorId: ${e.message}")
                 runOnUiThread {
-                    Toast.makeText(this@ResultadoActivity, "Error en la conexión para el actor $actorId: ${e.message}", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@GuardadosActoresActivity, "Error en la conexión para el actor $actorId: ${e.message}", Toast.LENGTH_SHORT).show()
                 }
             }
 
@@ -152,7 +151,7 @@ class ResultadoActivity : AppCompatActivity() {
                 } else {
                     Log.e("ActivityResultado", "Error en la respuesta de la API para actor ID $actorId: ${response.message}")
                     runOnUiThread {
-                        Toast.makeText(this@ResultadoActivity, "Error en la API para actor $actorId", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this@GuardadosActoresActivity, "Error en la API para actor $actorId", Toast.LENGTH_SHORT).show()
                     }
                 }
             }
